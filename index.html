@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matheus Francisco — Portfólio</title>
+  <meta name="description" content="Portfólio de Matheus Francisco — Desenvolvedor de Software Júnior | Full-Stack JavaScript & Java" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/avatar.png" alt="Matheus Francisco" class="avatar" onerror="this.style.display='none'">
+        <div>
+          <h1>Matheus Francisco</h1>
+          <p class="tag">Desenvolvedor de Software Júnior · Full-Stack JavaScript &amp; Java</p>
+        </div>
+      </div>
+
+      <nav class="top-nav" aria-label="Menu principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#skills">Tecnologias</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a class="cta" href="assets/curriculo.pdf" download>Baixar CV</a>
+        <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Olá, eu sou o <span class="accent">Matheus</span>.</h2>
+        <p class="lead">Desenvolvedor Full-Stack com experiência em Java, React e Node.js. Faço aplicações robustas — desktop e web — com foco em qualidade e escalabilidade.</p>
+        <p class="hero-actions">
+          <a class="primary" href="#projetos">Ver Projetos</a>
+          <a class="secondary" href="https://github.com/MatheusFranciscoLS" target="_blank" rel="noopener">Ver GitHub</a>
+        </p>
+        <ul class="quick-meta">
+          <li>📍 Limeira, SP</li>
+          <li>🎓 Ciência da Computação — Anhembi Morumbi</li>
+          <li>✉️ <a href="mailto:matheusf.ls@hotmail.com">matheusf.ls@hotmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="hero-right">
+        <div class="card-summary">
+          <h3>Resumo Rápido</h3>
+          <p>Full-Stack: React, Node.js, Java. Bancos: PostgreSQL, Firebase. Ferramentas: Git, Docker (básico), Testes.</p>
+          <div class="metrics">
+            <div><strong>8</strong><span>anos vida profissional</span></div>
+            <div><strong>3</strong><span>projetos públicos</span></div>
+            <div><strong>Em busca</strong><span>oportunidades júnior</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section">
+      <h2>Projetos em destaque</h2>
+      <div class="projects-grid">
+        <article class="project">
+          <img src="assets/projeto1.png" alt="Sistema de Manutenção Industrial" onerror="this.style.display='none'">
+          <div class="project-body">
+            <h3><a href="https://github.com/MatheusFranciscoLS/JavaProjects/tree/main/projeto_manutencao" target="_blank" rel="noopener">Sistema de Manutenção Industrial</a></h3>
+            <p>Aplicação desktop Java (Swing) com backend RESTful. Arquitetura MVC, endpoints CRUD e integração via JDBC.</p>
+            <p class="meta">Java • Swing • JDBC • PostgreSQL</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <img src="assets/projeto2.png" alt="Economia Solidária (TCC)" onerror="this.style.display='none'">
+          <div class="project-body">
+            <h3><a href="https://github.com/MatheusFranciscoLS/ProjetoFinal" target="_blank" rel="noopener">Economia Solidária (TCC)</a></h3>
+            <p>Plataforma web para conectar pequenos empreendedores a consumidores. Autenticação, upload de imagens e validação de CNPJ.</p>
+            <p class="meta">React (Vite) • Node.js • Firebase • PostgreSQL</p>
+          </div>
+        </article>
+
+        <!-- exemplo de card vazio para adicionar mais -->
+        <article class="project placeholder">
+          <div class="project-body">
+            <h3>Adicionar novo projeto</h3>
+            <p>Descrição curta do projeto. Link para repositório e demo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section split">
+      <div class="box">
+        <h3>Tecnologias</h3>
+        <ul class="list">
+          <li>React, Vite, JavaScript (ES6+)</li>
+          <li>Node.js (Express), Java (Swing / Spring)</li>
+          <li>PostgreSQL, MySQL, Firebase, MongoDB</li>
+          <li>Git, Maven, JDBC, Testes Unitários</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Ferramentas & Metodologias</h3>
+        <ul class="list">
+          <li>Git + GitHub, CI & Deploy</li>
+          <li>Scrum / Kanban, Figma</li>
+          <li>AWS (fundamentos), Docker (básico)</li>
+          <li>Prettier / ESLint, Testes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <h2>Sobre mim</h2>
+      <p>Sou estudante de Ciência da Computação e desenvolvedor em transição de carreira. Com 8 anos em vendas, trago comunicação e visão de produto para o desenvolvimento. Busco oportunidades júnior para aplicar habilidades e crescer com times ágeis.</p>
+
+      <h4>Formação</h4>
+      <ul class="list">
+        <li>Bacharelado em Ciência da Computação — Universidade Anhembi Morumbi (2024 – Presente)</li>
+        <li>Técnico em Desenvolvimento de Sistemas — SENAI SP (2022 – 2024)</li>
+      </ul>
+
+      <h4>Certificados</h4>
+      <p>Harvard CS50, Programação Java (SENAI), Banco de Dados (SENAI), AWS Cloud Foundations, AI-900 (Azure).</p>
+    </section>
+
+    <section id="contato" class="section contact">
+      <h2>Contato</h2>
+      <p>Estou aberto a vagas júnior e projetos. Vamos conversar?</p>
+      <div class="contact-grid">
+        <div>
+          <strong>Email</strong>
+          <p><a href="mailto:matheusf.ls@hotmail.com">matheusf.ls@hotmail.com</a></p>
+        </div>
+        <div>
+          <strong>Telefone</strong>
+          <p><a href="tel:+5519981911214">+55 19 98191-1214</a></p>
+        </div>
+        <div>
+          <strong>LinkedIn</strong>
+          <p><a href="https://linkedin.com/in/matheusfranciscols" target="_blank" rel="noopener">matheusfranciscols</a></p>
+        </div>
+        <div>
+          <strong>GitHub</strong>
+          <p><a href="https://github.com/MatheusFranciscoLS" target="_blank" rel="noopener">MatheusFranciscoLS</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="ano"></span> Matheus Francisco L. da Silva — Desenvolvedor de Software Júnior</p>
+    </div>
+  </footer>
+
+  <script>
+    // theme toggle
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const setTheme = (t) => {
+      body.dataset.theme = t;
+      btn.textContent = t === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('theme', t);
+    }
+    btn.addEventListener('click', () => setTheme(body.dataset.theme === 'dark' ? 'light' : 'dark'));
+    const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(saved);
+
+    // year
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
