@@ -612,6 +612,7 @@ h1 {
   border-radius: 8px;
   margin-bottom: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: zoom-in;
 }
 
 .project-card p {
@@ -757,11 +758,12 @@ h1 {
 }
 
 footer {
-  padding: 40px 0;
+padding: 40px 0;
   border-top: 1px solid var(--border);
   margin-top: 60px;
   color: var(--text-muted);
   font-size: 0.9rem;
+  /* Mantemos pequeno */
 }
 
 .footer-inner {
@@ -777,8 +779,10 @@ flex-direction: column;
 }
 
 .socials a {
-  margin: 0 8px;
-  /* Espaço entre os ícones */
+  margin-left: 20px;
+  color: var(--text-main);
+  font-size: 1.6rem;
+  /* Aumentado para melhor visualização/toque */
 }
 
 #backToTop {
@@ -821,6 +825,29 @@ flex-direction: column;
 .visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --- FOCO NA ACESSIBILIDADE (KEYBOARD NAVIGATION) --- */
+/* Garante que links, botões e inputs tenham feedback visual ao serem tabulados */
+:focus {
+  outline: 2px solid var(--accent);
+  /* Borda sólida azul ciano */
+  outline-offset: 3px;
+  /* Separa a borda do elemento */
+  border-radius: 4px;
+}
+
+/* Deixa o foco do teclado mais sutil no input e textarea para não poluir o design */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  /* Mantém o estilo que já criamos para o foco, mas garante a regra acima */
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+  outline: none;
+}
+
+/* Remove o estilo de foco de elementos que não precisam (como o body) */
+body:focus {
+  outline: none;
 }
 
 /* --- MOBILE RESPONSIVE --- */
@@ -916,4 +943,27 @@ flex-direction: column;
     font-size: 2.2rem;
     word-wrap: break-word;
   }
+}
+
+/* --- HARMONIZAÇÃO VISUAL (FIX JAVA SCREENSHOT) --- */
+
+.proj-img {
+  /* Garante que imagens de desktop/mobile se ajustem */
+  object-fit: cover;
+}
+
+.proj-img.java-screen-fix {
+  /* Dá um efeito de "moldura" escura para o fundo branco não chocar */
+  object-fit: contain;
+  /* Garante que a tela inteira apareça, não cortando */
+  background-color: var(--bg-body);
+  /* Preenche a área vazia com o fundo do site */
+  padding: 5px;
+  border: 2px solid var(--border);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.proj-img.java-screen-fix:hover {
+  transform: scale(1.02);
+  /* Efeito de zoom no hover */
 }
