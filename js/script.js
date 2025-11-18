@@ -1,119 +1,65 @@
-/* =========================================================
-   SCRIPT.JS — MINIMAL LUX INTERACTIONS
-   Suave • Profissional • Elegante
-========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  /* --- 1. Menu Mobile --- */
+  const menuIcon = document.querySelector(".mobile-menu-icon");
+  const navLinks = document.querySelector(".nav-links");
 
-// Smooth scroll (nativo e cross-browser)
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", function (e) {
-    const target = document.querySelector(this.getAttribute("href"));
-    if (!target) return;
-    e.preventDefault();
-    window.scrollTo({
-      top: target.offsetTop - 60,
-      behavior: "smooth",
+  if (menuIcon) {
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuIcon.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
     });
-  });
-});
+  }
 
-// Reveal On Scroll
-const revealElements = document.querySelectorAll(
-  ".section, .card, .hero-text, .hero-avatar, .tech-item"
-);
+  /* --- 2. Reveal on Scroll (Animação ao rolar) --- */
+  const observerOptions = {
+    threshold: 0.1, // Ativa quando 10% do elemento aparece
+    rootMargin: "0px 0px -50px 0px", // Pequena margem para não ativar muito cedo
+  };
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("reveal");
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Para de observar depois que animou
       }
     });
-  },
-  {
-    threshold: 0.12,
-  }
-);
+  }, observerOptions);
 
-revealElements.forEach((el) => revealObserver.observe(el));
+  // Seleciona os elementos novos do layout moderno
+  const elementsToAnimate = document.querySelectorAll(
+    ".hero-text, .hero-image-wrapper, .tech-box, .about-content, .timeline-row, .contact-box"
+  );
 
-/* =========================================================
-   LIGHTBOX SUPER MINIMALISTA
-========================================================= */
+  elementsToAnimate.forEach((el) => {
+    el.classList.add("hidden"); // Adiciona opacidade 0 inicial via JS para não piscar
+    observer.observe(el);
+  });
 
-function createLightbox(images, startIndex = 0) {
-  let index = startIndex;
+  /* --- 3. Lightbox (Zoom nas imagens) --- */
+  function openLightbox(src) {
+    const overlay = document.createElement("div");
+    overlay.className = "lightbox-overlay";
+    // Estilo inline para garantir que funcione sem CSS extra
+    overlay.style.cssText =
+      "position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(5px);animation:fadeIn 0.3s;";
 
-  // Overlay
-  const overlay = document.createElement("div");
-  overlay.className = "lux-lightbox";
-  overlay.innerHTML = `
-    <div class="lux-lightbox-inner">
-      <button class="lux-close">×</button>
-      <img class="lux-image" src="${images[index]}">
-      <button class="lux-prev">‹</button>
-      <button class="lux-next">›</button>
-    </div>
-  `;
+    const img = document.createElement("img");
+    img.src = src;
+    img.style.cssText =
+      "max-width:90%;max-height:90%;border-radius:8px;box-shadow:0 0 20px rgba(112,0,255,0.5);transform:scale(0.9);transition:0.3s;";
 
-  document.body.appendChild(overlay);
+    // Pequeno delay para animação de zoom
+    setTimeout(() => (img.style.transform = "scale(1)"), 10);
 
-  const img = overlay.querySelector(".lux-image");
-  const closeBtn = overlay.querySelector(".lux-close");
-  const nextBtn = overlay.querySelector(".lux-next");
-  const prevBtn = overlay.querySelector(".lux-prev");
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
 
-  function updateImage() {
-    img.src = images[index];
+    overlay.addEventListener("click", () => overlay.remove());
   }
 
-  nextBtn.addEventListener("click", () => {
-    index = (index + 1) % images.length;
-    updateImage();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    index = (index - 1 + images.length) % images.length;
-    updateImage();
-  });
-
-  closeBtn.addEventListener("click", () => overlay.remove());
-
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) overlay.remove();
-  });
-
-  document.addEventListener("keydown", function keyHandler(e) {
-    if (!document.body.contains(overlay)) {
-      document.removeEventListener("keydown", keyHandler);
-      return;
-    }
-    if (e.key === "Escape") overlay.remove();
-    if (e.key === "ArrowRight") nextBtn.click();
-    if (e.key === "ArrowLeft") prevBtn.click();
-  });
-}
-
-// Botões "Screenshots"
-document.querySelectorAll(".lightbox").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const images = JSON.parse(btn.dataset.images || "[]");
-    if (images.length > 0) createLightbox(images, 0);
+  // Adiciona click nas imagens dos projetos
+  document.querySelectorAll(".proj-img").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => openLightbox(img.src));
   });
 });
-
-// Clique na própria imagem do projeto
-document.querySelectorAll(".project-card img").forEach((img) => {
-  img.style.cursor = "pointer";
-  img.addEventListener("click", () => {
-    const btn = img.closest(".project-card").querySelector(".lightbox");
-    if (!btn) return createLightbox([img.src], 0);
-    btn.click();
-  });
-});
-
-/* =========================================================
-   SET YEAR AUTOMATICALLY
-========================================================= */
-
-const yearEl = document.getElementById("ano");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
