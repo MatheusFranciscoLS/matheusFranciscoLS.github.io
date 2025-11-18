@@ -24,8 +24,17 @@
   box-sizing: border-box;
 }
 
-html {
+/* Configuração Global para evitar rolagem lateral */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
   scroll-behavior: smooth;
+}
+
+/* Ajuste para scroll não esconder títulos atrás do menu */
+html {
   scroll-padding-top: 90px;
 }
 
@@ -34,10 +43,9 @@ body {
   color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
-/* Scrollbar */
+/* Scrollbar Customizada */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -56,6 +64,7 @@ body {
   background: var(--primary);
 }
 
+/* Seleção de Texto */
 ::selection {
   background: var(--primary);
   color: #fff;
@@ -145,9 +154,10 @@ img {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+  color: #fff;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
   padding: 140px 0 80px;
   min-height: 90vh;
@@ -252,7 +262,7 @@ h1 {
   display: block;
 }
 
-/* Visual Hero */
+/* HERO VISUAL (Glass Card) */
 .hero-visual {
   position: relative;
   display: flex;
@@ -294,6 +304,7 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
+/* Ícones Flutuantes */
 .floating-badge {
   position: absolute;
   width: 50px;
@@ -311,16 +322,30 @@ h1 {
 
 .badge-java {
   top: -20px;
-  right: -20px;
+  right: -10px;
   color: #f89820;
   animation-delay: 0s;
 }
 
 .badge-react {
-  bottom: 40px;
-  left: -25px;
+  bottom: 30px;
+  left: -20px;
   color: #61DAFB;
   animation-delay: 1.5s;
+}
+
+.badge-spring {
+  top: 20px;
+  left: -25px;
+  color: #6db33f;
+  animation-delay: 0.8s;
+}
+
+.badge-js {
+  bottom: 100px;
+  right: -25px;
+  color: #f0db4f;
+  animation-delay: 2.5s;
 }
 
 @keyframes float {
@@ -335,7 +360,7 @@ h1 {
   }
 }
 
-/* SOBRE */
+/* SEÇÃO SOBRE */
 .section {
   padding: 100px 0;
 }
@@ -394,6 +419,7 @@ h1 {
   margin-top: 20px;
 }
 
+/* CERTIFICAÇÕES */
 .certs-wrapper {
   display: flex;
   flex-direction: column;
@@ -423,7 +449,6 @@ h1 {
 .cert-card:hover {
   transform: translateX(10px);
   border-color: var(--primary);
-  /* Fica azul (cor do tema) */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -450,16 +475,13 @@ h1 {
   color: var(--text-muted);
 }
 
-/* TECH ALINHADO */
+/* TECH STACK (Centralizado) */
 .center-text {
-text-align: center;
+  text-align: center;
   margin-bottom: 50px;
   display: flex;
-  /* Transforma em Flexbox */
   flex-direction: column;
-  /* Empilha um embaixo do outro */
   align-items: center;
-  /* Centraliza horizontalmente */
   width: 100%;
 }
 
@@ -526,45 +548,6 @@ text-align: center;
 }
 
 /* PROJETOS */
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 50px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 24px;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.header-text {
-  max-width: 650px;
-}
-
-.link-more {
-display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 10px 24px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 8px;
-  background: transparent;
-  transition: 0.3s ease;
-  width: fit-content;
-  /* O tamanho se ajusta ao texto */
-}
-
-.link-more:hover {
-background: rgba(59, 130, 246, 0.1);
-  border-color: var(--primary);
-  transform: translateY(-3px);
-  /* Move para cima levemente */
-  color: #fff;
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -689,6 +672,29 @@ background: rgba(59, 130, 246, 0.1);
 .highlight-card {
   border: 1px solid var(--primary);
   background: linear-gradient(180deg, rgba(59, 130, 246, 0.1), var(--bg-surface));
+}
+
+/* Link "Ver Github" centralizado */
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  background: transparent;
+  transition: 0.3s ease;
+  width: fit-content;
+}
+
+.link-more:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  color: #fff;
 }
 
 /* CONTATO */
@@ -826,81 +832,64 @@ footer {
   transform: translateY(0);
 }
 
-/* --- NOVOS POSICIONAMENTOS DOS ÍCONES --- */
-
-/* Canto Superior Esquerdo */
-.badge-spring {
-  top: 20px;
-  left: -25px;
-  color: #6db33f;
-  /* Verde do Spring */
-  animation-delay: 0.8s;
-  /* Delay para não flutuar igual aos outros */
-}
-
-/* Canto Inferior Direito (Um pouco mais pra cima para não bater no ombro) */
-.badge-js {
-  bottom: 100px;
-  right: -25px;
-  color: #f0db4f;
-  /* Amarelo do JS */
-  animation-delay: 2.5s;
-}
-
-/* Ajuste fino para os originais (se quiser garantir que não sobreponham) */
-.badge-java {
-  top: -20px;
-  right: -10px;
-}
-
-.badge-react {
-  bottom: 30px;
-  left: -20px;
-}
-
-/* --- DESTAQUE PARA A MELHOR CERTIFICAÇÃO --- */
-
-/* Borda dourada e brilho sutil */
-.cert-card.featured {
-  border: 1px solid rgba(255, 215, 0, 0.3);
-  /* Dourado transparente */
-  background: linear-gradient(145deg, var(--bg-surface), rgba(255, 215, 0, 0.05));
-  position: relative;
-}
-
-/* Ícone do destaque fica dourado */
-.cert-card.featured .cert-icon {
-  background: rgba(255, 215, 0, 0.1);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-}
-
-/* Pequeno badge "Core" opcional (se quiser usar, descomente no HTML) */
-.cert-card.featured::after {
-  content: '⭐ Principal';
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 0.65rem;
-  color: #ffd700;
-  background: rgba(255, 215, 0, 0.1);
-  padding: 2px 8px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 900px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
 
   .hero-grid,
   .about-grid-layout {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 40px;
   }
 
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Ajuste Crítico do Card Mobile */
   .hero-visual {
     order: -1;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.85);
+  }
+
+  .glass-card {
+    width: 260px;
+    height: 320px;
+  }
+
+  .bg-blur {
+    width: 240px;
+    height: 240px;
+  }
+
+  /* Ícones para dentro */
+  .badge-java {
+    right: -5px;
+    top: -15px;
+  }
+
+  .badge-react {
+    left: -5px;
+    bottom: 30px;
+  }
+
+  .badge-spring {
+    left: -5px;
+    top: 10px;
+  }
+
+  .badge-js {
+    right: -5px;
+    bottom: 80px;
   }
 
   .hero-buttons,
@@ -917,17 +906,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .link-more {
-    width: 100%;
-    justify-content: center;
-  }
-
+  /* Menu Mobile */
   .nav-links {
     display: none;
   }
@@ -947,5 +926,10 @@ footer {
     background: rgba(15, 23, 42, 0.98);
     padding: 20px;
     border-bottom: 1px solid var(--primary);
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    word-wrap: break-word;
   }
 }
