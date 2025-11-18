@@ -765,14 +765,20 @@ footer {
 }
 
 .footer-inner {
-  display: flex;
-  justify-content: space-between;
+flex-direction: column;
+  /* Empilha os elementos (Copyright e Socials) */
+  gap: 15px;
+  text-align: center;
+  align-items: center;
+}
+
+.socials {
+  padding-top: 10px;
 }
 
 .socials a {
-  margin-left: 20px;
-  color: var(--text-main);
-  font-size: 1.2rem;
+  margin: 0 8px;
+  /* Espaço entre os ícones */
 }
 
 #backToTop {
