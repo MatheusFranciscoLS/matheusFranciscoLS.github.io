@@ -1,17 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>404 — Página não encontrada</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body data-theme="dark">
-  <main style="display:flex;min-height:100vh;align-items:center;justify-content:center;padding:40px;">
-    <div style="max-width:800px;text-align:center;">
-      <h1 style="font-size:2.4rem;margin:0 0 12px;">404 — Ops!</h1>
-      <p style="color:var(--muted);margin-bottom:18px;">A página que você tentou acessar não foi encontrada.</p>
-      <p><a href="/" class="primary" style="text-decoration:none;">Voltar para o portfólio</a></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Página não encontrada</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16 18 22 12 16 6'%3E%3C/polyline%3E%3Cpolyline points='8 6 2 12 8 18'%3E%3C/polyline%3E%3C/svg%3E"
+    />
+  </head>
+  <body
+    style="
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    "
+  >
+    <div class="container">
+      <h1
+        style="
+          font-size: 6rem;
+          color: var(--primary);
+          margin-bottom: 0;
+          line-height: 1;
+        "
+      >
+        404
+      </h1>
+
+      <h2 style="margin-bottom: 20px; color: var(--text-main)">
+        Ops! Página não encontrada.
+      </h2>
+
+      <p
+        style="color: var(--text-muted); max-width: 500px; margin: 0 auto 40px"
+      >
+        Parece que você se perdeu no código. A página que você está procurando
+        foi movida, deletada ou nunca existiu.
+      </p>
+
+      <a href="./" class="btn btn-primary"> &larr; Voltar para o Início </a>
     </div>
-  </main>
-</body>
+  </body>
 </html>
