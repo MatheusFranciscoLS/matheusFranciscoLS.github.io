@@ -105,7 +105,7 @@ const translations = {
     "p3.tag3": "React Hooks",
 
     // Contato
-    "contact.title": "Pronto para contribuir em seu time.",
+    "contact.title": "Pronto para somar ao time.",
     "contact.subtitle": "Me chame e vamos conversar sobre oportunidades.",
     "contact.whats": " WhatsApp",
     "contact.copy": "📧 Copiar E-mail",
