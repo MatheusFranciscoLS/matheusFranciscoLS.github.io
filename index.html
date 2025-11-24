@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
@@ -31,11 +32,16 @@
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                    <li><a href="#contato" class="btn-nav">Contato</a></li>
+                    <li><a href="#inicio" data-i18n="nav.home">Início</a></li>
+                    <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+                    <li><a href="#projetos" data-i18n="nav.projects">Projetos</a></li>
+                    <li><a href="#contato" class="btn-nav" data-i18n="nav.contact">Contato</a></li>
                 </ul>
+                <div class="lang-switch">
+                    <button onclick="changeLanguage('pt')" class="lang-btn active">🇧🇷</button>
+                    <span class="divider">|</span>
+                    <button onclick="changeLanguage('en')" class="lang-btn">🇺🇸</button>
+                </div>
             </nav>
             <div class="mobile-menu-icon">☰</div>
         </div>
@@ -45,25 +51,35 @@
         <section id="inicio" class="hero">
             <div class="container hero-grid">
                 <div class="hero-text">
-                    <div class="badge">Disponível para projetos</div>
+                    <div class="badge" data-i18n="hero.badge">Disponível para projetos</div>
                     
-                    <h1>Desenvolvedor Full-Stack <br> <span class="text-gradient">Java, Spring Boot & React</span></h1>
+                    <h1>
+                        <span data-i18n="hero.role">Desenvolvedor Full-Stack</span> <br> 
+                        <span class="text-gradient" data-i18n="hero.subrole">Java, Spring Boot & React</span>
+                    </h1>
                     
-                    <p class="bio">
+                    <p class="bio" data-i18n="hero.bio">
                         Crio aplicações modernas, rápidas e escaláveis unindo a robustez do <strong>Java + Spring Boot</strong> com a flexibilidade do <strong>React</strong>. Tenho visão técnica e prática — construo soluções completas do backend ao front, sempre priorizando qualidade, performance e experiência do usuário.
                     </p>
                     
                     <div class="hero-buttons">
-                        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#projetos" class="btn btn-primary" data-i18n="hero.ctaPrimary">Ver Projetos</a>
                         <a href="https://github.com/MatheusFranciscoLS" target="_blank" class="btn btn-outline">
-                            <i class="devicon-github-original"></i> Ver Repositórios
+                            <i class="devicon-github-original"></i> <span data-i18n="hero.ctaSecondary"> Ver Repositórios</span>
                         </a>
                     </div>
 
-                    <div class="stats-row">
-                        <div class="stat"><strong>8+</strong> Anos de Exp. Profissional</div>
-                        <div class="stat"><strong>4+</strong> Projetos Full-Stack</div>
-                    </div>
+<div class="stats-row">
+    <div class="stat">
+        <strong data-i18n="hero.stat1Title" style="font-size: 1.2rem;">Engenharia de Software</strong> 
+        <span data-i18n="hero.stat1Desc">Código limpo e escalável.</span>
+    </div>
+    
+    <div class="stat">
+        <strong data-i18n="hero.stat2Title" style="font-size: 1.2rem;">Projetos Full-Stack</strong> 
+        <span data-i18n="hero.stat2Desc">Aplicações de ponta a ponta.</span>
+    </div>
+</div>
                 </div>
                 
                 <div class="hero-visual">
@@ -79,61 +95,100 @@
             </div>
         </section>
 
+<section id="diferenciais" class="section">
+    <div class="container">
+        <div class="center-text">
+            <h2 class="section-title" data-i18n="value.title">Meu Impacto no Time</h2>
+            <p class="section-subtitle" data-i18n="value.subtitle">
+                Não sou apenas um codificador. Trago visão de negócio e maturidade profissional.
+            </p>
+        </div>
+        
+<div class="value-grid">
+    <div class="value-card">
+        <div class="value-icon">
+            <i class="ph ph-rocket-launch"></i> </div>
+        <h3 data-i18n="value.card1.title">Autonomia & Resolução</h3>
+        <p data-i18n="value.card1.desc">
+            Não espero ordens, busco soluções...
+        </p>
+    </div>
+
+    <div class="value-card">
+        <div class="value-icon">
+            <i class="ph ph-crosshair"></i> </div>
+        <h3 data-i18n="value.card2.title">Código com Propósito</h3>
+        <p data-i18n="value.card2.desc">
+            Entendo que o software existe para resolver uma dor...
+        </p>
+    </div>
+
+    <div class="value-card">
+        <div class="value-icon">
+            <i class="ph ph-handshake"></i> </div>
+        <h3 data-i18n="value.card3.title">Comunicação Assertiva</h3>
+        <p data-i18n="value.card3.desc">
+            Traduzo requisitos técnicos para linguagem de negócio...
+        </p>
+    </div>
+</div>
+    </div>
+</section>
         <section id="sobre" class="section about-section">
             <div class="container">
                 <div class="about-grid-layout">
                     <div class="about-text">
-                        <div class="section-badge">Minha Jornada</div>
-                        <h2 class="section-title text-left">Visão estratégica,<br> <span class="text-gradient">execução técnica.</span></h2>
+                        <div class="section-badge" data-i18n="about.badge">Minha Jornada</div>
+                        <h2 class="section-title text-left" data-i18n="about.title">Visão estratégica,<br> <span class="text-gradient">execução técnica.</span></h2>
                         
-                        <p>
+                        <p data-i18n="about.desc1">
                             Com <strong>8 anos de experiência profissional</strong>, desenvolvi uma visão estratégica forte: entender pessoas, problemas e entregar soluções reais.
                         </p>
-                        <p>
+                        <p data-i18n="about.desc2">
                             Hoje aplico essa experiência no desenvolvimento de software, criando sistemas completos que combinam arquitetura sólida, UX intuitiva e código escalável. Meu objetivo é simples: transformar ideias em produtos funcionais e eficientes.
                         </p>
                         
                         <div class="soft-skills">
-                            <span class="skill-tag">💡 Resolução de Problemas</span>
-                            <span class="skill-tag">🤝 Negociação</span>
-                            <span class="skill-tag">🗣️ Comunicação Clara</span>
-                            <span class="skill-tag">⚡ Autonomia</span>
-                            <span class="skill-tag">🔄 Adaptabilidade</span>
+                            <span class="skill-tag" data-i18n="about.skill1">💡 Resolução de Problemas</span>
+                            <span class="skill-tag" data-i18n="about.skill2">🤝 Negociação</span>
+                            <span class="skill-tag" data-i18n="about.skill3">🗣️ Comunicação Clara</span>
+                            <span class="skill-tag" data-i18n="about.skill4">⚡ Autonomia</span>
+                            <span class="skill-tag" data-i18n="about.skill5">🔄 Adaptabilidade</span>
                         </div>
                         
-                        <a href="assets/curriculo.pdf" download class="btn btn-outline margin-top">
-                            Baixar Currículo PDF
-                        </a>
+<a id="cv-link" href="assets/curriculo-pt.pdf" download class="btn btn-outline margin-top" data-i18n="about.cv">
+    Baixar Currículo PDF
+</a>
                     </div>
 
                     <div class="certs-wrapper">
-                        <h3 class="certs-title">Formação & Certificados</h3>
+                        <h3 class="certs-title" data-i18n="about.certs">Formação & Certificados</h3>
                         <div class="cert-card">
                             <div class="cert-icon">🎓</div>
                             <div class="cert-info">
-                                <h4>Ciência da Computação</h4>
-                                <p>Bacharelado — Anhembi Morumbi (Em curso)</p>
+                                <h4 data-i18n="cert.cs">Ciência da Computação</h4>
+                                <p data-i18n="cert.cs.desc">Bacharelado — Anhembi Morumbi (Em curso)</p>
                             </div>
                         </div>
                         <div class="cert-card">
                             <div class="cert-icon">⚙️</div>
                             <div class="cert-info">
-                                <h4>Técnico em Desenv. de Sistemas</h4>
-                                <p>Formação Completa — SENAI (2022 - 2024)</p>
+                                <h4 data-i18n="cert.tec">Técnico em Desenv. de Sistemas</h4>
+                                <p data-i18n="cert.tec.desc">Formação Completa — SENAI (2022 - 2024)</p>
                             </div>
                         </div>
                         <div class="cert-card">
                             <div class="cert-icon">☕</div>
                             <div class="cert-info">
-                                <h4>Java & Banco de Dados</h4>
-                                <p>Formação Específica (240h) — SENAI</p>
+                                <h4 data-i18n="cert.java">Java & Banco de Dados</h4>
+                                <p data-i18n="cert.java.desc">Formação Específica (240h) — SENAI</p>
                             </div>
                         </div>
                         <div class="cert-card">
                             <div class="cert-icon">🚀</div>
                             <div class="cert-info">
-                                <h4>AWS Cloud Practitioner</h4>
-                                <p>Infraestrutura e Nuvem</p>
+                                <h4 data-i18n="cert.aws">AWS Cloud Practitioner</h4>
+                                <p data-i18n="cert.aws.desc">Infraestrutura e Nuvem</p>
                             </div>
                         </div>
                     </div>
@@ -144,12 +199,12 @@
         <section id="tech" class="section">
             <div class="container">
                 <div class="center-text">
-                    <h2 class="section-title" style="margin-bottom: 10px;">Tecnologias & Ferramentas</h2>
-                    <p class="section-subtitle">Meu arsenal técnico para construir soluções escaláveis e de alta performance.</p>
+                    <h2 class="section-title" style="margin-bottom: 10px;" data-i18n="tech.title">Tecnologias & Ferramentas</h2>
+                    <p class="section-subtitle" data-i18n="tech.subtitle">Meu arsenal técnico para construir soluções escaláveis e de alta performance.</p>
                 </div>
                 <div class="tech-grid">
                     <div class="tech-box">
-                        <h3>Back-end & Dados</h3>
+                        <h3 data-i18n="tech.backend">Back-end & Dados</h3>
                         <div class="icons-wrapper">
                             <i class="devicon-java-plain colored" title="Java 17+"></i>
                             <i class="devicon-spring-original colored" title="Spring Boot"></i>
@@ -158,7 +213,7 @@
                         </div>
                     </div>
                     <div class="tech-box">
-                        <h3>Front-end Moderno</h3>
+                        <h3 data-i18n="tech.frontend">Front-end Moderno</h3>
                         <div class="icons-wrapper">
                             <i class="devicon-react-original colored" title="React.js"></i>
                             <i class="devicon-typescript-plain colored" title="TypeScript"></i>
@@ -167,7 +222,7 @@
                         </div>
                     </div>
                     <div class="tech-box">
-                        <h3>DevOps & Ferramentas</h3>
+                        <h3 data-i18n="tech.devops">DevOps & Ferramentas</h3>
                         <div class="icons-wrapper">
                             <i class="devicon-git-plain colored" title="Git/GitHub"></i>
                             <i class="devicon-docker-plain colored" title="Docker"></i>
@@ -181,12 +236,12 @@
         <section id="projetos" class="section">
             <div class="container">
                 <div class="center-text">
-                    <h2 class="section-title" style="margin-bottom: 10px;">Soluções em Software</h2>
-                    <p class="section-subtitle">
+                    <h2 class="section-title" style="margin-bottom: 10px;" data-i18n="projects.title">Soluções em Software</h2>
+                    <p class="section-subtitle" data-i18n="projects.subtitle">
                         Aplicações full-stack desenvolvidas com foco em performance, 
                         escalabilidade e experiência do usuário.
                     </p>
-                    <a href="https://github.com/MatheusFranciscoLS" target="_blank" class="link-more" style="margin-top: 25px;">
+                    <a href="https://github.com/MatheusFranciscoLS" target="_blank" class="link-more" style="margin-top: 25px;" data-i18n="projects.viewAll">
                         Ver tudo no GitHub &rarr;
                     </a>
                 </div>
@@ -195,17 +250,17 @@
                     <article class="project-card">
                         <div class="card-header">
                             <i class="devicon-nodejs-plain icon-bg"></i>
-                            <h3 style="flex-grow: 1;">Economia Solidária</h3>
+                            <h3 style="flex-grow: 1;" data-i18n="p1.title">Economia Solidária</h3>
                             <span class="tag fullstack">Full-Stack</span>
                         </div>
                         <img src="assets/p2.png" class="proj-img" alt="Marketplace TCC">
                         
-                        <p>Plataforma full-stack criada para conectar pequenos produtores e consumidores. Sistema completo com autenticação, upload de imagens, cadastro de produtos e painel de gestão.</p>
+                        <p data-i18n="p1.desc">Plataforma full-stack criada para conectar pequenos produtores e consumidores. Sistema completo com autenticação, upload de imagens, cadastro de produtos e painel de gestão.</p>
                         
                         <div class="tech-highlights">
-                            <span class="tech-pill">Firebase Storage</span>
-                            <span class="tech-pill">Arquitetura Modular</span>
-                            <span class="tech-pill">Auth JWT</span>
+                            <span class="tech-pill" data-i18n="p1.tag1">Firebase Storage</span>
+                            <span class="tech-pill" data-i18n="p1.tag2">Arquitetura Modular</span>
+                            <span class="tech-pill" data-i18n="p1.tag3">Auth JWT</span>
                         </div>
 
                         <div class="card-footer">
@@ -224,18 +279,18 @@
                     <article class="project-card highlight-card">
                         <div class="card-header">
                             <i class="devicon-react-original icon-bg"></i>
-                            <h3 style="flex-grow: 1;">Business Flow</h3>
+                            <h3 style="flex-grow: 1;" data-i18n="p2.title">Business Flow</h3>
                             <span class="tag fullstack">Full-Stack</span>
                         </div>
                         
                         <img src="assets/businessflow.png" class="proj-img" alt="BusinessFlow Dashboard">
                         
-                        <p>Sistema completo de gestão empresarial, reunindo financeiro, CRM de clientes e relatórios PDF. Inclui tabela dinâmica, cálculos automáticos e filtros avançados.</p>
+                        <p data-i18n="p2.desc">Sistema completo de gestão empresarial, reunindo financeiro, CRM de clientes e relatórios PDF. Inclui tabela dinâmica, cálculos automáticos e filtros avançados.</p>
                         
                         <div class="tech-highlights">
-                            <span class="tech-pill">Prisma ORM</span>
-                            <span class="tech-pill">Upload Multer</span>
-                            <span class="tech-pill">Relatórios PDF</span>
+                            <span class="tech-pill" data-i18n="p2.tag1">Prisma ORM</span>
+                            <span class="tech-pill" data-i18n="p2.tag2">Upload Multer</span>
+                            <span class="tech-pill" data-i18n="p2.tag3">Relatórios PDF</span>
                         </div>
                         
                         <div class="card-footer">
@@ -254,21 +309,22 @@
                     <article class="project-card">
                         <div class="card-header">
                             <i class="devicon-react-original icon-bg"></i>
-                            <h3 style="flex-grow: 1;">Chat <br> FURIA</h3>
+                            <h3 style="flex-grow: 1;" data-i18n="p3.title">Chat FURIA</h3>
                             <span class="tag frontend">Front-end</span>
                         </div>
                         <img src="assets/p1.png" class="proj-img" alt="Desafio Furia Dashboard">
                         
-                        <p>Interface moderna para comunidade de fãs. Versão Front-End com foco em UX, gamificação visual, componentização limpa e alta performance.</p>
+                        <p data-i18n="p3.desc">Interface moderna para comunidade de fãs. Versão Front-End com foco em UX, gamificação visual, componentização limpa e alta performance.</p>
                         
                         <div class="tech-highlights">
-                            <span class="tech-pill">CSS Puro</span>
-                            <span class="tech-pill">Gamificação UI</span>
-                            <span class="tech-pill">React Hooks</span>
+                            <span class="tech-pill" data-i18n="p3.tag1">CSS Puro</span>
+                            <span class="tech-pill" data-i18n="p3.tag2">Gamificação UI</span>
+                            <span class="tech-pill" data-i18n="p3.tag3">React Hooks</span>
                         </div>
 
                         <div class="card-footer">
-                            <div class="techs">React • Vite • Firebase</div> <div class="project-links">
+                            <div class="techs">React • Vite • Firebase</div> 
+                            <div class="project-links">
                                 <a href="https://github.com/MatheusFranciscoLS/Challenge1Furia" target="_blank" class="link-item code" title="Ver Código">
                                     <i class="devicon-github-original"></i> Code
                                 </a>
@@ -285,34 +341,34 @@
         <section id="contato" class="section contact-section">
             <div class="container">
                 <div class="contact-box">
-                    <h2>Pronto para contribuir em seu time.</h2>
-                    <p>Me chame e vamos conversar sobre oportunidades.</p>
+                    <h2 data-i18n="contact.title">Pronto para contribuir em seu time.</h2>
+                    <p data-i18n="contact.subtitle">Me chame e vamos conversar sobre oportunidades.</p>
                     
                     <div class="contact-links">
                         <a href="https://wa.me/5519981911214?text=Olá%20Matheus,%20vi%20seu%20portfólio." target="_blank" class="btn btn-outline">
-                           <i class="devicon-whatsapp-plain"></i> WhatsApp
+                           <i class="devicon-whatsapp-plain"></i> <span data-i18n="contact.whats"> WhatsApp</span>
                         </a>
                         
                         <button id="copyEmailBtn" class="btn btn-outline" onclick="copyEmail()">
-                           <span id="copyText">📧 Copiar E-mail</span>
+                           <span id="copyText" data-i18n="contact.copy">📧 Copiar E-mail</span>
                         </button>
                     </div>
 
                     <form id="contact-form" action="https://formspree.io/f/mjklbjbj" method="POST" class="contact-form">
-                        <p style="color: #94a3b8; margin-bottom: 20px; font-size: 0.9rem; margin-top: 30px;">
+                        <p style="color: #94a3b8; margin-bottom: 20px; font-size: 0.9rem; margin-top: 30px;" data-i18n="contact.direct">
                             Ou envie uma mensagem direta:
                         </p>
                         
                         <input type="text" name="_gotcha" style="display:none">
 
                         <div class="input-group">
-                            <input type="text" name="name" placeholder="Seu Nome" required>
-                            <input type="email" name="email" placeholder="Seu Email" required>
+                            <input type="text" name="name" placeholder="Seu Nome" required data-i18n="form.name">
+                            <input type="email" name="email" placeholder="Seu Email" required data-i18n="form.email">
                         </div>
 
-                        <textarea name="message" rows="4" placeholder="Como posso ajudar?" required></textarea>
+                        <textarea name="message" rows="4" placeholder="Como posso ajudar?" required data-i18n="form.message"></textarea>
                         
-                        <button type="submit" class="btn btn-primary full">Enviar Agora</button>
+                        <button type="submit" class="btn btn-primary full" data-i18n="contact.send">Enviar Agora</button>
                     </form>
                 </div>
             </div>
@@ -329,6 +385,6 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

@@ -24,6 +24,12 @@
   box-sizing: border-box;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -656,6 +662,160 @@ h1 {
   background: rgba(59, 130, 246, 0.1);
 }
 
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 30px;
+  border-left: 1px solid var(--border);
+  /* Linha divisória fina */
+  height: 24px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  /* Cor apagada padrão */
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.lang-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* O botão ativo fica Azul e Brilhante */
+.lang-btn.active {
+  color: var(--primary);
+  background: rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.divider {
+  color: var(--border);
+  font-size: 0.8rem;
+}
+
+/* Ajuste Mobile para Idioma */
+@media (max-width: 900px) {
+  nav {
+    gap: 0;
+    /* No mobile a nav muda */
+  }
+
+  .lang-switch {
+    margin-right: 20px;
+    /* Afasta do ícone sanduíche */
+    border-left: none;
+    /* Tira a linha no mobile */
+    padding-left: 0;
+  }
+}
+
+/* --- SEÇÃO MEU IMPACTO / DIFERENCIAIS (Adicione isso no CSS) --- */
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.value-card {
+  background: var(--bg-surface);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+
+  /* --- AS MUDANÇAS PARA CENTRALIZAR --- */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centraliza o Ícone (Horizontalmente) */
+  text-align: center;
+  /* Centraliza o Texto */
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.15);
+}
+
+/* Efeito ao passar o mouse no card inteiro */
+.value-card:hover .value-icon {
+  background: var(--accent);
+  color: #fff;
+  /* Ícone fica branco */
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  /* Brilho forte */
+  transform: scale(1.1);
+  border-color: var(--accent);
+}
+
+/* Fundo com gradiente sutil no hover */
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.value-card:hover::before {
+  opacity: 1;
+}
+
+/* Estilo do Ícone (Emoji) */
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  background: rgba(15, 23, 42, 0.6);
+  /* Fundo escuro */
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  /* Borda suave Ciano */
+  color: var(--accent);
+  /* A cor mágica (Ciano Neon) */
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.15);
+  /* Brilho suave */
+  transition: 0.3s;
+}
+
+.value-card h3 {
+  font-family: var(--font-title);
+  color: var(--text-main);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.value-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* IMAGEM DO PROJETO */
 .proj-img {
   display: block;
@@ -784,9 +944,12 @@ h1 {
 }
 
 .contact-box h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  /* Diminui um pouco (era 2.5rem) */
   margin-bottom: 16px;
   font-family: var(--font-title);
+  line-height: 1.2;
+  /* Melhora o espaçamento entre linhas */
 }
 
 .contact-links {
@@ -918,6 +1081,12 @@ footer {
 
 body:focus {
   outline: none;
+}
+
+@media (max-width: 600px) {
+  .contact-box h2 {
+    font-size: 1.8rem;
+  }
 }
 
 /* --- MOBILE RESPONSIVE (FINAL & CORRETO) --- */
@@ -1057,3 +1226,4 @@ body:focus {
     margin: 0 8px;
   }
 }
+
