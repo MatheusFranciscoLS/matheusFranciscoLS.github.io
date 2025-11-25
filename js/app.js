@@ -252,22 +252,26 @@ window.changeLanguage = function (lang) {
   });
 
   // 2. Atualiza Botões Ativos
-  document.querySelectorAll(".lang-btn").forEach((btn) => btn.classList.remove("active"));
-  const activeBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${lang}')"]`);
+  document
+    .querySelectorAll(".lang-btn")
+    .forEach((btn) => btn.classList.remove("active"));
+  const activeBtn = document.querySelector(
+    `.lang-btn[onclick="changeLanguage('${lang}')"]`
+  );
   if (activeBtn) activeBtn.classList.add("active");
-  
+
   // 3. TROCA O ARQUIVO DO CURRÍCULO (A Mágica acontece aqui)
-  const cvLink = document.getElementById('cv-link');
+  const cvLink = document.getElementById("cv-link");
   if (cvLink) {
-      if (lang === 'en') {
-          cvLink.href = 'assets/curriculo-en.pdf'; // Link do PDF em Inglês
-      } else {
-          cvLink.href = 'assets/curriculo-pt.pdf'; // Link do PDF em Português
-      }
+    if (lang === "en") {
+      cvLink.href = "assets/curriculo-en.pdf"; // Link do PDF em Inglês
+    } else {
+      cvLink.href = "assets/curriculo-pt.pdf"; // Link do PDF em Português
+    }
   }
 
   // 4. Salva preferência
-  localStorage.setItem('preferredLang', lang);
+  localStorage.setItem("preferredLang", lang);
 };
 
 // --- INICIALIZAÇÃO ---
@@ -275,6 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // A. Força o idioma inicial para Português (ou o último salvo)
   const savedLang = localStorage.getItem("preferredLang") || "pt";
   changeLanguage(savedLang);
+  initContactForm();
 
   // B. Menu Mobile
   const menuIcon = document.querySelector(".mobile-menu-icon");
@@ -330,3 +335,57 @@ window.copyEmail = function () {
     setTimeout(() => (btnText.innerText = originalText), 2000);
   });
 };
+
+
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // impede a tela branca do Formspree
+
+    const formData = new FormData(form);
+    const submitBtn = form.querySelector("button[type=submit]");
+    const existingMessage = form.querySelector(".success-message");
+
+    // Remove mensagem antiga caso exista
+    if (existingMessage) existingMessage.remove();
+
+    submitBtn.textContent = "Enviando...";
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        form.reset();
+
+        // mensagem de sucesso dentro da própria página
+        form.insertAdjacentHTML(
+          "beforeend",
+          `
+          <p class="success-message" style="
+            margin-top: 15px;
+            color: #4ade80;
+            font-size: 1rem;
+            text-align: center;
+          ">
+            ✔️ Mensagem enviada com sucesso!
+          </p>
+        `
+        );
+      } else {
+        alert("Erro ao enviar. Tente novamente.");
+      }
+    } catch (error) {
+      alert("Ocorreu um erro inesperado. Tente novamente.");
+    }
+
+    submitBtn.textContent = "Enviar Agora";
+    submitBtn.disabled = false;
+  });
+}
