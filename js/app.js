@@ -10,9 +10,9 @@ const translations = {
     // Hero
     "hero.badge": "Disponível para projetos",
     "hero.role": "Desenvolvedor Full-Stack",
-    "hero.subrole": "Java, Spring Boot & React",
+    "hero.subrole": "React, Node.js & Python",
     "hero.bio":
-      "Crio aplicações modernas, rápidas e escaláveis unindo a robustez do <strong>Java + Spring Boot</strong> com a flexibilidade do <strong>React</strong>. Tenho visão técnica e prática — construo soluções completas do backend ao front, sempre priorizando qualidade, performance e experiência do usuário.",
+      "Crio aplicações modernas, rápidas e escaláveis unindo o ecossistema do <strong>Node.js (Express)</strong> e <strong>Python</strong> com a flexibilidade do <strong>React</strong>. Tenho visão técnica e prática — construo soluções completas do backend ao front, sempre priorizando qualidade, performance e experiência do usuário.",
     "hero.ctaPrimary": "Ver Projetos",
     "hero.ctaSecondary": " Ver Repositórios",
     "hero.xpYears": "8+",
@@ -128,10 +128,9 @@ const translations = {
     // Hero
     "hero.badge": "Available for hire",
     "hero.role": "Full-Stack Developer",
-    "hero.subrole": "Java, Spring Boot & React",
+    "hero.subrole": "React, Node.js & Python",
     "hero.bio":
-      "I build modern, fast, and scalable applications combining the robustness of <strong>Java + Spring Boot</strong> with the flexibility of <strong>React</strong>. I have technical and practical vision — building complete solutions from backend to front, always prioritizing quality, performance, and user experience.",
-    "hero.ctaPrimary": "View Projects",
+      "I build modern, fast, and scalable applications combining the ecosystem of <strong>Node.js (Express)</strong> and <strong>Python</strong> with the flexibility of <strong>React</strong>. I have technical and practical vision — building complete solutions from backend to front, always prioritizing quality, performance, and user experience.",
     "hero.ctaSecondary": " View Repositories",
     "hero.xpYears": "8+",
     "hero.xpText": "Years Pro Experience",
