@@ -10,9 +10,9 @@ const translations = {
     // Hero
     "hero.badge": "Disponível para projetos",
     "hero.role": "Desenvolvedor Full-Stack",
-    "hero.subrole": "React, Node.js & Python",
+    "hero.subrole": "React, Node.js, Python & Java",
     "hero.bio":
-      "Crio aplicações modernas, rápidas e escaláveis unindo o ecossistema do <strong>Node.js (Express)</strong> e <strong>Python</strong> com a flexibilidade do <strong>React</strong>. Tenho visão técnica e prática — construo soluções completas do backend ao front, sempre priorizando qualidade, performance e experiência do usuário.",
+      "Crio aplicações modernas, rápidas e escaláveis. Possuo uma base sólida em back-end corporativo com <strong>Java (Spring Boot)</strong> e grande agilidade com <strong>Node.js</strong> e <strong>Python</strong>, sempre unindo essas tecnologias à flexibilidade do <strong>React</strong> no front-end. Tenho visão técnica e prática — construo soluções de ponta a ponta, priorizando código limpo, performance e experiência do usuário.",
     "hero.ctaPrimary": "Ver Projetos",
     "hero.ctaSecondary": " Ver Repositórios",
     "hero.xpYears": "8+",
@@ -128,10 +128,9 @@ const translations = {
     // Hero
     "hero.badge": "Available for hire",
     "hero.role": "Full-Stack Developer",
-    "hero.subrole": "React, Node.js & Python",
+    "hero.subrole": "React, Node.js, Python & Java",
     "hero.bio":
-      "I build modern, fast, and scalable applications combining the ecosystem of <strong>Node.js (Express)</strong> and <strong>Python</strong> with the flexibility of <strong>React</strong>. I have technical and practical vision — building complete solutions from backend to front, always prioritizing quality, performance, and user experience.",
-    "hero.ctaSecondary": " View Repositories",
+      "I build modern, fast, and scalable applications. I have a solid foundation in enterprise back-end with <strong>Java (Spring Boot)</strong> and agility with <strong>Node.js</strong> and <strong>Python</strong>, always combining these technologies with the flexibility of <strong>React</strong> on the front-end. I have technical and practical vision — building end-to-end solutions, prioritizing clean code, performance, and user experience.",
     "hero.xpYears": "8+",
     "hero.xpText": "Years Pro Experience",
 
