@@ -12,7 +12,7 @@ const translations = {
     "hero.role": "Desenvolvedor Full-Stack",
     "hero.subrole": "React, Node.js, Python & Java",
     "hero.bio":
-      "Crio aplicações modernas, rápidas e escaláveis. Possuo uma base sólida em back-end corporativo com <strong>Java (Spring Boot)</strong> e grande agilidade com <strong>Node.js</strong> e <strong>Python</strong>, sempre unindo essas tecnologias à flexibilidade do <strong>React</strong> no front-end. Tenho visão técnica e prática — construo soluções de ponta a ponta, priorizando código limpo, performance e experiência do usuário.",
+      "Crio aplicações modernas, rápidas e escaláveis unindo a robustez do Java + Spring Boot com a flexibilidade do React. Tenho forte atuação na construção de arquiteturas distribuídas, microsserviços e mensageria, entregando soluções completas do backend à nuvem. Tenho visão técnica e prática — construo soluções de ponta a ponta, priorizando código limpo, performance e experiência do usuário.",
     "hero.ctaPrimary": "Ver Projetos",
     "hero.ctaSecondary": " Ver Repositórios",
     "hero.xpYears": "8+",
@@ -80,15 +80,15 @@ const translations = {
       "Aplicações full-stack desenvolvidas com foco em performance, escalabilidade e experiência do usuário.",
     "projects.viewAll": "Ver tudo no GitHub →",
 
-    // PROJETO 1
-    "p1.title": "Economia Solidária",
+    // PROJETO 1 (Destaque - IoT)
+    "p1.title": "Plataforma IoT Industrial",
     "p1.desc":
-      "Plataforma full-stack criada para conectar pequenos produtores e consumidores. Sistema completo com autenticação, upload de imagens, cadastro de produtos e painel de gestão.",
-    "p1.tag1": "Firebase Storage",
-    "p1.tag2": "Arquitetura Modular",
-    "p1.tag3": "Auth JWT",
+      "Arquitetura de microsserviços em tempo real. Monitoramento de telemetria de máquinas integrando simulador Python, mensageria com RabbitMQ, API Core em Java (Spring Boot), Gateway Node.js com WebSockets e interface React protegida por JWT.",
+    "p1.tag1": "RabbitMQ",
+    "p1.tag2": "WebSockets",
+    "p1.tag3": "Docker",
 
-    // PROJETO 2
+    // PROJETO 2 (Business Flow)
     "p2.title": "Business Flow",
     "p2.desc":
       "Sistema completo de gestão empresarial, reunindo financeiro, CRM de clientes e relatórios PDF. Inclui tabela dinâmica, cálculos automáticos e filtros avançados.",
@@ -96,13 +96,21 @@ const translations = {
     "p2.tag2": "Upload Multer",
     "p2.tag3": "Relatórios PDF",
 
-    // PROJETO 3
-    "p3.title": "Chat <br> FURIA",
+    // PROJETO 3 (Economia Solidária)
+    "p3.title": "Economia Solidária",
     "p3.desc":
+      "Plataforma full-stack criada para conectar pequenos produtores e consumidores. Sistema completo com autenticação, upload de imagens, cadastro de produtos e painel de gestão.",
+    "p3.tag1": "Firebase Storage",
+    "p3.tag2": "Arquitetura Modular",
+    "p3.tag3": "Auth JWT",
+
+    // PROJETO 4 (Chat FURIA)
+    "p4.title": "Chat <br> FURIA",
+    "p4.desc":
       "Interface moderna para comunidade de fãs. Versão Front-End com foco em UX, gamificação visual, componentização limpa e alta performance.",
-    "p3.tag1": "CSS Puro",
-    "p3.tag2": "Gamificação UI",
-    "p3.tag3": "React Hooks",
+    "p4.tag1": "CSS Puro",
+    "p4.tag2": "Gamification UI",
+    "p4.tag3": "React Hooks",
 
     // Contato
     "contact.title": "Pronto para somar ao time.",
@@ -197,13 +205,15 @@ const translations = {
     "projects.viewAll": "View all on GitHub →",
 
     // Projects
-    "p1.title": "Solidarity Economy",
+    // PROJECT 1 (Highlight - IoT)
+    "p1.title": "Industrial IoT Platform",
     "p1.desc":
-      "Full-stack platform created to connect small local producers and consumers. Complete system with authentication, image upload, product registration, and management panel.",
-    "p1.tag1": "Firebase Storage",
-    "p1.tag2": "Modular Arch",
-    "p1.tag3": "Auth JWT",
+      "Real-time microservices architecture for machine telemetry monitoring. Integrates a Python simulator, RabbitMQ messaging, Java (Spring Boot) Core API, Node.js Gateway with WebSockets, and a JWT-secured React interface.",
+    "p1.tag1": "RabbitMQ",
+    "p1.tag2": "WebSockets",
+    "p1.tag3": "Docker",
 
+    // PROJECT 2 (Business Flow)
     "p2.title": "Business Flow",
     "p2.desc":
       "Complete business management system, gathering finance, CRM, and PDF reports. Includes dynamic tables, automatic calculations, and advanced filters.",
@@ -211,12 +221,21 @@ const translations = {
     "p2.tag2": "Upload Multer",
     "p2.tag3": "PDF Reports",
 
-    "p3.title": " Chat <br> FURIA",
+    // PROJECT 3 (Solidarity Economy)
+    "p3.title": "Solidarity Economy",
     "p3.desc":
+      "Full-stack platform created to connect small local producers and consumers. Complete system with authentication, image upload, product registration, and management panel.",
+    "p3.tag1": "Firebase Storage",
+    "p3.tag2": "Modular Arch",
+    "p3.tag3": "Auth JWT",
+
+    // PROJECT 4 (Chat FURIA)
+    "p4.title": "Chat <br> FURIA",
+    "p4.desc":
       "Modern interface for a fan community. Front-End version focused on UX, visual gamification, clean componentization, and high performance.",
-    "p3.tag1": "Pure CSS",
-    "p3.tag2": "Gamification UI",
-    "p3.tag3": "React Hooks",
+    "p4.tag1": "Pure CSS",
+    "p4.tag2": "Gamification UI",
+    "p4.tag3": "React Hooks",
 
     // Contact
     "contact.title": "Ready to join your team.",

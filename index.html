@@ -95,9 +95,7 @@
             </h1>
 
             <p class="bio" data-i18n="hero.bio">
-              Crio aplicações modernas, rápidas e escaláveis unindo a robustez
-              do <strong>Java + Spring Boot</strong> com a flexibilidade do
-              <strong>React</strong>. Tenho visão técnica e prática — construo
+              Crio aplicações modernas, rápidas e escaláveis unindo a robustez do Java + Spring Boot com a flexibilidade do React. Tenho forte atuação na construção de arquiteturas distribuídas, microsserviços e mensageria, entregando soluções completas do backend à nuvem. Tenho visão técnica e prática — construo
               soluções completas do backend ao front, sempre priorizando
               qualidade, performance e experiência do usuário.
             </p>
@@ -328,6 +326,7 @@
                 <i class="devicon-nodejs-plain colored" title="Node.js"></i>
                 <i class="devicon-python-plain colored" title="Python"></i>
                 <i class="devicon-java-plain colored" title="Java 17+"></i>
+                <i class="devicon-rabbitmq-plain colored" title="RabbitMQ"></i>
                 <i
                   class="devicon-spring-original colored"
                   title="Spring Boot"
@@ -389,46 +388,37 @@
               Ver tudo no GitHub &rarr;
             </a>
           </div>
-
-          <div class="projects-grid">
-            <article class="project-card highlight-card">
+<article class="project-card highlight-card">
               <div class="card-header">
-                <i class="devicon-react-original icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p2.title">Business Flow</h3>
-                <span class="tag fullstack">Full-Stack</span>
+                <i class="devicon-java-plain icon-bg"></i>
+                <h3 style="flex-grow: 1" data-i18n="p4.title">Plataforma IoT Industrial</h3>
+                <span class="tag fullstack" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981;">Microsserviços</span>
               </div>
 
               <img
-                src="assets/businessflow.png"
+                src="assets/iot-plataforma.png"
                 class="proj-img"
-                alt="BusinessFlow Dashboard"
+                alt="Dashboard Plataforma IoT Industrial"
               />
 
-              <p data-i18n="p2.desc">
-                Sistema completo de gestão empresarial, reunindo financeiro, CRM
-                de clientes e relatórios PDF. Inclui tabela dinâmica, cálculos
-                automáticos e filtros avançados.
+              <p data-i18n="p4.desc">
+                Arquitetura de microsserviços em tempo real. Monitoramento de telemetria de máquinas integrando simulador Python, mensageria com RabbitMQ, API Core em Java (Spring Boot), Gateway Node.js com WebSockets e interface React protegida por JWT.
               </p>
 
               <div
                 class="tech-highlights"
-                style="
-                  display: flex;
-                  gap: 8px;
-                  flex-wrap: wrap;
-                  margin-bottom: 20px;
-                "
+                style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"
               >
-                <span class="tag" data-i18n="p2.tag1">Prisma ORM</span>
-                <span class="tag" data-i18n="p2.tag2">Upload Multer</span>
-                <span class="tag" data-i18n="p2.tag3">Relatórios PDF</span>
+                <span class="tag" data-i18n="p4.tag1">RabbitMQ</span>
+                <span class="tag" data-i18n="p4.tag2">WebSockets</span>
+                <span class="tag" data-i18n="p4.tag3">Docker</span>
               </div>
 
               <div class="card-footer">
-                <div class="techs">React • Node • PostgreSQL</div>
+                <div class="techs">Java • Node • React • RabbitMQ</div>
                 <div class="project-links">
                   <a
-                    href="https://github.com/MatheusFranciscoLS/BusinessFlow"
+                    href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial"
                     target="_blank"
                     class="link-item code"
                     title="Ver Código"
@@ -436,13 +426,58 @@
                     <i class="devicon-github-original"></i> Code
                   </a>
                   <a
-                    href="https://flowbusiness.vercel.app"
+                    href="https://plataforma-iot-industrial.vercel.app"
                     target="_blank"
                     class="link-item live"
                     title="Acessar Site"
                   >
                     Site ↗
                   </a>
+                </div>
+              </div>
+            </article>
+
+          <div class="projects-grid">
+            <article class="project-card highlight-card">
+              <div class="card-header">
+                <i class="devicon-java-plain icon-bg"></i>
+                <h3 style="flex-grow: 1" data-i18n="p1.title">Plataforma IoT Industrial</h3>
+                <span class="tag fullstack" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981;">Microsserviços</span>
+              </div>
+              <img src="assets/iot-plataforma.png" class="proj-img" alt="Dashboard Plataforma IoT" />
+              <p data-i18n="p1.desc"></p>
+              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                <span class="tag" data-i18n="p1.tag1">RabbitMQ</span>
+                <span class="tag" data-i18n="p1.tag2">WebSockets</span>
+                <span class="tag" data-i18n="p1.tag3">Docker</span>
+              </div>
+              <div class="card-footer">
+                <div class="techs">Java • Node • React • RabbitMQ</div>
+                <div class="project-links">
+                  <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                  <a href="https://plataforma-iot-industrial.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="card-header">
+                <i class="devicon-react-original icon-bg"></i>
+                <h3 style="flex-grow: 1" data-i18n="p2.title">Business Flow</h3>
+                <span class="tag fullstack">Full-Stack</span>
+              </div>
+              <img src="assets/businessflow.png" class="proj-img" alt="BusinessFlow Dashboard" />
+              <p data-i18n="p2.desc"></p>
+              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                <span class="tag" data-i18n="p2.tag1">Prisma ORM</span>
+                <span class="tag" data-i18n="p2.tag2">Upload Multer</span>
+                <span class="tag" data-i18n="p2.tag3">Relatórios PDF</span>
+              </div>
+              <div class="card-footer">
+                <div class="techs">React • Node • PostgreSQL</div>
+                <div class="project-links">
+                  <a href="https://github.com/MatheusFranciscoLS/BusinessFlow" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                  <a href="https://flowbusiness.vercel.app" target="_blank" class="link-item live">Site ↗</a>
                 </div>
               </div>
             </article>
@@ -450,52 +485,21 @@
             <article class="project-card">
               <div class="card-header">
                 <i class="devicon-nodejs-plain icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p1.title">
-                  Economia Solidária
-                </h3>
+                <h3 style="flex-grow: 1" data-i18n="p3.title">Economia Solidária</h3>
                 <span class="tag fullstack">Full-Stack</span>
               </div>
               <img src="assets/p2.png" class="proj-img" alt="Marketplace TCC" />
-
-              <p data-i18n="p1.desc">
-                Plataforma full-stack criada para conectar pequenos produtores e
-                consumidores. Sistema completo com autenticação, upload de
-                imagens, cadastro de produtos e painel de gestão.
-              </p>
-
-              <div
-                class="tech-highlights"
-                style="
-                  display: flex;
-                  gap: 8px;
-                  flex-wrap: wrap;
-                  margin-bottom: 20px;
-                "
-              >
-                <span class="tag" data-i18n="p1.tag1">Firebase Storage</span>
-                <span class="tag" data-i18n="p1.tag2">Arquitetura Modular</span>
-                <span class="tag" data-i18n="p1.tag3">Auth JWT</span>
+              <p data-i18n="p3.desc"></p>
+              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                <span class="tag" data-i18n="p3.tag1">Firebase Storage</span>
+                <span class="tag" data-i18n="p3.tag2">Arquitetura Modular</span>
+                <span class="tag" data-i18n="p3.tag3">Auth JWT</span>
               </div>
-
               <div class="card-footer">
                 <div class="techs">Node • React • Firebase</div>
                 <div class="project-links">
-                  <a
-                    href="https://github.com/MatheusFranciscoLS/ProjetoFinal"
-                    target="_blank"
-                    class="link-item code"
-                    title="Ver Código"
-                  >
-                    <i class="devicon-github-original"></i> Code
-                  </a>
-                  <a
-                    href="https://economia-solidaria-frontend.vercel.app"
-                    target="_blank"
-                    class="link-item live"
-                    title="Acessar Site"
-                  >
-                    Site ↗
-                  </a>
+                  <a href="https://github.com/MatheusFranciscoLS/ProjetoFinal" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                  <a href="https://economia-solidaria-frontend.vercel.app" target="_blank" class="link-item live">Site ↗</a>
                 </div>
               </div>
             </article>
@@ -503,54 +507,21 @@
             <article class="project-card">
               <div class="card-header">
                 <i class="devicon-react-original icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p3.title">Chat FURIA</h3>
+                <h3 style="flex-grow: 1" data-i18n="p4.title">Chat FURIA</h3>
                 <span class="tag frontend">Front-end</span>
               </div>
-              <img
-                src="assets/p1.png"
-                class="proj-img"
-                alt="Desafio Furia Dashboard"
-              />
-
-              <p data-i18n="p3.desc">
-                Interface moderna para comunidade de fãs. Versão Front-End com
-                foco em UX, gamificação visual, componentização limpa e alta
-                performance.
-              </p>
-
-              <div
-                class="tech-highlights"
-                style="
-                  display: flex;
-                  gap: 8px;
-                  flex-wrap: wrap;
-                  margin-bottom: 20px;
-                "
-              >
-                <span class="tag" data-i18n="p3.tag1">CSS Puro</span>
-                <span class="tag" data-i18n="p3.tag2">Gamificação UI</span>
-                <span class="tag" data-i18n="p3.tag3">React Hooks</span>
+              <img src="assets/p1.png" class="proj-img" alt="Desafio Furia Dashboard" />
+              <p data-i18n="p4.desc"></p>
+              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                <span class="tag" data-i18n="p4.tag1">CSS Puro</span>
+                <span class="tag" data-i18n="p4.tag2">Gamification UI</span>
+                <span class="tag" data-i18n="p4.tag3">React Hooks</span>
               </div>
-
               <div class="card-footer">
                 <div class="techs">React • Vite • Firebase</div>
                 <div class="project-links">
-                  <a
-                    href="https://github.com/MatheusFranciscoLS/Challenge1Furia"
-                    target="_blank"
-                    class="link-item code"
-                    title="Ver Código"
-                  >
-                    <i class="devicon-github-original"></i> Code
-                  </a>
-                  <a
-                    href="https://challenge1-furia.vercel.app"
-                    target="_blank"
-                    class="link-item live"
-                    title="Acessar Site"
-                  >
-                    Site ↗
-                  </a>
+                  <a href="https://github.com/MatheusFranciscoLS/Challenge1Furia" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                  <a href="https://challenge1-furia.vercel.app" target="_blank" class="link-item live">Site ↗</a>
                 </div>
               </div>
             </article>
