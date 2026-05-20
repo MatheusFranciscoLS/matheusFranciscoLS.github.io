@@ -10,7 +10,7 @@ const translations = {
     // Hero
     "hero.badge": "Disponível para projetos",
     "hero.role": "Desenvolvedor Full-Stack",
-    "hero.subrole": "React, Node.js, Python & Java",
+    "hero.subrole": "Java, Spring Boot & React",
     "hero.bio":
       "Crio aplicações modernas, rápidas e escaláveis unindo a robustez do Java + Spring Boot com a flexibilidade do React. Tenho forte atuação na construção de arquiteturas distribuídas, microsserviços e mensageria, entregando soluções completas do backend à nuvem. Tenho visão técnica e prática — construo soluções de ponta a ponta, priorizando código limpo, performance e experiência do usuário.",
     "hero.ctaPrimary": "Ver Projetos",
@@ -80,6 +80,12 @@ const translations = {
       "Aplicações full-stack desenvolvidas com foco em performance, escalabilidade e experiência do usuário.",
     "projects.viewAll": "Ver tudo no GitHub →",
 
+    // TIPOS DOS PROJETOS (Tags do Cabeçalho do Card)
+    "p1.type": "Microsserviços",
+    "p2.type": "Full-Stack",
+    "p3.type": "Full-Stack",
+    "p4.type": "Front-end",
+
     // PROJETO 1 (Destaque - IoT)
     "p1.title": "Plataforma IoT",
     "p1.desc":
@@ -105,7 +111,7 @@ const translations = {
     "p3.tag3": "Auth JWT",
 
     // PROJETO 4 (Chat FURIA)
-    "p4.title": "Chat <br> FURIA",
+    "p4.title": "Chat FURIA",
     "p4.desc":
       "Interface moderna para comunidade de fãs. Versão Front-End com foco em UX, gamificação visual, componentização limpa e alta performance.",
     "p4.tag1": "CSS Puro",
@@ -126,6 +132,7 @@ const translations = {
     "form.email": "Seu Email",
     "form.message": "Como posso ajudar?",
   },
+
   en: {
     // Menu
     "nav.home": "Home",
@@ -136,9 +143,11 @@ const translations = {
     // Hero
     "hero.badge": "Available for hire",
     "hero.role": "Full-Stack Developer",
-    "hero.subrole": "React, Node.js, Python & Java",
+    "hero.subrole": "Java, Spring Boot & React",
     "hero.bio":
-      "I build modern, fast, and scalable applications. I have a solid foundation in enterprise back-end with <strong>Java (Spring Boot)</strong> and agility with <strong>Node.js</strong> and <strong>Python</strong>, always combining these technologies with the flexibility of <strong>React</strong> on the front-end. I have technical and practical vision — building end-to-end solutions, prioritizing clean code, performance, and user experience.",
+      "I build modern, fast, and scalable applications combining the robustness of Java + Spring Boot with the flexibility of React. I have a strong focus on building distributed architectures, microservices, and messaging, delivering complete solutions from the backend to the cloud. I have a technical and practical vision — building end-to-end solutions, prioritizing clean code, performance, and user experience.",
+    "hero.ctaPrimary": "View Projects",
+    "hero.ctaSecondary": " GitHub Repos",
     "hero.xpYears": "8+",
     "hero.xpText": "Years Pro Experience",
 
@@ -154,13 +163,13 @@ const translations = {
       "I'm not just a coder. I bring business vision and professional maturity.",
     "value.card1.title": "Autonomy & Resolution",
     "value.card1.desc":
-      "I don't wait for orders, I seek solutions. My sales background taught me to solve problems independently.",
+      "I don't wait for orders, I seek solutions. My commercial background taught me to solve problems independently and proactively.",
     "value.card2.title": "Purposeful Code",
     "value.card2.desc":
       "I understand software exists to solve pain points. I focus on delivering real value, not just writing lines of code.",
     "value.card3.title": "Clear Communication",
     "value.card3.desc":
-      "I bridge the gap between technical requirements and business language, facilitating alignment across teams.",
+      "I bridge the gap between technical requirements and business language, facilitating alignment across teams and stakeholders.",
 
     // About
     "about.badge": "My Journey",
@@ -204,7 +213,12 @@ const translations = {
       "Full-stack applications developed with a focus on performance, scalability, and user experience.",
     "projects.viewAll": "View all on GitHub →",
 
-    // Projects
+    // TIPOS DOS PROJETOS (Tags do Cabeçalho do Card)
+    "p1.type": "Microservices",
+    "p2.type": "Full-Stack",
+    "p3.type": "Full-Stack",
+    "p4.type": "Front-end",
+
     // PROJECT 1 (Highlight - IoT)
     "p1.title": "IoT Platform",
     "p1.desc":
@@ -230,7 +244,7 @@ const translations = {
     "p3.tag3": "Auth JWT",
 
     // PROJECT 4 (Chat FURIA)
-    "p4.title": "Chat <br> FURIA",
+    "p4.title": "Chat FURIA",
     "p4.desc":
       "Modern interface for a fan community. Front-End version focused on UX, visual gamification, clean componentization, and high performance.",
     "p4.tag1": "Pure CSS",
@@ -254,7 +268,6 @@ const translations = {
 };
 
 // --- FUNÇÃO DE TRADUÇÃO ROBUSTA ---
-// --- FUNÇÃO DE TRADUÇÃO (COM TROCA DE PDF) ---
 window.changeLanguage = function (lang) {
   // 1. Atualiza Textos
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -273,17 +286,17 @@ window.changeLanguage = function (lang) {
     .querySelectorAll(".lang-btn")
     .forEach((btn) => btn.classList.remove("active"));
   const activeBtn = document.querySelector(
-    `.lang-btn[onclick="changeLanguage('${lang}')"]`
+    `.lang-btn[onclick="changeLanguage('${lang}')"]`,
   );
   if (activeBtn) activeBtn.classList.add("active");
 
-  // 3. TROCA O ARQUIVO DO CURRÍCULO (A Mágica acontece aqui)
+  // 3. TROCA O ARQUIVO DO CURRÍCULO
   const cvLink = document.getElementById("cv-link");
   if (cvLink) {
     if (lang === "en") {
-      cvLink.href = "assets/curriculo-en.pdf"; // Link do PDF em Inglês
+      cvLink.href = "assets/curriculo-en.pdf";
     } else {
-      cvLink.href = "assets/curriculo-pt.pdf"; // Link do PDF em Português
+      cvLink.href = "assets/curriculo-pt.pdf";
     }
   }
 
@@ -293,15 +306,13 @@ window.changeLanguage = function (lang) {
 
 // --- INICIALIZAÇÃO ---
 document.addEventListener("DOMContentLoaded", () => {
-  // A. Força o idioma inicial para Português (ou o último salvo)
   const savedLang = localStorage.getItem("preferredLang") || "pt";
   changeLanguage(savedLang);
   initContactForm();
 
-  // B. Menu Mobile
+  // Menu Mobile
   const menuIcon = document.querySelector(".mobile-menu-icon");
   const navLinks = document.querySelector(".nav-links");
-
   if (menuIcon) {
     menuIcon.addEventListener("click", () => {
       navLinks.classList.toggle("active");
@@ -309,17 +320,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // C. Animação de Scroll
+  // Animação de Scroll
   const observerOptions = { threshold: 0.1 };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) entry.target.classList.add("scroll-visible");
     });
   }, observerOptions);
-
   document.querySelectorAll(".section").forEach((el) => observer.observe(el));
 
-  // D. Botão Voltar ao Topo
+  // Botão Voltar ao Topo
   const backToTopBtn = document.getElementById("backToTop");
   if (backToTopBtn) {
     window.addEventListener("scroll", () => {
@@ -328,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // E. Ano Automático
+  // Ano Automático
   const yearSpan = document.getElementById("current-year");
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 });
@@ -337,8 +347,6 @@ document.addEventListener("DOMContentLoaded", () => {
 window.copyEmail = function () {
   const email = "matheusf.ls@hotmail.com";
   const btnText = document.getElementById("copyText");
-
-  // Pega o idioma ativo para mostrar a mensagem certa
   const currentLang = document
     .querySelector(".lang-btn.active")
     ?.getAttribute("onclick")
@@ -353,19 +361,16 @@ window.copyEmail = function () {
   });
 };
 
-
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
 
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // impede a tela branca do Formspree
-
+    e.preventDefault();
     const formData = new FormData(form);
     const submitBtn = form.querySelector("button[type=submit]");
     const existingMessage = form.querySelector(".success-message");
 
-    // Remove mensagem antiga caso exista
     if (existingMessage) existingMessage.remove();
 
     submitBtn.textContent = "Enviando...";
@@ -380,20 +385,9 @@ function initContactForm() {
 
       if (response.ok) {
         form.reset();
-
-        // mensagem de sucesso dentro da própria página
         form.insertAdjacentHTML(
           "beforeend",
-          `
-          <p class="success-message" style="
-            margin-top: 15px;
-            color: #4ade80;
-            font-size: 1rem;
-            text-align: center;
-          ">
-            ✔️ Mensagem enviada com sucesso!
-          </p>
-        `
+          `<p class="success-message" style="margin-top: 15px; color: #4ade80; font-size: 1rem; text-align: center;">✔️ Mensagem enviada com sucesso!</p>`,
         );
       } else {
         alert("Erro ao enviar. Tente novamente.");
@@ -401,7 +395,6 @@ function initContactForm() {
     } catch (error) {
       alert("Ocorreu um erro inesperado. Tente novamente.");
     }
-
     submitBtn.textContent = "Enviar Agora";
     submitBtn.disabled = false;
   });

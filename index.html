@@ -95,9 +95,13 @@
             </h1>
 
             <p class="bio" data-i18n="hero.bio">
-              Crio aplicações modernas, rápidas e escaláveis unindo a robustez do Java + Spring Boot com a flexibilidade do React. Tenho forte atuação na construção de arquiteturas distribuídas, microsserviços e mensageria, entregando soluções completas do backend à nuvem. Tenho visão técnica e prática — construo
-              soluções completas do backend ao front, sempre priorizando
-              qualidade, performance e experiência do usuário.
+              Crio aplicações modernas, rápidas e escaláveis unindo a robustez
+              do Java + Spring Boot com a flexibilidade do React. Tenho forte
+              atuação na construção de arquiteturas distribuídas, microsserviços
+              e mensageria, entregando soluções completas do backend à nuvem.
+              Tenho visão técnica e prática — construo soluções completas do
+              backend ao front, sempre priorizando qualidade, performance e
+              experiência do usuário.
             </p>
 
             <div class="hero-buttons">
@@ -208,6 +212,7 @@
           </div>
         </div>
       </section>
+
       <section id="sobre" class="section about-section">
         <div class="container">
           <div class="about-grid-layout">
@@ -389,98 +394,268 @@
             </a>
           </div>
 
-          <div class="projects-grid">
-<article class="project-card highlight-card">
-              <div class="card-header" style="align-items: flex-start; gap: 10px;">
-                <i class="devicon-java-plain icon-bg"></i>
-                <h3 style="flex-grow: 1; line-height: 1.2;" data-i18n="p1.title">Plataforma IoT</h3>
-                <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; white-space: nowrap; margin-top: 2px;">Microsserviços</span>
+          <style>
+            .projects-showcase {
+              display: flex;
+              flex-direction: column;
+              gap: 40px;
+              margin-top: 40px;
+            }
+
+            /* --- 1. CARD GIGANTE (DESTAQUE IoT) --- */
+            .master-card {
+              display: flex;
+              flex-direction: column;
+              background: #1e293b;
+              border: 1px solid rgba(16, 185, 129, 0.4);
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+              transition: transform 0.3s;
+            }
+            .master-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.25);
+            }
+            .master-img {
+              width: 100%;
+              aspect-ratio: 16/9;
+              background: #0f172a;
+              position: relative;
+            }
+            .master-img img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+            }
+            .master-content {
+              padding: 30px;
+              display: flex;
+              flex-direction: column;
+            }
+            
+            /* Responsive: Desktop do Card Gigante */
+            @media (min-width: 900px) {
+              .master-card {
+                flex-direction: row;
+                align-items: stretch;
+              }
+              .master-img {
+                width: 55%;
+                aspect-ratio: auto;
+                border-right: 1px solid #334155;
+              }
+              .master-img img {
+                position: absolute;
+                top: 0; left: 0;
+              }
+              .master-content {
+                width: 45%;
+                padding: 40px;
+                justify-content: center;
+              }
+            }
+
+            /* --- 2. GRID INFERIOR (3 PROJETOS SECUNDÁRIOS) --- */
+            .secondary-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 30px;
+            }
+
+            .std-card {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              background: #1e293b;
+              border: 1px solid #334155;
+              border-radius: 16px;
+              overflow: hidden;
+              transition: transform 0.3s;
+            }
+            .std-card:hover {
+              transform: translateY(-5px);
+              border-color: #3b82f6;
+            }
+            .std-card img {
+              width: 100%;
+              aspect-ratio: 16/9;
+              object-fit: cover;
+              border-bottom: 1px solid #334155;
+            }
+            .std-content {
+              padding: 25px;
+              display: flex;
+              flex-direction: column;
+              flex-grow: 1; 
+            }
+
+            /* --- COMPONENTES COMPARTILHADOS --- */
+            .proj-header {
+              display: flex;
+              align-items: flex-start;
+              justify-content: space-between;
+              gap: 15px;
+              margin-bottom: 15px;
+            }
+            .proj-header h3 {
+              margin: 0;
+              font-size: 1.25rem;
+              line-height: 1.3;
+              color: #f8fafc;
+            }
+            .proj-desc {
+              color: #94a3b8;
+              font-size: 0.95rem;
+              line-height: 1.6;
+              margin-bottom: 25px;
+              flex-grow: 1;
+            }
+            .proj-tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              margin-bottom: 25px;
+            }
+            .proj-footer {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 10px;
+              margin-top: auto; 
+              padding-top: 20px;
+              border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .proj-footer .tech-stack {
+              font-size: 0.75rem;
+              color: #64748b;
+            }
+            .proj-actions {
+              display: flex;
+              gap: 10px;
+              flex-shrink: 0;
+            }
+            /* Badges */
+            .tag-iot {
+              background: rgba(16, 185, 129, 0.15) !important;
+              color: #10b981 !important;
+              border: 1px solid #10b981 !important;
+              white-space: nowrap;
+            }
+          </style>
+
+          <div class="projects-showcase">
+            
+            <article class="master-card">
+              <div class="master-img">
+                <img src="assets/iot-plataforma.png" alt="Dashboard Plataforma IoT" />
               </div>
-              
-              <img src="assets/iot-plataforma.png" class="proj-img" alt="Dashboard Plataforma IoT" />
-              
-              <p data-i18n="p1.desc"></p>
-              
-              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="tag" data-i18n="p1.tag1">RabbitMQ</span>
-                <span class="tag" data-i18n="p1.tag2">WebSockets</span>
-                <span class="tag" data-i18n="p1.tag3">Docker</span>
-              </div>
-              
-              <div class="card-footer" style="flex-wrap: wrap; gap: 12px;">
-                <div class="techs" style="flex-basis: 100%; font-size: 0.8rem;">Java • Node • React • RabbitMQ</div>
-                <div class="project-links" style="width: 100%; justify-content: space-between;">
-                  <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
-                  <a href="https://plataforma-iot-industrial.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+              <div class="master-content">
+                <div class="proj-header">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="devicon-java-plain" style="font-size: 1.8rem; color: #ED8B00;"></i>
+                    <h3 data-i18n="p1.title">Plataforma IoT</h3>
+                  </div>
+                  <span class="tag tag-iot" data-i18n="p1.type">Microsserviços</span>
+                </div>
+                <p class="proj-desc" data-i18n="p1.desc"></p>
+                <div class="proj-tags">
+                  <span class="tag" data-i18n="p1.tag1">RabbitMQ</span>
+                  <span class="tag" data-i18n="p1.tag2">WebSockets</span>
+                  <span class="tag" data-i18n="p1.tag3">Docker</span>
+                </div>
+                <div class="proj-footer">
+                  <div class="tech-stack">Java • Node • React • RabbitMQ</div>
+                  <div class="proj-actions">
+                    <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" class="link-item code" title="Ver no GitHub"><i class="devicon-github-original"></i> Code</a>
+                    <a href="https://plataforma-iot-industrial.vercel.app" target="_blank" class="link-item live" title="Acessar Aplicação">Site ↗</a>
+                  </div>
                 </div>
               </div>
             </article>
 
-            <article class="project-card">
-              <div class="card-header">
-                <i class="devicon-react-original icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p2.title">Business Flow</h3>
-                <span class="tag fullstack">Full-Stack</span>
-              </div>
-              <img src="assets/businessflow.png" class="proj-img" alt="BusinessFlow Dashboard" />
-              <p data-i18n="p2.desc"></p>
-              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="tag" data-i18n="p2.tag1">Prisma ORM</span>
-                <span class="tag" data-i18n="p2.tag2">Upload Multer</span>
-                <span class="tag" data-i18n="p2.tag3">Relatórios PDF</span>
-              </div>
-              <div class="card-footer">
-                <div class="techs">React • Node • PostgreSQL</div>
-                <div class="project-links">
-                  <a href="https://github.com/MatheusFranciscoLS/BusinessFlow" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
-                  <a href="https://flowbusiness.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+            <div class="secondary-grid">
+              
+              <article class="std-card">
+                <img src="assets/businessflow.png" alt="BusinessFlow Dashboard" />
+                <div class="std-content">
+                  <div class="proj-header">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <i class="devicon-react-original" style="font-size: 1.8rem; color: #61DAFB;"></i>
+                      <h3 data-i18n="p2.title">Business Flow</h3>
+                    </div>
+                    <span class="tag fullstack" data-i18n="p2.type">Full-Stack</span>
+                  </div>
+                  <p class="proj-desc" data-i18n="p2.desc"></p>
+                  <div class="proj-tags">
+                    <span class="tag" data-i18n="p2.tag1">Prisma ORM</span>
+                    <span class="tag" data-i18n="p2.tag2">Upload Multer</span>
+                    <span class="tag" data-i18n="p2.tag3">Relatórios PDF</span>
+                  </div>
+                  <div class="proj-footer">
+                    <div class="tech-stack">React • Node • PostgreSQL</div>
+                    <div class="proj-actions">
+                      <a href="https://github.com/MatheusFranciscoLS/BusinessFlow" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                      <a href="https://flowbusiness.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
 
-            <article class="project-card">
-              <div class="card-header">
-                <i class="devicon-nodejs-plain icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p3.title">Economia Solidária</h3>
-                <span class="tag fullstack">Full-Stack</span>
-              </div>
-              <img src="assets/p2.png" class="proj-img" alt="Marketplace TCC" />
-              <p data-i18n="p3.desc"></p>
-              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="tag" data-i18n="p3.tag1">Firebase Storage</span>
-                <span class="tag" data-i18n="p3.tag2">Arquitetura Modular</span>
-                <span class="tag" data-i18n="p3.tag3">Auth JWT</span>
-              </div>
-              <div class="card-footer">
-                <div class="techs">Node • React • Firebase</div>
-                <div class="project-links">
-                  <a href="https://github.com/MatheusFranciscoLS/ProjetoFinal" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
-                  <a href="https://economia-solidaria-frontend.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+              <article class="std-card">
+                <img src="assets/p2.png" alt="Marketplace TCC" />
+                <div class="std-content">
+                  <div class="proj-header">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <i class="devicon-nodejs-plain" style="font-size: 1.8rem; color: #339933;"></i>
+                      <h3 data-i18n="p3.title">Economia Solidária</h3>
+                    </div>
+                    <span class="tag fullstack" data-i18n="p3.type">Full-Stack</span>
+                  </div>
+                  <p class="proj-desc" data-i18n="p3.desc"></p>
+                  <div class="proj-tags">
+                    <span class="tag" data-i18n="p3.tag1">Firebase Storage</span>
+                    <span class="tag" data-i18n="p3.tag2">Arquitetura Modular</span>
+                    <span class="tag" data-i18n="p3.tag3">Auth JWT</span>
+                  </div>
+                  <div class="proj-footer">
+                    <div class="tech-stack">Node • React • Firebase</div>
+                    <div class="proj-actions">
+                      <a href="https://github.com/MatheusFranciscoLS/ProjetoFinal" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                      <a href="https://economia-solidaria-frontend.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
 
-            <article class="project-card">
-              <div class="card-header">
-                <i class="devicon-react-original icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p4.title">Chat FURIA</h3>
-                <span class="tag frontend">Front-end</span>
-              </div>
-              <img src="assets/p1.png" class="proj-img" alt="Desafio Furia Dashboard" />
-              <p data-i18n="p4.desc"></p>
-              <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                <span class="tag" data-i18n="p4.tag1">CSS Puro</span>
-                <span class="tag" data-i18n="p4.tag2">Gamification UI</span>
-                <span class="tag" data-i18n="p4.tag3">React Hooks</span>
-              </div>
-              <div class="card-footer">
-                <div class="techs">React • Vite • Firebase</div>
-                <div class="project-links">
-                  <a href="https://github.com/MatheusFranciscoLS/Challenge1Furia" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
-                  <a href="https://challenge1-furia.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+              <article class="std-card">
+                <img src="assets/p1.png" alt="Desafio Furia Dashboard" />
+                <div class="std-content">
+                  <div class="proj-header">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <i class="devicon-react-original" style="font-size: 1.8rem; color: #61DAFB;"></i>
+                      <h3 data-i18n="p4.title">Chat FURIA</h3>
+                    </div>
+                    <span class="tag frontend" data-i18n="p4.type">Front-end</span>
+                  </div>
+                  <p class="proj-desc" data-i18n="p4.desc"></p>
+                  <div class="proj-tags">
+                    <span class="tag" data-i18n="p4.tag1">CSS Puro</span>
+                    <span class="tag" data-i18n="p4.tag2">Gamification UI</span>
+                    <span class="tag" data-i18n="p4.tag3">React Hooks</span>
+                  </div>
+                  <div class="proj-footer">
+                    <div class="tech-stack">React • Vite • Firebase</div>
+                    <div class="proj-actions">
+                      <a href="https://github.com/MatheusFranciscoLS/Challenge1Furia" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
+                      <a href="https://challenge1-furia.vercel.app" target="_blank" class="link-item live">Site ↗</a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+
+            </div>
           </div>
         </div>
       </section>
@@ -489,7 +664,7 @@
         <div class="container">
           <div class="contact-box">
             <h2 data-i18n="contact.title">
-              Pronto para contribuir em seu time.
+              Pronto para somar ao time.
             </h2>
             <p data-i18n="contact.subtitle">
               Me chame e vamos conversar sobre oportunidades.
