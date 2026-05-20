@@ -390,22 +390,26 @@
           </div>
 
           <div class="projects-grid">
-            <article class="project-card highlight-card">
-              <div class="card-header">
+<article class="project-card highlight-card">
+              <div class="card-header" style="align-items: flex-start; gap: 10px;">
                 <i class="devicon-java-plain icon-bg"></i>
-                <h3 style="flex-grow: 1" data-i18n="p1.title">Plataforma IoT Industrial</h3>
-                <span class="tag fullstack" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981;">Microsserviços</span>
+                <h3 style="flex-grow: 1; line-height: 1.2;" data-i18n="p1.title">Plataforma IoT</h3>
+                <span class="tag" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; white-space: nowrap; margin-top: 2px;">Microsserviços</span>
               </div>
+              
               <img src="assets/iot-plataforma.png" class="proj-img" alt="Dashboard Plataforma IoT" />
+              
               <p data-i18n="p1.desc"></p>
+              
               <div class="tech-highlights" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
                 <span class="tag" data-i18n="p1.tag1">RabbitMQ</span>
                 <span class="tag" data-i18n="p1.tag2">WebSockets</span>
                 <span class="tag" data-i18n="p1.tag3">Docker</span>
               </div>
-              <div class="card-footer">
-                <div class="techs">Java • Node • React • RabbitMQ</div>
-                <div class="project-links">
+              
+              <div class="card-footer" style="flex-wrap: wrap; gap: 12px;">
+                <div class="techs" style="flex-basis: 100%; font-size: 0.8rem;">Java • Node • React • RabbitMQ</div>
+                <div class="project-links" style="width: 100%; justify-content: space-between;">
                   <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" class="link-item code"><i class="devicon-github-original"></i> Code</a>
                   <a href="https://plataforma-iot-industrial.vercel.app" target="_blank" class="link-item live">Site ↗</a>
                 </div>

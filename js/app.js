@@ -81,7 +81,7 @@ const translations = {
     "projects.viewAll": "Ver tudo no GitHub →",
 
     // PROJETO 1 (Destaque - IoT)
-    "p1.title": "Plataforma IoT Industrial",
+    "p1.title": "Plataforma IoT",
     "p1.desc":
       "Arquitetura de microsserviços em tempo real. Monitoramento de telemetria de máquinas integrando simulador Python, mensageria com RabbitMQ, API Core em Java (Spring Boot), Gateway Node.js com WebSockets e interface React protegida por JWT.",
     "p1.tag1": "RabbitMQ",
@@ -206,7 +206,7 @@ const translations = {
 
     // Projects
     // PROJECT 1 (Highlight - IoT)
-    "p1.title": "Industrial IoT Platform",
+    "p1.title": "IoT Platform",
     "p1.desc":
       "Real-time microservices architecture for machine telemetry monitoring. Integrates a Python simulator, RabbitMQ messaging, Java (Spring Boot) Core API, Node.js Gateway with WebSockets, and a JWT-secured React interface.",
     "p1.tag1": "RabbitMQ",
