@@ -114,7 +114,7 @@
     }
 
     .master-content {
-        width: 50%;
+        width: 55%;
         padding: 25px;
         justify-content: center;
     }
@@ -145,7 +145,7 @@
 
 .std-card img {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 17/9;
     object-fit: cover;
     border-bottom: 1px solid #334155;
 }
