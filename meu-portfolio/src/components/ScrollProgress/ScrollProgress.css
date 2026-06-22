@@ -1,0 +1,19 @@
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    /* Bem fininha e elegante */
+    background: transparent;
+    z-index: 1000;
+    /* Fica acima de tudo, inclusive da Navbar */
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    width: 0%;
+    transition: width 0.1s ease-out;
+    /* Segue o mouse quase em tempo real */
+}

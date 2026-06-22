@@ -1,0 +1,235 @@
+/* --- IDENTIDADE VISUAL: TECH PRO BLUE --- */
+:root {
+  --bg-body: #0f172a;
+  /* Slate 900 */
+  --bg-surface: #1e293b;
+  /* Slate 800 */
+  --primary: #3b82f6;
+  /* Azul Royal */
+  --accent: #06b6d4;
+  /* Ciano */
+  --text-main: #f8fafc;
+  /* Branco */
+  --text-muted: #94a3b8;
+  /* Cinza */
+  --border: rgba(148, 163, 184, 0.1);
+  --font-title: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* --- TEMA CLARO (LIGHT MODE) --- */
+[data-theme="light"] {
+  --bg-body: #f8fafc;
+  /* Fundo muito claro */
+  --bg-surface: #ffffff;
+  /* Branco puro para os cards */
+  --primary: #2563eb;
+  /* Azul um pouco mais escuro para contraste */
+  --accent: #0891b2;
+  /* Ciano mais forte */
+  --text-main: #0f172a;
+  /* Texto principal quase preto */
+  --text-muted: #475569;
+  /* Texto secundário cinza escuro */
+  --border: rgba(15, 23, 42, 0.15);
+  /* Borda mais marcadinha */
+}
+
+/* Correções específicas para o Tema Claro não usar cores "chumbadas" */
+[data-theme="light"] #header.scrolled {
+  background: rgba(248, 250, 252, 0.85);
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .master-card,
+[data-theme="light"] .std-card {
+  background: var(--bg-surface);
+  border-color: var(--border);
+}
+
+[data-theme="light"] .master-img {
+  background: #e2e8f0;
+  border-right-color: var(--border);
+}
+
+[data-theme="light"] .proj-header h3 {
+  color: var(--text-main);
+}
+
+[data-theme="light"] .link-item.code {
+  color: var(--text-main);
+}
+
+[data-theme="light"] .link-item.code:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .contact-box {
+  background: var(--bg-surface);
+}
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea {
+  background: #f1f5f9;
+  color: var(--text-main);
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .contact-form input:focus,
+[data-theme="light"] .contact-form textarea:focus {
+  background: #ffffff;
+  border-color: var(--primary);
+}
+
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  scroll-behavior: smooth;
+  /* Devolve o efeito de deslizar ao clicar no menu! */
+}
+
+html {
+  scroll-padding-top: 90px;
+  /* Impede que o menu fixo cubra os títulos */
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* --- SCROLLBAR CUSTOMIZADA --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+  border: 2px solid var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --- UTILITÁRIOS GERAIS --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #60a5fa, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- BOTÕES GERAIS --- */
+.btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #2563eb;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-family: var(--font-body);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* --- ACESSIBILIDADE (A11Y) E NAVEGAÇÃO POR TECLADO --- */
+:focus {
+  outline: none;
+  /* Remove o contorno feio padrão */
+}
+
+:focus-visible {
+  /* Só aparece quando o usuário navega pelo TECLADO, não ao clicar com o mouse */
+  outline: 2px dashed var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+  transition: outline-offset 0.2s ease;
+}
+
+/* Evita que botões fiquem estranhos ao segurar o clique */
+.btn:active,
+.filter-btn:active,
+.lang-btn:active,
+.theme-btn:active {
+  transform: scale(0.96);
+}

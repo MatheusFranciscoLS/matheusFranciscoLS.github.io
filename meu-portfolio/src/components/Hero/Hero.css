@@ -1,0 +1,191 @@
+/* --- ESTILOS ESPECÍFICOS DA HERO SECTION --- */
+.hero {
+    padding: 160px 0 100px;
+    /* Mais respiro no topo e em baixo */
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    /* Aumentei o gap para o design respirar melhor */
+    align-items: center;
+}
+
+.bio {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    /* Aumentei sutilmente para facilitar a leitura */
+    margin-bottom: 40px;
+    max-width: 550px;
+    line-height: 1.8;
+    /* Melhor legibilidade (Pilar 1) */
+}
+
+/* Os botões da Hero */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+/* Estatísticas */
+.stats-row {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+}
+
+.stat {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.stat strong {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Hero Visual & Glass Card */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.glass-card {
+    width: 320px;
+    height: 380px;
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.avatar-img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+.bg-blur {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: var(--primary);
+    opacity: 0.15;
+    filter: blur(100px);
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Badges e Animações de Flutuação continuam os mesmos */
+.floating-badge {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-surface);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: float 3s infinite ease-in-out;
+}
+
+.badge-java {
+    top: -20px;
+    right: -10px;
+    color: #f89820;
+    animation-delay: 0s;
+}
+
+.badge-react {
+    bottom: 30px;
+    left: -20px;
+    color: #61DAFB;
+    animation-delay: 1.5s;
+}
+
+.badge-spring {
+    top: 20px;
+    left: -25px;
+    color: #6db33f;
+    animation-delay: 0.8s;
+}
+
+.badge-js {
+    bottom: 100px;
+    right: -25px;
+    color: #f0db4f;
+    animation-delay: 2.5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* MOBILE RESPONSIVE PARA A HERO */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-visual {
+        order: -1;
+    }
+
+    .bio {
+        margin: 0 auto 30px;
+    }
+
+    .hero-buttons,
+    .stats-row {
+        justify-content: center;
+    }
+}
+
+.typing-cursor {
+    color: var(--accent);
+    font-weight: 400;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

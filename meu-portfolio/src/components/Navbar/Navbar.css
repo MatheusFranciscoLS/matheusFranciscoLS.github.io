@@ -1,0 +1,183 @@
+/* --- HEADER & NAVBAR --- */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    /* Começa transparente */
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s ease;
+    /* Transição super suave */
+    padding: 10px 0;
+    /* Começa um pouco maior */
+}
+
+/* Quando a página rola para baixo, essa classe entra em ação */
+#header.scrolled {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    /* Diminui o tamanho ao rolar */
+}
+
+.header-content {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    letter-spacing: -0.5px;
+    font-family: 'Fira Code', monospace;
+}
+
+.logo-name {
+    font-weight: 700;
+    color: var(--text-main);
+    margin-left: 5px;
+}
+
+.logo-tag {
+    color: var(--accent);
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    /* Isso tira aquelas bolinhas feias! */
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn-nav {
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 6px;
+    color: var(--text-main) !important;
+}
+
+.btn-nav:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.mobile-menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* --- BOTÕES DE IDIOMA --- */
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 30px;
+    border-left: 1px solid var(--border);
+    height: 24px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.lang-btn:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-btn.active {
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.divider {
+    color: var(--border);
+    font-size: 0.8rem;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    nav {
+        gap: 0;
+    }
+
+    .lang-switch {
+        margin-right: 20px;
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+        color: #fff;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.98);
+        padding: 20px;
+        border-bottom: 1px solid var(--primary);
+    }
+}
+
+/* --- BOTÃO DE TEMA --- */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.15);
+}
