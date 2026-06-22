@@ -90,19 +90,19 @@ nav {
     color: #fff;
 }
 
-/* --- EXTRAS DO MENU (TEMA E IDIOMA) --- */
-.menu-extras {
+/* --- EXTRAS DO MENU (TEMA E IDIOMA) --- *//* --- AÇÕES DO CABEÇALHO (TEMA, IDIOMA E MENU) --- */
+.header-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
-    border-left: 1px solid var(--border);
-    padding-left: 20px;
+    gap: 24px;
 }
 
 .lang-switch {
     display: flex;
     align-items: center;
     gap: 8px;
+    border-left: 1px solid var(--border);
+    padding-left: 20px;
 }
 
 .lang-btn {
@@ -148,6 +148,40 @@ nav {
 
 /* --- MOBILE RESPONSIVE REFINADO --- */
 @media (max-width: 900px) {
+    .hide-mobile {
+        display: none;
+    }
+
+    /* Esconde o "Portfólio" */
+
+    .logo-name {
+        font-size: 1rem;
+    }
+
+    /* Diminui a logo */
+
+    .header-actions {
+        gap: 12px;
+    }
+
+    /* Aproxima os botões */
+
+    .lang-switch {
+        border-left: none;
+        padding-left: 0;
+        gap: 4px;
+    }
+
+    .lang-btn {
+        padding: 2px 4px;
+        font-size: 0.75rem;
+        /* Botões de idioma menores */
+    }
+
+    .theme-btn {
+        font-size: 1.1rem;
+    }
+
     nav {
         gap: 0;
     }
@@ -167,7 +201,6 @@ nav {
         flex-direction: column;
         position: absolute;
         top: 60px;
-        /* Cola certinho abaixo do header */
         left: 0;
         width: 100%;
         background: var(--bg-surface);
@@ -176,10 +209,8 @@ nav {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         gap: 20px;
         align-items: center;
-        /* Centraliza os textos */
     }
 
-    /* Remove a caixa do botão contato no celular para padronizar */
     .btn-nav {
         border: none;
         padding: 0;
@@ -188,16 +219,5 @@ nav {
 
     .btn-nav:hover {
         background: transparent;
-    }
-
-    /* Agrupa os toggles de Tema e Idioma no final do menu */
-    .menu-extras {
-        border-left: none;
-        padding-left: 0;
-        margin-top: 10px;
-        padding-top: 20px;
-        border-top: 1px solid var(--border);
-        width: 100%;
-        justify-content: center;
     }
 }
