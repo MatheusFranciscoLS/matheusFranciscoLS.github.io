@@ -157,13 +157,13 @@
     flex-grow: 1;
 }
 
-/* COMPONENTES COMPARTILHADOS NOS CARDS */
 .proj-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 15px;
     margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 .proj-header h3 {

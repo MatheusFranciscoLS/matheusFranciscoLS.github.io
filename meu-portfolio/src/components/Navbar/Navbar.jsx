@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import { LanguageContext } from '../../context/LanguageContext';
-import { useTheme } from '../../hooks/useTheme'; 
+import { useTheme } from '../../hooks/useTheme';
 import './Navbar.css';
 
 const Navbar = () => {
   const { t, lang, setLang } = useContext(LanguageContext);
-  const { theme, toggleTheme } = useTheme(); 
+  const { theme, toggleTheme } = useTheme();
   
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,42 +26,28 @@ const Navbar = () => {
         </a>
         
         <nav>
-          {/* A classe 'active' entra aqui se o menu mobile estiver aberto */}
           <ul className={`nav-links ${isMobileOpen ? 'active' : ''}`}>
             <li><a href="#inicio" onClick={closeMobileMenu}>{t('nav.home')}</a></li>
             <li><a href="#sobre" onClick={closeMobileMenu}>{t('nav.about')}</a></li>
             <li><a href="#projetos" onClick={closeMobileMenu}>{t('nav.projects')}</a></li>
             <li><a href="#contato" className="btn-nav" onClick={closeMobileMenu}>{t('nav.contact')}</a></li>
+            
+            {/* Toggles agrupados DENTRO do menu para o Mobile ficar limpo */}
+            <li className="menu-extras">
+              <button onClick={toggleTheme} className="theme-btn" title="Alternar Tema">
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </button>
+              <div className="lang-switch">
+                <button onClick={() => setLang('pt')} className={`lang-btn ${lang === 'pt' ? 'active' : ''}`}>🇧🇷</button>
+                <span className="divider">|</span>
+                <button onClick={() => setLang('en')} className={`lang-btn ${lang === 'en' ? 'active' : ''}`}>🇺🇸</button>
+              </div>
+            </li>
           </ul>
-          
-          <div className="theme-switch">
-            <button onClick={toggleTheme} className="theme-btn" title="Alternar Tema">
-              {theme === 'dark' ? '☀️' : '🌙'}
-            </button>
-          </div>
-
-          <div className="lang-switch">
-            <button 
-              onClick={() => setLang('pt')} 
-              className={`lang-btn ${lang === 'pt' ? 'active' : ''}`}
-            >
-              🇧🇷
-            </button>
-            <span className="divider">|</span>
-            <button 
-              onClick={() => setLang('en')} 
-              className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
-            >
-              🇺🇸
-            </button>
-          </div>
         </nav>
 
-        {/* Ícone Hamburger (Só aparece no mobile) */}
-        <div 
-          className="mobile-menu-icon" 
-          onClick={() => setIsMobileOpen(!isMobileOpen)}
-        >
+        {/* Ícone Hamburger super limpo */}
+        <div className="mobile-menu-icon" onClick={() => setIsMobileOpen(!isMobileOpen)}>
           {isMobileOpen ? '✕' : '☰'}
         </div>
       </div>
