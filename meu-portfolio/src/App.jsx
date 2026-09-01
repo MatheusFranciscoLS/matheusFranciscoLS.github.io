@@ -4,6 +4,7 @@ import FeaturedWork from './components/Portfolio/FeaturedWork';
 import Footer from './components/Portfolio/Footer';
 import Header from './components/Portfolio/Header';
 import Hero from './components/Portfolio/Hero';
+import PrivacyAnalytics from './components/Portfolio/PrivacyAnalytics';
 import ProfileSection, { EducationSection } from './components/Portfolio/ProfileSection';
 import ProjectArchive from './components/Portfolio/ProjectArchive';
 import StackSection from './components/Portfolio/StackSection';
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <div className="site-shell">
+      <PrivacyAnalytics />
       <a className="skip-link" href="#conteudo">
         {lang === 'pt' ? 'Ir para o conteúdo' : 'Skip to content'}
       </a>
@@ -59,3 +61,4 @@ function App() {
 }
 
 export default App;
+

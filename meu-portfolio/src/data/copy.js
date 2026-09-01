@@ -37,6 +37,13 @@ export const copy = {
       solution: 'A solução',
       solutionText: 'Um catálogo técnico com controle por papéis, armazenamento privado e uma IA que responde com base em evidências.',
       capabilities: ['Catálogo e documentos privados', 'Permissões por função', 'Mensageria e processos assíncronos', 'IA com rastreabilidade de fontes'],
+      evidenceEyebrow: 'Evidências técnicas verificadas',
+      evidence: [
+        { value: '45', label: 'arquivos de teste' },
+        { value: '17', label: 'migrations versionadas' },
+        { value: '12', label: 'modelos de domínio' },
+        { value: '02', label: 'perfis operacionais' },
+      ],
       live: 'Abrir produto',
       code: 'Ver código',
       moreCases: 'Outros produtos em destaque',
@@ -153,6 +160,13 @@ export const copy = {
       solution: 'The solution',
       solutionText: 'A technical catalog with role-based access, private storage and AI answers grounded in evidence.',
       capabilities: ['Private catalog and documents', 'Role-based permissions', 'Messaging and async processes', 'Source-traceable AI'],
+      evidenceEyebrow: 'Verified technical evidence',
+      evidence: [
+        { value: '45', label: 'test files' },
+        { value: '17', label: 'versioned migrations' },
+        { value: '12', label: 'domain models' },
+        { value: '02', label: 'operational roles' },
+      ],
       live: 'Open product',
       code: 'View code',
       moreCases: 'More featured products',
@@ -232,3 +246,4 @@ export const copy = {
     },
   },
 };
+

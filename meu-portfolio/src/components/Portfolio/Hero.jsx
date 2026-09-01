@@ -19,7 +19,7 @@ export default function Hero({ lang, text }) {
           <p className="hero-intro">{text.intro}</p>
 
           <div className="hero-actions">
-            <a className="button button-primary" href="#projetos">
+            <a className="button button-primary" href="#projetos" data-umami-event="hero-projects-open">
               {text.projects}
               <ArrowDownRight size={17} aria-hidden="true" />
             </a>
@@ -27,6 +27,8 @@ export default function Hero({ lang, text }) {
               className="button button-ghost"
               href={lang === 'pt' ? '/assets/curriculo-pt.pdf' : '/assets/curriculo-en.pdf'}
               download
+              data-umami-event="resume-download"
+              data-umami-event-language={lang}
             >
               {text.resume}
               <Download size={16} aria-hidden="true" />
@@ -119,3 +121,4 @@ export default function Hero({ lang, text }) {
     </>
   );
 }
+

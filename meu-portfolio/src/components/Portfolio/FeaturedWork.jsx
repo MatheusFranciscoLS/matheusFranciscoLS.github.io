@@ -5,12 +5,24 @@ function ProjectLinks({ project, text }) {
   return (
     <div className="project-links">
       {project.live && (
-        <a href={project.live} target="_blank" rel="noreferrer">
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noreferrer"
+          data-umami-event="project-live-open"
+          data-umami-event-project={project.name}
+        >
           {text.live}
           <ArrowUpRight size={15} aria-hidden="true" />
         </a>
       )}
-      <a href={project.github} target="_blank" rel="noreferrer">
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noreferrer"
+        data-umami-event="project-code-open"
+        data-umami-event-project={project.name}
+      >
         <Code2 size={15} aria-hidden="true" />
         {text.code}
       </a>
@@ -55,6 +67,18 @@ export default function FeaturedWork({ lang, text }) {
               {text.capabilities.map((capability) => <li key={capability}>{capability}</li>)}
             </ul>
 
+            <div className="technical-evidence" aria-label={text.evidenceEyebrow}>
+              <span className="technical-evidence-label">{text.evidenceEyebrow}</span>
+              <dl>
+                {text.evidence.map((item) => (
+                  <div key={item.label}>
+                    <dt>{item.value}</dt>
+                    <dd>{item.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
             <div className="project-tags">
               {cogniVault.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
@@ -74,6 +98,7 @@ export default function FeaturedWork({ lang, text }) {
                 href={cogniVault.live}
                 target="_blank"
                 rel="noreferrer"
+                data-umami-event="cognivault-visual-open"
                 aria-label={lang === 'pt' ? 'Abrir o CogniVault em uma nova aba' : 'Open CogniVault in a new tab'}
               >
                 <img
@@ -139,3 +164,4 @@ export default function FeaturedWork({ lang, text }) {
     </section>
   );
 }
+

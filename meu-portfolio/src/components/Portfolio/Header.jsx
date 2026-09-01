@@ -54,6 +54,8 @@ export default function Header({ lang, setLang, theme, toggleTheme, text }) {
               aria-label={`${label} — Matheus Francisco`}
               title={label}
               key={label}
+              data-umami-event="header-social-open"
+              data-umami-event-network={label}
             >
               <span className="social-monogram" aria-hidden="true">{mark}</span>
               <span>{label}</span>
@@ -99,7 +101,14 @@ export default function Header({ lang, setLang, theme, toggleTheme, text }) {
         ))}
         <div className="mobile-socials">
           {socialLinks.map(([href, label, mark]) => (
-            <a href={href} target="_blank" rel="noreferrer noopener" key={label}>
+            <a
+              href={href}
+              target="_blank"
+              rel="noreferrer noopener"
+              key={label}
+              data-umami-event="mobile-social-open"
+              data-umami-event-network={label}
+            >
               <span className="social-monogram" aria-hidden="true">{mark}</span>
               {label}
             </a>
@@ -109,3 +118,4 @@ export default function Header({ lang, setLang, theme, toggleTheme, text }) {
     </header>
   );
 }
+

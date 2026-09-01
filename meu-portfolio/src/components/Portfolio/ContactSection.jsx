@@ -30,6 +30,7 @@ export default function ContactSection({ text }) {
       if (!response.ok) throw new Error('Request failed');
       form.reset();
       setStatus('success');
+      window.umami?.track('contact-form-success');
     } catch {
       setStatus('error');
     }
@@ -44,29 +45,29 @@ export default function ContactSection({ text }) {
           <p>{text.intro}</p>
 
           <div className="contact-directory">
-            <a href={`mailto:${EMAIL}`}>
+            <a href={`mailto:${EMAIL}`} data-umami-event="contact-email-open">
               <Mail size={18} aria-hidden="true" />
               <span><small>{text.email}</small>{EMAIL}</span>
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
-            <a href="https://wa.me/5519981911214?text=Olá%20Matheus,%20vi%20seu%20portfólio." target="_blank" rel="noreferrer">
+            <a href="https://wa.me/5519981911214?text=Olá%20Matheus,%20vi%20seu%20portfólio." target="_blank" rel="noreferrer" data-umami-event="contact-whatsapp-open">
               <MessageCircle size={18} aria-hidden="true" />
               <span><small>{text.whatsapp}</small>+55 19 98191-1214</span>
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
-            <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer" data-umami-event="contact-linkedin-open">
               <BriefcaseBusiness size={18} aria-hidden="true" />
               <span><small>{text.linkedin}</small>/in/matheusfranciscols</span>
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
-            <a href="https://github.com/MatheusFranciscoLS" target="_blank" rel="noreferrer">
+            <a href="https://github.com/MatheusFranciscoLS" target="_blank" rel="noreferrer" data-umami-event="contact-github-open">
               <GitFork size={18} aria-hidden="true" />
               <span><small>{text.github}</small>@MatheusFranciscoLS</span>
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           </div>
 
-          <button className="copy-email" type="button" onClick={copyEmail}>
+          <button className="copy-email" type="button" onClick={copyEmail} data-umami-event="contact-email-copy">
             {copied ? <Check size={15} aria-hidden="true" /> : <Copy size={15} aria-hidden="true" />}
             {copied ? text.copied : text.copy}
           </button>
@@ -115,3 +116,4 @@ export default function ContactSection({ text }) {
     </section>
   );
 }
+
