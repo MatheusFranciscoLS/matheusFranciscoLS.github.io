@@ -1,43 +1,57 @@
-import { Suspense, lazy } from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import ScrollProgress from './components/ScrollProgress/ScrollProgress';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import { useContext, useEffect } from 'react';
+import ContactSection from './components/Portfolio/ContactSection';
+import FeaturedWork from './components/Portfolio/FeaturedWork';
+import Footer from './components/Portfolio/Footer';
+import Header from './components/Portfolio/Header';
+import Hero from './components/Portfolio/Hero';
+import ProfileSection from './components/Portfolio/ProfileSection';
+import ProjectArchive from './components/Portfolio/ProjectArchive';
+import StackSection from './components/Portfolio/StackSection';
 import Reveal from './components/Reveal/Reveal';
-
-// Code Splitting: Estes componentes só serão baixados se o usuário rolar a tela
-const Impact = lazy(() => import('./components/Impact/Impact'));
-const About = lazy(() => import('./components/About/About'));
-const TechStack = lazy(() => import('./components/TechStack/TechStack'));
-const Projects = lazy(() => import('./components/Projects/Projects'));
-const Contact = lazy(() => import('./components/Contact/Contact'));
-const Footer = lazy(() => import('./components/Footer/Footer'));
+import { LanguageContext } from './context/LanguageContext';
+import { copy } from './data/copy';
+import { useTheme } from './hooks/useTheme';
+import './portfolio.css';
 
 function App() {
-  return (
-    <>
-      <ScrollProgress />
-      <Navbar />
-      
-      <main>
-        <Hero /> 
-        
-        <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
-          <Reveal><Impact /></Reveal>
-          <Reveal><About /></Reveal>
-          <Reveal><TechStack /></Reveal>
-          <Reveal><Projects /></Reveal>
-          <Reveal><Contact /></Reveal>
-        </Suspense>
-      </main>
+  const { lang, setLang } = useContext(LanguageContext);
+  const { theme, toggleTheme } = useTheme();
+  const text = copy[lang];
 
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-      
-      <ScrollToTop />
-    </>
-  )
+  useEffect(() => {
+    const isPortuguese = lang === 'pt';
+    document.documentElement.lang = isPortuguese ? 'pt-BR' : 'en';
+    document.title = isPortuguese
+      ? 'Matheus Francisco — Desenvolvedor Full-Stack'
+      : 'Matheus Francisco — Full-Stack Developer';
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.content = isPortuguese
+        ? 'Portfólio de Matheus Francisco: produtos full-stack, arquitetura de software, dados e inteligência artificial.'
+        : 'Matheus Francisco portfolio: full-stack products, software architecture, data and artificial intelligence.';
+    }
+  }, [lang]);
+
+  return (
+    <div className="site-shell">
+      <Header
+        lang={lang}
+        setLang={setLang}
+        theme={theme}
+        toggleTheme={toggleTheme}
+        text={text.nav}
+      />
+      <main>
+        <Hero lang={lang} text={text.hero} />
+        <Reveal><FeaturedWork lang={lang} text={text.featured} /></Reveal>
+        <Reveal><ProjectArchive lang={lang} text={text.archive} /></Reveal>
+        <Reveal><ProfileSection text={text.profile} /></Reveal>
+        <Reveal><StackSection text={text.stack} /></Reveal>
+        <Reveal><ContactSection text={text.contact} /></Reveal>
+      </main>
+      <Footer text={text.footer} />
+    </div>
+  );
 }
 
 export default App;

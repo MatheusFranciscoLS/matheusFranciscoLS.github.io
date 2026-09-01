@@ -1,209 +1,24 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 /* eslint-disable-next-line react-refresh/only-export-components */
 export const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
-  const getInitialLanguage = () => {
-    const savedLang = localStorage.getItem('preferredLang');
-    if (savedLang) return savedLang;
+const getInitialLanguage = () => {
+  const savedLanguage = localStorage.getItem('preferredLang');
+  if (savedLanguage === 'pt' || savedLanguage === 'en') return savedLanguage;
+  return navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+};
 
-    const browserLang = navigator.language || navigator.userLanguage;
-    
-    return browserLang.toLowerCase().includes('pt') ? 'pt' : 'en';
-  };
-
+export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(getInitialLanguage);
 
-  // Salva no cache sempre que mudar
   useEffect(() => {
     localStorage.setItem('preferredLang', lang);
   }, [lang]);
 
-  // Nosso Dicionário Estratégico
-const translations = {
-    pt: {
-      "nav.home": "Início",
-      "nav.about": "Sobre",
-      "nav.projects": "Projetos",
-      "nav.contact": "Contato",
-      "hero.badge": "Disponível para projetos",
-      "hero.role": "Desenvolvedor Full-Stack",
-      "hero.subrole": "Engenharia de Software & Inteligência de Dados",
-      "hero.bio": "Construo aplicações modernas (Java + React) focadas em resolver desafios de negócios. Tenho experiência na criação de sistemas end-to-end, desde a arquitetura de microsserviços até a estruturação de dados para dashboards e relatórios estratégicos (BI). Minha missão é transformar regras de negócio em software escalável e dados brutos em inteligência corporativa.",
-      "hero.ctaPrimary": "Ver Projetos",
-      "hero.ctaSecondary": " Ver Repositórios",
-      "hero.xpYears": "8+",
-      "hero.xpText": "Anos de Background Comercial",
-      "hero.stat1Title": "Engenharia Full-Stack",
-      "hero.stat1Desc": "Aplicações robustas de ponta a ponta.",
-      "hero.stat2Title": "Visão de Negócios & BI",
-      "hero.stat2Desc": "Sistemas que geram valor e dados acionáveis.",
-      "value.title": "Meu Impacto no Time",
-      "value.subtitle": "Não sou apenas um codificador. Trago visão de negócio corporativo e foco em resultados.",
-      "value.card1.title": "Autonomia & Resolução",
-      "value.card1.desc": "Minha bagagem comercial me ensinou a não esperar por ordens, mas sim mapear problemas de forma independente, propor soluções tecnológicas e executá-las com proatividade.",
-      "value.card2.title": "Arquitetura Orientada a Dados",
-      "value.card2.desc": "Entendo que o software corporativo existe para gerar valor. Estruturo sistemas e bancos de dados pensando em como essas informações serão extraídas para análise e Business Intelligence (BI).",
-      "value.card3.title": "Comunicação Interpessoal",
-      "value.card3.desc": "Atuo como uma ponte técnica: traduzo requisitos complexos de TI para a linguagem de negócios e vice-versa, garantindo alinhamento total entre as equipes e os stakeholders.",
-      "about.badge": "Minha Jornada",
-      "about.title": "Visão estratégica,<br> <span class='text-gradient'>execução técnica.</span>",
-      "about.desc1": "Com <strong>8 anos de experiência no mercado</strong>, desenvolvi uma visão estratégica forte: entender os problemas reais das empresas, mapear processos e entregar soluções que funcionam.",
-      "about.desc2": "Hoje aplico essa maturidade no desenvolvimento de software e análise de dados. Crio plataformas completas que combinam arquitetura sólida no backend (Java/Spring), interfaces intuitivas (React) e modelagem de dados voltada para a tomada de decisão.",
-      "about.cv": "Baixar Currículo PDF",
-      "about.certs": "Formação & Certificados",
-      "about.skill1": "💡 Resolução de Problemas",
-      "about.skill2": "📊 Modelagem de Dados",
-      "about.skill3": "🗣️ Comunicação Corporativa",
-      "about.skill4": "⚡ Autonomia",
-      "about.skill5": "🔄 Adaptabilidade",
-      "cert.cs": "Ciência da Computação",
-      "cert.cs.desc": "Bacharelado — Anhembi Morumbi (Em curso)",
-      "cert.tec": "Técnico em Desenv. de Sistemas",
-      "cert.tec.desc": "Formação Completa — SENAI (2022 - 2024)",
-      "cert.java": "Java & Banco de Dados",
-      "cert.java.desc": "Formação Específica (240h) — SENAI",
-      "cert.aws": "AWS Cloud Practitioner",
-      "cert.aws.desc": "Infraestrutura e Nuvem",
-      "tech.title": "Tecnologias & Ferramentas",
-      "tech.subtitle": "Meu arsenal técnico para construir soluções escaláveis e extrair inteligência de dados.",
-      "tech.backend": "Back-end & Dados",
-      "tech.frontend": "Front-end & BI",
-      "tech.devops": "DevOps & Ferramentas",
-      "projects.title": "Soluções Desenvolvidas",
-      "projects.subtitle": "Sistemas focados em alta performance, integração de processos e geração de relatórios estratégicos.",
-      "projects.viewAll": "Ver tudo no GitHub →",
-      "p1.type": "Microsserviços & Dados",
-      "p2.type": "ERP / Inteligência",
-      "p3.type": "Marketplace",
-      "p4.type": "Front-end UI",
-      "p1.title": "Plataforma IoT Industrial",
-      "p1.desc": "Arquitetura de microsserviços para ingestão e processamento de dados em tempo real. O sistema monitora a telemetria de maquinário pesado integrando simuladores Python, filas RabbitMQ e API Java (Spring Boot), exibindo painéis operacionais via WebSockets em uma interface React.",
-      "p1.tag1": "Telemetria de Dados",
-      "p1.tag2": "RabbitMQ",
-      "p1.tag3": "Microsserviços",
-      "p2.title": "Business Flow (ERP)",
-      "p2.desc": "Plataforma focada em extração de inteligência e gestão corporativa. Cruza dados do financeiro com o CRM de clientes para gerar relatórios consolidados em PDF e tabelas dinâmicas (BI), auxiliando diretamente na visualização de KPIs e tomada de decisão estratégica.",
-      "p2.tag1": "Geração de Relatórios",
-      "p2.tag2": "Modelagem SQL",
-      "p2.tag3": "Lógica de Negócios",
-      "p3.title": "Economia Solidária",
-      "p3.desc": "Plataforma Full-Stack criada para conectar produtores locais e consumidores. Foco no desenvolvimento da lógica de autenticação, upload de mídias e painel administrativo para gestão do fluxo de vendas.",
-      "p3.tag1": "Firebase Storage",
-      "p3.tag2": "Painel de Gestão",
-      "p3.tag3": "Auth JWT",
-      "p4.title": "Chat FURIA",
-      "p4.desc": "Desenvolvimento focado puramente em Experiência do Usuário (UX) e interfaces de alta interatividade. Aplicação de técnicas de gamificação visual, componentização limpa e otimização de performance no client-side.",
-      "p4.tag1": "Gamification UI",
-      "p4.tag2": "Performance UX",
-      "p4.tag3": "React Hooks",
-      "contact.title": "Pronto para gerar impacto no seu time.",
-      "contact.subtitle": "Vamos conversar sobre como minhas habilidades técnicas e visão de negócios podem somar à empresa.",
-      "contact.whats": " WhatsApp",
-      "contact.copy": "📧 Copiar E-mail",
-      "contact.send": "Enviar Agora",
-      "contact.copied": "✅ Copiado!",
-      "contact.direct": "Ou envie uma mensagem direta:",
-      "form.name": "Seu Nome",
-      "form.email": "Seu Email",
-      "form.message": "Como posso ajudar a sua equipe?"
-    },
-    en: {
-      "nav.home": "Home",
-      "nav.about": "About",
-      "nav.projects": "Projects",
-      "nav.contact": "Contact",
-      "hero.badge": "Available for opportunities",
-      "hero.role": "Full-Stack Developer",
-      "hero.subrole": "Software Engineering & Data Intelligence",
-      "hero.bio": "I build modern applications (Java + React) focused on solving business challenges. I have experience in creating end-to-end systems, from microservices architecture to structuring data for strategic dashboards and reports (BI). My mission is to transform business rules into scalable software and raw data into corporate intelligence.",
-      "hero.ctaPrimary": "View Projects",
-      "hero.ctaSecondary": " GitHub Repos",
-      "hero.xpYears": "8+",
-      "hero.xpText": "Years of Commercial Background",
-      "hero.stat1Title": "Full-Stack Engineering",
-      "hero.stat1Desc": "Robust end-to-end applications.",
-      "hero.stat2Title": "Business Vision & BI",
-      "hero.stat2Desc": "Systems that generate actionable data.",
-      "value.title": "My Impact on the Team",
-      "value.subtitle": "I'm not just a coder. I bring corporate business vision and a focus on results.",
-      "value.card1.title": "Autonomy & Resolution",
-      "value.card1.desc": "My commercial background taught me not to wait for orders, but to independently map problems, propose technological solutions, and execute them proactively.",
-      "value.card2.title": "Data-Driven Architecture",
-      "value.card2.desc": "I understand that corporate software exists to generate value. I structure systems and databases thinking about how this information will be extracted for Business Intelligence (BI) analysis.",
-      "value.card3.title": "Interpersonal Communication",
-      "value.card3.desc": "I act as a technical bridge: translating complex IT requirements into business language and vice versa, ensuring full alignment across teams and stakeholders.",
-      "about.badge": "My Journey",
-      "about.title": "Strategic vision,<br> <span class='text-gradient'>technical execution.</span>",
-      "about.desc1": "With <strong>8 years of market experience</strong>, I developed a strong strategic vision: understanding real business problems, mapping processes, and delivering solutions that work.",
-      "about.desc2": "Today I apply this maturity in software development and data analysis. I build complete platforms that combine solid backend architecture (Java/Spring), intuitive interfaces (React), and data modeling aimed at decision-making.",
-      "about.cv": "Download Resume (PDF)",
-      "about.certs": "Education & Certifications",
-      "about.skill1": "💡 Problem Solving",
-      "about.skill2": "📊 Data Modeling",
-      "about.skill3": "🗣️ Corporate Communication",
-      "about.skill4": "⚡ Autonomy",
-      "about.skill5": "🔄 Adaptability",
-      "cert.cs": "Computer Science",
-      "cert.cs.desc": "Bachelor's Degree — Anhembi Morumbi (Ongoing)",
-      "cert.tec": "Systems Development Tech",
-      "cert.tec.desc": "Full Technical Course — SENAI (2022 - 2024)",
-      "cert.java": "Java & Database",
-      "cert.java.desc": "Specific Training (240h) — SENAI",
-      "cert.aws": "AWS Cloud Practitioner",
-      "cert.aws.desc": "Infrastructure & Cloud",
-      "tech.title": "Tech Stack & Tools",
-      "tech.subtitle": "My technical arsenal to build scalable solutions and extract data intelligence.",
-      "tech.backend": "Back-end & Data",
-      "tech.frontend": "Front-end & BI",
-      "tech.devops": "DevOps & Tools",
-      "projects.title": "Developed Solutions",
-      "projects.subtitle": "Systems focused on high performance, process integration, and strategic reporting.",
-      "projects.viewAll": "View all on GitHub →",
-      "p1.type": "Microservices & Data",
-      "p2.type": "ERP / Intelligence",
-      "p3.type": "Marketplace",
-      "p4.type": "Front-end UI",
-      "p1.title": "Industrial IoT Platform",
-      "p1.desc": "Microservices architecture for real-time data ingestion and processing. The system monitors heavy machinery telemetry by integrating Python simulators, RabbitMQ queues, and a Java API, displaying operational dashboards via WebSockets.",
-      "p1.tag1": "Data Telemetry",
-      "p1.tag2": "RabbitMQ",
-      "p1.tag3": "Microservices",
-      "p2.title": "Business Flow (ERP)",
-      "p2.desc": "Platform focused on corporate management and intelligence extraction. It crosses financial and CRM data to generate consolidated PDF reports and dynamic tables (BI), directly assisting in KPI visualization and strategic decision-making.",
-      "p2.tag1": "Report Generation",
-      "p2.tag2": "SQL Modeling",
-      "p2.tag3": "Business Logic",
-      "p3.title": "Solidarity Economy",
-      "p3.desc": "Full-Stack platform created to connect local producers and consumers. Focus on developing authentication logic, media uploads, and an administrative panel for sales flow management.",
-      "p3.tag1": "Firebase Storage",
-      "p3.tag2": "Management Panel",
-      "p3.tag3": "Auth JWT",
-      "p4.title": "Chat FURIA",
-      "p4.desc": "Development purely focused on User Experience (UX) and highly interactive interfaces. Application of visual gamification techniques, clean componentization, and client-side performance optimization.",
-      "p4.tag1": "Gamification UI",
-      "p4.tag2": "UX Performance",
-      "p4.tag3": "React Hooks",
-      "contact.title": "Ready to make an impact.",
-      "contact.subtitle": "Let's talk about how my technical skills and business vision can add value to your team.",
-      "contact.whats": " WhatsApp",
-      "contact.copy": "📧 Copy E-mail",
-      "contact.send": "Send Now",
-      "contact.copied": "✅ Copied!",
-      "contact.direct": "Or send a direct message:",
-      "form.name": "Your Name",
-      "form.email": "Your Email",
-      "form.message": "How can I help your team?"
-    }
-  };
-
-  // Função mágica que vai traduzir tudo
-  const t = (key) => translations[lang][key] || key;
-
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={{ lang, setLang }}>
       {children}
     </LanguageContext.Provider>
   );
-};
+}
