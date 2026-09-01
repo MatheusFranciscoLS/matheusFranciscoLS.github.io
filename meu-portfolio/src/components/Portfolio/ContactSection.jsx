@@ -94,7 +94,14 @@ export default function ContactSection({ text }) {
             <span>{text.message}</span>
             <textarea name="message" rows="5" required disabled={status === 'sending'} />
           </label>
-          <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" className="honeypot" />
+          <input
+            type="text"
+            name="_gotcha"
+            tabIndex="-1"
+            autoComplete="off"
+            className="honeypot"
+            aria-label="Leave this field empty"
+          />
           <button className="button button-primary form-submit" type="submit" disabled={status === 'sending'}>
             {status === 'sending' ? text.sending : text.send}
             <ArrowUpRight size={16} aria-hidden="true" />

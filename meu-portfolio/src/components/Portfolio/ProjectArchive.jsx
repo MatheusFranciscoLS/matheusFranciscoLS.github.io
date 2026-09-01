@@ -46,13 +46,14 @@ export default function ProjectArchive({ lang, text }) {
           </label>
         </div>
 
-        <div className="archive-filters" role="group" aria-label="Filtrar projetos">
+        <div className="archive-filters" role="group" aria-label={text.filterLabel}>
           {projectCategories.map((item) => (
             <button
               type="button"
               key={item}
               className={category === item ? 'is-active' : ''}
               aria-pressed={category === item}
+              aria-controls="project-list"
               onClick={() => setCategory(item)}
             >
               {text.categories[item]}
@@ -66,7 +67,7 @@ export default function ProjectArchive({ lang, text }) {
         </div>
 
         {visibleProjects.length > 0 ? (
-          <div className="project-archive">
+          <div className="project-archive" id="project-list">
             {visibleProjects.map((project, index) => (
               <article className="archive-card" key={project.github}>
                 <div className="archive-index">{String(index + 1).padStart(2, '0')}</div>

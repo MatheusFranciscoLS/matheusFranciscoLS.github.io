@@ -4,7 +4,7 @@ import FeaturedWork from './components/Portfolio/FeaturedWork';
 import Footer from './components/Portfolio/Footer';
 import Header from './components/Portfolio/Header';
 import Hero from './components/Portfolio/Hero';
-import ProfileSection from './components/Portfolio/ProfileSection';
+import ProfileSection, { EducationSection } from './components/Portfolio/ProfileSection';
 import ProjectArchive from './components/Portfolio/ProjectArchive';
 import StackSection from './components/Portfolio/StackSection';
 import Reveal from './components/Reveal/Reveal';
@@ -34,6 +34,9 @@ function App() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#conteudo">
+        {lang === 'pt' ? 'Ir para o conteúdo' : 'Skip to content'}
+      </a>
       <Header
         lang={lang}
         setLang={setLang}
@@ -41,12 +44,13 @@ function App() {
         toggleTheme={toggleTheme}
         text={text.nav}
       />
-      <main>
+      <main id="conteudo">
         <Hero lang={lang} text={text.hero} />
-        <Reveal><FeaturedWork lang={lang} text={text.featured} /></Reveal>
-        <Reveal><ProjectArchive lang={lang} text={text.archive} /></Reveal>
         <Reveal><ProfileSection text={text.profile} /></Reveal>
         <Reveal><StackSection text={text.stack} /></Reveal>
+        <Reveal><FeaturedWork lang={lang} text={text.featured} /></Reveal>
+        <Reveal><EducationSection text={text.profile} /></Reveal>
+        <Reveal><ProjectArchive lang={lang} text={text.archive} /></Reveal>
         <Reveal><ContactSection text={text.contact} /></Reveal>
       </main>
       <Footer text={text.footer} />

@@ -11,5 +11,15 @@
 .reveal-visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
     /* Volta para a posição original suavemente */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-wrapper {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
 }

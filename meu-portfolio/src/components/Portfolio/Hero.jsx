@@ -33,7 +33,7 @@ export default function Hero({ lang, text }) {
             </a>
           </div>
 
-          <dl className="hero-metrics" aria-label="Resumo profissional">
+          <dl className="hero-metrics" aria-label={lang === 'pt' ? 'Resumo profissional' : 'Professional summary'}>
             <div>
               <dt>26</dt>
               <dd>{text.repos}</dd>
@@ -49,7 +49,7 @@ export default function Hero({ lang, text }) {
           </dl>
         </div>
 
-        <div className="hero-system" aria-label="Processo de desenvolvimento">
+        <div className="hero-system">
           <div className="system-glow" aria-hidden="true" />
           <div className="system-card">
             <div className="system-header">
@@ -87,25 +87,25 @@ export default function Hero({ lang, text }) {
               <span>{text.outcome}</span>
               <strong>{text.outcomeText}</strong>
             </div>
-            <div className="system-stack" aria-label="Tecnologias principais">
-              <span>Java</span>
-              <span>React</span>
-              <span>Node.js</span>
-              <span>PostgreSQL</span>
-              <span>AI</span>
+            <div className="system-stack" role="list" aria-label={lang === 'pt' ? 'Tecnologias principais' : 'Main technologies'}>
+              <span role="listitem">Java</span>
+              <span role="listitem">React</span>
+              <span role="listitem">Node.js</span>
+              <span role="listitem">PostgreSQL</span>
+              <span role="listitem">AI</span>
             </div>
           </div>
           <div className="orbit-tag orbit-one">API</div>
           <div className="orbit-tag orbit-two">DATA</div>
         </div>
 
-        <a className="scroll-cue" href="#projetos">
+        <a className="scroll-cue" href="#perfil">
           <span>{text.scroll}</span>
           <span aria-hidden="true"><ArrowDown size={13} /></span>
         </a>
       </section>
 
-      <div className="capability-strip" aria-label="Especialidades">
+      <div className="capability-strip" aria-hidden="true">
         <div>
           <span>FULL-STACK SYSTEMS</span>
           <i>✦</i>

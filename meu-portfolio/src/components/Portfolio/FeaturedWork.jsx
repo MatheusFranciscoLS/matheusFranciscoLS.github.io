@@ -62,47 +62,47 @@ export default function FeaturedWork({ lang, text }) {
             <ProjectLinks project={cogniVault} text={text} />
           </div>
 
-          <div className="cognivault-visual" aria-label="Representação da interface e arquitetura do CogniVault">
-            <div className="cv-window">
-              <div className="cv-topbar">
-                <span className="cv-logo">CV</span>
-                <span>cognivault / knowledge engine</span>
+          <figure className="cognivault-visual">
+            <div className="cv-shot-frame">
+              <div className="cv-shot-toolbar" aria-hidden="true">
+                <span className="cv-window-dots"><i /><i /><i /></span>
+                <span className="cv-shot-domain">cognivault / secure access</span>
                 <span className="cv-secure">PRIVATE</span>
               </div>
-              <div className="cv-workspace">
-                <aside>
-                  <span className="is-active">01 · Vault</span>
-                  <span>02 · Parts</span>
-                  <span>03 · Manuals</span>
-                  <span>04 · AI Search</span>
-                </aside>
-                <div className="cv-content">
-                  <div className="cv-query">
-                    <span>TECHNICAL QUERY</span>
-                    <strong>{lang === 'pt' ? 'Qual componente atende este conjunto?' : 'Which component matches this assembly?'}</strong>
-                  </div>
-                  <div className="cv-answer">
-                    <div>
-                      <span className="cv-label">EVIDENCE READY</span>
-                      <span className="cv-score">03 SOURCES</span>
-                    </div>
-                    <p>{lang === 'pt' ? 'Resposta ligada a manuais, desenhos e registros aprovados.' : 'Answer linked to approved manuals, drawings and records.'}</p>
-                    <div className="source-lines">
-                      <span style={{ '--line-width': '92%' }} />
-                      <span style={{ '--line-width': '76%' }} />
-                      <span style={{ '--line-width': '58%' }} />
-                    </div>
-                  </div>
-                  <div className="cv-pipeline">
-                    <span>UPLOAD</span><i />
-                    <span>INDEX</span><i />
-                    <span>RETRIEVE</span><i />
-                    <span>ANSWER</span>
-                  </div>
-                </div>
-              </div>
+              <a
+                className="cv-shot-link"
+                href={cogniVault.live}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={lang === 'pt' ? 'Abrir o CogniVault em uma nova aba' : 'Open CogniVault in a new tab'}
+              >
+                <img
+                  src={cogniVault.image}
+                  alt={lang === 'pt' ? 'Tela real de login do CogniVault' : 'Real CogniVault login screen'}
+                  width="1873"
+                  height="955"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="cv-shot-badge">
+                  {lang === 'pt' ? 'Produto real · abrir projeto' : 'Real product · open project'}
+                  <ArrowUpRight size={14} aria-hidden="true" />
+                </span>
+              </a>
             </div>
-          </div>
+
+            <div className="cv-pipeline" role="group" aria-label={lang === 'pt' ? 'Fluxo técnico do CogniVault' : 'CogniVault technical flow'}>
+              <span>UPLOAD</span><i />
+              <span>INDEX</span><i />
+              <span>RETRIEVE</span><i />
+              <span>ANSWER</span>
+            </div>
+
+            <figcaption>
+              <span>{lang === 'pt' ? 'Experiência de acesso · aplicação em produção' : 'Access experience · production application'}</span>
+              <span>01 / 01</span>
+            </figcaption>
+          </figure>
         </article>
 
         <div className="supporting-heading">
@@ -113,7 +113,12 @@ export default function FeaturedWork({ lang, text }) {
           {supportingCases.map((project) => (
             <article className="featured-card" key={project.name}>
               <div className="featured-image">
-                <img src={project.image} alt={`Tela do projeto ${project.name}`} loading="lazy" />
+                <img
+                  src={project.image}
+                  alt={lang === 'pt' ? `Tela do projeto ${project.name}` : `${project.name} project screen`}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span>{project.year}</span>
               </div>
               <div className="featured-body">

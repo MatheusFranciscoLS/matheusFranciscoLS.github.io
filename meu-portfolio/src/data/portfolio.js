@@ -13,6 +13,7 @@ export const projects = [
     tags: ['React', 'TypeScript', 'PostgreSQL', 'Prisma', 'RabbitMQ', 'Supabase', 'AI'],
     github: 'https://github.com/MatheusFranciscoLS/CogniVault',
     live: 'https://cognivault-murex.vercel.app',
+    image: '/assets/cognivault-login.webp',
   },
   {
     name: 'BusinessFlow',
@@ -26,7 +27,7 @@ export const projects = [
     tags: ['React', 'Node.js', 'PostgreSQL', 'Prisma', 'SaaS'],
     github: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
     live: 'https://flowbusiness.vercel.app',
-    image: '/assets/businessflow.png',
+    image: '/assets/businessflow.webp',
   },
   {
     name: 'Plataforma IoT Industrial',
@@ -41,7 +42,7 @@ export const projects = [
     tags: ['Java', 'Spring Boot', 'React', 'RabbitMQ', 'WebSockets', 'Python'],
     github: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
     live: 'https://plataforma-iot-industrial.vercel.app',
-    image: '/assets/iot-plataforma.png',
+    image: '/assets/iot-plataforma.webp',
   },
   {
     name: 'Portfólio Profissional',
@@ -70,7 +71,7 @@ export const projects = [
     tags: ['React', 'Node.js', 'Firebase', 'Marketplace'],
     github: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
     live: 'https://economia-solidaria-frontend.vercel.app',
-    image: '/assets/p2.png',
+    image: '/assets/p2.webp',
   },
   {
     name: 'E-book IA & Investimentos',
@@ -111,7 +112,7 @@ export const projects = [
     tags: ['React', 'Vite', 'Firebase', 'Realtime UX'],
     github: 'https://github.com/MatheusFranciscoLS/Challenge1Furia',
     live: 'https://challenge1-furia.vercel.app',
-    image: '/assets/p1.png',
+    image: '/assets/p1.webp',
   },
   {
     name: 'Flutter Projects',

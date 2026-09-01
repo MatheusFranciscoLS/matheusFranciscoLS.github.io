@@ -46,6 +46,7 @@ export const copy = {
       title: 'Todos os trabalhos, sem esconder o começo.',
       intro: 'Projetos de produto, experimentos e repositórios de aprendizagem organizados em uma única visão.',
       search: 'Buscar projeto ou tecnologia',
+      filterLabel: 'Filtrar projetos',
       showing: 'projetos encontrados',
       empty: 'Nenhum projeto combina com essa busca.',
       live: 'Demo',
@@ -70,6 +71,7 @@ export const copy = {
         { number: '02', title: 'Arquitetura pragmática', text: 'Escolher a complexidade certa para crescer sem transformar manutenção em dívida.' },
         { number: '03', title: 'Dados como parte do produto', text: 'Modelar informação para a operação diária e para decisões estratégicas.' },
       ],
+      pathEyebrow: 'TRAJETÓRIA / 2022—AGORA',
       pathTitle: 'Formação & trajetória',
       path: [
         { year: 'Agora', title: 'Produtos full-stack & IA', text: 'CogniVault, BusinessFlow e plataformas orientadas a processos reais.' },
@@ -160,6 +162,7 @@ export const copy = {
       title: 'Every project, including the starting point.',
       intro: 'Product work, experiments and learning repositories organized in one view.',
       search: 'Search project or technology',
+      filterLabel: 'Filter projects',
       showing: 'projects found',
       empty: 'No project matches this search.',
       live: 'Demo',
@@ -184,6 +187,7 @@ export const copy = {
         { number: '02', title: 'Pragmatic architecture', text: 'Choose the right complexity to grow without turning maintenance into debt.' },
         { number: '03', title: 'Data as product', text: 'Model information for everyday operation and strategic decisions.' },
       ],
+      pathEyebrow: 'PATH / 2022—NOW',
       pathTitle: 'Education & path',
       path: [
         { year: 'Now', title: 'Full-stack & AI products', text: 'CogniVault, BusinessFlow and platforms designed around real workflows.' },

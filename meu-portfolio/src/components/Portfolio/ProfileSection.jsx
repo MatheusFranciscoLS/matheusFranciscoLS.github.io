@@ -22,18 +22,26 @@ export default function ProfileSection({ text }) {
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
 
+export function EducationSection({ text }) {
+  return (
+    <section className="section education-section" id="formacao">
+      <div className="section-inner">
         <div className="path-layout">
           <div className="path-title">
-            <span>PATH / 2022—NOW</span>
-            <h3>{text.pathTitle}</h3>
+            <span>{text.pathEyebrow}</span>
+            <h2>{text.pathTitle}</h2>
           </div>
           <ol className="path-list">
             {text.path.map((item) => (
               <li key={item.year + item.title}>
                 <span>{item.year}</span>
                 <div>
-                  <h4>{item.title}</h4>
+                  <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </div>
               </li>
