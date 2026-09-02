@@ -20,7 +20,7 @@ export const copy = {
       cta: 'Ver projetos',
       resume: 'Baixar currículo',
       metrics: [
-        { value: '3', label: 'projetos com deploy' },
+        { value: '6', label: 'projetos com deploy' },
         { value: '320h+', label: 'em certificações' },
         { value: '9', label: 'anos no comercial' },
       ],
@@ -204,7 +204,7 @@ export const copy = {
       cta: 'View projects',
       resume: 'Download résumé',
       metrics: [
-        { value: '3', label: 'deployed projects' },
+        { value: '6', label: 'deployed projects' },
         { value: '320h+', label: 'in certifications' },
         { value: '9', label: 'years in sales' },
       ],
