@@ -321,11 +321,32 @@
   animation: pulseRing 2s ease-out infinite;
 }
 
+.hero__greeting {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
 .hero__headline {
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(38px, 5.5vw, 68px);
   font-weight: 900;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: -0.04em;
+}
+
+.hero__role {
+  display: inline-block;
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 8px;
 }
 
 .hero__intro {

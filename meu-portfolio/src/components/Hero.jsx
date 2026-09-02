@@ -16,14 +16,9 @@ export default function Hero({ lang, text }) {
             {text.badge}
           </div>
 
-          <h1 className="hero__headline">
-            {text.headline.split('\n').map((line, i) => (
-              <span key={i}>
-                {line}
-                {i < text.headline.split('\n').length - 1 && <br />}
-              </span>
-            ))}
-          </h1>
+          <p className="hero__greeting">{text.greeting}</p>
+          <h1 className="hero__headline">{text.name}</h1>
+          <p className="hero__role">{text.role}</p>
 
           <p className="hero__intro">{text.intro}</p>
 
@@ -52,25 +47,26 @@ export default function Hero({ lang, text }) {
           </dl>
         </div>
 
-        <div className="hero__visual hero-animate">
+        <div className="hero__visual">
           <div className="hero__card">
             <div className="hero__card-header">
               <div className="hero__dots" aria-hidden="true"><span /><span /><span /></div>
-              <span>terminal</span>
-              <span className="hero__card-live">LIVE</span>
+              <span>matheus.config.ts</span>
+              <span className="hero__card-live">READY</span>
             </div>
             <div className="hero__card-body">
               <code><b className="code-keyword">const</b> <b className="code-name">developer</b> = {'{'}</code>
               <code>  name: <span className="code-string">"Matheus Francisco"</span>,</code>
               <code>  role: <span className="code-string">"Full-Stack Developer"</span>,</code>
-              <code>  stack: [<span className="code-string">"React"</span>, <span className="code-string">"Node"</span>, <span className="code-string">"Java"</span>],</code>
+              <code>  stack: [<span className="code-string">"Java"</span>, <span className="code-string">"React"</span>, <span className="code-string">"Node"</span>, <span className="code-string">"SQL"</span>],</code>
+              <code>  background: <span className="code-string">"9 anos comercial & vendas"</span>,</code>
               <code>  available: <span className="code-bool">true</span></code>
               <code>{'}'}</code>
             </div>
             <div className="hero__card-tags">
+              <span>Java / Spring</span>
               <span>React</span>
               <span>Node.js</span>
-              <span>Java</span>
               <span>PostgreSQL</span>
               <span>TypeScript</span>
             </div>
