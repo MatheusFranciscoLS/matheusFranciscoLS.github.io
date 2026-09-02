@@ -39,6 +39,7 @@ export default function Navbar({ lang, setLang, theme, toggleTheme, text }) {
     ['#sobre', text.about],
     ['#projetos', text.projects],
     ['#stack', text.stack],
+    ['#certificados', text.certifications],
     ['#contato', text.contact],
   ];
 

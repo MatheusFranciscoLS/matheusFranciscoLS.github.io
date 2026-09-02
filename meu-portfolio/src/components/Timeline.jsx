@@ -31,7 +31,7 @@ export default function Timeline({ text }) {
 
         {/* Certificações em Destaque */}
         {text.certifications && (
-          <div className="certifications-block">
+          <div className="certifications-block" id="certificados">
             <div className="section-heading">
               <p className="eyebrow">
                 <Award size={14} aria-hidden="true" />
