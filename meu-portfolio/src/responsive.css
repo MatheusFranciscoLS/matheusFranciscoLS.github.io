@@ -1,0 +1,283 @@
+/* ============================================
+   RESPONSIVE — 1024px (Tablet landscape)
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding-top: 140px;
+  }
+
+  .hero__visual {
+    max-width: 520px;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .flagship {
+    grid-template-columns: 1fr;
+  }
+
+  .about__grid {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .contact__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__form {
+    max-width: 600px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — 820px (Tablet portrait)
+   ============================================ */
+
+@media (max-width: 820px) {
+  .featured__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .archive__top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .archive__search input {
+    width: 100%;
+  }
+
+  .archive__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__principles {
+    grid-template-columns: 1fr;
+  }
+
+  .principle-card {
+    padding: 24px;
+  }
+
+  .stack__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flagship__comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .flagship__comparison > div + div {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — 720px (Mobile)
+   ============================================ */
+
+@media (max-width: 720px) {
+  :root {
+    --section-py: clamp(64px, 8vw, 100px);
+  }
+
+  .container {
+    padding-inline: 20px;
+  }
+
+  /* Navbar mobile */
+  .navbar {
+    top: 10px;
+    width: calc(100% - 24px);
+  }
+
+  .navbar__inner {
+    height: 56px;
+    padding: 0 6px 0 14px;
+    border-radius: var(--radius-xl);
+  }
+
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__divider {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: grid;
+    place-items: center;
+  }
+
+  /* Hero mobile */
+  .hero__inner {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    gap: 40px;
+  }
+
+  .hero__headline {
+    font-size: clamp(36px, 11vw, 56px);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero__metrics {
+    margin-top: 36px;
+  }
+
+  .hero__metrics dt {
+    font-size: 24px;
+  }
+
+  .hero__metrics dd {
+    font-size: 9px;
+  }
+
+  .hero__card-body {
+    font-size: 11px;
+    padding: 16px;
+  }
+
+  .hero__card-tags {
+    padding: 12px 16px;
+  }
+
+  /* About mobile */
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about__photo-placeholder {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* Flagship mobile */
+  .flagship {
+    padding: 20px;
+    border-radius: var(--radius-xl);
+  }
+
+  .flagship__links {
+    flex-direction: column;
+  }
+
+  .flagship__links .btn {
+    width: 100%;
+  }
+
+  /* Archive mobile */
+  .archive__filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -20px;
+    padding: 0 20px 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .archive__filters button {
+    flex: 0 0 auto;
+  }
+
+  .archive-card {
+    grid-template-columns: 28px minmax(0, 1fr);
+    padding: 18px;
+  }
+
+  .archive-card__links {
+    grid-column: 2;
+    flex-direction: row;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  /* Contact mobile */
+  .contact__form {
+    padding: 24px 20px;
+  }
+
+  /* Footer mobile */
+  .footer__brand {
+    flex-direction: column;
+    gap: 0;
+    font-size: 16vw;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — 480px (Small mobile)
+   ============================================ */
+
+@media (max-width: 480px) {
+  .hero__metrics {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero__metrics div + div {
+    padding-left: 0;
+    padding-top: 16px;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero__visual {
+    display: none;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .about__highlight {
+    padding: 16px 18px;
+  }
+
+  .timeline__item {
+    grid-template-columns: 16px 1fr;
+    gap: 16px;
+  }
+
+  .timeline__dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — 375px (Smallest)
+   ============================================ */
+
+@media (max-width: 375px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  .hero__headline {
+    font-size: 32px;
+  }
+
+  .flagship__caps {
+    font-size: 12px;
+  }
+}

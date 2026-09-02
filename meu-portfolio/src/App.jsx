@@ -1,18 +1,17 @@
 import { useContext, useEffect } from 'react';
-import ContactSection from './components/Portfolio/ContactSection';
-import FeaturedWork from './components/Portfolio/FeaturedWork';
-import Footer from './components/Portfolio/Footer';
-import Header from './components/Portfolio/Header';
-import Hero from './components/Portfolio/Hero';
-import PrivacyAnalytics from './components/Portfolio/PrivacyAnalytics';
-import ProfileSection, { EducationSection } from './components/Portfolio/ProfileSection';
-import ProjectArchive from './components/Portfolio/ProjectArchive';
-import StackSection from './components/Portfolio/StackSection';
-import Reveal from './components/Reveal/Reveal';
+import About from './components/About';
+import Contact from './components/Contact';
+import FeaturedProjects from './components/FeaturedProjects';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
+import ProjectArchive from './components/ProjectArchive';
+import ScrollReveal from './components/ScrollReveal';
+import TechStack from './components/TechStack';
+import Timeline from './components/Timeline';
 import { LanguageContext } from './context/LanguageContext';
 import { copy } from './data/copy';
 import { useTheme } from './hooks/useTheme';
-import './portfolio.css';
 
 function App() {
   const { lang, setLang } = useContext(LanguageContext);
@@ -20,26 +19,25 @@ function App() {
   const text = copy[lang];
 
   useEffect(() => {
-    const isPortuguese = lang === 'pt';
-    document.documentElement.lang = isPortuguese ? 'pt-BR' : 'en';
-    document.title = isPortuguese
+    const isPt = lang === 'pt';
+    document.documentElement.lang = isPt ? 'pt-BR' : 'en';
+    document.title = isPt
       ? 'Matheus Francisco — Desenvolvedor Full-Stack'
       : 'Matheus Francisco — Full-Stack Developer';
-    const description = document.querySelector('meta[name="description"]');
-    if (description) {
-      description.content = isPortuguese
-        ? 'Portfólio de Matheus Francisco: produtos full-stack, arquitetura de software, dados e inteligência artificial.'
-        : 'Matheus Francisco portfolio: full-stack products, software architecture, data and artificial intelligence.';
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      desc.content = isPt
+        ? 'Portfólio de Matheus Francisco: desenvolvedor full-stack com formação SENAI, Ciência da Computação e 9 anos de experiência profissional.'
+        : 'Matheus Francisco portfolio: full-stack developer with SENAI training, Computer Science and 9 years of professional experience.';
     }
   }, [lang]);
 
   return (
     <div className="site-shell">
-      <PrivacyAnalytics />
       <a className="skip-link" href="#conteudo">
         {lang === 'pt' ? 'Ir para o conteúdo' : 'Skip to content'}
       </a>
-      <Header
+      <Navbar
         lang={lang}
         setLang={setLang}
         theme={theme}
@@ -48,12 +46,12 @@ function App() {
       />
       <main id="conteudo">
         <Hero lang={lang} text={text.hero} />
-        <Reveal><ProfileSection text={text.profile} /></Reveal>
-        <Reveal><StackSection text={text.stack} /></Reveal>
-        <Reveal><FeaturedWork lang={lang} text={text.featured} /></Reveal>
-        <Reveal><EducationSection text={text.profile} /></Reveal>
-        <Reveal><ProjectArchive lang={lang} text={text.archive} /></Reveal>
-        <Reveal><ContactSection text={text.contact} /></Reveal>
+        <ScrollReveal><About text={text.about} /></ScrollReveal>
+        <ScrollReveal><FeaturedProjects lang={lang} text={text.featured} /></ScrollReveal>
+        <ScrollReveal><TechStack text={text.stack} /></ScrollReveal>
+        <ScrollReveal><Timeline text={text.timeline} /></ScrollReveal>
+        <ScrollReveal><ProjectArchive lang={lang} text={text.archive} /></ScrollReveal>
+        <ScrollReveal><Contact text={text.contact} /></ScrollReveal>
       </main>
       <Footer text={text.footer} />
     </div>
@@ -61,4 +59,3 @@ function App() {
 }
 
 export default App;
-
