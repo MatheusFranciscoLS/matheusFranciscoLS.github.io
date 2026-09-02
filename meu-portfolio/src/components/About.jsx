@@ -9,9 +9,13 @@ export default function About({ text }) {
 
         <div className="about__grid">
           <div className="about__photo-area">
-            <div className="about__photo-placeholder">
-              <span className="about__photo-initials">MF</span>
-              <span className="about__photo-label">Foto em breve</span>
+            <div className="about__badge-card">
+              <div className="about__avatar-circle">
+                <span>MF</span>
+              </div>
+              <h3 className="about__badge-name">Matheus Francisco</h3>
+              <span className="about__badge-role">Desenvolvedor Full-Stack</span>
+              <span className="about__badge-location">📍 Limeira, SP • Brasil</span>
             </div>
           </div>
 

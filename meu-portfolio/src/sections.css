@@ -512,34 +512,63 @@
   margin-top: 48px;
 }
 
-.about__photo-placeholder {
+.about__badge-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  aspect-ratio: 3/4;
-  border: 2px dashed var(--border);
+  padding: 36px 24px;
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  background: var(--surface);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: all var(--duration) var(--ease);
 }
 
-.about__photo-initials {
-  font-size: 48px;
-  font-weight: 800;
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.about__badge-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transform: translateY(-4px);
 }
 
-.about__photo-label {
-  color: var(--text-muted);
+.about__avatar-circle {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: #fff;
   font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+}
+
+.about__badge-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.about__badge-role {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+}
+
+.about__badge-location {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 .about__copy {
