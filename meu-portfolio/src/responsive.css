@@ -67,6 +67,10 @@
     grid-template-columns: 1fr;
   }
 
+  .certifications__grid {
+    grid-template-columns: 1fr;
+  }
+
   .flagship__comparison {
     grid-template-columns: 1fr;
   }
