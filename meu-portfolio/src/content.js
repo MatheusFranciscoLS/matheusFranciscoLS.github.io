@@ -28,7 +28,7 @@ export const content = {
       otherLangLabel: 'Read this page in English',
     },
     hero: {
-      title: 'Desenvolvi o sistema de catálogo e orçamento do balcão da loja onde trabalho.',
+      title: 'Desenvolvi o sistema do balcão da loja onde trabalho.',
       role: 'Desenvolvedor full-stack júnior',
       place: 'Matheus Francisco, Limeira, SP',
       shotAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
@@ -197,7 +197,7 @@ export const content = {
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
-      title: 'I built the parts catalog and quoting system my dealership uses at the counter.',
+      title: 'I built the counter system at the dealership where I work.',
       role: 'Junior full-stack developer',
       place: 'Matheus Francisco, Limeira, Brazil',
       shotAlt: 'CogniVault search screen showing a part code result with price and position.',
