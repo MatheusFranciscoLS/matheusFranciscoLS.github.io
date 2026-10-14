@@ -62,7 +62,7 @@ export default function ProjectArchive({ lang, text }) {
         {visible.length > 0 ? (
           <div className="archive__grid" id="project-list">
             {visible.map((p, i) => (
-              <article className="archive-card" key={p.github}>
+              <article className="archive-card" key={p.name}>
                 <div className="archive-card__idx">{String(i + 1).padStart(2, '0')}</div>
                 <div className="archive-card__body">
                   <div className="archive-card__meta">
@@ -82,9 +82,16 @@ export default function ProjectArchive({ lang, text }) {
                       {text.live} <ArrowUpRight size={14} aria-hidden="true" />
                     </a>
                   )}
-                  <a href={p.github} target="_blank" rel="noreferrer">
-                    <Code2 size={14} aria-hidden="true" /> {text.code}
-                  </a>
+                  {p.caseStudy && (
+                    <a href={p.caseStudy[lang]}>
+                      <Code2 size={14} aria-hidden="true" /> {text.caseStudy}
+                    </a>
+                  )}
+                  {p.github && (
+                    <a href={p.github} target="_blank" rel="noreferrer">
+                      <Code2 size={14} aria-hidden="true" /> {text.code}
+                    </a>
+                  )}
                 </div>
               </article>
             ))}

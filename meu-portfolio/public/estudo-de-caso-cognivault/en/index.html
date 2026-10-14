@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CogniVault: case study | Matheus Francisco</title>
+  <meta name="description" content="Parts catalog and counter quoting system for a machinery and parts dealer. Case study: problem, product rules, architecture, engineering decisions and measured quality.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../estudo.css">
+</head>
+<body>
+  <div class="top"><div class="wrap">
+    <a href="/#projetos">← Portfolio</a>
+    <span class="lang"><a href="../">PT</a><a href="./" aria-current="true">EN</a></span>
+  </div></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Case study · 2026</div>
+      <h1>CogniVault</h1>
+      <p class="lead">A parts catalog and counter quoting system for a machinery and parts dealer. The clerk types a code, a part name or a machine model and leaves with the price, the position in the diagram and a ready quote, without the system ever guessing a code.</p>
+      <ul class="meta">
+        <li><strong>Role</strong>Product, design and full-stack development</li>
+        <li><strong>Client</strong>Vardão Máquinas (Limeira, Brazil)</li>
+        <li><strong>Status</strong>Live and evolving</li>
+        <li><strong>Infrastructure cost</strong>R$ 0 (free tiers)</li>
+      </ul>
+      <a class="btn" href="https://cognivault-murex.vercel.app" target="_blank" rel="noreferrer">Open the app</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Contact the author</a>
+    </header>
+
+    <div class="shot"><img src="../../assets/cognivault/busca-modelo.png" alt="Machine model search in the CogniVault counter screen" width="1440" height="900"></div>
+
+    <section>
+      <h2>The problem</h2>
+      <p>At a dealer's counter the customer is standing in front of the clerk. Answering "which part is it and how much?" meant opening a PDF catalog, finding the position in the diagram, checking the price in a list, seeing whether the part was on the shelf and building the quote by hand. Each step came from a different source, and a wrong code becomes a return.</p>
+      <h2 style="margin-top:34px">The solution</h2>
+      <p>A single system designed for a <strong>computer with mouse and keyboard</strong> and for people serving customers in a hurry: search by code, part name, model or PNC; the official exploded view with a clickable position; the list price, an old-price warning and the shelf from the ERP; and a quote in PDF and WhatsApp that ends the service by itself.</p>
+    </section>
+
+    <section>
+      <h2>Rules the product never breaks</h2>
+      <div class="rules">
+        <div class="rule"><h3>Never guess a code</h3><p>A typed code returns only the exact code and the manufacturer's official replacement. Nothing "similar". The AI only picks from a closed list of parts for the machine, and the server discards any answer outside that list.</p></div>
+        <div class="rule"><h3>The customer never gets the part code</h3><p>PDFs, WhatsApp messages and printouts leave without the part code, so the customer cannot price it at another dealer with our number.</p></div>
+        <div class="rule"><h3>The clerk wants the part, not an explanation</h3><p>No text about how the system works. Every empty state has an exit: a button, an official link or a field to type in.</p></div>
+        <div class="rule"><h3>Keyboard first</h3><p><code>Ctrl K</code> focuses the search, arrows walk the results, <code>Enter</code> copies the code, <code>+</code> adds the part to the quote.</p></div>
+        <div class="rule"><h3>Data changes are explicit</h3><p>Importing prices or shelves shows a report before writing and keeps an undo. Nothing is created or deleted behind the scenes.</p></div>
+        <div class="rule"><h3>Zero cost</h3><p>Vercel, Render, Supabase, CloudAMQP and GitHub Actions on free tiers, with no paid dependency.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Screens</h2>
+      <div class="gallery">
+        <figure><div class="shot"><img src="../../assets/cognivault/codigo-substituido.png" alt="Old code with the official replacement" loading="lazy"></div><figcaption><strong>Old code, new part.</strong> The official replacement is highlighted, with the new code ready to copy or quote.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/cognivault/codigo-parcial.png" alt="Partial code with no similar results" loading="lazy"></div><figcaption><strong>Nothing "similar".</strong> An incomplete code does not list parts with close numbers: it shows the exit to the official locator.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/cognivault/orcamento-pecas.png" alt="Parts quote" loading="lazy"></div><figcaption><strong>Parts quote</strong> with a lead time per line, payment, discount and sending by WhatsApp or PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/cognivault/pdf-orcamento.png" alt="Quote PDF" loading="lazy"></div><figcaption><strong>PDF in the store's format,</strong> without part codes. Long quotes never leave 1 or 2 lines alone next to the total.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/cognivault/conserto.png" alt="Repair quote" loading="lazy"></div><figcaption><strong>Repair quote</strong> with a service-order number, labor without a parts lead time and the folder of old quotes.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/cognivault/tabela-de-precos.png" alt="Machine price table" loading="lazy"></div><figcaption><strong>Machine price table</strong> by technology, category and application, with the list's new items.</figcaption></figure>
+      </div>
+      <p style="margin-top:14px;font-size:14px;color:var(--text-muted)">Screenshots taken in a simulated store with demo data.</p>
+    </section>
+
+    <section>
+      <h2>Architecture</h2>
+      <div class="arch"><img src="../../assets/cognivault/arquitetura.svg" alt="Architecture diagram: React on Vercel, Node.js API on Render, PostgreSQL on Supabase, RabbitMQ on CloudAMQP, external integrations" loading="lazy"></div>
+      <p style="margin-top:14px">The store's ERP runs on a local network the cloud cannot reach. So the integration is <strong>export, review the report, import</strong> (with undo), never a live read.</p>
+    </section>
+
+    <section>
+      <h2>Decisions and what I learned</h2>
+      <h3>The green test that lied</h3>
+      <p>A job that deletes quotes older than 1 year (for privacy) had a passing test. In production it never ran: the line that started it sat inside the RabbitMQ retry block. I found it by looking at the database two days later. Now there is a test just for the wiring, proven by undoing the fix and watching the test fail.</p>
+      <h3>The cart that does not lose a service</h3>
+      <p>The production log showed a Prisma transaction blowing past the default 5 seconds (6.7 s) on a cold free-tier database, and the clerk's quote stayed only in the browser. The cart is now saved whole and idempotently, with a longer timeout and automatic retries with growing waits. Two tabs of the same browser become a single cart.</p>
+      <h3>"Today" ended yesterday</h3>
+      <p>The server runs in UTC and the store in UTC-3: the "until today" filter cut off at 11 pm yesterday and the owner could not see the day's own quotes. Every day calculation now uses the store's time zone, locked by a test.</p>
+      <h3>Refusing beats being wrong</h3>
+      <p>The PDF catalog reader prefers to refuse a doubtful file, saying why in the admin panel, rather than save a wrong code that would poison the whole search. And after an audit, a typed code now returns only the exact match: an "almost equal" code at the counter is a return.</p>
+      <h3>Testing the way the clerk types</h3>
+      <p>Browser scripts against a simulated store exercise what people really type: lowercase, a space instead of a dash, pasted codes, emoji, nonsense, 1,500 letters. Each important fix is proven by mutation: undo the fix and check that the test fails.</p>
+    </section>
+
+    <section>
+      <h2>Quality in numbers</h2>
+      <div class="numbers">
+        <div class="num"><b>996</b><span>backend tests (170 files)</span></div>
+        <div class="num"><b>389</b><span>frontend tests (55 files)</span></div>
+        <div class="num"><b>107</b><span>browser scripts</span></div>
+        <div class="num"><b>57</b><span>versioned migrations</span></div>
+        <div class="num"><b>26</b><span>data models</span></div>
+        <div class="num"><b>91</b><span>API routes</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:14px;color:var(--text-muted)">Counted in the project structure on 2026-10-14.</p>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <ul class="tags">
+        <li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>RabbitMQ</li><li>Playwright</li><li>Vitest</li><li>GitHub Actions</li><li>Vercel</li><li>Render</li><li>Supabase</li>
+      </ul>
+    </section>
+
+    <footer>
+      CogniVault is a work project and the source code is private. I am happy to walk through the architecture and code excerpts in a conversation. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Contact the author</a>.
+    </footer>
+  </main>
+</body>
+</html>

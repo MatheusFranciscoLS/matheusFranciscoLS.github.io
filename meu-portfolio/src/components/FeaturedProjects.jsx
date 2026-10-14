@@ -73,9 +73,16 @@ export default function FeaturedProjects({ lang, text }) {
                   {text.live} <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
               )}
-              <a className="btn btn-secondary" href={flagship.github} target="_blank" rel="noreferrer">
-                <Code2 size={16} aria-hidden="true" /> {text.code}
-              </a>
+              {flagship.caseStudy && (
+                <a className="btn btn-secondary" href={flagship.caseStudy[lang]}>
+                  <Code2 size={16} aria-hidden="true" /> {text.caseStudy}
+                </a>
+              )}
+              {flagship.github && (
+                <a className="btn btn-secondary" href={flagship.github} target="_blank" rel="noreferrer">
+                  <Code2 size={16} aria-hidden="true" /> {text.code}
+                </a>
+              )}
             </div>
           </div>
         </article>
@@ -113,9 +120,16 @@ export default function FeaturedProjects({ lang, text }) {
                       {text.live} <ArrowUpRight size={14} aria-hidden="true" />
                     </a>
                   )}
-                  <a href={project.github} target="_blank" rel="noreferrer">
-                    <Code2 size={14} aria-hidden="true" /> {text.code}
-                  </a>
+                  {project.caseStudy && (
+                    <a href={project.caseStudy[lang]}>
+                      <Code2 size={14} aria-hidden="true" /> {text.caseStudy}
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer">
+                      <Code2 size={14} aria-hidden="true" /> {text.code}
+                    </a>
+                  )}
                 </div>
               </div>
             </article>

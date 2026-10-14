@@ -7,13 +7,14 @@ export const projects = [
     category: 'fullstack',
     language: 'TypeScript',
     description: {
-      pt: 'Catálogo técnico inteligente para centralizar peças, documentos privados e conhecimento operacional com IA baseada em evidências.',
-      en: 'An intelligent technical catalog that centralizes parts, private documents and operational knowledge with evidence-based AI.',
+      pt: 'Catálogo técnico e orçamento de balcão para uma revenda de máquinas e peças: busca por código exato, vista explodida, preço, prateleira e orçamento em PDF e WhatsApp.',
+      en: 'A parts catalog and counter quoting system for a machinery dealer: exact-code search, exploded views, price, shelf location and quotes by PDF and WhatsApp.',
     },
-    tags: ['React', 'TypeScript', 'PostgreSQL', 'Prisma', 'RabbitMQ', 'Supabase', 'AI'],
-    github: 'https://github.com/MatheusFranciscoLS/CogniVault',
+    tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Prisma', 'RabbitMQ'],
+    // Projeto de trabalho: o código é privado. O estudo de caso mostra o que foi feito.
+    caseStudy: { pt: '/estudo-de-caso-cognivault/', en: '/estudo-de-caso-cognivault/en/' },
     live: 'https://cognivault-murex.vercel.app',
-    image: '/assets/cognivault-login.webp',
+    image: '/assets/cognivault-busca.png',
   },
   {
     name: 'BusinessFlow',
