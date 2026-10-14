@@ -206,19 +206,25 @@ function Projects({ t, lang }) {
               <li key={o.name} className="row">
                 <span className="row__year">{o.year}</span>
                 <div className="row__main">
-                  <img className="row__thumb" src={o.img} alt={o.imgAlt} width="1600" height="850" loading="lazy" decoding="async" />
+                  {o.img && (
+                    <img className="row__thumb" src={o.img} alt={o.imgAlt} width="1600" height="850" loading="lazy" decoding="async" />
+                  )}
                   <h4>{o.name}</h4>
                   <p>{o.text}</p>
-                  <p className="row__stack">{o.stack}</p>
+                  {o.stack && <p className="row__stack">{o.stack}</p>}
                 </div>
-                <div className="row__links">
-                  <a href={o.demo} target="_blank" rel="noreferrer">
-                    {p.demoLabel}
-                  </a>
-                  <a href={o.code} target="_blank" rel="noreferrer">
-                    {p.codeLabel}
-                  </a>
-                </div>
+                {o.demo && (
+                  <div className="row__links">
+                    <a href={o.demo} target="_blank" rel="noreferrer">
+                      {p.demoLabel}
+                    </a>
+                    {o.code && (
+                      <a href={o.code} target="_blank" rel="noreferrer">
+                        {p.codeLabel}
+                      </a>
+                    )}
+                  </div>
+                )}
               </li>
             ))}
           </ul>

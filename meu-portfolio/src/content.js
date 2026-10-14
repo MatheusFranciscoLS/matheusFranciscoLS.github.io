@@ -68,7 +68,7 @@ export const content = {
     },
     projects: {
       title: 'Projetos',
-      intro: 'Quatro projetos completos e no ar. Os exercícios dos cursos ficam no GitHub.',
+      intro: 'Quatro projetos completos e no ar, mais um sistema de trabalho em testes. Os exercícios dos cursos ficam no GitHub.',
       flagshipTag: 'Projeto de trabalho',
       cogniName: 'CogniVault',
       cogniTagline: 'Catálogo técnico e orçamento de balcão para uma revenda de máquinas e peças.',
@@ -88,7 +88,7 @@ export const content = {
       privateNote: 'O código é privado, por ser projeto de trabalho. Mostro a arquitetura e trechos do código numa conversa.',
       caseStudy: 'Estudo de caso',
       demo: 'Abrir a demo',
-      othersTitle: 'Outros projetos completos',
+      othersTitle: 'Outros projetos',
       demoLabel: 'Demo',
       codeLabel: 'Código',
       others: [
@@ -121,6 +121,11 @@ export const content = {
           stack: 'React, Node.js, Firebase',
           demo: 'https://economia-solidaria-frontend.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
+        },
+        {
+          name: 'Vardão CRM',
+          year: '2026',
+          text: 'CRM e controle de pedidos de peças da loja, feito junto com o dono. Funil de vendas com alerta de retorno atrasado, painel de conversão, pedidos ao fornecedor com conferência do que chegou e painel de estoque com curva ABC. Em fase de testes, acesso só para a equipe.',
         },
       ],
       moreTitle: 'Os demais repositórios',
@@ -243,7 +248,7 @@ export const content = {
     },
     projects: {
       title: 'Projects',
-      intro: 'Four complete projects, all live. Course exercises stay on GitHub.',
+      intro: 'Four complete projects, all live, plus a work system in testing. Course exercises stay on GitHub.',
       flagshipTag: 'Work project',
       cogniName: 'CogniVault',
       cogniTagline: 'Parts catalog and counter quoting for a machinery and parts dealer.',
@@ -263,7 +268,7 @@ export const content = {
       privateNote: 'The code is private because it is a work project. I can walk you through the architecture and code excerpts on a call.',
       caseStudy: 'Case study',
       demo: 'Open the demo',
-      othersTitle: 'Other complete projects',
+      othersTitle: 'Other projects',
       demoLabel: 'Demo',
       codeLabel: 'Code',
       others: [
@@ -296,6 +301,11 @@ export const content = {
           stack: 'React, Node.js, Firebase',
           demo: 'https://economia-solidaria-frontend.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
+        },
+        {
+          name: 'Vardão CRM',
+          year: '2026',
+          text: 'A CRM and parts-ordering system for the store, built together with the owner. Sales funnel with overdue follow-up alerts, a conversion dashboard, supplier orders with receiving checks and an inventory dashboard with ABC analysis. In testing, team access only.',
         },
       ],
       moreTitle: 'The remaining repositories',
