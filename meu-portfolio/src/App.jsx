@@ -203,28 +203,28 @@ function Projects({ t, lang }) {
           <h3 className="sub">{p.othersTitle}</h3>
           <ul className="rows">
             {p.others.map((o) => (
-              <li key={o.name} className="row">
-                <span className="row__year">{o.year}</span>
+              <li key={o.name} className="row row--card">
+                {o.img && (
+                  <img className="row__thumb" src={o.img} alt={o.imgAlt} width="1600" height="850" loading="lazy" decoding="async" />
+                )}
                 <div className="row__main">
-                  {o.img && (
-                    <img className="row__thumb" src={o.img} alt={o.imgAlt} width="1600" height="850" loading="lazy" decoding="async" />
-                  )}
+                  <p className="row__year">{o.year}</p>
                   <h4>{o.name}</h4>
                   <p>{o.text}</p>
                   {o.stack && <p className="row__stack">{o.stack}</p>}
-                </div>
-                {o.demo && (
-                  <div className="row__links">
-                    <a href={o.demo} target="_blank" rel="noreferrer">
-                      {p.demoLabel}
-                    </a>
-                    {o.code && (
-                      <a href={o.code} target="_blank" rel="noreferrer">
-                        {p.codeLabel}
+                  {o.demo && (
+                    <div className="row__links">
+                      <a href={o.demo} target="_blank" rel="noreferrer">
+                        {p.demoLabel}
                       </a>
-                    )}
-                  </div>
-                )}
+                      {o.code && (
+                        <a href={o.code} target="_blank" rel="noreferrer">
+                          {p.codeLabel}
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
               </li>
             ))}
           </ul>

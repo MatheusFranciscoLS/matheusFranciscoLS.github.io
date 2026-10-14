@@ -859,3 +859,28 @@ h4 {
   margin-bottom: 12px;
   background: var(--paper-2);
 }
+
+/* Outros projetos em cartões: imagem maior ao lado do texto */
+.row--card {
+  gap: 16px;
+}
+.row--card .row__thumb {
+  max-width: none;
+  margin: 0;
+}
+.row--card .row__year {
+  margin-bottom: 4px;
+}
+.row--card .row__links {
+  margin-top: 14px;
+}
+@media (min-width: 720px) {
+  .row--card {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .row--card .row__main {
+    padding-top: 2px;
+  }
+}
