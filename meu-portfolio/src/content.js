@@ -139,7 +139,7 @@ export const content = {
         {
           when: '2020 até hoje',
           what: 'Vendedor, Vardão Máquinas',
-          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Criei com o dono o CRM de vendas e o controle de pedidos e estoque da loja. R$ 200 mil em vendas em 30 dias.',
+          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Montei um CRM para acompanhar leads e um sistema de pedidos e estoque de peças. R$ 200 mil em vendas em 30 dias.',
         },
         {
           when: '2022 a 2024',
@@ -314,7 +314,7 @@ export const content = {
         {
           when: '2020 to today',
           what: 'Sales representative, Vardão Máquinas',
-          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I built, with the owner, the sales CRM of the store and its order and inventory control. BRL 200k in sales in 30 days.',
+          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I set up a CRM to track leads and a system for parts orders and inventory. BRL 200k in sales in 30 days.',
         },
         {
           when: '2022 to 2024',
