@@ -68,7 +68,7 @@ export const content = {
     },
     projects: {
       title: 'Projetos',
-      intro: 'Quatro projetos completos e no ar, mais um sistema de trabalho em testes. Os exercícios dos cursos ficam no GitHub.',
+      intro: 'Quatro projetos completos e no ar. Os exercícios dos cursos ficam no GitHub.',
       flagshipTag: 'Projeto de trabalho',
       cogniName: 'CogniVault',
       cogniTagline: 'Catálogo técnico e orçamento de balcão para uma revenda de máquinas e peças.',
@@ -88,7 +88,7 @@ export const content = {
       privateNote: 'O código é privado, por ser projeto de trabalho. Mostro a arquitetura e trechos do código numa conversa.',
       caseStudy: 'Estudo de caso',
       demo: 'Abrir a demo',
-      othersTitle: 'Outros projetos',
+      othersTitle: 'Outros projetos completos',
       demoLabel: 'Demo',
       codeLabel: 'Código',
       others: [
@@ -122,11 +122,6 @@ export const content = {
           demo: 'https://economia-solidaria-frontend.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
         },
-        {
-          name: 'Vardão CRM',
-          year: '2026',
-          text: 'CRM e controle de pedidos de peças da loja, feito junto com o dono. Funil de vendas com alerta de retorno atrasado, painel de conversão, pedidos ao fornecedor com conferência do que chegou e painel de estoque com curva ABC. Em fase de testes, acesso só para a equipe.',
-        },
       ],
       moreTitle: 'Os demais repositórios',
       more: 'São exercícios e projetos de curso em Java, PHP, Node.js, Flutter e SQL, publicados como foram feitos.',
@@ -144,7 +139,7 @@ export const content = {
         {
           when: '2020 até hoje',
           what: 'Vendedor, Vardão Máquinas',
-          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. R$ 200 mil em vendas em 30 dias.',
+          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Criei com o dono o CRM de vendas e o controle de pedidos e estoque da loja. R$ 200 mil em vendas em 30 dias.',
         },
         {
           when: '2022 a 2024',
@@ -248,7 +243,7 @@ export const content = {
     },
     projects: {
       title: 'Projects',
-      intro: 'Four complete projects, all live, plus a work system in testing. Course exercises stay on GitHub.',
+      intro: 'Four complete projects, all live. Course exercises stay on GitHub.',
       flagshipTag: 'Work project',
       cogniName: 'CogniVault',
       cogniTagline: 'Parts catalog and counter quoting for a machinery and parts dealer.',
@@ -268,7 +263,7 @@ export const content = {
       privateNote: 'The code is private because it is a work project. I can walk you through the architecture and code excerpts on a call.',
       caseStudy: 'Case study',
       demo: 'Open the demo',
-      othersTitle: 'Other projects',
+      othersTitle: 'Other complete projects',
       demoLabel: 'Demo',
       codeLabel: 'Code',
       others: [
@@ -302,11 +297,6 @@ export const content = {
           demo: 'https://economia-solidaria-frontend.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
         },
-        {
-          name: 'Vardão CRM',
-          year: '2026',
-          text: 'A CRM and parts-ordering system for the store, built together with the owner. Sales funnel with overdue follow-up alerts, a conversion dashboard, supplier orders with receiving checks and an inventory dashboard with ABC analysis. In testing, team access only.',
-        },
       ],
       moreTitle: 'The remaining repositories',
       more: 'Course exercises and projects in Java, PHP, Node.js, Flutter and SQL, published as I built them.',
@@ -324,7 +314,7 @@ export const content = {
         {
           when: '2020 to today',
           what: 'Sales representative, Vardão Máquinas',
-          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. BRL 200k in sales in 30 days.',
+          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I built, with the owner, the sales CRM of the store and its order and inventory control. BRL 200k in sales in 30 days.',
         },
         {
           when: '2022 to 2024',
