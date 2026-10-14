@@ -37,6 +37,10 @@ function Header({ t, lang, theme, toggleTheme }) {
           <a href="#trajetoria">{t.ui.nav.path}</a>
           <a href="#contato">{t.ui.nav.contact}</a>
         </nav>
+        <nav className="topbar__social" aria-label={t.ui.socialLabel}>
+          <a href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        </nav>
         <div className="topbar__tools">
           <a
             className="chip"
@@ -72,7 +76,10 @@ function Hero({ t, lang }) {
     <section className="hero" aria-labelledby="titulo">
       <div className="wrap hero__grid">
         <div className="hero__text">
-          <p className="hero__identity">{h.identity}</p>
+          <p className="hero__identity">
+            <strong>{h.role}</strong>
+            {h.place}
+          </p>
           <h1 id="titulo">{h.title}</h1>
           <p className="hero__lead">{h.lead}</p>
           <div className="actions">
@@ -83,8 +90,23 @@ function Hero({ t, lang }) {
               {h.secondary}
             </a>
           </div>
+          <p className="hero__links">
+            <a href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
+            <a href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          </p>
           <p className="hero__availability">{h.availability}</p>
         </div>
+        <figure className="hero__shot">
+          <img
+            src="/assets/cognivault-busca.png"
+            alt={h.shotAlt}
+            width="1440"
+            height="900"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <figcaption>{h.shotCaption}</figcaption>
+        </figure>
         <figure className="hero__figure">
           <ExplodedView
             labels={h.parts.map((p) => p.name)}
@@ -144,7 +166,7 @@ function Projects({ t, lang }) {
             <p className="flagship__tagline">{p.cogniTagline}</p>
             <img
               className="flagship__shot"
-              src="/assets/cognivault-busca.png"
+              src="/assets/cognivault/orcamento-pecas.png"
               alt={p.imageAlt}
               width="1440"
               height="900"

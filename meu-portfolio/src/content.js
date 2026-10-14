@@ -23,12 +23,16 @@ export const content = {
       skip: 'Ir para o conteúdo',
       nav: { projects: 'Projetos', path: 'Trajetória', contact: 'Contato' },
       theme: 'Alternar tema claro e escuro',
+      socialLabel: 'Perfis',
       otherLang: 'English',
       otherLangLabel: 'Read this page in English',
     },
     hero: {
       title: 'Sou vendedor de máquinas e escrevi o sistema do balcão.',
-      identity: 'Matheus Francisco, desenvolvedor full-stack júnior em Limeira, SP.',
+      role: 'Desenvolvedor full-stack júnior',
+      place: 'Matheus Francisco, Limeira, SP',
+      shotAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
+      shotCaption: 'CogniVault em uso: o código digitado devolve a peça, o preço e a posição no desenho.',
       lead:
         'O CogniVault é o catálogo técnico e de orçamento que fiz para o balcão da Vardão Máquinas, onde trabalho desde 2020. O atendente digita um código e sai com preço, posição no desenho e orçamento pronto. O sistema está no ar e começa a ser usado no balcão da loja.',
       primary: 'Ler o estudo de caso',
@@ -68,7 +72,7 @@ export const content = {
       flagshipTag: 'Projeto de trabalho',
       cogniName: 'CogniVault',
       cogniTagline: 'Catálogo técnico e orçamento de balcão para uma revenda de máquinas e peças.',
-      imageAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
+      imageAlt: 'Tela de orçamento do CogniVault com prazo por linha, pagamento, desconto e envio por WhatsApp ou PDF.',
       problemTitle: 'O problema',
       problem:
         'No balcão, responder “qual é a peça e quanto custa” exigia abrir um catálogo em PDF, achar a posição no desenho, conferir o preço numa lista e montar o orçamento à mão. Cada passo vinha de uma fonte, e um código errado vira devolução.',
@@ -188,12 +192,16 @@ export const content = {
       skip: 'Skip to content',
       nav: { projects: 'Projects', path: 'Background', contact: 'Contact' },
       theme: 'Toggle light and dark theme',
+      socialLabel: 'Profiles',
       otherLang: 'Português',
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
       title: 'I sell farm machinery and I wrote the counter system.',
-      identity: 'Matheus Francisco, junior full-stack developer in Limeira, Brazil.',
+      role: 'Junior full-stack developer',
+      place: 'Matheus Francisco, Limeira, Brazil',
+      shotAlt: 'CogniVault search screen showing a part code result with price and position.',
+      shotCaption: 'CogniVault in use: a typed code returns the part, its price and its position in the diagram.',
       lead:
         'CogniVault is the parts catalog and quoting system I built for the counter at Vardão Máquinas, where I have worked since 2020. The clerk types a code and gets the price, the position on the drawing and a finished quote. The system is live and is starting to be used at the dealership counter.',
       primary: 'Read the case study',
@@ -233,7 +241,7 @@ export const content = {
       flagshipTag: 'Work project',
       cogniName: 'CogniVault',
       cogniTagline: 'Parts catalog and counter quoting for a machinery and parts dealer.',
-      imageAlt: 'CogniVault search screen showing a part code result with price and position.',
+      imageAlt: 'CogniVault quote screen with a lead time per line, payment, discount and sending by WhatsApp or PDF.',
       problemTitle: 'The problem',
       problem:
         'At the counter, answering “which part is it and how much” meant opening a PDF catalog, finding the position on the drawing, checking a price list and building the quote by hand. Each step came from a different source, and a wrong code becomes a return.',
