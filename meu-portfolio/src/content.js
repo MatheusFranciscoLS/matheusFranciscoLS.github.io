@@ -34,7 +34,7 @@ export const content = {
       shotAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
       shotCaption: 'CogniVault em uso: o código digitado devolve a peça, o preço e a posição no desenho.',
       lead:
-        'O CogniVault é o catálogo técnico e de orçamento que fiz para o balcão da Vardão Máquinas, onde trabalho desde 2020. O atendente digita um código e sai com preço, posição no desenho e orçamento pronto. O sistema está no ar e começa a ser usado no balcão da loja.',
+        'O CogniVault é o catálogo técnico e de orçamento que fiz para o balcão da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, onde trabalho desde 2020. O atendente digita um código e sai com preço, posição no desenho e orçamento pronto. O sistema está no ar e começa a ser usado no balcão da loja.',
       primary: 'Ler o estudo de caso',
       secondary: 'Baixar currículo',
       availability: 'Aberto a vagas de desenvolvedor full-stack júnior.',
@@ -133,7 +133,7 @@ export const content = {
         {
           when: '2020 até hoje',
           what: 'Vendedor, Vardão Máquinas',
-          text: 'Vendas consultivas para o setor agrícola. Montei um CRM no Notion e automações em Excel e VBA para acompanhar leads. R$ 200 mil em vendas em 30 dias.',
+          text: 'Vendas consultivas de equipamentos Husqvarna para jardim, floresta e agricultura familiar. Montei um CRM no Notion e automações em Excel e VBA para acompanhar leads. R$ 200 mil em vendas em 30 dias.',
         },
         {
           when: '2022 a 2024',
@@ -203,7 +203,7 @@ export const content = {
       shotAlt: 'CogniVault search screen showing a part code result with price and position.',
       shotCaption: 'CogniVault in use: a typed code returns the part, its price and its position in the diagram.',
       lead:
-        'CogniVault is the parts catalog and quoting system I built for the counter at Vardão Máquinas, where I have worked since 2020. The clerk types a code and gets the price, the position on the drawing and a finished quote. The system is live and is starting to be used at the dealership counter.',
+        'CogniVault is the parts catalog and quoting system I built for the counter at Vardão Máquinas, an authorized Husqvarna dealer in Limeira, where I have worked since 2020. The clerk types a code and gets the price, the position on the drawing and a finished quote. The system is live and is starting to be used at the dealership counter.',
       primary: 'Read the case study',
       secondary: 'Download résumé',
       availability: 'Open to junior full-stack developer roles.',
@@ -302,7 +302,7 @@ export const content = {
         {
           when: '2020 to today',
           what: 'Sales representative, Vardão Máquinas',
-          text: 'Consultative sales to the farming sector. I set up a CRM in Notion and Excel and VBA automations to track leads. BRL 200k in sales in 30 days.',
+          text: 'Consultative sales of Husqvarna equipment for garden, forestry and family farming. I set up a CRM in Notion and Excel and VBA automations to track leads. BRL 200k in sales in 30 days.',
         },
         {
           when: '2022 to 2024',
