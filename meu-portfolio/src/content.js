@@ -17,7 +17,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
       description:
-        'Escrevi o sistema de catálogo e orçamento que uma revenda de máquinas usa no balcão. Desenvolvedor full-stack júnior em Limeira, SP: Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Desenvolvi o sistema de catálogo e orçamento do balcão de uma revenda autorizada Husqvarna. Desenvolvedor full-stack júnior em Limeira, SP: Java, Spring Boot, React, Node.js e PostgreSQL.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -28,7 +28,7 @@ export const content = {
       otherLangLabel: 'Read this page in English',
     },
     hero: {
-      title: 'Escrevi o sistema que a revenda onde trabalho usa no balcão.',
+      title: 'Desenvolvi o sistema de catálogo e orçamento do balcão da loja onde trabalho.',
       role: 'Desenvolvedor full-stack júnior',
       place: 'Matheus Francisco, Limeira, SP',
       shotAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
@@ -186,7 +186,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Junior full-stack developer',
       description:
-        'I wrote the parts catalog and quoting system a machinery dealer uses at the counter. Junior full-stack developer in Limeira, Brazil: Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'I built the parts catalog and quoting system for the counter of an authorized Husqvarna dealer. Junior full-stack developer in Limeira, Brazil: Java, Spring Boot, React, Node.js and PostgreSQL.',
     },
     ui: {
       skip: 'Skip to content',
@@ -197,7 +197,7 @@ export const content = {
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
-      title: 'I wrote the system my dealership uses at the counter.',
+      title: 'I built the parts catalog and quoting system my dealership uses at the counter.',
       role: 'Junior full-stack developer',
       place: 'Matheus Francisco, Limeira, Brazil',
       shotAlt: 'CogniVault search screen showing a part code result with price and position.',
