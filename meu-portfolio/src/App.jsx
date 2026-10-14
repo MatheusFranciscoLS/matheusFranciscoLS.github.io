@@ -206,6 +206,7 @@ function Projects({ t, lang }) {
               <li key={o.name} className="row">
                 <span className="row__year">{o.year}</span>
                 <div className="row__main">
+                  <img className="row__thumb" src={o.img} alt={o.imgAlt} width="1600" height="850" loading="lazy" decoding="async" />
                   <h4>{o.name}</h4>
                   <p>{o.text}</p>
                   <p className="row__stack">{o.stack}</p>

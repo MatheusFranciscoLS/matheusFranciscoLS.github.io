@@ -845,3 +845,17 @@ h4 {
   border-radius: 50%;
   background: #2e9e5b;
 }
+
+/* Miniaturas dos outros projetos */
+.row__thumb {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 1600 / 850;
+  object-fit: cover;
+  object-position: top left;
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+  background: var(--paper-2);
+}

@@ -93,6 +93,8 @@ export const content = {
       codeLabel: 'Código',
       others: [
         {
+          img: '/assets/businessflow.webp',
+          imgAlt: 'Tela de login do BusinessFlow, plataforma de gestão contábil e financeira.',
           name: 'BusinessFlow',
           year: '2026',
           text: 'SaaS para pequenos negócios, com CRM, agenda, financeiro e relatórios.',
@@ -101,6 +103,8 @@ export const content = {
           code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
         },
         {
+          img: '/assets/iot-plataforma.webp',
+          imgAlt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.',
           name: 'Plataforma IoT Industrial',
           year: '2026',
           text: 'Telemetria industrial em tempo real, com microsserviços, filas, simuladores e painel de operação.',
@@ -109,6 +113,8 @@ export const content = {
           code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
         },
         {
+          img: '/assets/p2.webp',
+          imgAlt: 'Página inicial do Economia Solidária em Limeira, com acesso a lojas e cadastro.',
           name: 'Economia Solidária',
           year: '2025',
           text: 'TCC do SENAI: marketplace que conecta produtores locais e consumidores, com login e gestão de lojas.',
@@ -133,7 +139,7 @@ export const content = {
         {
           when: '2020 até hoje',
           what: 'Vendedor, Vardão Máquinas',
-          text: 'Vendas consultivas de equipamentos Husqvarna para jardim, floresta e agricultura familiar. Montei um CRM no Notion e automações em Excel e VBA para acompanhar leads. R$ 200 mil em vendas em 30 dias.',
+          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Montei um CRM no Notion e automações em Excel e VBA para acompanhar leads. R$ 200 mil em vendas em 30 dias.',
         },
         {
           when: '2022 a 2024',
@@ -262,6 +268,8 @@ export const content = {
       codeLabel: 'Code',
       others: [
         {
+          img: '/assets/businessflow.webp',
+          imgAlt: 'BusinessFlow login screen, an accounting and finance management platform.',
           name: 'BusinessFlow',
           year: '2026',
           text: 'A small-business SaaS with CRM, scheduling, finance and reports.',
@@ -270,6 +278,8 @@ export const content = {
           code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
         },
         {
+          img: '/assets/iot-plataforma.webp',
+          imgAlt: 'Monitoring dashboard with temperature, speed and vibration for three machines.',
           name: 'Industrial IoT Platform',
           year: '2026',
           text: 'Real-time industrial telemetry with microservices, queues, simulators and an operations dashboard.',
@@ -278,6 +288,8 @@ export const content = {
           code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
         },
         {
+          img: '/assets/p2.webp',
+          imgAlt: 'Home page of Solidarity Economy in Limeira, with links to stores and sign-up.',
           name: 'Solidarity Economy',
           year: '2025',
           text: 'SENAI capstone: a marketplace connecting local producers and consumers, with login and store management.',
@@ -302,7 +314,7 @@ export const content = {
         {
           when: '2020 to today',
           what: 'Sales representative, Vardão Máquinas',
-          text: 'Consultative sales of Husqvarna equipment for garden, forestry and family farming. I set up a CRM in Notion and Excel and VBA automations to track leads. BRL 200k in sales in 30 days.',
+          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I set up a CRM in Notion and Excel and VBA automations to track leads. BRL 200k in sales in 30 days.',
         },
         {
           when: '2022 to 2024',
