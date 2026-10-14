@@ -76,6 +76,7 @@ function Hero({ t, lang }) {
     <section className="hero" aria-labelledby="titulo">
       <div className="wrap hero__grid">
         <div className="hero__text">
+          <p className="hero__availability">{h.availability}</p>
           <p className="hero__identity">
             <strong>{h.role}</strong>
             {h.place}
@@ -94,7 +95,6 @@ function Hero({ t, lang }) {
             <a href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
             <a href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           </p>
-          <p className="hero__availability">{h.availability}</p>
         </div>
         <figure className="hero__shot">
           <img

@@ -826,3 +826,22 @@ h4 {
     margin-top: 16px;
   }
 }
+
+/* Aviso de disponibilidade acima do cargo */
+.hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.hero__availability::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2e9e5b;
+}
