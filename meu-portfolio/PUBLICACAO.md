@@ -4,7 +4,7 @@ Nada abaixo foi executado. Cada passo de publicação espera a aprovação de Ma
 
 ## Antes de publicar
 - [ ] Revisar os prints (PC e celular, claro e escuro, PT e EN) e aprovar a direção.
-- [ ] Confirmar o texto sobre a loja: "O sistema está no ar e começa a ser usado no balcão da loja".
+- [x] Matheus confirmou que o sistema está no ar; o texto diz só "O sistema está no ar".
 - [ ] Ler os dois currículos em PDF (`public/assets/curriculo-pt.pdf` e `-en.pdf`) e aprovar. O telefone e o e-mail estão no PDF, como no currículo atual.
 - [ ] Decidir sobre o formulário de contato (removido nesta versão; ficam e-mail, WhatsApp, LinkedIn e GitHub) e sobre o número do WhatsApp (só no link, não aparece escrito na página).
 - [x] `Economia Solidária` fica entre os 4 projetos, apresentada como TCC do SENAI (o repositório `ProjetoFinal` é um fork do trabalho em grupo).
