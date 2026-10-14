@@ -1,16 +1,15 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App.jsx';
-import { LanguageProvider } from './context/LanguageContext.jsx';
-import './index.css';
-import './animations.css';
-import './sections.css';
-import './responsive.css';
+import './site.css';
 
-createRoot(document.getElementById('root')).render(
+const root = document.getElementById('root');
+const lang = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'pt';
+const app = (
   <StrictMode>
-    <LanguageProvider>
-      <App />
-    </LanguageProvider>
-  </StrictMode>,
+    <App lang={lang} />
+  </StrictMode>
 );
+
+if (root.firstElementChild) hydrateRoot(root, app);
+else createRoot(root).render(app);

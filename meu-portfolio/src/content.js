@@ -1,0 +1,345 @@
+export const SITE = 'https://matheusfranciscols.github.io';
+export const EMAIL = 'matheusf.ls@hotmail.com';
+export const LINKS = {
+  linkedin: 'https://www.linkedin.com/in/matheusfranciscols',
+  github: 'https://github.com/MatheusFranciscoLS',
+  whatsapp: 'https://wa.me/5519981911214?text=Ol%C3%A1%20Matheus%2C%20vi%20seu%20portf%C3%B3lio.',
+  demo: 'https://cognivault-murex.vercel.app',
+};
+
+export const paths = {
+  pt: { home: '/', caseStudy: '/estudo-de-caso-cognivault/', resume: '/assets/curriculo-pt.pdf' },
+  en: { home: '/en/', caseStudy: '/estudo-de-caso-cognivault/en/', resume: '/assets/curriculo-en.pdf' },
+};
+
+export const content = {
+  pt: {
+    meta: {
+      title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
+      description:
+        'Vendedor de máquinas agrícolas que escreveu o sistema do balcão da loja. Desenvolvedor full-stack júnior em Limeira, SP: Java, Spring Boot, React, Node.js e PostgreSQL.',
+    },
+    ui: {
+      skip: 'Ir para o conteúdo',
+      nav: { projects: 'Projetos', path: 'Trajetória', contact: 'Contato' },
+      theme: 'Alternar tema claro e escuro',
+      otherLang: 'English',
+      otherLangLabel: 'Read this page in English',
+    },
+    hero: {
+      title: 'Sou vendedor de máquinas e escrevi o sistema do balcão.',
+      identity: 'Matheus Francisco, desenvolvedor full-stack júnior em Limeira, SP.',
+      lead:
+        'O CogniVault é o catálogo técnico e de orçamento que fiz para o balcão da Vardão Máquinas, onde trabalho desde 2020. O atendente digita um código e sai com preço, posição no desenho e orçamento pronto. O sistema está no ar e começa a ser usado no balcão da loja.',
+      primary: 'Ler o estudo de caso',
+      secondary: 'Baixar currículo',
+      availability: 'Aberto a vagas de desenvolvedor full-stack júnior.',
+      figureLabel:
+        'Vista explodida do CogniVault: interface, API, fila e banco de dados, em quatro camadas numeradas.',
+      partsTitle: 'Lista de peças do CogniVault',
+      partsHead: { item: 'Item', part: 'Peça', does: 'Função' },
+      parts: [
+        {
+          name: 'Interface',
+          tech: 'React 19, TypeScript, Vite, Tailwind CSS',
+          does: 'Busca por código, peça ou modelo. Atalhos de teclado para quem atende com pressa.',
+        },
+        {
+          name: 'API',
+          tech: 'Node.js, Express',
+          does: '91 rotas. Recusa código incompleto em vez de sugerir um parecido.',
+        },
+        {
+          name: 'Fila',
+          tech: 'RabbitMQ',
+          does: 'Rotinas em segundo plano, como apagar orçamentos com mais de 1 ano.',
+        },
+        {
+          name: 'Banco',
+          tech: 'PostgreSQL, Prisma',
+          does: '26 modelos de dados e 57 migrations versionadas.',
+        },
+      ],
+      tests: 'Testes: 996 no backend, 389 no frontend e 107 roteiros de navegador. Contagem de 14/10/2026.',
+    },
+    projects: {
+      title: 'Projetos',
+      intro: 'Quatro projetos completos e no ar. Os exercícios dos cursos ficam no GitHub.',
+      flagshipTag: 'Projeto de trabalho',
+      cogniName: 'CogniVault',
+      cogniTagline: 'Catálogo técnico e orçamento de balcão para uma revenda de máquinas e peças.',
+      imageAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
+      problemTitle: 'O problema',
+      problem:
+        'No balcão, responder “qual é a peça e quanto custa” exigia abrir um catálogo em PDF, achar a posição no desenho, conferir o preço numa lista e montar o orçamento à mão. Cada passo vinha de uma fonte, e um código errado vira devolução.',
+      solutionTitle: 'O que fiz',
+      solution:
+        'Um sistema único: busca por código, peça ou modelo, vista explodida com a posição clicável, preço e prateleira vindos do ERP, e orçamento em PDF e WhatsApp.',
+      rulesTitle: 'Regras que o produto não quebra',
+      rules: [
+        'Nunca chutar o código. Código digitado devolve só o exato e a substituição oficial da fabricante.',
+        'O cliente nunca recebe o código da peça. PDF, WhatsApp e impressão saem sem ele.',
+        'Mudança de dado é explícita. Importar preço mostra um relatório antes de gravar e guarda como desfazer.',
+      ],
+      privateNote: 'O código é privado, por ser projeto de trabalho. Mostro a arquitetura e trechos do código numa conversa.',
+      caseStudy: 'Estudo de caso',
+      demo: 'Abrir a demo',
+      othersTitle: 'Outros projetos completos',
+      demoLabel: 'Demo',
+      codeLabel: 'Código',
+      others: [
+        {
+          name: 'BusinessFlow',
+          year: '2026',
+          text: 'SaaS para pequenos negócios, com CRM, agenda, financeiro e relatórios.',
+          stack: 'React, Node.js, PostgreSQL, Prisma',
+          demo: 'https://flowbusiness.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
+        },
+        {
+          name: 'Plataforma IoT Industrial',
+          year: '2026',
+          text: 'Telemetria industrial em tempo real, com microsserviços, filas, simuladores e painel de operação.',
+          stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
+          demo: 'https://plataforma-iot-industrial.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
+        },
+        {
+          name: 'Economia Solidária',
+          year: '2025',
+          text: 'TCC do SENAI: marketplace que conecta produtores locais e consumidores, com login e gestão de lojas.',
+          stack: 'React, Node.js, Firebase',
+          demo: 'https://economia-solidaria-frontend.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
+        },
+      ],
+      moreTitle: 'Os demais repositórios',
+      more: 'São exercícios e projetos de curso em Java, PHP, Node.js, Flutter e SQL, publicados como foram feitos.',
+      moreLink: 'Ver todos no GitHub',
+    },
+    path: {
+      title: 'Trajetória',
+      intro: 'No balcão desde 2017, programando desde 2022. Entendo o problema do cliente antes de escrever o código.',
+      items: [
+        {
+          when: '2017 a 2020',
+          what: 'Vendedor, Yamashita Tratores',
+          text: 'Atendimento consultivo e venda técnica de maquinário agrícola.',
+        },
+        {
+          when: '2020 até hoje',
+          what: 'Vendedor, Vardão Máquinas',
+          text: 'Vendas consultivas para o setor agrícola. Montei um CRM no Notion e automações em Excel e VBA para acompanhar leads. R$ 200 mil em vendas em 30 dias.',
+        },
+        {
+          when: '2022 a 2024',
+          what: 'Técnico em Desenvolvimento de Sistemas, SENAI',
+          text: 'Java, banco de dados, web e mobile.',
+        },
+        {
+          when: '2024 a 2028',
+          what: 'Ciência da Computação, Universidade Anhembi Morumbi',
+          text: 'Em andamento, conclusão prevista em 10/2028.',
+        },
+        {
+          when: '2026',
+          what: 'CogniVault no ar',
+          text: 'Do levantamento no balcão ao sistema em produção, com testes automatizados.',
+        },
+      ],
+      skillsTitle: 'Competências',
+      skills: [
+        ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, NestJS, TypeScript, APIs REST'],
+        ['Front-end', 'React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS'],
+        ['Dados e arquitetura', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker, microsserviços, WebSockets'],
+        ['Práticas', 'Git e GitHub, Postman, Scrum e Kanban, testes automatizados'],
+        ['Inglês', 'Pré-intermediário, em desenvolvimento'],
+      ],
+      coursesTitle: 'Cursos',
+      courses: [
+        'Programação Java, SENAI, 120h (2022)',
+        'Programação de Banco de Dados, SENAI, 120h (2024)',
+        'Ciência da Computação de Harvard no Brasil, Fundação Estudar, 70h (2025)',
+        'AWS Cloud Practitioner Foundational, SENAI, 40h (2022)',
+        'AI-900, Fundamentos de IA no Azure, Fundação Bradesco, 16h (2025)',
+      ],
+    },
+    contact: {
+      title: 'Contato',
+      intro: 'Procuro minha primeira vaga como desenvolvedor full-stack júnior. Escreva por e-mail, WhatsApp ou LinkedIn.',
+      email: 'E-mail',
+      copy: 'Copiar e-mail',
+      copied: 'E-mail copiado',
+      whatsapp: 'WhatsApp',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+      resume: 'Baixar currículo (PDF)',
+    },
+    footer: 'Matheus Francisco, Limeira, SP.',
+  },
+
+  en: {
+    meta: {
+      title: 'Matheus Francisco | Junior full-stack developer',
+      description:
+        'A farm-machinery salesman who built the counter system for his own dealership. Junior full-stack developer in Limeira, Brazil: Java, Spring Boot, React, Node.js and PostgreSQL.',
+    },
+    ui: {
+      skip: 'Skip to content',
+      nav: { projects: 'Projects', path: 'Background', contact: 'Contact' },
+      theme: 'Toggle light and dark theme',
+      otherLang: 'Português',
+      otherLangLabel: 'Ler esta página em português',
+    },
+    hero: {
+      title: 'I sell farm machinery and I wrote the counter system.',
+      identity: 'Matheus Francisco, junior full-stack developer in Limeira, Brazil.',
+      lead:
+        'CogniVault is the parts catalog and quoting system I built for the counter at Vardão Máquinas, where I have worked since 2020. The clerk types a code and gets the price, the position on the drawing and a finished quote. The system is live and is starting to be used at the dealership counter.',
+      primary: 'Read the case study',
+      secondary: 'Download résumé',
+      availability: 'Open to junior full-stack developer roles.',
+      figureLabel:
+        'Exploded view of CogniVault: interface, API, queue and database, as four numbered layers.',
+      partsTitle: 'CogniVault parts list',
+      partsHead: { item: 'Item', part: 'Part', does: 'Role' },
+      parts: [
+        {
+          name: 'Interface',
+          tech: 'React 19, TypeScript, Vite, Tailwind CSS',
+          does: 'Search by code, part or model. Keyboard shortcuts for clerks in a hurry.',
+        },
+        {
+          name: 'API',
+          tech: 'Node.js, Express',
+          does: '91 routes. Rejects an incomplete code instead of suggesting a similar one.',
+        },
+        {
+          name: 'Queue',
+          tech: 'RabbitMQ',
+          does: 'Background jobs, such as deleting quotes older than 1 year.',
+        },
+        {
+          name: 'Database',
+          tech: 'PostgreSQL, Prisma',
+          does: '26 data models and 57 versioned migrations.',
+        },
+      ],
+      tests: 'Tests: 996 backend, 389 frontend and 107 browser scripts. Counted on 2026-10-14.',
+    },
+    projects: {
+      title: 'Projects',
+      intro: 'Four complete projects, all live. Course exercises stay on GitHub.',
+      flagshipTag: 'Work project',
+      cogniName: 'CogniVault',
+      cogniTagline: 'Parts catalog and counter quoting for a machinery and parts dealer.',
+      imageAlt: 'CogniVault search screen showing a part code result with price and position.',
+      problemTitle: 'The problem',
+      problem:
+        'At the counter, answering “which part is it and how much” meant opening a PDF catalog, finding the position on the drawing, checking a price list and building the quote by hand. Each step came from a different source, and a wrong code becomes a return.',
+      solutionTitle: 'What I built',
+      solution:
+        'One system: search by code, part or model, an exploded view with a clickable position, price and shelf location from the ERP, and quotes by PDF and WhatsApp.',
+      rulesTitle: 'Rules the product never breaks',
+      rules: [
+        'Never guess a code. A typed code returns only the exact match and the manufacturer’s official replacement.',
+        'The customer never receives the part code. PDF, WhatsApp and print leave without it.',
+        'Changing data is explicit. Importing prices shows a report before saving and keeps an undo.',
+      ],
+      privateNote: 'The code is private because it is a work project. I walk through the architecture and code excerpts in a conversation.',
+      caseStudy: 'Case study',
+      demo: 'Open the demo',
+      othersTitle: 'Other complete projects',
+      demoLabel: 'Demo',
+      codeLabel: 'Code',
+      others: [
+        {
+          name: 'BusinessFlow',
+          year: '2026',
+          text: 'A small-business SaaS with CRM, scheduling, finance and reports.',
+          stack: 'React, Node.js, PostgreSQL, Prisma',
+          demo: 'https://flowbusiness.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
+        },
+        {
+          name: 'Industrial IoT Platform',
+          year: '2026',
+          text: 'Real-time industrial telemetry with microservices, queues, simulators and an operations dashboard.',
+          stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
+          demo: 'https://plataforma-iot-industrial.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
+        },
+        {
+          name: 'Solidarity Economy',
+          year: '2025',
+          text: 'SENAI capstone: a marketplace connecting local producers and consumers, with login and store management.',
+          stack: 'React, Node.js, Firebase',
+          demo: 'https://economia-solidaria-frontend.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
+        },
+      ],
+      moreTitle: 'The remaining repositories',
+      more: 'Course exercises and projects in Java, PHP, Node.js, Flutter and SQL, published as I built them.',
+      moreLink: 'See all on GitHub',
+    },
+    path: {
+      title: 'Background',
+      intro: 'At the counter since 2017, programming since 2022. I understand the customer’s problem before I write the code.',
+      items: [
+        {
+          when: '2017 to 2020',
+          what: 'Salesman, Yamashita Tratores',
+          text: 'Consultative service and technical sales of farm machinery.',
+        },
+        {
+          when: '2020 to today',
+          what: 'Salesman, Vardão Máquinas',
+          text: 'Consultative sales to the farming sector. I set up a CRM in Notion and Excel and VBA automations to track leads. BRL 200k in sales in 30 days.',
+        },
+        {
+          when: '2022 to 2024',
+          what: 'Systems Development technician, SENAI',
+          text: 'Java, databases, web and mobile.',
+        },
+        {
+          when: '2024 to 2028',
+          what: 'Computer Science, Universidade Anhembi Morumbi',
+          text: 'In progress, expected completion 10/2028.',
+        },
+        {
+          when: '2026',
+          what: 'CogniVault goes live',
+          text: 'From requirements at the counter to a system in production, with automated tests.',
+        },
+      ],
+      skillsTitle: 'Skills',
+      skills: [
+        ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, NestJS, TypeScript, REST APIs'],
+        ['Front-end', 'React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS'],
+        ['Data and architecture', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker, microservices, WebSockets'],
+        ['Practices', 'Git and GitHub, Postman, Scrum and Kanban, automated testing'],
+        ['English', 'Pre-intermediate, improving'],
+      ],
+      coursesTitle: 'Courses',
+      courses: [
+        'Java Programming, SENAI, 120h (2022)',
+        'Database Programming, SENAI, 120h (2024)',
+        'Computer Science, Harvard in Brazil, Fundação Estudar, 70h (2025)',
+        'AWS Cloud Practitioner Foundational, SENAI, 40h (2022)',
+        'AI-900, Azure AI Fundamentals, Fundação Bradesco, 16h (2025)',
+      ],
+    },
+    contact: {
+      title: 'Contact',
+      intro: 'I am looking for my first role as a junior full-stack developer. Write by email, WhatsApp or LinkedIn.',
+      email: 'Email',
+      copy: 'Copy email',
+      copied: 'Email copied',
+      whatsapp: 'WhatsApp',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+      resume: 'Download résumé (PDF)',
+    },
+    footer: 'Matheus Francisco, Limeira, Brazil.',
+  },
+};

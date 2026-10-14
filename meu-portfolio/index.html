@@ -3,93 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338BDF8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16 18 22 12 16 6'%3E%3C/polyline%3E%3Cpolyline points='8 6 2 12 8 18'%3E%3C/polyline%3E%3C/svg%3E"
-    />
-
-    <title>Matheus Francisco — Desenvolvedor Full-Stack</title>
-
-    <meta
-      name="description"
-      content="Portfólio de Matheus Francisco, desenvolvedor full-stack com formação SENAI e Ciência da Computação. Projetos reais com React, Node.js, Java, PostgreSQL e IA."
-    />
+    <title>%TITLE%</title>
+    <meta name="description" content="%DESC%" />
     <meta name="author" content="Matheus Francisco" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#0F172A" />
-    <link rel="canonical" href="https://matheusfranciscols.github.io/" />
+    <meta name="theme-color" content="#edefea" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#15191c" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="%URL%" />
+    <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://matheusfranciscols.github.io/" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://matheusfranciscols.github.io/" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta
-      property="og:title"
-      content="Matheus Francisco — Desenvolvedor Full-Stack"
-    />
-    <meta
-      property="og:description"
-      content="Desenvolvedor full-stack com 9 anos de experiência profissional. Projetos reais com React, Node.js, Java e PostgreSQL."
-    />
-    <meta
-      property="og:image"
-      content="https://matheusfranciscols.github.io/assets/og-matheus-francisco.png"
-    />
-    <meta
-      property="og:image:alt"
-      content="Matheus Francisco — Desenvolvedor Full-Stack"
-    />
+    <meta property="og:site_name" content="Matheus Francisco" />
+    <meta property="og:url" content="%URL%" />
+    <meta property="og:locale" content="%LOCALE%" />
+    <meta property="og:title" content="%TITLE%" />
+    <meta property="og:description" content="%DESC%" />
+    <meta property="og:image" content="https://matheusfranciscols.github.io/assets/og-matheus-francisco.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Matheus Francisco — Desenvolvedor Full-Stack"
-    />
-    <meta
-      name="twitter:description"
-      content="Desenvolvedor full-stack com 9 anos de experiência profissional. Projetos reais com deploy."
-    />
-    <meta
-      name="twitter:image"
-      content="https://matheusfranciscols.github.io/assets/og-matheus-francisco.png"
-    />
 
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Matheus Francisco",
+        "name": "Matheus Francisco Lucchetti da Silva",
+        "alternateName": "Matheus Francisco",
         "url": "https://matheusfranciscols.github.io/",
-        "jobTitle": "Desenvolvedor Full-Stack",
-        "email": "mailto:matheusf.ls@hotmail.com",
+        "jobTitle": "Desenvolvedor full-stack júnior",
+        "address": { "@type": "PostalAddress", "addressLocality": "Limeira", "addressRegion": "SP", "addressCountry": "BR" },
         "sameAs": [
           "https://github.com/MatheusFranciscoLS",
           "https://www.linkedin.com/in/matheusfranciscols"
         ],
-        "knowsAbout": [
-          "Full-stack development",
-          "React",
-          "Node.js",
-          "Java",
-          "Spring Boot",
-          "PostgreSQL",
-          "TypeScript",
-          "Software architecture"
-        ]
+        "knowsAbout": ["Java", "Spring Boot", "React", "Node.js", "TypeScript", "PostgreSQL"]
       }
+    </script>
+
+    <script>
+      (function () {
+        var t = null;
+        var q = /[?&]theme=(light|dark)/.exec(location.search);
+        try { t = q ? q[1] : localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      })();
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
