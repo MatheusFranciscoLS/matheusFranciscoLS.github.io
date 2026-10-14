@@ -17,7 +17,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
       description:
-        'Vendedor de máquinas agrícolas que escreveu o sistema do balcão da loja. Desenvolvedor full-stack júnior em Limeira, SP: Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Escrevi o sistema de catálogo e orçamento que uma revenda de máquinas usa no balcão. Desenvolvedor full-stack júnior em Limeira, SP: Java, Spring Boot, React, Node.js e PostgreSQL.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -28,7 +28,7 @@ export const content = {
       otherLangLabel: 'Read this page in English',
     },
     hero: {
-      title: 'Sou vendedor de máquinas e escrevi o sistema do balcão.',
+      title: 'Escrevi o sistema que a revenda onde trabalho usa no balcão.',
       role: 'Desenvolvedor full-stack júnior',
       place: 'Matheus Francisco, Limeira, SP',
       shotAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
@@ -186,7 +186,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Junior full-stack developer',
       description:
-        'A farm-machinery salesman who built the counter system for his own dealership. Junior full-stack developer in Limeira, Brazil: Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'I wrote the parts catalog and quoting system a machinery dealer uses at the counter. Junior full-stack developer in Limeira, Brazil: Java, Spring Boot, React, Node.js and PostgreSQL.',
     },
     ui: {
       skip: 'Skip to content',
@@ -197,7 +197,7 @@ export const content = {
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
-      title: 'I sell farm machinery and I wrote the counter system.',
+      title: 'I wrote the system my dealership uses at the counter.',
       role: 'Junior full-stack developer',
       place: 'Matheus Francisco, Limeira, Brazil',
       shotAlt: 'CogniVault search screen showing a part code result with price and position.',
