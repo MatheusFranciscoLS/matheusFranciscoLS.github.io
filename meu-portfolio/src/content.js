@@ -60,7 +60,7 @@ export const content = {
           does: '26 modelos de dados e 57 migrations versionadas.',
         },
       ],
-      tests: 'Testes: 996 no backend, 389 no frontend e 107 roteiros de navegador. Contagem de 14/10/2026.',
+      tests: 'Testes: 996 no backend, 389 no frontend e 107 testes E2E no navegador. Contagem de 14/10/2026.',
     },
     projects: {
       title: 'Projetos',
@@ -139,7 +139,7 @@ export const content = {
         {
           when: '2024 a 2028',
           what: 'Ciência da Computação, Universidade Anhembi Morumbi',
-          text: 'Em andamento, conclusão prevista em 10/2028.',
+          text: 'Em andamento, conclusão prevista em outubro de 2028.',
         },
         {
           when: '2026',
@@ -225,7 +225,7 @@ export const content = {
           does: '26 data models and 57 versioned migrations.',
         },
       ],
-      tests: 'Tests: 996 backend, 389 frontend and 107 browser scripts. Counted on 2026-10-14.',
+      tests: 'Tests: 996 backend, 389 frontend and 107 end-to-end browser tests. Counted on 2026-10-14.',
     },
     projects: {
       title: 'Projects',
@@ -243,10 +243,10 @@ export const content = {
       rulesTitle: 'Rules the product never breaks',
       rules: [
         'Never guess a code. A typed code returns only the exact match and the manufacturer’s official replacement.',
-        'The customer never receives the part code. PDF, WhatsApp and print leave without it.',
+        'Customers never see the part code. PDFs, WhatsApp messages and printouts leave it out.',
         'Changing data is explicit. Importing prices shows a report before saving and keeps an undo.',
       ],
-      privateNote: 'The code is private because it is a work project. I walk through the architecture and code excerpts in a conversation.',
+      privateNote: 'The code is private because it is a work project. I can walk you through the architecture and code excerpts on a call.',
       caseStudy: 'Case study',
       demo: 'Open the demo',
       othersTitle: 'Other complete projects',
@@ -288,23 +288,23 @@ export const content = {
       items: [
         {
           when: '2017 to 2020',
-          what: 'Salesman, Yamashita Tratores',
+          what: 'Sales representative, Yamashita Tratores',
           text: 'Consultative service and technical sales of farm machinery.',
         },
         {
           when: '2020 to today',
-          what: 'Salesman, Vardão Máquinas',
+          what: 'Sales representative, Vardão Máquinas',
           text: 'Consultative sales to the farming sector. I set up a CRM in Notion and Excel and VBA automations to track leads. BRL 200k in sales in 30 days.',
         },
         {
           when: '2022 to 2024',
-          what: 'Systems Development technician, SENAI',
+          what: 'Technical course in Systems Development, SENAI',
           text: 'Java, databases, web and mobile.',
         },
         {
           when: '2024 to 2028',
           what: 'Computer Science, Universidade Anhembi Morumbi',
-          text: 'In progress, expected completion 10/2028.',
+          text: 'In progress, expected October 2028.',
         },
         {
           when: '2026',
@@ -331,7 +331,7 @@ export const content = {
     },
     contact: {
       title: 'Contact',
-      intro: 'I am looking for my first role as a junior full-stack developer. Write by email, WhatsApp or LinkedIn.',
+      intro: 'I am looking for my first role as a junior full-stack developer. Reach me by email, WhatsApp or LinkedIn.',
       email: 'Email',
       copy: 'Copy email',
       copied: 'Email copied',

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CogniVault: estudo de caso | Matheus Francisco</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content="Catálogo técnico e orçamento de balcão para uma revenda de máquinas e peças. Estudo de caso: problema, regras do produto, arquitetura, decisões de engenharia e qualidade medida.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-cognivault/">
   <meta property="og:type" content="article">
@@ -39,7 +40,7 @@
         <li><strong>Custo de infraestrutura</strong>R$ 0 (planos gratuitos)</li>
       </ul>
       <a class="btn" href="https://cognivault-murex.vercel.app" target="_blank" rel="noreferrer">Abrir aplicação</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar com o autor</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar comigo</a>
     </header>
 
     <div class="shot"><img src="../assets/cognivault/busca-modelo.png" alt="Busca por modelo no atendimento do CogniVault" width="1440" height="900"></div>
@@ -48,7 +49,7 @@
       <h2>O problema</h2>
       <p>No balcão de uma revenda, o cliente está na frente do atendente. Para responder "qual é a peça e quanto custa", era preciso abrir um catálogo em PDF, achar a posição no desenho, conferir o preço numa lista, ver se a peça estava na prateleira e montar o orçamento à mão. Cada passo vinha de uma fonte diferente, e um código errado vira devolução.</p>
       <h2 style="margin-top:34px">A solução</h2>
-      <p>Um sistema único, pensado para <strong>computador com mouse e teclado</strong> e para quem atende com pressa: busca por código, peça, modelo ou PNC; vista explodida oficial com a posição clicável; preço da lista, aviso de preço antigo e prateleira vindos do ERP; e orçamento em PDF e WhatsApp que encerra o atendimento sozinho.</p>
+      <p>Um sistema único, pensado para <strong>computador com mouse e teclado</strong> e para quem atende com pressa: busca por código, peça, modelo ou PNC; vista explodida oficial com a posição clicável; preço da lista, aviso de preço antigo e prateleira vindos do ERP; e orçamento em PDF e WhatsApp que fecha o atendimento sem passo extra.</p>
     </section>
 
     <section>
@@ -57,7 +58,7 @@
         <div class="rule"><h3>Nunca chutar o código</h3><p>Código digitado devolve só o código exato e a substituição oficial da fabricante. Nada de "parecido". A IA só escolhe dentro de uma lista fechada de peças da máquina, e o servidor descarta qualquer resposta fora da lista.</p></div>
         <div class="rule"><h3>O cliente nunca recebe o código</h3><p>PDF, WhatsApp e impressão saem sem o código de peça, para o cliente não cotar em outra revenda com o nosso número.</p></div>
         <div class="rule"><h3>O atendente quer a peça, não a explicação</h3><p>Sem texto sobre como o sistema funciona. Todo estado vazio tem uma saída: botão, link oficial ou campo para digitar.</p></div>
-        <div class="rule"><h3>Teclado primeiro</h3><p><code>Ctrl K</code> foca a busca, setas percorrem os resultados, <code>Enter</code> copia o código, <code>+</code> põe a peça no orçamento.</p></div>
+        <div class="rule"><h3>Teclado primeiro</h3><p><code>Ctrl+K</code> foca a busca, setas percorrem os resultados, <code>Enter</code> copia o código, <code>+</code> põe a peça no orçamento.</p></div>
         <div class="rule"><h3>Mudança de dado é ato explícito</h3><p>Importar preço ou prateleira mostra um relatório antes de gravar e guarda como desfazer. Nada é criado nem apagado por baixo.</p></div>
         <div class="rule"><h3>Custo zero</h3><p>Vercel, Render, Supabase, CloudAMQP e GitHub Actions nos planos gratuitos, sem nenhuma dependência paga.</p></div>
       </div>
@@ -93,7 +94,7 @@
       <h3>Recusar é melhor que errar</h3>
       <p>O leitor de catálogos em PDF prefere recusar um arquivo duvidoso, dizendo o motivo no painel, a gravar um código errado que envenenaria a busca inteira. E o código digitado, depois de uma auditoria, passou a devolver só o exato: um código "quase igual" no balcão é uma devolução.</p>
       <h3>Testar como o atendente digita</h3>
-      <p>Roteiros de navegador numa loja simulada exercitam o que se digita de verdade: minúsculo, espaço no lugar do hífen, código colado, emoji, texto sem sentido, 1.500 letras. Cada correção importante é provada por mutação: desfaz a correção e confere que o teste reprova.</p>
+      <p>Testes E2E no navegador, numa loja simulada, exercitam o que se digita de verdade: minúsculo, espaço no lugar do hífen, código colado, emoji, texto sem sentido, 1.500 caracteres. Cada correção importante é provada por mutação: desfaz a correção e confere que o teste reprova.</p>
     </section>
 
     <section>
@@ -101,12 +102,12 @@
       <div class="numbers">
         <div class="num"><b>996</b><span>testes no backend (170 arquivos)</span></div>
         <div class="num"><b>389</b><span>testes no frontend (55 arquivos)</span></div>
-        <div class="num"><b>107</b><span>roteiros de navegador</span></div>
+        <div class="num"><b>107</b><span>testes E2E no navegador</span></div>
         <div class="num"><b>57</b><span>migrations versionadas</span></div>
         <div class="num"><b>26</b><span>modelos de dados</span></div>
         <div class="num"><b>91</b><span>rotas da API</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--text-muted)">Contagens feitas na estrutura do projeto em 14/10/2026.</p>
+      <p style="margin-top:12px;font-size:14px;color:var(--text-muted)">Contagens feitas no código do projeto em 14/10/2026.</p>
     </section>
 
     <section>
@@ -117,7 +118,7 @@
     </section>
 
     <footer>
-      O CogniVault é um projeto de trabalho e o código é privado. Posso apresentar a arquitetura e trechos do código em uma conversa. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar com o autor</a>.
+      O CogniVault é um projeto de trabalho e o código é privado. Posso apresentar a arquitetura e trechos do código em uma conversa. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar comigo</a>.
     </footer>
   </main>
 </body>
