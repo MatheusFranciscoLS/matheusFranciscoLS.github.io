@@ -74,3 +74,4 @@ figcaption strong { color: var(--text); }
 .tags li { font-size: 13px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-secondary); }
 footer { margin-top: 56px; padding: 28px 0 56px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; }
 @media (max-width: 560px) { .gallery { grid-template-columns: 1fr; } .btn.ghost { margin: 10px 0 0; } }
+footer a { text-decoration: underline; }
