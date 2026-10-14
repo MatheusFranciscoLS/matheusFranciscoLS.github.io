@@ -5,7 +5,9 @@ import { resolve } from 'node:path';
 import { content, SITE } from '../src/content.js';
 
 const { render } = await import(pathToFileURL(resolve('.ssr/entry-server.js')).href);
-const template = readFileSync('dist/index.html', 'utf8');
+const template = readFileSync('dist/index.html', 'utf8').replace(/
+/g, '
+');
 
 const swap = (html, from, to) => {
   if (!html.includes(from)) throw new Error(`Texto não encontrado no HTML: ${from.slice(0, 40)}`);
