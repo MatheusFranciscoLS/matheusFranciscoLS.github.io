@@ -38,10 +38,8 @@ export const content = {
       primary: 'Ler o estudo de caso',
       secondary: 'Baixar currículo',
       availability: 'Aberto a vagas de desenvolvedor full-stack júnior.',
-      figureLabel:
-        'Vista explodida do CogniVault: interface, API, fila e banco de dados, em quatro camadas numeradas.',
-      partsTitle: 'Lista de peças do CogniVault',
-      partsHead: { item: 'Item', part: 'Peça', does: 'Função' },
+      partsTitle: 'Como o CogniVault é feito',
+      partsHead: { part: 'Camada', does: 'O que faz' },
       parts: [
         {
           name: 'Interface',
@@ -213,10 +211,8 @@ export const content = {
       primary: 'Read the case study',
       secondary: 'Download résumé',
       availability: 'Open to junior full-stack developer roles.',
-      figureLabel:
-        'Exploded view of CogniVault: interface, API, queue and database, as four numbered layers.',
-      partsTitle: 'CogniVault parts list',
-      partsHead: { item: 'Item', part: 'Part', does: 'Role' },
+      partsTitle: 'How CogniVault is built',
+      partsHead: { part: 'Layer', does: 'What it does' },
       parts: [
         {
           name: 'Interface',

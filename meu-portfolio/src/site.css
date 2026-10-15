@@ -248,65 +248,6 @@ a {
   width: min(100%, 380px);
   justify-self: center;
 }
-.exploded {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-.exploded__axis {
-  stroke: var(--line);
-  stroke-width: 1.2;
-  stroke-dasharray: 5 5;
-}
-.exploded__top {
-  fill: var(--paper);
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  stroke-linejoin: round;
-  transition: fill 0.15s;
-}
-.exploded__side {
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  stroke-linejoin: round;
-}
-.exploded__side--l {
-  fill: var(--shade-l);
-}
-.exploded__side--r {
-  fill: var(--shade-r);
-}
-.exploded__detail {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
-  opacity: 0.85;
-}
-.exploded__callout line {
-  stroke: var(--ink);
-  stroke-width: 1.2;
-}
-.exploded__callout circle {
-  fill: var(--paper);
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  transition: fill 0.15s;
-}
-.exploded__callout text {
-  fill: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 15px;
-}
-.exploded__layer.is-active .exploded__top,
-.exploded__layer.is-active .exploded__callout circle {
-  fill: var(--signal);
-}
-.exploded__layer.is-active .exploded__callout text {
-  fill: var(--on-signal);
-}
-
 /* Lista de peças */
 .hero__parts {
   min-width: 0;
@@ -599,34 +540,6 @@ h4 {
   font-size: 0.95rem;
 }
 
-/* Movimento: a vista explodida se monta uma vez ao abrir a página */
-@media (prefers-reduced-motion: no-preference) {
-  .exploded__slab {
-    animation: assemble 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-    animation-delay: calc(var(--i) * 0.08s);
-  }
-  .exploded__callout,
-  .exploded__axis {
-    animation: appear 0.4s ease-out 0.9s both;
-  }
-}
-@keyframes assemble {
-  from {
-    transform: translateY(calc((3 - var(--i)) * 112px));
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 /* Tablet e PC */
 @media (min-width: 720px) {
   .flagship__cols {
@@ -882,5 +795,35 @@ h4 {
   }
   .row--card .row__main {
     padding-top: 2px;
+  }
+}
+
+/* Tabela "Como o CogniVault é feito": sem coluna de número */
+@media (min-width: 960px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+    align-items: start;
+  }
+  .hero__text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .hero__shot {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .hero__parts {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 24px;
+  }
+}
+@media (max-width: 719px) {
+  .parts tr {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .parts tbody th,
+  .parts td:last-child {
+    grid-column: 1;
   }
 }

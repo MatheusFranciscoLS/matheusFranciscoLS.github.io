@@ -1,5 +1,4 @@
 import { useState, useSyncExternalStore } from 'react';
-import ExplodedView from './ExplodedView';
 import { EMAIL, LINKS, content, paths } from './content';
 
 const subscribeTheme = (notify) => {
@@ -70,7 +69,6 @@ function Header({ t, lang, theme, toggleTheme }) {
 }
 
 function Hero({ t, lang }) {
-  const [active, setActive] = useState(null);
   const h = t.hero;
   return (
     <section className="hero" aria-labelledby="titulo">
@@ -107,33 +105,18 @@ function Hero({ t, lang }) {
           />
           <figcaption>{h.shotCaption}</figcaption>
         </figure>
-        <figure className="hero__figure">
-          <ExplodedView
-            labels={h.parts.map((p) => p.name)}
-            active={active}
-            onActive={setActive}
-            label={h.figureLabel}
-          />
-        </figure>
         <div className="hero__parts">
           <table className="parts">
             <caption>{h.partsTitle}</caption>
             <thead>
               <tr>
-                <th scope="col">{h.partsHead.item}</th>
                 <th scope="col">{h.partsHead.part}</th>
                 <th scope="col">{h.partsHead.does}</th>
               </tr>
             </thead>
             <tbody>
-              {h.parts.map((p, i) => (
-                <tr
-                  key={p.name}
-                  className={active === i ? 'is-active' : undefined}
-                  onMouseEnter={() => setActive(i)}
-                  onMouseLeave={() => setActive(null)}
-                >
-                  <td className="parts__n">{i + 1}</td>
+              {h.parts.map((p) => (
+                <tr key={p.name}>
                   <th scope="row">
                     {p.name}
                     <span>{p.tech}</span>
