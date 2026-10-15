@@ -17,7 +17,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
       description:
-        'Desenvolvi o sistema de catálogo e orçamento do balcão de uma revenda autorizada Husqvarna. Desenvolvedor full-stack júnior em Limeira, SP: Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Desenvolvedor full-stack júnior em Limeira, SP, com 4 projetos completos e no ar. Java, Spring Boot, React, Node.js e PostgreSQL. 9 anos de experiência em vendas.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -28,14 +28,19 @@ export const content = {
       otherLangLabel: 'Read this page in English',
     },
     hero: {
-      title: 'Desenvolvi o sistema do balcão da loja onde trabalho.',
+      title: 'Desenvolvo sistemas completos, do banco de dados à tela.',
       role: 'Desenvolvedor full-stack júnior',
       place: 'Matheus Francisco, Limeira, SP',
-      shotAlt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.',
-      shotCaption: 'CogniVault em uso: o código digitado devolve a peça, o preço e a posição no desenho.',
+      showcaseLabel: 'Quatro projetos completos e no ar',
+      showcase: [
+        { name: 'CogniVault', img: '/assets/cognivault-busca.png', alt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.' },
+        { name: 'BusinessFlow', img: '/assets/businessflow.webp', alt: 'Tela de login do BusinessFlow, plataforma de gestão contábil e financeira.' },
+        { name: 'Plataforma IoT', img: '/assets/iot-plataforma.webp', alt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.' },
+        { name: 'Economia Solidária', img: '/assets/p2.webp', alt: 'Página inicial do Economia Solidária em Limeira, com acesso a lojas e cadastro.' },
+      ],
       lead:
-        'O CogniVault é o catálogo técnico e de orçamento que fiz para o balcão da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, onde trabalho desde 2020. O atendente digita um código e sai com preço, posição no desenho e orçamento pronto. O sistema está no ar.',
-      primary: 'Ler o estudo de caso',
+        'Tenho 4 projetos completos e no ar, de gestão de pequenos negócios a telemetria industrial. Venho de 9 anos em vendas e atendimento, e por isso entendo o problema do cliente antes de escrever o código.',
+      primary: 'Ver projetos',
       secondary: 'Baixar currículo',
       availability: 'Aberto a vagas de desenvolvedor full-stack júnior.',
       partsTitle: 'Como o CogniVault é feito',
@@ -190,7 +195,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Junior full-stack developer',
       description:
-        'I built the parts catalog and quoting system for the counter of an authorized Husqvarna dealer. Junior full-stack developer in Limeira, Brazil: Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'Junior full-stack developer in Limeira, Brazil, with 4 complete projects, all live. Java, Spring Boot, React, Node.js and PostgreSQL. 9 years of sales experience.',
     },
     ui: {
       skip: 'Skip to content',
@@ -201,14 +206,19 @@ export const content = {
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
-      title: 'I built the counter system at the dealership where I work.',
+      title: 'I build complete systems, from the database to the screen.',
       role: 'Junior full-stack developer',
       place: 'Matheus Francisco, Limeira, Brazil',
-      shotAlt: 'CogniVault search screen showing a part code result with price and position.',
-      shotCaption: 'CogniVault in use: a typed code returns the part, its price and its position in the diagram.',
+      showcaseLabel: 'Four complete projects, all live',
+      showcase: [
+        { name: 'CogniVault', img: '/assets/cognivault-busca.png', alt: 'CogniVault search screen showing a part code result with price and position.' },
+        { name: 'BusinessFlow', img: '/assets/businessflow.webp', alt: 'BusinessFlow login screen, an accounting and finance management platform.' },
+        { name: 'IoT Platform', img: '/assets/iot-plataforma.webp', alt: 'Monitoring dashboard with temperature, speed and vibration for three machines.' },
+        { name: 'Solidarity Economy', img: '/assets/p2.webp', alt: 'Home page of Solidarity Economy in Limeira, with links to stores and sign-up.' },
+      ],
       lead:
-        'CogniVault is the parts catalog and quoting system I built for the counter at Vardão Máquinas, an authorized Husqvarna dealer in Limeira, where I have worked since 2020. The clerk types a code and gets the price, the position on the drawing and a finished quote. The system is live.',
-      primary: 'Read the case study',
+        'I have 4 complete projects, all live, from small-business management to industrial telemetry. I come from 9 years in sales and customer service, so I understand the customer’s problem before I write the code.',
+      primary: 'See projects',
       secondary: 'Download résumé',
       availability: 'Open to junior full-stack developer roles.',
       partsTitle: 'How CogniVault is built',

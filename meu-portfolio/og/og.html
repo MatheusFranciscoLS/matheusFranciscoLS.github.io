@@ -6,16 +6,21 @@
 *{box-sizing:border-box;margin:0}
 body{width:1200px;height:630px;background:#edefea;color:#14181b;font-family:'Plex',sans-serif;position:relative;overflow:hidden}
 .bar{position:absolute;left:0;right:0;bottom:0;height:14px;background:#e6b800}
-.t{position:absolute;left:64px;top:64px;width:580px}
-.who{font-size:24px;white-space:nowrap;color:#454d53;margin-bottom:22px}
-h1{font-family:'Archivo',sans-serif;font-stretch:78%;font-weight:800;font-size:84px;line-height:.98;letter-spacing:-1px}
-.sub{position:absolute;left:64px;bottom:56px;font-size:26px;color:#454d53}
-.shot{position:absolute;right:56px;top:96px;width:480px;border:3px solid #14181b;background:#fff;box-shadow:12px 12px 0 #e6b800}
-.shot img{display:block;width:100%}
+.t{position:absolute;left:64px;top:190px;width:580px}
+h1{font-family:'Archivo',sans-serif;font-stretch:78%;font-weight:800;font-size:76px;line-height:1;letter-spacing:-1px;white-space:nowrap}
+.role{margin-top:18px;font-family:'Archivo',sans-serif;font-stretch:78%;font-weight:800;font-size:38px;white-space:nowrap}
+.role::after{content:'';display:block;width:80px;height:6px;margin-top:16px;background:#e6b800}
+.stack{margin-top:20px;font-size:25px;white-space:nowrap;color:#454d53;line-height:1.3}
+.grid{position:absolute;right:56px;top:96px;width:480px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid div{border:3px solid #14181b;background:#fff;aspect-ratio:16/9;overflow:hidden;box-shadow:8px 8px 0 #e6b800}
+.grid img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
 </style></head><body>
-<div class="t"><p class="who">Matheus Francisco, desenvolvedor full-stack júnior</p>
-<h1>Desenvolvi o sistema do balcão da loja onde trabalho.</h1></div>
-<div class="shot"><img src="../public/assets/cognivault-busca.png"></div>
-<p class="sub">CogniVault: estudo de caso, demo e currículo.</p>
+<div class="t"><h1>Matheus Francisco</h1><p class="role">Desenvolvedor full-stack júnior</p><p class="stack">Java, Spring Boot, React, Node.js e PostgreSQL</p></div>
+<div class="grid">
+<div><img src="../public/assets/cognivault-busca.png"></div>
+<div><img src="../public/assets/businessflow.webp"></div>
+<div><img src="../public/assets/iot-plataforma.webp"></div>
+<div><img src="../public/assets/p2.webp"></div>
+</div>
 <div class="bar"></div>
 </body></html>

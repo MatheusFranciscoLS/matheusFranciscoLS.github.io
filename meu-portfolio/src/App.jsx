@@ -82,7 +82,7 @@ function Hero({ t, lang }) {
           <h1 id="titulo">{h.title}</h1>
           <p className="hero__lead">{h.lead}</p>
           <div className="actions">
-            <a className="btn btn--primary" href={paths[lang].caseStudy}>
+            <a className="btn btn--primary" href="#projetos">
               {h.primary}
             </a>
             <a className="btn" href={paths[lang].resume}>
@@ -94,39 +94,18 @@ function Hero({ t, lang }) {
             <a href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           </p>
         </div>
-        <figure className="hero__shot">
-          <img
-            src="/assets/cognivault-busca.png"
-            alt={h.shotAlt}
-            width="1440"
-            height="900"
-            fetchPriority="high"
-            decoding="async"
-          />
-          <figcaption>{h.shotCaption}</figcaption>
-        </figure>
-        <div className="hero__parts">
-          <table className="parts">
-            <caption>{h.partsTitle}</caption>
-            <thead>
-              <tr>
-                <th scope="col">{h.partsHead.part}</th>
-                <th scope="col">{h.partsHead.does}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {h.parts.map((p) => (
-                <tr key={p.name}>
-                  <th scope="row">
-                    {p.name}
-                    <span>{p.tech}</span>
-                  </th>
-                  <td>{p.does}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="parts__tests">{h.tests}</p>
+        <div className="hero__showcase">
+          <p className="hero__showcase-label">{h.showcaseLabel}</p>
+          <ul>
+            {h.showcase.map((x) => (
+              <li key={x.name}>
+                <a href="#projetos">
+                  <img src={x.img} alt={x.alt} width="1600" height="850" decoding="async" />
+                  <span>{x.name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -172,6 +151,29 @@ function Projects({ t, lang }) {
                 <li key={r}>{r}</li>
               ))}
             </ul>
+            <div className="flagship__parts">
+              <table className="parts">
+                <caption>{t.hero.partsTitle}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">{t.hero.partsHead.part}</th>
+                    <th scope="col">{t.hero.partsHead.does}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {t.hero.parts.map((p) => (
+                    <tr key={p.name}>
+                      <th scope="row">
+                        {p.name}
+                        <span>{p.tech}</span>
+                      </th>
+                      <td>{p.does}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="parts__tests">{t.hero.tests}</p>
+            </div>
             <div className="actions">
               <a className="btn btn--primary" href={paths[lang].caseStudy}>
                 {p.caseStudy}
