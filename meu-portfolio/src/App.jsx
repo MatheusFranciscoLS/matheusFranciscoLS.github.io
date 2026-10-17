@@ -199,6 +199,7 @@ function Projects({ t, lang }) {
                   {o.stack && <p className="row__stack">{o.stack}</p>}
                   {o.demo && (
                     <div className="row__links">
+                      {o.study && <a href={o.study}>{p.caseStudy}</a>}
                       <a href={o.demo} target="_blank" rel="noreferrer">
                         {p.demoLabel}
                       </a>
