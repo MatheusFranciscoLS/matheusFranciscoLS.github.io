@@ -35,7 +35,7 @@ export const content = {
       showcase: [
         { name: 'CogniVault', img: '/assets/cognivault-busca.png', alt: 'Tela de busca do CogniVault com resultado por código de peça, preço e posição.' },
         { name: 'BusinessFlow', img: '/assets/businessflow.webp', alt: 'Tela de login do BusinessFlow, plataforma de gestão contábil e financeira.' },
-        { name: 'Plataforma IoT', img: '/assets/iot-plataforma.webp', alt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.' },
+        { name: 'Plataforma IoT', img: '/assets/iot/miniatura.png', alt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.' },
         { name: 'Economia Solidária', img: '/assets/p2.webp', alt: 'Página inicial do Economia Solidária em Limeira, com acesso a lojas e cadastro.' },
       ],
       lead:
@@ -106,12 +106,13 @@ export const content = {
           code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
         },
         {
-          img: '/assets/iot-plataforma.webp',
+          img: '/assets/iot/miniatura.png',
           imgAlt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.',
           name: 'Plataforma IoT Industrial',
           year: '2026',
           text: 'Telemetria industrial em tempo real, com microsserviços, filas, simuladores e painel de operação.',
           stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
+          study: '/estudo-de-caso-plataforma-iot/',
           demo: 'https://plataforma-iot-industrial.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
         },
@@ -213,7 +214,7 @@ export const content = {
       showcase: [
         { name: 'CogniVault', img: '/assets/cognivault-busca.png', alt: 'CogniVault search screen showing a part code result with price and position.' },
         { name: 'BusinessFlow', img: '/assets/businessflow.webp', alt: 'BusinessFlow login screen, an accounting and finance management platform.' },
-        { name: 'IoT Platform', img: '/assets/iot-plataforma.webp', alt: 'Monitoring dashboard with temperature, speed and vibration for three machines.' },
+        { name: 'IoT Platform', img: '/assets/iot/miniatura.png', alt: 'Monitoring dashboard with temperature, speed and vibration for three machines.' },
         { name: 'Solidarity Economy', img: '/assets/p2.webp', alt: 'Home page of Solidarity Economy in Limeira, with links to stores and sign-up.' },
       ],
       lead:
@@ -284,12 +285,13 @@ export const content = {
           code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
         },
         {
-          img: '/assets/iot-plataforma.webp',
+          img: '/assets/iot/miniatura.png',
           imgAlt: 'Monitoring dashboard with temperature, speed and vibration for three machines.',
           name: 'Industrial IoT Platform',
           year: '2026',
           text: 'Real-time industrial telemetry with microservices, queues, simulators and an operations dashboard.',
           stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
+          study: '/estudo-de-caso-plataforma-iot/en/',
           demo: 'https://plataforma-iot-industrial.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
         },
