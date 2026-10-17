@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="Roboto, Arial, sans-serif">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#273a60"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="440" fill="#f5f6f9"/>
+
+  <!-- sensores -->
+  <rect x="30" y="170" width="170" height="80" rx="10" fill="#ffffff" stroke="#c9cfdd"/>
+  <text x="115" y="204" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2234">Sensores</text>
+  <text x="115" y="226" text-anchor="middle" font-size="13" fill="#4a5066">Python ou o próprio demo</text>
+
+  <!-- API -->
+  <rect x="290" y="150" width="210" height="120" rx="10" fill="#ffffff" stroke="#273a60" stroke-width="2"/>
+  <text x="395" y="188" text-anchor="middle" font-size="17" font-weight="700" fill="#1b2234">API Java</text>
+  <text x="395" y="210" text-anchor="middle" font-size="13" fill="#4a5066">Spring Boot 4, JWT</text>
+  <text x="395" y="230" text-anchor="middle" font-size="13" fill="#4a5066">alertas, séries, usuários</text>
+  <text x="395" y="252" text-anchor="middle" font-size="12" fill="#6a7088">Render</text>
+
+  <!-- banco -->
+  <rect x="290" y="330" width="210" height="76" rx="10" fill="#ffffff" stroke="#c9cfdd"/>
+  <text x="395" y="364" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2234">PostgreSQL</text>
+  <text x="395" y="386" text-anchor="middle" font-size="12" fill="#6a7088">Supabase · migrações Flyway</text>
+
+  <!-- fila -->
+  <rect x="290" y="30" width="210" height="76" rx="10" fill="#ffffff" stroke="#c9cfdd"/>
+  <text x="395" y="64" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2234">RabbitMQ</text>
+  <text x="395" y="86" text-anchor="middle" font-size="12" fill="#6a7088">CloudAMQP</text>
+
+  <!-- gateway -->
+  <rect x="590" y="30" width="190" height="76" rx="10" fill="#ffffff" stroke="#c9cfdd"/>
+  <text x="685" y="64" text-anchor="middle" font-size="16" font-weight="700" fill="#1b2234">Gateway Node</text>
+  <text x="685" y="86" text-anchor="middle" font-size="12" fill="#6a7088">Socket.io · Render</text>
+
+  <!-- painel -->
+  <rect x="780" y="170" width="190" height="80" rx="10" fill="#ffffff" stroke="#273a60" stroke-width="2"/>
+  <text x="875" y="204" text-anchor="middle" font-size="17" font-weight="700" fill="#1b2234">Painel React</text>
+  <text x="875" y="226" text-anchor="middle" font-size="12" fill="#6a7088">Vercel</text>
+
+  <!-- setas -->
+  <path d="M200 210 H288" stroke="#273a60" stroke-width="2" fill="none" marker-end="url(#seta)"/>
+  <text x="244" y="200" text-anchor="middle" font-size="12" fill="#4a5066">1. leitura</text>
+  <path d="M395 270 V328" stroke="#273a60" stroke-width="2" fill="none" marker-end="url(#seta)"/>
+  <text x="404" y="304" font-size="12" fill="#4a5066">2. salva</text>
+  <path d="M395 150 V108" stroke="#273a60" stroke-width="2" fill="none" marker-end="url(#seta)"/>
+  <text x="404" y="132" font-size="12" fill="#4a5066">3. avisa</text>
+  <path d="M500 68 H588" stroke="#273a60" stroke-width="2" fill="none" marker-end="url(#seta)"/>
+  <text x="544" y="58" text-anchor="middle" font-size="12" fill="#4a5066">4. consome</text>
+  <path d="M780 68 H830 V168" stroke="#273a60" stroke-width="2" fill="none" marker-end="url(#seta)"/>
+  <text x="822" y="116" text-anchor="end" font-size="12" fill="#4a5066">5. WebSocket</text>
+  <path d="M780 232 H502" stroke="#273a60" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#seta)"/>
+  <text x="640" y="250" text-anchor="middle" font-size="12" fill="#4a5066">histórico, séries e alertas (REST + token)</text>
+</svg>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plataforma IoT Industrial: estudo de caso | Matheus Francisco</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="Telemetria industrial em tempo real com API Java, fila, gateway WebSocket e painel React, tudo no ar a custo zero. Estudo de caso: arquitetura, decisões de engenharia e qualidade medida.">
+  <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Matheus Francisco">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Plataforma IoT Industrial: estudo de caso | Matheus Francisco">
+  <meta property="og:description" content="Leituras de máquinas em tempo real, alertas guardados no servidor, séries por período e testes que rodam num PostgreSQL de verdade. Java, Spring Boot, Node.js e React.">
+  <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
+  <meta property="og:image" content="https://matheusfranciscols.github.io/assets/iot/painel-escuro.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="1838">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estudo.css">
+</head>
+<body>
+  <nav class="top" aria-label="Navegação"><div class="wrap">
+    <a href="/#projetos">← Portfólio</a>
+    <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
+  </div></nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Estudo de caso · 2026</div>
+      <h1>Plataforma IoT Industrial</h1>
+      <p class="lead">Telemetria de máquinas em tempo real: sensores mandam leituras para uma API Java, uma fila avisa um gateway Node e o painel React mostra números, gráficos e alertas mudando sozinhos. Tudo no ar, sem gastar nada.</p>
+      <ul class="meta">
+        <li><strong>Papel</strong>Projeto próprio, do banco à tela</li>
+        <li><strong>Situação</strong>No ar, em evolução</li>
+        <li><strong>Custo de infraestrutura</strong>R$ 0 (planos gratuitos)</li>
+        <li><strong>Código</strong>Aberto no GitHub</li>
+      </ul>
+      <a class="btn" href="https://plataforma-iot-industrial.vercel.app" target="_blank" rel="noreferrer">Abrir o painel</a>
+      <a class="btn ghost" href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">Ver o código</a>
+    </header>
+
+    <p class="aviso">A API roda num plano gratuito que dorme sem visitas. Na primeira abertura, o painel pode levar até 1 minuto para acordar e avisa isso na tela. Depois responde normalmente.</p>
+
+    <div class="shot"><img src="../assets/iot/painel-escuro.png" alt="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas" width="1280" height="1838"></div>
+
+    <section>
+      <h2>O problema</h2>
+      <p>Uma fábrica tem máquinas que esquentam e vibram, e quem opera precisa saber na hora quando uma delas passa do limite, não depois. Isso exige receber muitas leituras por segundo, guardar o histórico, avisar a tela sem ela ficar perguntando o tempo todo e registrar quem viu cada alerta.</p>
+      <h2 style="margin-top:34px">A solução</h2>
+      <p>Uma plataforma em peças separadas, cada uma com um trabalho só: a <strong>API Java</strong> recebe e guarda a leitura, avalia os alertas e responde o histórico; o <strong>RabbitMQ</strong> leva o aviso adiante; o <strong>gateway Node</strong> entrega cada leitura ao navegador por WebSocket; o <strong>painel React</strong> mostra tudo, com perfis de acesso e tema claro e escuro.</p>
+    </section>
+
+    <section>
+      <h2>Arquitetura</h2>
+      <div class="arch"><img src="../assets/iot/arquitetura.svg" alt="Diagrama: sensores enviam leituras à API Java no Render, que salva no PostgreSQL do Supabase e avisa o RabbitMQ do CloudAMQP; o gateway Node consome a fila e entrega ao painel React na Vercel por WebSocket; o painel também consulta a API por REST" loading="lazy"></div>
+      <p style="margin-top:14px">A API <strong>salva primeiro e avisa depois</strong>. Se a fila falhar, a leitura continua gravada e a resposta é 200: o tempo real é um extra, não uma condição para guardar o dado. Se o WebSocket não chegar, o painel percebe, mostra "Atualizando por consulta" e passa a buscar as leituras novas na API a cada 3 segundos.</p>
+    </section>
+
+    <section>
+      <h2>O que o produto faz</h2>
+      <div class="rules">
+        <div class="rule"><h3>Alertas guardados no servidor</h3><p>Um alerta nasce só no momento em que a máquina passa do limite, não a cada leitura acima dele. Cada máquina tem o seu limite, e o operador marca o alerta como visto.</p></div>
+        <div class="rule"><h3>Três perfis de acesso</h3><p>Administrador, operador e leitura. A regra fica na API (401 sem login, 403 sem permissão); o painel só esconde o que a pessoa não pode usar.</p></div>
+        <div class="rule"><h3>Histórico por período</h3><p>1 hora, 6 horas ou 24 horas, calculado no banco em cerca de 100 pontos por máquina, com comparação entre máquinas.</p></div>
+        <div class="rule"><h3>Aviso no Discord ou Slack</h3><p>Cada alerta novo pode virar uma mensagem, enviada em segundo plano para não atrasar a leitura.</p></div>
+        <div class="rule"><h3>"Simular falha"</h3><p>Um botão no demo provoca uma falha numa máquina para quem visita ver o alerta nascer, com espera de 30 s para ninguém abusar.</p></div>
+        <div class="rule"><h3>Métricas e Grafana</h3><p>Prometheus e Grafana sobem com um comando, com o painel pronto: leituras por máquina, alertas e falhas da fila.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Telas</h2>
+      <div class="gallery">
+        <figure><div class="shot"><img src="../assets/iot/painel-claro.png" alt="Painel no tema claro" loading="lazy"></div><figcaption><strong>Tema claro.</strong> Resumo da fábrica, cartões das máquinas, gráfico com a linha do limite e lista de alertas com filtros.</figcaption></figure>
+        <figure><div class="shot"><img src="../assets/iot/limites-de-alerta.png" alt="Janela de limites de alerta por máquina" loading="lazy"></div><figcaption><strong>Limites por máquina.</strong> Temperatura e vibração de cada uma, com botão para voltar ao padrão.</figcaption></figure>
+        <figure class="phone"><div class="shot"><img src="../assets/iot/painel-celular.png" alt="Painel em uma tela de celular" loading="lazy"></div><figcaption><strong>No celular.</strong> O mesmo painel, em uma coluna.</figcaption></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Decisões e o que aprendi</h2>
+      <p>Cada decisão grande tem uma página própria no repositório, com o que foi descartado e o que ficou de ruim: <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial/tree/main/docs/adr" target="_blank" rel="noreferrer">sete registros de decisão</a>.</p>
+      <h3>O demo que gerava 1.700 alertas por dia</h3>
+      <p>A primeira versão do simulador sorteava cada leitura do zero, então a temperatura dava saltos e cruzava o limite o tempo todo: mais de 1.700 alertas em um dia e um gráfico em serrote. Troquei por um modelo que varia devagar em torno do normal, com falhas ocasionais que duram algumas dezenas de segundos, e passei a alertar só na passagem do limite.</p>
+      <h3>O teste que o banco de teste não via</h3>
+      <p>A série por período agrupa leituras em faixas de minutos com uma divisão inteira dentro da consulta. O banco em memória dos testes aceitava; o PostgreSQL de verdade recusa a mesma conta com parâmetro. Por isso um grupo de testes roda num PostgreSQL real (Testcontainers) no CI, e as migrações também são provadas lá, partindo de um banco vazio e de um banco antigo.</p>
+      <h3>Medir antes de otimizar a hospedagem</h3>
+      <p>No plano gratuito, a primeira visita esperava mais de dois minutos (medi 147 s e 169 s). Medi a subida do Java e guardei no <code>docker build</code> um arquivo com as classes já lidas, além de subir só com o compilador rápido: a subida caiu para cerca de 62 s. O que não dá para resolver com código está dito no README: manter a API sempre acordada exige plano pago.</p>
+      <h3>O aviso que eu quase não vi</h3>
+      <p>Lendo o log do site no ar, vi que a API ainda usava a chave pública de desenvolvimento dos tokens, o que permitiria fabricar um token de administrador. Troquei por uma chave aleatória nos dois serviços e conferi que o login e o WebSocket continuam funcionando e que um token forjado leva 401.</p>
+    </section>
+
+    <section>
+      <h2>Qualidade em números</h2>
+      <div class="numbers">
+        <div class="num"><b>208</b><span>testes da API Java (10 só rodam no CI, com PostgreSQL de verdade)</span></div>
+        <div class="num"><b>172</b><span>testes do painel React</span></div>
+        <div class="num"><b>9</b><span>testes no navegador, incluindo acessibilidade (axe)</span></div>
+        <div class="num"><b>3,4 ms</b><span>p95 para gravar uma leitura sob 100 por segundo (k6, no CI)</span></div>
+        <div class="num"><b>100</b><span>nota de acessibilidade no Lighthouse</span></div>
+        <div class="num"><b>7</b><span>registros de decisão de arquitetura</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:14px;color:var(--text-muted)">Contagens feitas no código em 17/10/2026. O teste de carga rodou no GitHub Actions, com a API, o banco e a fila no mesmo servidor e pouco dado: mostra o desempenho do código, não o do site gratuito, que tem bem menos CPU. Lighthouse medido no build local do painel: desempenho 99 a 100, acessibilidade 100, boas práticas 96, SEO 100.</p>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <ul class="tags">
+        <li>Java 21</li><li>Spring Boot 4</li><li>Spring Security</li><li>JWT</li><li>JPA / Hibernate</li><li>Flyway</li><li>PostgreSQL</li><li>RabbitMQ</li><li>Node.js</li><li>Socket.io</li><li>React 19</li><li>Vite</li><li>Tailwind CSS</li><li>Python</li><li>Docker</li><li>Testcontainers</li><li>Playwright</li><li>k6</li><li>Prometheus</li><li>Grafana</li><li>GitHub Actions</li><li>CodeQL e Trivy</li><li>Render</li><li>Vercel</li><li>Supabase</li><li>CloudAMQP</li>
+      </ul>
+    </section>
+
+    <footer>
+      O código é aberto: <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">github.com/MatheusFranciscoLS/plataforma-iot-industrial</a>. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar comigo</a>.
+    </footer>
+  </main>
+</body>
+</html>
