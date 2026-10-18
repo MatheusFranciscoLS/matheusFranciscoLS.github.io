@@ -96,11 +96,21 @@ export const content = {
       codeLabel: 'Código',
       others: [
         {
+          img: '/assets/businessflow.webp',
+          imgAlt: 'Tela de login do BusinessFlow, plataforma de gestão contábil e financeira.',
+          name: 'BusinessFlow',
+          featured: true,
+          year: '2026',
+          text: 'SaaS para pequenos negócios, com CRM, agenda, financeiro e relatórios.',
+          stack: 'React, Node.js, PostgreSQL, Prisma',
+          demo: 'https://flowbusiness.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
+        },
+        {
           img: '/assets/iot/miniatura.png',
           imgAlt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.',
           name: 'Plataforma IoT Industrial',
           year: '2026',
-          featured: true,
           text: 'Telemetria de máquinas em tempo real: API em Java, fila, gateway em Node e painel em React com alertas.',
           proofs: [
             'Testes automatizados nos quatro serviços, inclusive contra um PostgreSQL de verdade',
@@ -112,16 +122,6 @@ export const content = {
           study: '/estudo-de-caso-plataforma-iot/',
           demo: 'https://plataforma-iot-industrial.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
-        },
-        {
-          img: '/assets/businessflow.webp',
-          imgAlt: 'Tela de login do BusinessFlow, plataforma de gestão contábil e financeira.',
-          name: 'BusinessFlow',
-          year: '2026',
-          text: 'SaaS para pequenos negócios, com CRM, agenda, financeiro e relatórios.',
-          stack: 'React, Node.js, PostgreSQL, Prisma',
-          demo: 'https://flowbusiness.vercel.app',
-          code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
         },
         {
           img: '/assets/p2.webp',
@@ -282,11 +282,21 @@ export const content = {
       codeLabel: 'Code',
       others: [
         {
+          img: '/assets/businessflow.webp',
+          imgAlt: 'BusinessFlow login screen, an accounting and finance management platform.',
+          name: 'BusinessFlow',
+          featured: true,
+          year: '2026',
+          text: 'A small-business SaaS with CRM, scheduling, finance and reports.',
+          stack: 'React, Node.js, PostgreSQL, Prisma',
+          demo: 'https://flowbusiness.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
+        },
+        {
           img: '/assets/iot/miniatura.png',
           imgAlt: 'Monitoring dashboard with temperature, speed and vibration for three machines.',
           name: 'Industrial IoT Platform',
           year: '2026',
-          featured: true,
           text: 'Real-time machine telemetry: a Java API, a queue, a Node gateway and a React dashboard with alerts.',
           proofs: [
             'Automated tests in all four services, including against a real PostgreSQL',
@@ -298,16 +308,6 @@ export const content = {
           study: '/estudo-de-caso-plataforma-iot/en/',
           demo: 'https://plataforma-iot-industrial.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
-        },
-        {
-          img: '/assets/businessflow.webp',
-          imgAlt: 'BusinessFlow login screen, an accounting and finance management platform.',
-          name: 'BusinessFlow',
-          year: '2026',
-          text: 'A small-business SaaS with CRM, scheduling, finance and reports.',
-          stack: 'React, Node.js, PostgreSQL, Prisma',
-          demo: 'https://flowbusiness.vercel.app',
-          code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
         },
         {
           img: '/assets/p2.webp',
