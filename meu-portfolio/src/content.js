@@ -54,7 +54,7 @@ export const content = {
         {
           name: 'API',
           tech: 'Node.js, Express',
-          does: '91 rotas. Recusa código incompleto em vez de sugerir um parecido.',
+          does: 'Mais de 85 rotas. Recusa código incompleto em vez de sugerir um parecido.',
         },
         {
           name: 'Fila',
@@ -64,10 +64,10 @@ export const content = {
         {
           name: 'Banco',
           tech: 'PostgreSQL, Prisma',
-          does: '26 modelos de dados e 57 migrations versionadas.',
+          does: '27 modelos de dados e 61 migrations versionadas.',
         },
       ],
-      tests: 'Testes: 996 no backend, 389 no frontend e 107 testes E2E no navegador. Contagem de 14/10/2026.',
+      tests: 'Testes: mais de 1.000 no backend, mais de 430 no frontend e mais de 100 testes E2E no navegador. Contagem de 18/10/2026.',
     },
     projects: {
       title: 'Projetos',
@@ -96,6 +96,24 @@ export const content = {
       codeLabel: 'Código',
       others: [
         {
+          img: '/assets/iot/miniatura.png',
+          imgAlt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.',
+          name: 'Plataforma IoT Industrial',
+          year: '2026',
+          featured: true,
+          text: 'Telemetria de máquinas em tempo real: API em Java, fila, gateway em Node e painel em React com alertas.',
+          proofs: [
+            'Testes automatizados nos quatro serviços, inclusive contra um PostgreSQL de verdade',
+            'CI no GitHub: testes, Docker, segurança e verificação do painel',
+            'Perfis de acesso (administrador, operador e leitura) e API com documentação interativa',
+            'Demonstração ao vivo, com botão "Simular falha"',
+          ],
+          stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
+          study: '/estudo-de-caso-plataforma-iot/',
+          demo: 'https://plataforma-iot-industrial.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
+        },
+        {
           img: '/assets/businessflow.webp',
           imgAlt: 'Tela de login do BusinessFlow, plataforma de gestão contábil e financeira.',
           name: 'BusinessFlow',
@@ -104,17 +122,6 @@ export const content = {
           stack: 'React, Node.js, PostgreSQL, Prisma',
           demo: 'https://flowbusiness.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
-        },
-        {
-          img: '/assets/iot/miniatura.png',
-          imgAlt: 'Painel de monitoramento com temperatura, rotação e vibração de três máquinas.',
-          name: 'Plataforma IoT Industrial',
-          year: '2026',
-          text: 'Telemetria industrial em tempo real, com microsserviços, filas, simuladores e painel de operação.',
-          stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
-          study: '/estudo-de-caso-plataforma-iot/',
-          demo: 'https://plataforma-iot-industrial.vercel.app',
-          code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
         },
         {
           img: '/assets/p2.webp',
@@ -143,7 +150,7 @@ export const content = {
         {
           when: '2020 até hoje',
           what: 'Vendedor, Vardão Máquinas',
-          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Montei um CRM para acompanhar leads e um sistema de pedidos e estoque de peças. R$ 200 mil em vendas em 30 dias.',
+          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Desenvolvi o CogniVault, que padroniza os orçamentos da loja, montei um CRM para ter mais controle dos clientes e dos leads e criei um sistema de pedidos e estoque de peças. R$ 200 mil em vendas em 30 dias.',
         },
         {
           when: '2022 a 2024',
@@ -158,12 +165,12 @@ export const content = {
         {
           when: '2025 a 2026',
           what: 'Quatro projetos completos',
-          text: 'Economia Solidária (TCC), BusinessFlow, Plataforma IoT e CogniVault, que está no ar. No CogniVault, do levantamento no balcão ao sistema em produção, com testes automatizados.',
+          text: 'Todos no ar: Economia Solidária (TCC), BusinessFlow, Plataforma IoT e CogniVault. O CogniVault foi do levantamento no balcão à produção, com testes automatizados.',
         },
       ],
       skillsTitle: 'Competências',
       skills: [
-        ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, NestJS, TypeScript, APIs REST'],
+        ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, TypeScript, APIs REST'],
         ['Front-end', 'React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS'],
         ['Dados e arquitetura', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker, microsserviços, WebSockets'],
         ['Práticas', 'Git e GitHub, Postman, Scrum e Kanban, testes automatizados'],
@@ -246,7 +253,7 @@ export const content = {
           does: '26 data models and 57 versioned migrations.',
         },
       ],
-      tests: 'Tests: 996 backend, 389 frontend and 107 end-to-end browser tests. Counted on 2026-10-14.',
+      tests: 'Tests: over 1,000 backend, over 430 frontend and over 100 end-to-end browser tests. Counted on 2026-10-18.',
     },
     projects: {
       title: 'Projects',
@@ -275,6 +282,24 @@ export const content = {
       codeLabel: 'Code',
       others: [
         {
+          img: '/assets/iot/miniatura.png',
+          imgAlt: 'Monitoring dashboard with temperature, speed and vibration for three machines.',
+          name: 'Industrial IoT Platform',
+          year: '2026',
+          featured: true,
+          text: 'Real-time machine telemetry: a Java API, a queue, a Node gateway and a React dashboard with alerts.',
+          proofs: [
+            'Automated tests in all four services, including against a real PostgreSQL',
+            'CI on GitHub: tests, Docker, security and dashboard checks',
+            'Access roles (admin, operator and read-only) and an API with interactive documentation',
+            'Live demo with a "Simulate failure" button',
+          ],
+          stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
+          study: '/estudo-de-caso-plataforma-iot/en/',
+          demo: 'https://plataforma-iot-industrial.vercel.app',
+          code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
+        },
+        {
           img: '/assets/businessflow.webp',
           imgAlt: 'BusinessFlow login screen, an accounting and finance management platform.',
           name: 'BusinessFlow',
@@ -283,17 +308,6 @@ export const content = {
           stack: 'React, Node.js, PostgreSQL, Prisma',
           demo: 'https://flowbusiness.vercel.app',
           code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
-        },
-        {
-          img: '/assets/iot/miniatura.png',
-          imgAlt: 'Monitoring dashboard with temperature, speed and vibration for three machines.',
-          name: 'Industrial IoT Platform',
-          year: '2026',
-          text: 'Real-time industrial telemetry with microservices, queues, simulators and an operations dashboard.',
-          stack: 'Java, Spring Boot, React, RabbitMQ, WebSockets, Python',
-          study: '/estudo-de-caso-plataforma-iot/en/',
-          demo: 'https://plataforma-iot-industrial.vercel.app',
-          code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
         },
         {
           img: '/assets/p2.webp',
@@ -322,7 +336,7 @@ export const content = {
         {
           when: '2020 to today',
           what: 'Sales representative, Vardão Máquinas',
-          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I set up a CRM to track leads and a system for parts orders and inventory. BRL 200k in sales in 30 days.',
+          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I built CogniVault, which standardizes the store quotes, set up a CRM for better control of customers and leads and created a system for parts orders and inventory. BRL 200k in sales in 30 days.',
         },
         {
           when: '2022 to 2024',
@@ -337,12 +351,12 @@ export const content = {
         {
           when: '2025 to 2026',
           what: 'Four complete projects',
-          text: 'Solidarity Economy (capstone), BusinessFlow, Industrial IoT Platform and CogniVault, which is live. On CogniVault, from requirements at the counter to a system in production, with automated tests.',
+          text: 'All live: Solidarity Economy (capstone), BusinessFlow, Industrial IoT Platform and CogniVault. CogniVault went from requirements at the counter to production, with automated tests.',
         },
       ],
       skillsTitle: 'Skills',
       skills: [
-        ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, NestJS, TypeScript, REST APIs'],
+        ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, TypeScript, REST APIs'],
         ['Front-end', 'React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS'],
         ['Data and architecture', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker, microservices, WebSockets'],
         ['Practices', 'Git and GitHub, Postman, Scrum and Kanban, automated testing'],
