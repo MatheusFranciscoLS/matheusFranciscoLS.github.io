@@ -248,7 +248,15 @@ function Path({ t }) {
               <li key={i.when + i.what}>
                 <p className="timeline__when">{i.when}</p>
                 <h3>{i.what}</h3>
-                <p>{i.text}</p>
+                {Array.isArray(i.text) ? (
+                  <ul className="timeline__list">
+                    {i.text.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>{i.text}</p>
+                )}
               </li>
             ))}
           </ol>

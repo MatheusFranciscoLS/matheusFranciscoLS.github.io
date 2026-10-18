@@ -917,3 +917,24 @@ h4 {
   height: 8px;
   background: var(--signal);
 }
+
+/* Lista dentro da linha do tempo */
+.timeline__list {
+  margin: 4px 0 0;
+  padding-left: 20px;
+}
+.timeline__list li {
+  margin-bottom: 4px;
+}
+.timeline .timeline__list li {
+  position: static;
+  padding: 0;
+  margin: 0 0 4px;
+}
+.timeline .timeline__list li::before {
+  content: none;
+  display: none;
+}
+.timeline .timeline__list {
+  list-style: disc;
+}

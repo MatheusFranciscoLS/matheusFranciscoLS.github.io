@@ -64,10 +64,10 @@ export const content = {
         {
           name: 'Banco',
           tech: 'PostgreSQL, Prisma',
-          does: '27 modelos de dados e 61 migrations versionadas.',
+          does: '27 modelos de dados e 61 migrations (alterações do banco registradas em versões).',
         },
       ],
-      tests: 'Testes: mais de 1.000 no backend, mais de 430 no frontend e mais de 100 testes E2E no navegador. Contagem de 18/10/2026.',
+      tests: 'Testes: mais de 1.000 no backend, mais de 430 no frontend e mais de 100 testes E2E (simulam o uso real no navegador). Contagem de 18/10/2026.',
     },
     projects: {
       title: 'Projetos',
@@ -114,7 +114,7 @@ export const content = {
           text: 'Telemetria de máquinas em tempo real: API em Java, fila, gateway em Node e painel em React com alertas.',
           proofs: [
             'Testes automatizados nos quatro serviços, inclusive contra um PostgreSQL de verdade',
-            'CI no GitHub: testes, Docker, segurança e verificação do painel',
+            'CI no GitHub (verificação automática a cada alteração): testes, Docker, segurança e painel',
             'Perfis de acesso (administrador, operador e leitura) e API com documentação interativa',
             'Demonstração ao vivo, com botão "Simular falha"',
           ],
@@ -140,7 +140,7 @@ export const content = {
     },
     path: {
       title: 'Trajetória',
-      intro: 'No balcão desde 2017, programando desde 2022. Entendo o problema do cliente antes de escrever o código.',
+      intro: 'No balcão desde 2017, programando desde 2022.',
       items: [
         {
           when: '2017 a 2020',
@@ -150,7 +150,13 @@ export const content = {
         {
           when: '2020 até hoje',
           what: 'Vendedor, Vardão Máquinas',
-          text: 'Em uma loja familiar, vendo equipamentos Husqvarna e também cuido de compras, estoque, manutenção e parte do financeiro. Desenvolvi o CogniVault, que padroniza os orçamentos da loja, montei um CRM para ter mais controle dos clientes e dos leads e criei um sistema de pedidos e estoque de peças. R$ 200 mil em vendas em 30 dias.',
+          text: [
+            'Vendas consultivas de equipamentos Husqvarna, em uma loja familiar.',
+            'Também cuido de compras, estoque, manutenção e parte do financeiro.',
+            'Desenvolvi o CogniVault, que padroniza os orçamentos da loja.',
+            'Montei um CRM para ter mais controle dos clientes e dos leads, e um sistema de pedidos e estoque de peças.',
+            'R$ 200 mil em vendas em 30 dias.',
+          ],
         },
         {
           when: '2022 a 2024',
@@ -173,7 +179,7 @@ export const content = {
         ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, TypeScript, APIs REST'],
         ['Front-end', 'React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS'],
         ['Dados e arquitetura', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker, microsserviços, WebSockets'],
-        ['Práticas', 'Git e GitHub, Postman, Scrum e Kanban, testes automatizados'],
+        ['Práticas', 'Git e GitHub, Postman, testes automatizados'],
         ['Inglês', 'Pré-intermediário, em desenvolvimento'],
       ],
       coursesTitle: 'Cursos',
@@ -253,7 +259,7 @@ export const content = {
           does: '26 data models and 57 versioned migrations.',
         },
       ],
-      tests: 'Tests: over 1,000 backend, over 430 frontend and over 100 end-to-end browser tests. Counted on 2026-10-18.',
+      tests: 'Tests: over 1,000 backend, over 430 frontend and over 100 end-to-end tests (they simulate real use in the browser). Counted on 2026-10-18.',
     },
     projects: {
       title: 'Projects',
@@ -300,7 +306,7 @@ export const content = {
           text: 'Real-time machine telemetry: a Java API, a queue, a Node gateway and a React dashboard with alerts.',
           proofs: [
             'Automated tests in all four services, including against a real PostgreSQL',
-            'CI on GitHub: tests, Docker, security and dashboard checks',
+            'CI on GitHub (automatic checks on every change): tests, Docker, security and dashboard',
             'Access roles (admin, operator and read-only) and an API with interactive documentation',
             'Live demo with a "Simulate failure" button',
           ],
@@ -326,7 +332,7 @@ export const content = {
     },
     path: {
       title: 'Background',
-      intro: 'At the counter since 2017, programming since 2022. I understand the customer’s problem before I write the code.',
+      intro: 'At the counter since 2017, programming since 2022.',
       items: [
         {
           when: '2017 to 2020',
@@ -336,7 +342,13 @@ export const content = {
         {
           when: '2020 to today',
           what: 'Sales representative, Vardão Máquinas',
-          text: 'At a family-owned store, I sell Husqvarna equipment and also handle purchasing, inventory, maintenance and part of the finances. I built CogniVault, which standardizes the store quotes, set up a CRM for better control of customers and leads and created a system for parts orders and inventory. BRL 200k in sales in 30 days.',
+          text: [
+            'Consultative sales of Husqvarna equipment at a family-owned store.',
+            'I also handle purchasing, inventory, maintenance and part of the finances.',
+            'I built CogniVault, which standardizes the store quotes.',
+            'I set up a CRM for better control of customers and leads, and a system for parts orders and inventory.',
+            'BRL 200k in sales in 30 days.',
+          ],
         },
         {
           when: '2022 to 2024',
@@ -359,7 +371,7 @@ export const content = {
         ['Back-end', 'Java, Spring Boot, Spring Security, Node.js, Express, TypeScript, REST APIs'],
         ['Front-end', 'React, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS'],
         ['Data and architecture', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker, microservices, WebSockets'],
-        ['Practices', 'Git and GitHub, Postman, Scrum and Kanban, automated testing'],
+        ['Practices', 'Git and GitHub, Postman, automated testing'],
         ['English', 'Pre-intermediate, improving'],
       ],
       coursesTitle: 'Courses',
