@@ -151,9 +151,12 @@ function Projects({ t, lang }) {
                 <li key={r}>{r}</li>
               ))}
             </ul>
-            <div className="flagship__parts">
+            <details className="flagship__parts">
+              <summary>
+                {t.hero.partsTitle}
+                <span>{t.hero.partsHint}</span>
+              </summary>
               <table className="parts">
-                <caption>{t.hero.partsTitle}</caption>
                 <thead>
                   <tr>
                     <th scope="col">{t.hero.partsHead.part}</th>
@@ -173,7 +176,7 @@ function Projects({ t, lang }) {
                 </tbody>
               </table>
               <p className="parts__tests">{t.hero.tests}</p>
-            </div>
+            </details>
             <div className="actions">
               <a className="btn btn--primary" href={paths[lang].caseStudy}>
                 {p.caseStudy}
@@ -269,12 +272,17 @@ function Path({ t }) {
               </div>
             ))}
           </dl>
-          <h3 className="sub">{p.coursesTitle}</h3>
-          <ul className="courses">
-            {p.courses.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
+          <details className="courses-box">
+            <summary>
+              {p.coursesTitle}
+              <span>({p.courses.length})</span>
+            </summary>
+            <ul className="courses">
+              {p.courses.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </details>
         </div>
       </div>
     </section>

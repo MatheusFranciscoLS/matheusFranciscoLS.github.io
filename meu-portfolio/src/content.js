@@ -44,6 +44,7 @@ export const content = {
       secondary: 'Baixar currículo',
       availability: 'Aberto a vagas de desenvolvedor full-stack júnior.',
       partsTitle: 'Como o CogniVault é feito',
+      partsHint: 'React, Node.js, RabbitMQ e PostgreSQL',
       partsHead: { part: 'Camada', does: 'O que faz' },
       parts: [
         {
@@ -236,6 +237,7 @@ export const content = {
       secondary: 'Download résumé',
       availability: 'Open to junior full-stack developer roles.',
       partsTitle: 'How CogniVault is built',
+      partsHint: 'React, Node.js, RabbitMQ and PostgreSQL',
       partsHead: { part: 'Layer', does: 'What it does' },
       parts: [
         {

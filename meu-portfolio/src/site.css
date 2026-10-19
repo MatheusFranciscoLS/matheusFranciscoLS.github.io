@@ -938,3 +938,58 @@ h4 {
 .timeline .timeline__list {
   list-style: disc;
 }
+
+/* Blocos recolhíveis: tabela do CogniVault e cursos */
+.flagship__parts summary,
+.courses-box summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 12px 0;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-stretch: 78%;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+.flagship__parts summary span,
+.courses-box summary span {
+  font-family: var(--font-body);
+  font-stretch: 100%;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.flagship__parts summary::-webkit-details-marker,
+.courses-box summary::-webkit-details-marker {
+  display: none;
+}
+.flagship__parts summary::after,
+.courses-box summary::after {
+  content: '+';
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-weight: 400;
+}
+.flagship__parts[open] summary::after,
+.courses-box[open] summary::after {
+  content: '−';
+}
+.courses-box {
+  margin-top: 28px;
+}
+.courses-box .courses {
+  padding-top: 12px;
+}
+.flagship__parts table {
+  margin-top: 8px;
+}
+@media (min-width: 960px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+}
