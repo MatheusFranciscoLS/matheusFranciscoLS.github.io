@@ -257,7 +257,7 @@ img {
 
 /* Primeira tela */
 .hero {
-  padding-block: clamp(40px, 7vw, 96px) clamp(48px, 7vw, 96px);
+  padding-block: clamp(32px, 4vw, 64px) clamp(48px, 7vw, 96px);
   border-bottom: 1px solid var(--line);
 }
 .hero__grid {
@@ -771,4 +771,30 @@ img {
   .card__img {
     aspect-ratio: auto;
   }
+}
+
+/* Nome em destaque e contatos na primeira tela */
+.hero__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 18px;
+  font-weight: 600;
+}
+.hero__links a {
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hero__links a:hover {
+  color: var(--ink);
 }

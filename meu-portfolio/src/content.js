@@ -67,6 +67,8 @@ export const content = {
     hero: {
       kicker: 'Desenvolvedor full-stack júnior · Limeira, SP',
       available: 'Aberto a vagas',
+      name: 'Matheus Francisco',
+      contact: 'Falar comigo',
       title: 'Construo sistemas que ficam no ar.',
       lead:
         'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e tenho mais três projetos completos funcionando.',
@@ -228,6 +230,8 @@ export const content = {
     hero: {
       kicker: 'Junior full-stack developer · Limeira, Brazil',
       available: 'Open to roles',
+      name: 'Matheus Francisco',
+      contact: 'Get in touch',
       title: 'I build systems that stay live.',
       lead:
         'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I have three more complete projects running.',

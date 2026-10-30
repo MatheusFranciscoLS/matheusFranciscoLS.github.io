@@ -103,6 +103,7 @@ function Hero({ t, lang, items, status }) {
     <section className="hero" aria-labelledby="titulo">
       <div className="wrap hero__grid">
         <div className="hero__text">
+          <p className="hero__name">{h.name}</p>
           <p className="hero__kicker">
             {h.kicker} <span className="pill">{h.available}</span>
           </p>
@@ -116,7 +117,15 @@ function Hero({ t, lang, items, status }) {
             <a className="btn" href={paths[lang].resume}>
               {h.secondary}
             </a>
+            <a className="btn" href="#contato">
+              {h.contact}
+            </a>
           </div>
+          <p className="hero__links">
+            <a href={LINKS.linkedin}>LinkedIn</a>
+            <a href={LINKS.github}>GitHub</a>
+            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+          </p>
         </div>
         <div className="board" role="region" aria-labelledby="board-title">
           <div className="board__head">
