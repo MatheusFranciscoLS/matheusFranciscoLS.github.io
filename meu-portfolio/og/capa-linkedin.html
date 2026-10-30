@@ -1,26 +1,32 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
+<!-- Capa do LinkedIn (1584 x 396), na identidade do portfólio "Painel ao vivo".
+     Área segura: no computador a foto de perfil cobre o canto inferior esquerdo,
+     e no celular o LinkedIn corta as laterais. O texto fica no centro, à direita da foto. -->
 <style>
-@font-face{font-family:'Archivo';src:url('../node_modules/@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2') format('woff2');font-weight:100 900;font-stretch:62% 125%}
-@font-face{font-family:'Plex';src:url('../node_modules/@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2') format('woff2');font-weight:100 700}
+@font-face{font-family:'BC';src:url('../node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2') format('woff2');font-weight:800}
+@font-face{font-family:'B';src:url('../node_modules/@fontsource/barlow/files/barlow-latin-400-normal.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'B';src:url('../node_modules/@fontsource/barlow/files/barlow-latin-600-normal.woff2') format('woff2');font-weight:600}
 *{box-sizing:border-box;margin:0}
-body{width:1584px;height:396px;background:#edefea;color:#14181b;font-family:'Plex',sans-serif;position:relative;overflow:hidden}
-.bar{position:absolute;left:0;right:0;bottom:0;height:12px;background:#e6b800}
-.t{position:absolute;left:430px;top:104px;width:560px}
-h1{font-family:'Archivo',sans-serif;font-stretch:78%;font-weight:800;font-size:76px;line-height:1;letter-spacing:-1px;white-space:nowrap}
-.role{margin-top:12px;font-family:'Archivo',sans-serif;font-stretch:78%;font-weight:800;font-size:38px;white-space:nowrap}
-.role::after{content:'';display:block;width:72px;height:5px;margin-top:14px;background:#e6b800}
-.panel{position:absolute;right:72px;top:74px;width:470px;border-left:3px solid #14181b;padding-left:28px}
-.row{margin-bottom:22px}
-.row:last-child{margin-bottom:0}
-.k{font-family:'Archivo',sans-serif;font-stretch:78%;font-weight:800;font-size:26px}
-.v{margin-top:3px;font-size:22px;color:#454d53;line-height:1.3}
+body{width:1584px;height:396px;background:#17232c;color:#e8eef2;font-family:'B',sans-serif;position:relative;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#22323e 1px,transparent 1px),linear-gradient(90deg,#22323e 1px,transparent 1px);background-size:44px 44px;opacity:.35}
+.t{position:absolute;left:420px;top:64px;width:760px}
+.k{color:#ffb547;font-weight:600;font-size:24px;margin-bottom:12px}
+h1{font-family:'BC';font-weight:800;font-size:76px;line-height:.95}
+.s{margin-top:18px;font-size:23px;font-weight:600;color:#a9bac6;letter-spacing:.01em}
+.url{position:absolute;right:110px;top:150px;border:1px solid #2f4150;background:#1d2b35;padding:16px 22px}
+.url small{display:block;color:#a9bac6;font-size:16px;margin-bottom:4px}
+.url b{font-family:'BC';font-weight:800;font-size:28px;letter-spacing:.01em}
+.url .on{display:flex;align-items:center;gap:8px;color:#7fe0a0;font-size:16px;margin-top:8px}
+.url .on:before{content:'';width:9px;height:9px;border-radius:50%;background:#3ccf73}
+.bar{position:absolute;left:0;right:0;bottom:0;height:10px;background:#ffb547}
 </style></head><body>
-<div class="t"><h1>Matheus Francisco</h1><p class="role">Desenvolvedor full-stack júnior</p></div>
-<div class="panel">
-<div class="row"><p class="k">Back-end</p><p class="v">Java, Spring Boot, Node.js e Express</p></div>
-<div class="row"><p class="k">Front-end</p><p class="v">React, TypeScript, JavaScript, HTML e CSS</p></div>
-<div class="row"><p class="k">Dados e infraestrutura</p><p class="v">PostgreSQL, Prisma, RabbitMQ, Docker, Git</p></div>
+<div class="grid"></div>
+<div class="t">
+  <p class="k">Desenvolvedor full-stack júnior · Limeira, SP</p>
+  <h1>Construo sistemas que ficam no ar.</h1>
+  <p class="s">Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL</p>
 </div>
+<div class="url"><small>Portfólio e estudos de caso</small><b>matheusfranciscols.github.io</b><span class="on">4 sistemas no ar</span></div>
 <div class="bar"></div>
 </body></html>
