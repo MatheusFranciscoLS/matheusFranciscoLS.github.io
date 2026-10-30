@@ -744,3 +744,31 @@ img {
   white-space: nowrap;
   border: 0;
 }
+
+/* Cartão largo (último, sozinho na linha): a imagem aparece inteira, sem corte */
+@media (min-width: 720px) {
+  .cards .card:last-child:nth-child(odd) {
+    align-items: center;
+    background: var(--panel);
+  }
+  .cards .card:last-child:nth-child(odd) .card__img {
+    height: auto;
+    aspect-ratio: auto;
+    align-self: center;
+    border-right: 0;
+  }
+}
+@media (min-width: 720px) and (max-width: 999px) {
+  .cards .card:last-child:nth-child(odd) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cards .card:last-child:nth-child(odd) .card__img {
+    border-bottom: 1px solid var(--line);
+  }
+}
+/* No celular os cartões ficam um embaixo do outro: cada imagem no próprio formato, sem corte */
+@media (max-width: 719px) {
+  .card__img {
+    aspect-ratio: auto;
+  }
+}
