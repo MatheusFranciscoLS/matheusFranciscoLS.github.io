@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vardão Central: case study | Matheus Francisco</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="How I built the system an authorized Husqvarna dealer uses at the counter, in sales, finance and inventory, and how I migrated the old ERP with the numbers checked to the cent.">
+  <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
+  <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
+  <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Matheus Francisco">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Vardão Central: case study | Matheus Francisco">
+  <meta property="og:description" content="The system the store where I work uses every day: counter, CRM, finance and inventory, and an ERP migration checked to the cent.">
+  <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
+  <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="900">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/estudo-de-caso.css">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <nav class="top" aria-label="Navigation"><div class="wrap">
+    <a href="/en/#sistemas">← Matheus Francisco</a>
+    <span class="lang"><a href="../">PT</a><a href="./" aria-current="true">EN</a></span>
+  </div></nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Case study · 2026 · formerly CogniVault</p>
+      <h1>Vardão Central</h1>
+      <p class="lead">The system Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. I started with a parts catalog for the counter and ended up replacing the store’s old ERP.</p>
+      <ul class="meta">
+        <li><strong>Role</strong>Product, design and full-stack development</li>
+        <li><strong>Company</strong>Vardão Máquinas (where I work)</li>
+        <li><strong>Status</strong>In daily use</li>
+      </ul>
+      <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">See the live system (login required)</a>
+      <a class="btn ghost" href="/en/#contato">Contact me</a>
+    </header>
+
+    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Vardão Central counter: search for model 143RII with three parts in the quote alongside." width="1440" height="900"></figure>
+
+    <section>
+      <h2>The problem</h2>
+      <p>At the counter the customer is standing in front of the clerk. To answer "which part is it and how much", the clerk opened a PDF catalog, found the position in the drawing, checked the price in a spreadsheet, looked for the shelf and wrote the quote by hand. A wrong code becomes a return.</p>
+      <p>Away from the counter, sales, finance and customers lived in an old ERP, separate from everything else. Knowing how much the store sold this month or which customer had gone quiet meant gathering information from different places.</p>
+    </section>
+
+    <section>
+      <h2>What I built</h2>
+      <h3>Counter</h3>
+      <p>Search by code, part, model or PNC; the official exploded view with a clickable position; list price and shelf; quotes by PDF and WhatsApp. Keyboard first: the clerk works in a hurry.</p>
+      <h3>Sales</h3>
+      <p>A CRM with a deal board and quick filters, customer ranking, cross-selling, reactivation of quiet customers and the machine price table.</p>
+      <h3>Finance</h3>
+      <p>Sales, purchases and expenses, income statement, cash flow, working capital, ABC analysis and closing the till.</p>
+      <h3>Inventory</h3>
+      <p>Items to order, shortages, shelves and special orders for customers, with the deposit they already paid.</p>
+      <h3>Home by role</h3>
+      <p>Each person opens the system on the home screen for their role, with what matters for their day, and the main button changes with the role: "Lançar venda" (record a sale) or "Novo orçamento" (new quote).</p>
+    </section>
+
+    <section>
+      <h2>The ERP migration, checked to the cent</h2>
+      <p>The store could not lose a single number in the switch. The rule was simple: the same results as the old ERP, or better.</p>
+      <ul class="plain">
+        <li><strong>Automatic proof.</strong> I wrote a test that runs the old ERP’s own functions and Vardão Central’s on the same data and compares the results: 75 scenarios, 1,107 comparisons, no difference above 1 cent.</li>
+        <li><strong>What was hidden.</strong> The comparison showed the ERP still used an old sales table, with its own rules from a cut-off date. Without the proof, that legacy data would have been missing from the income statement and the reports.</li>
+        <li><strong>Safe import.</strong> The importer runs as a dry run first, requires the expected totals before writing, checks to the cent after writing and can be undone.</li>
+        <li><strong>Better than the original.</strong> Where the ERP rounded badly, Vardão Central counts installments in whole cents, and the remainder of a split goes to the first installment.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Rules the product never breaks</h2>
+      <div class="rules">
+        <div class="rule"><h3>Never guess a code</h3><p>A typed code returns only the exact code and the manufacturer’s official replacement. The AI only picks from a closed list of parts for the machine.</p></div>
+        <div class="rule"><h3>The customer never gets the code</h3><p>PDFs, WhatsApp messages and printouts leave without the part code, so the customer cannot price it at another dealer with our number.</p></div>
+        <div class="rule"><h3>Data changes are explicit</h3><p>Importing prices, inventory or sales shows a report before writing and keeps an undo.</p></div>
+        <div class="rule"><h3>Numbers are numbers</h3><p>Installments in whole cents and dates in the store’s time zone, locked by tests.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Screens</h2>
+      <div class="gallery">
+        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="A code replaced by the manufacturer, with the new code highlighted." loading="lazy" width="1440" height="900"></div><figcaption><strong>Old code, new part.</strong> The official replacement is highlighted, ready to quote.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Quote review with lead time, payment, discount and sending by WhatsApp or PDF." loading="lazy" width="1440" height="900"></div><figcaption><strong>Quote</strong> with lead time, payment and discount, sent by WhatsApp or PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/equipamentos.png" alt="Equipment table with photo, PNC, application and list price." loading="lazy" width="1440" height="900"></div><figcaption><strong>Equipment</strong> by technology, category and application, with what is new on the list.</figcaption></figure>
+      </div>
+      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Screenshots taken in a simulated store with demo data. No real store data appears here.</p>
+    </section>
+
+    <section>
+      <h2>Decisions and what I learned</h2>
+      <h3>The green test that lied</h3>
+      <p>A job that deletes quotes older than 1 year had a passing test. In production it never ran: the line that started it sat inside the queue’s retry block. I found it by looking at the database. Now there is a test just for that wiring, proven by undoing the fix and watching the test fail.</p>
+      <h3>"Today" ended yesterday</h3>
+      <p>The server runs in UTC and the store in UTC-3: the "until today" filter cut off before the store’s midnight and the owner could not see the day’s own quotes. Every day calculation now uses the store’s time zone, locked by a test.</p>
+      <h3>Refusing beats being wrong</h3>
+      <p>The PDF catalog reader prefers to refuse a doubtful file, saying why, rather than save a wrong code that would spoil the whole search.</p>
+      <h3>Compare with the old system, not with my memory</h3>
+      <p>In the migration I did not trust the rules I thought the ERP had. I ran the ERP itself as the reference, and that is what found what was hidden.</p>
+    </section>
+
+    <section>
+      <h2>Quality in numbers</h2>
+      <div class="numbers">
+        <div class="num"><b>1,400+</b><span>back-end tests</span></div>
+        <div class="num"><b>600+</b><span>front-end tests</span></div>
+        <div class="num"><b>70</b><span>end-to-end browser tests</span></div>
+        <div class="num"><b>1,107</b><span>comparisons with the old ERP</span></div>
+        <div class="num"><b>91</b><span>versioned database migrations</span></div>
+        <div class="num"><b>49</b><span>data models</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Counted in the project files on 2026-10-30.</p>
+    </section>
+
+    <section>
+      <h2>Technologies</h2>
+      <ul class="tags">
+        <li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>RabbitMQ</li><li>Playwright</li><li>Vitest</li><li>GitHub Actions</li><li>Vercel</li><li>Render</li><li>Supabase</li>
+      </ul>
+    </section>
+
+    <footer>
+      Vardão Central is a work project and the code is private. I can walk you through the architecture and code excerpts on a call. <a href="/en/#contato">Contact me</a>. · <a href="/estudo-de-caso-plataforma-iot/en/">Next: Industrial IoT Platform</a>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vardão Central: estudo de caso | Matheus Francisco</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="Como construí o sistema que uma revenda autorizada Husqvarna usa no balcão, no comercial, no financeiro e no estoque, e como migrei o ERP antigo com os números conferidos ao centavo.">
+  <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
+  <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
+  <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Matheus Francisco">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Vardão Central: estudo de caso | Matheus Francisco">
+  <meta property="og:description" content="O sistema que a loja onde trabalho usa todo dia: balcão, CRM, financeiro e estoque, e a migração do ERP conferida ao centavo.">
+  <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
+  <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="900">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/estudo-de-caso.css">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <nav class="top" aria-label="Navegação"><div class="wrap">
+    <a href="/#sistemas">← Matheus Francisco</a>
+    <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
+  </div></nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <p class="eyebrow">Estudo de caso · 2026 · antes chamado CogniVault</p>
+      <h1>Vardão Central</h1>
+      <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão e terminei substituindo o ERP antigo da loja.</p>
+      <ul class="meta">
+        <li><strong>Papel</strong>Produto, design e desenvolvimento full-stack</li>
+        <li><strong>Empresa</strong>Vardão Máquinas (onde trabalho)</li>
+        <li><strong>Situação</strong>Em uso diário</li>
+      </ul>
+      <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">Ver o sistema no ar (com login)</a>
+      <a class="btn ghost" href="/#contato">Falar comigo</a>
+    </header>
+
+    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Balcão do Vardão Central: busca pelo modelo 143RII com três peças no orçamento ao lado." width="1440" height="900"></figure>
+
+    <section>
+      <h2>O problema</h2>
+      <p>No balcão, o cliente está na frente do atendente. Para responder "qual é a peça e quanto custa", era preciso abrir um catálogo em PDF, achar a posição no desenho, conferir o preço numa planilha, ver se a peça estava na prateleira e montar o orçamento à mão. Um código errado vira devolução.</p>
+      <p>Fora do balcão, as vendas, o financeiro e os clientes ficavam num ERP antigo, separado de tudo. Quem queria saber quanto a loja vendeu no mês ou que cliente estava parado precisava juntar informações de lugares diferentes.</p>
+    </section>
+
+    <section>
+      <h2>O que eu construí</h2>
+      <h3>Balcão</h3>
+      <p>Busca por código, peça, modelo ou PNC; vista explodida oficial com a posição clicável; preço da lista e prateleira; orçamento em PDF e WhatsApp. Teclado primeiro: o atendente trabalha com pressa.</p>
+      <h3>Comercial</h3>
+      <p>CRM com quadro de negociações e filtros rápidos, ranking de clientes, cross selling, reativação de clientes parados e a tabela de preços das máquinas.</p>
+      <h3>Financeiro</h3>
+      <p>Lançamento de vendas, compras e despesas, DRE, fluxo de caixa, capital de giro, curva ABC e fechamento de caixa.</p>
+      <h3>Estoque</h3>
+      <p>Itens a pedir, faltas, prateleiras e encomendas de peças para o cliente, com o sinal que ele já pagou.</p>
+      <h3>Início por perfil</h3>
+      <p>Cada pessoa abre o sistema no Início do seu papel, com o que importa para o dia dela, e o botão principal muda conforme o papel: "Lançar venda" ou "Novo orçamento".</p>
+    </section>
+
+    <section>
+      <h2>A migração do ERP, conferida ao centavo</h2>
+      <p>A loja não podia perder nenhum número na troca. A regra era simples: os mesmos resultados do ERP antigo, ou melhores.</p>
+      <ul class="plain">
+        <li><strong>Prova automática.</strong> Escrevi um teste que roda as funções do próprio ERP antigo e as do Vardão Central sobre os mesmos dados e compara o resultado: 75 cenários, 1.107 comparações, nenhuma diferença acima de 1 centavo.</li>
+        <li><strong>O que estava escondido.</strong> A comparação mostrou que o ERP ainda usava uma tabela antiga de vendas, com regras próprias a partir de uma data de corte. Sem a prova, esse "legado" teria ficado de fora do DRE e dos relatórios.</li>
+        <li><strong>Importação segura.</strong> O importador roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere ao centavo depois de gravar e tem como desfazer.</li>
+        <li><strong>Melhor que o original.</strong> Onde o ERP arredondava errado, o Vardão Central conta em centavos inteiros, e a sobra de uma divisão de parcelas vai para a primeira parcela.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Regras que o produto não quebra</h2>
+      <div class="rules">
+        <div class="rule"><h3>Nunca chutar o código</h3><p>Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</p></div>
+        <div class="rule"><h3>O cliente nunca recebe o código</h3><p>PDF, WhatsApp e impressão saem sem o código da peça, para o cliente não cotar em outra revenda com o nosso número.</p></div>
+        <div class="rule"><h3>Mudança de dado é explícita</h3><p>Importar preço, estoque ou vendas mostra um relatório antes de gravar e guarda como desfazer.</p></div>
+        <div class="rule"><h3>Número é número</h3><p>Parcelas em centavos inteiros e datas no fuso da loja, travadas por teste.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Telas</h2>
+      <div class="gallery">
+        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="Código substituído pela fabricante, com o código novo em destaque." loading="lazy" width="1440" height="900"></div><figcaption><strong>Código antigo, peça nova.</strong> A troca oficial aparece em destaque, com o código novo pronto para orçar.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Revisão do orçamento com prazo, pagamento, desconto e envio por WhatsApp ou PDF." loading="lazy" width="1440" height="900"></div><figcaption><strong>Orçamento</strong> com prazo, pagamento e desconto, enviado por WhatsApp ou PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/equipamentos.png" alt="Tabela de equipamentos com foto, PNC, aplicação e preço da lista." loading="lazy" width="1440" height="900"></div><figcaption><strong>Equipamentos</strong> por tecnologia, categoria e aplicação, com as novidades da lista.</figcaption></figure>
+      </div>
+      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Prints feitos numa loja simulada, com dados de demonstração. Nenhum dado real da loja aparece aqui.</p>
+    </section>
+
+    <section>
+      <h2>Decisões e o que aprendi</h2>
+      <h3>O teste verde que mentia</h3>
+      <p>Uma rotina que apaga orçamentos com mais de 1 ano tinha teste e passava. Em produção, nunca rodava: a linha que a ligava estava dentro do bloco de nova tentativa da fila. Descobri olhando o banco. Hoje há um teste só para essa ligação, provado desfazendo a correção e vendo o teste reprovar.</p>
+      <h3>"Hoje" terminava ontem</h3>
+      <p>O servidor roda em UTC e a loja em UTC-3: o filtro "até hoje" cortava antes da meia-noite da loja e o dono não via os orçamentos do próprio dia. Toda conta de dia agora usa o fuso da loja, travada por teste.</p>
+      <h3>Recusar é melhor que errar</h3>
+      <p>O leitor de catálogos em PDF prefere recusar um arquivo duvidoso, dizendo o motivo, a gravar um código errado que estragaria a busca inteira.</p>
+      <h3>Comparar com o sistema antigo, não com a minha cabeça</h3>
+      <p>Na migração, eu não confiei nas regras que eu achava que o ERP tinha. Rodei o próprio ERP como referência, e foi isso que achou o que estava escondido.</p>
+    </section>
+
+    <section>
+      <h2>Qualidade em números</h2>
+      <div class="numbers">
+        <div class="num"><b>1.400+</b><span>testes no back-end</span></div>
+        <div class="num"><b>600+</b><span>testes no front-end</span></div>
+        <div class="num"><b>70</b><span>testes de ponta a ponta no navegador</span></div>
+        <div class="num"><b>1.107</b><span>comparações com o ERP antigo</span></div>
+        <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
+        <div class="num"><b>49</b><span>modelos de dados</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Contagens feitas nos arquivos do projeto em 30/10/2026.</p>
+    </section>
+
+    <section>
+      <h2>Tecnologias</h2>
+      <ul class="tags">
+        <li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>RabbitMQ</li><li>Playwright</li><li>Vitest</li><li>GitHub Actions</li><li>Vercel</li><li>Render</li><li>Supabase</li>
+      </ul>
+    </section>
+
+    <footer>
+      O Vardão Central é um projeto de trabalho e o código é privado. Posso apresentar a arquitetura e trechos do código numa conversa. <a href="/#contato">Falar comigo</a>. · <a href="/estudo-de-caso-plataforma-iot/">Próximo: Plataforma IoT Industrial</a>
+    </footer>
+  </main>
+</body>
+</html>
