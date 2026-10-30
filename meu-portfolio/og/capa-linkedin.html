@@ -2,31 +2,46 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <!-- Capa do LinkedIn (1584 x 396), na identidade do portfólio "Painel ao vivo".
      Área segura: no computador a foto de perfil cobre o canto inferior esquerdo,
-     e no celular o LinkedIn corta as laterais. O texto fica no centro, à direita da foto. -->
+     e no celular o LinkedIn corta as laterais. O texto começa à direita da foto. -->
 <style>
 @font-face{font-family:'BC';src:url('../node_modules/@fontsource/barlow-condensed/files/barlow-condensed-latin-800-normal.woff2') format('woff2');font-weight:800}
-@font-face{font-family:'B';src:url('../node_modules/@fontsource/barlow/files/barlow-latin-400-normal.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'B';src:url('../node_modules/@fontsource/barlow/files/barlow-latin-500-normal.woff2') format('woff2');font-weight:500}
 @font-face{font-family:'B';src:url('../node_modules/@fontsource/barlow/files/barlow-latin-600-normal.woff2') format('woff2');font-weight:600}
+@font-face{font-family:'M';src:url('../node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2');font-weight:400}
 *{box-sizing:border-box;margin:0}
-body{width:1584px;height:396px;background:#17232c;color:#e8eef2;font-family:'B',sans-serif;position:relative;overflow:hidden}
-.grid{position:absolute;inset:0;background-image:linear-gradient(#22323e 1px,transparent 1px),linear-gradient(90deg,#22323e 1px,transparent 1px);background-size:44px 44px;opacity:.35}
-.t{position:absolute;left:420px;top:96px;width:720px}
-.k{color:#ffb547;font-weight:600;font-size:24px;margin-bottom:12px}
-h1{font-family:'BC';font-weight:800;font-size:58px;line-height:1}
-.s{margin-top:18px;font-size:23px;font-weight:600;color:#a9bac6;letter-spacing:.01em}
-.url{position:absolute;right:96px;top:150px;border:1px solid #2f4150;background:#1d2b35;padding:16px 22px}
-.url small{display:block;color:#a9bac6;font-size:16px;margin-bottom:4px}
-.url b{font-family:'BC';font-weight:800;font-size:28px;letter-spacing:.01em}
-.url .on{display:flex;align-items:center;gap:8px;color:#7fe0a0;font-size:16px;margin-top:8px}
-.url .on:before{content:'';width:9px;height:9px;border-radius:50%;background:#3ccf73}
-.bar{position:absolute;left:0;right:0;bottom:0;height:10px;background:#ffb547}
+body{width:1584px;height:396px;color:#e8eef2;font-family:'B',sans-serif;position:relative;overflow:hidden;
+  background:radial-gradient(640px 400px at 1250px 200px,rgba(255,181,71,.13),transparent 70%),#17232c}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#22323e 1px,transparent 1px),linear-gradient(90deg,#22323e 1px,transparent 1px);background-size:44px 44px;opacity:.35;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%,#000 100%)}
+.t{position:absolute;left:420px;top:62px}
+.k{display:flex;align-items:center;gap:10px;color:#a9bac6;font-weight:600;font-size:21px;letter-spacing:.14em;text-transform:uppercase}
+.k:before{content:'';width:34px;height:3px;background:#ffb547}
+h1{font-family:'BC';font-weight:800;font-size:88px;line-height:.92;margin-top:12px;letter-spacing:.005em}
+h1 span{color:#ffb547}
+.chips{display:flex;gap:10px;margin-top:22px}
+.chips b{font-weight:600;font-size:19px;padding:7px 14px;border:1px solid #2f4150;background:#1d2b35;color:#e8eef2}
+.code{position:absolute;right:88px;top:80px;width:500px;border:1px solid #2f4150;background:#132029;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.code .top{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid #2f4150}
+.code .top i{width:11px;height:11px;border-radius:50%;background:#2f4150}
+.code .top i:first-child{background:#ffb547}
+.code pre{font-family:'M',monospace;font-size:17px;line-height:1.6;padding:16px 22px 18px;color:#a9bac6}
+.p{color:#e8eef2}.s{color:#ffb547}.v{color:#7fe0a0}
+.bar{position:absolute;left:0;right:0;bottom:0;height:8px;background:#ffb547}
 </style></head><body>
 <div class="grid"></div>
 <div class="t">
-  <p class="k">Matheus Francisco · Full-stack júnior</p>
-  <h1>Do balcão da loja ao sistema<br>que ela usa todo dia.</h1>
-  <p class="s">Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL</p>
+  <p class="k">Desenvolvedor</p>
+  <h1>Full-Stack<br><span>Java &amp; React</span></h1>
+  <div class="chips"><b>Spring Boot</b><b>Node.js</b><b>TypeScript</b><b>PostgreSQL</b></div>
 </div>
-<div class="url"><small>Projetos e estudos de caso</small><b>matheusfranciscols.github.io</b><span class="on">4 sistemas no ar</span></div>
+<div class="code">
+  <div class="top"><i></i><i></i><i></i></div>
+<pre><span class="p">const</span> dev = {
+  nivel: <span class="s">'júnior'</span>,
+  foco: <span class="s">'full-stack'</span>,
+  sistemasNoAr: <span class="v">4</span>,
+  portfolio: <span class="s">'matheusfranciscols.github.io'</span>,
+};</pre>
+</div>
 <div class="bar"></div>
 </body></html>
