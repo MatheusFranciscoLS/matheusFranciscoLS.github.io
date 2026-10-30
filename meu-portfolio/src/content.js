@@ -4,7 +4,7 @@ export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/matheusfranciscols',
   github: 'https://github.com/MatheusFranciscoLS',
   whatsapp: 'https://wa.me/5519981911214?text=Ol%C3%A1%20Matheus%2C%20vi%20seu%20portf%C3%B3lio.',
-  demo: 'https://cognivault-murex.vercel.app',
+  demo: 'https://vardao-central.vercel.app',
 };
 
 export const paths = {
@@ -89,9 +89,9 @@ export const content = {
         'O cliente nunca recebe o código da peça. PDF, WhatsApp e impressão saem sem ele.',
         'Mudança de dado é explícita. Importar preço mostra um relatório antes de gravar e guarda como desfazer.',
       ],
-      privateNote: 'O código é privado, por ser projeto de trabalho. Mostro a arquitetura e trechos do código numa conversa.',
+      privateNote: 'O código é privado, por ser projeto de trabalho. Mostro a arquitetura e trechos do código numa conversa. O sistema está no ar, com acesso pelo login da loja.',
       caseStudy: 'Estudo de caso',
-      demo: 'Abrir a demo',
+      demo: 'Ver o sistema no ar',
       othersTitle: 'Outros projetos completos',
       demoLabel: 'Demo',
       codeLabel: 'Código',
@@ -282,9 +282,9 @@ export const content = {
         'Customers never see the part code. PDFs, WhatsApp messages and printouts leave it out.',
         'Changing data is explicit. Importing prices shows a report before saving and keeps an undo.',
       ],
-      privateNote: 'The code is private because it is a work project. I can walk you through the architecture and code excerpts on a call.',
+      privateNote: 'The code is private because it is a work project. I can walk you through the architecture and code excerpts on a call. The system is live; access requires a store login.',
       caseStudy: 'Case study',
-      demo: 'Open the demo',
+      demo: 'See the live system',
       othersTitle: 'Other complete projects',
       demoLabel: 'Demo',
       codeLabel: 'Code',
