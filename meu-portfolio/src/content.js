@@ -11,13 +11,13 @@ export const paths = {
   en: { home: '/en/', resume: '/assets/curriculo-en.pdf' },
 };
 
-// Os quatro sistemas, na ordem de importância. `check` é o endereço que a página consulta
-// no navegador de quem visita para mostrar "no ar" de verdade.
+// Os quatro sistemas, na ordem de importância. `probe` é um ícone de cada site: se ele
+// carrega no navegador de quem visita, o site está no ar; uma página de erro não carrega como imagem.
 const systems = {
   vardao: {
     id: 'vardao-central',
     name: 'Vardão Central',
-    check: 'https://vardao-central.vercel.app',
+    probe: 'https://vardao-central.vercel.app/favicon.png',
     live: 'https://vardao-central.vercel.app',
     img: '/assets/vardao-central/balcao.png',
     stack: 'React · TypeScript · Node.js · PostgreSQL · Prisma · RabbitMQ · Playwright',
@@ -25,7 +25,7 @@ const systems = {
   businessflow: {
     id: 'businessflow',
     name: 'BusinessFlow',
-    check: 'https://flowbusiness.vercel.app',
+    probe: 'https://flowbusiness.vercel.app/favicon.ico',
     live: 'https://flowbusiness.vercel.app',
     code: 'https://github.com/MatheusFranciscoLS/BusinessFlow',
     img: '/assets/businessflow.webp',
@@ -34,7 +34,7 @@ const systems = {
   iot: {
     id: 'plataforma-iot',
     name: 'Plataforma IoT Industrial',
-    check: 'https://plataforma-iot-industrial.vercel.app',
+    probe: 'https://plataforma-iot-industrial.vercel.app/favicon.svg',
     live: 'https://plataforma-iot-industrial.vercel.app',
     code: 'https://github.com/MatheusFranciscoLS/plataforma-iot-industrial',
     img: '/assets/iot/miniatura.png',
@@ -43,7 +43,7 @@ const systems = {
   economia: {
     id: 'economia-solidaria',
     name: 'Economia Solidária',
-    check: 'https://economia-solidaria-frontend.vercel.app',
+    probe: 'https://economia-solidaria-frontend.vercel.app/favicon.ico',
     live: 'https://economia-solidaria-frontend.vercel.app',
     code: 'https://github.com/MatheusFranciscoLS/ProjetoFinal',
     img: '/assets/p2.webp',
@@ -62,7 +62,6 @@ export const content = {
       skip: 'Ir para o conteúdo',
       nav: { systems: 'Sistemas', method: 'Como trabalho', path: 'Trajetória', contact: 'Contato' },
       theme: 'Alternar tema claro e escuro',
-      otherLang: 'English',
       otherLangLabel: 'Read this page in English',
     },
     hero: {
@@ -70,18 +69,14 @@ export const content = {
       available: 'Aberto a vagas',
       title: 'Construo sistemas que ficam no ar.',
       lead:
-        'Passei 9 anos no balcão de uma revenda de máquinas. Hoje a loja usa no dia a dia o sistema que eu construí, e tenho mais três projetos completos funcionando.',
+        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e tenho mais três projetos completos funcionando.',
+      stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'Ver os sistemas',
       secondary: 'Baixar currículo',
       boardTitle: 'Sistemas no ar',
       boardNote: 'conferido agora, no seu navegador',
       status: { checking: 'conferindo', up: 'no ar', down: 'sem resposta' },
-      board: {
-        vardao: 'sistema da loja, uso diário',
-        businessflow: 'gestão de pequenos negócios',
-        iot: 'telemetria industrial',
-        economia: 'marketplace, TCC SENAI',
-      },
+      summary: (up, total) => `${up} de ${total} sistemas responderam agora.`,
     },
     systemsSection: {
       title: 'Sistemas',
@@ -98,6 +93,7 @@ export const content = {
         {
           ...systems.vardao,
           tag: 'Projeto principal · antes chamado CogniVault',
+          boardNote: 'sistema da loja, uso diário',
           kind: 'Sistema da loja onde trabalho, em uso diário',
           summary:
             'O sistema da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, para o balcão, o comercial, o financeiro e o estoque.',
@@ -121,6 +117,7 @@ export const content = {
           ...systems.businessflow,
           tag: '2026',
           kind: 'SaaS de gestão para pequenos negócios',
+          boardNote: 'gestão de pequenos negócios',
           summary: 'Escritórios cuidam de clientes, financeiro, agenda e chamados num só painel.',
           built: [
             'Cada dado pertence a uma empresa: um escritório nunca vê o de outro.',
@@ -133,6 +130,7 @@ export const content = {
           ...systems.iot,
           tag: '2026',
           kind: 'Telemetria industrial em tempo real',
+          boardNote: 'telemetria industrial',
           summary: 'Sensores mandam leituras, uma API em Java guarda, uma fila avisa e o painel mostra os alertas na hora.',
           built: [
             'Testes nos quatro serviços, inclusive contra um PostgreSQL de verdade.',
@@ -147,6 +145,7 @@ export const content = {
           ...systems.economia,
           tag: '2025 · TCC SENAI',
           kind: 'Marketplace de produtores locais',
+          boardNote: 'marketplace, TCC SENAI',
           summary: 'Conecta pequenos produtores de Limeira a consumidores, com cadastro de lojas e mapa.',
           built: [
             'Projeto em equipe. Minha parte: o front-end em React, a integração com a API e o estado da aplicação.',
@@ -167,11 +166,11 @@ export const content = {
         },
         {
           title: 'Provo que funciona',
-          text: 'Testes automatizados, CI a cada alteração e conferência de números. Na migração do ERP, nenhum valor podia mudar, e não mudou.',
+          text: 'Testes automatizados, CI a cada alteração e conferência de números. Na migração do ERP, nenhum valor podia mudar, e 1.107 comparações automáticas conferiram isso.',
         },
         {
           title: 'Deixo no ar e documentado',
-          text: 'Os quatro projetos estão publicados, com README que explica como rodar, as decisões técnicas e os próximos passos.',
+          text: 'Os quatro projetos estão publicados. Os de código aberto têm README com como rodar, decisões técnicas e próximos passos; o Vardão Central, que é privado, tem um estudo de caso.',
         },
       ],
     },
@@ -203,7 +202,7 @@ export const content = {
     },
     contact: {
       title: 'Vamos conversar',
-      intro: 'Procuro minha primeira vaga como desenvolvedor full-stack júnior. Respondo rápido por e-mail, WhatsApp ou LinkedIn.',
+      intro: 'Procuro minha primeira vaga como desenvolvedor full-stack júnior. Fale comigo por e-mail, WhatsApp ou LinkedIn.',
       email: 'E-mail',
       copy: 'Copiar e-mail',
       copied: 'E-mail copiado',
@@ -224,7 +223,6 @@ export const content = {
       skip: 'Skip to content',
       nav: { systems: 'Systems', method: 'How I work', path: 'Background', contact: 'Contact' },
       theme: 'Toggle light and dark theme',
-      otherLang: 'Português',
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
@@ -232,18 +230,14 @@ export const content = {
       available: 'Open to roles',
       title: 'I build systems that stay live.',
       lead:
-        'I spent 9 years at the counter of a machinery dealer. Today the store uses the system I built every day, and I have three more complete projects running.',
+        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I have three more complete projects running.',
+      stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'See the systems',
       secondary: 'Download résumé',
       boardTitle: 'Systems live',
       boardNote: 'checked now, in your browser',
       status: { checking: 'checking', up: 'live', down: 'no answer' },
-      board: {
-        vardao: 'store system, daily use',
-        businessflow: 'small-business management',
-        iot: 'industrial telemetry',
-        economia: 'marketplace, SENAI capstone',
-      },
+      summary: (up, total) => `${up} of ${total} systems answered just now.`,
     },
     systemsSection: {
       title: 'Systems',
@@ -260,6 +254,7 @@ export const content = {
         {
           ...systems.vardao,
           tag: 'Main project · formerly CogniVault',
+          boardNote: 'store system, daily use',
           kind: 'The system of the store where I work, in daily use',
           summary:
             'The system of Vardão Máquinas, an authorized Husqvarna dealer in Limeira, for the counter, sales, finance and inventory.',
@@ -283,6 +278,7 @@ export const content = {
           ...systems.businessflow,
           tag: '2026',
           kind: 'Management SaaS for small businesses',
+          boardNote: 'small-business management',
           summary: 'Offices handle customers, finance, scheduling and support tickets in one dashboard.',
           built: [
             'Every record belongs to a company: one office never sees another one’s data.',
@@ -296,6 +292,7 @@ export const content = {
           name: 'Industrial IoT Platform',
           tag: '2026',
           kind: 'Real-time industrial telemetry',
+          boardNote: 'industrial telemetry',
           summary: 'Sensors send readings, a Java API stores them, a queue notifies and the dashboard shows alerts instantly.',
           built: [
             'Tests in all four services, including against a real PostgreSQL.',
@@ -311,6 +308,7 @@ export const content = {
           name: 'Solidarity Economy',
           tag: '2025 · SENAI capstone',
           kind: 'Local producers marketplace',
+          boardNote: 'marketplace, SENAI capstone',
           summary: 'Connects small producers in Limeira with consumers, with store sign-up and a map.',
           built: [
             'Team project. My part: the React front end, the API integration and application state.',
@@ -331,11 +329,11 @@ export const content = {
         },
         {
           title: 'I prove it works',
-          text: 'Automated tests, CI on every change and checked numbers. In the ERP migration no value could change, and none did.',
+          text: 'Automated tests, CI on every change and checked numbers. In the ERP migration no value could change, and 1,107 automatic comparisons checked it.',
         },
         {
           title: 'I ship it and document it',
-          text: 'All four projects are published, with READMEs that explain how to run them, the technical decisions and the next steps.',
+          text: 'All four projects are published. The open-source ones have READMEs with how to run them, technical decisions and next steps; Vardão Central, which is private, has a case study.',
         },
       ],
     },
@@ -367,7 +365,7 @@ export const content = {
     },
     contact: {
       title: 'Let’s talk',
-      intro: 'I am looking for my first role as a junior full-stack developer. I reply fast by email, WhatsApp or LinkedIn.',
+      intro: 'I am looking for my first role as a junior full-stack developer. Reach me by email, WhatsApp or LinkedIn.',
       email: 'Email',
       copy: 'Copy email',
       copied: 'Email copied',

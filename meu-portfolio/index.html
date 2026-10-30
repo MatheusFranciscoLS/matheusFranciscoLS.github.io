@@ -7,7 +7,8 @@
     <meta name="description" content="%DESC%" />
     <meta name="author" content="Matheus Francisco" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#17232c" />
+    <meta name="theme-color" content="#eef2f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17232c" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href="%URL%" />
     <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/" />
@@ -47,7 +48,9 @@
         var t = null;
         var q = /[?&]theme=(light|dark)/.exec(location.search);
         try { t = q ? q[1] : localStorage.getItem('theme'); } catch (e) {}
-        if (t !== 'light' && t !== 'dark') t = 'dark';
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
         document.documentElement.setAttribute('data-theme', t);
       })();
     </script>

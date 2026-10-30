@@ -23,22 +23,30 @@ function useTheme() {
   return [theme, toggle];
 }
 
-// Confere no navegador de quem visita se cada sistema responde. Sem CORS a resposta é
-// "opaca", mas chegar até ela já prova que o endereço está no ar.
+// Confere, no navegador de quem visita, se cada sistema responde: carrega o ícone do site.
+// Se o site saiu do ar, a resposta é uma página de erro, que não carrega como imagem.
 function useLiveStatus(items) {
   const [status, setStatus] = useState(() => Object.fromEntries(items.map((i) => [i.id, 'checking'])));
   useEffect(() => {
-    let alive = true;
-    items.forEach((item) => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 9000);
-      fetch(item.check, { mode: 'no-cors', cache: 'no-store', signal: controller.signal })
-        .then(() => alive && setStatus((s) => ({ ...s, [item.id]: 'up' })))
-        .catch(() => alive && setStatus((s) => ({ ...s, [item.id]: 'down' })))
-        .finally(() => clearTimeout(timer));
+    const probes = items.map((item) => {
+      const img = new Image();
+      const done = (result) => {
+        clearTimeout(timer);
+        img.onload = img.onerror = null;
+        setStatus((s) => ({ ...s, [item.id]: result }));
+      };
+      const timer = setTimeout(() => done('down'), 9000);
+      img.onload = () => done('up');
+      img.onerror = () => done('down');
+      img.src = `${item.probe}?agora=${Date.now()}`;
+      return { img, timer };
     });
     return () => {
-      alive = false;
+      probes.forEach(({ img, timer }) => {
+        clearTimeout(timer);
+        img.onload = img.onerror = null;
+        img.src = '';
+      });
     };
   }, [items]);
   return status;
@@ -88,7 +96,9 @@ function Header({ t, lang, theme, toggleTheme }) {
 
 function Hero({ t, lang, items, status }) {
   const h = t.hero;
-  const keys = ['vardao', 'businessflow', 'iot', 'economia'];
+  const values = Object.values(status);
+  const finished = values.every((v) => v !== 'checking');
+  const upCount = values.filter((v) => v === 'up').length;
   return (
     <section className="hero" aria-labelledby="titulo">
       <div className="wrap hero__grid">
@@ -98,6 +108,7 @@ function Hero({ t, lang, items, status }) {
           </p>
           <h1 id="titulo">{h.title}</h1>
           <p className="hero__lead">{h.lead}</p>
+          <p className="hero__stack">{h.stack}</p>
           <div className="actions">
             <a className="btn btn--primary" href="#sistemas">
               {h.primary}
@@ -113,20 +124,23 @@ function Hero({ t, lang, items, status }) {
             <span>{h.boardNote}</span>
           </div>
           <ul>
-            {items.map((item, i) => (
+            {items.map((item) => (
               <li key={item.id}>
                 <a href={`#${item.id}`} className="board__row">
                   <span className="board__name">
                     <b>{item.name}</b>
-                    <small>{h.board[keys[i]]}</small>
+                    <small>{item.boardNote}</small>
                   </span>
-                  <span className={`status status--${status[item.id]}`} aria-live="polite">
+                  <span className={`status status--${status[item.id]}`}>
                     {h.status[status[item.id]]}
                   </span>
                 </a>
               </li>
             ))}
           </ul>
+          <p className="sr-only" aria-live="polite">
+            {finished ? h.summary(upCount, items.length) : ''}
+          </p>
         </div>
       </div>
     </section>
@@ -314,7 +328,8 @@ function Contact({ t, lang }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // sem acesso à área de transferência: o e-mail continua visível na página
+      // sem acesso à área de transferência: abre o programa de e-mail
+      window.location.assign(`mailto:${EMAIL}`);
     }
   };
   return (

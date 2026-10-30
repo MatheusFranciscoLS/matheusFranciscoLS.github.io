@@ -38,7 +38,7 @@
     <header class="hero">
       <p class="eyebrow">Case study · 2026 · formerly CogniVault</p>
       <h1>Vardão Central</h1>
-      <p class="lead">The system Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. I started with a parts catalog for the counter and ended up replacing the store’s old ERP.</p>
+      <p class="lead">The system Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. I started with a parts catalog for the counter, and today it is taking over the work of the store’s old ERP.</p>
       <ul class="meta">
         <li><strong>Role</strong>Product, design and full-stack development</li>
         <li><strong>Company</strong>Vardão Máquinas (where I work)</li>
@@ -109,6 +109,8 @@
       <p>The server runs in UTC and the store in UTC-3: the "until today" filter cut off before the store’s midnight and the owner could not see the day’s own quotes. Every day calculation now uses the store’s time zone, locked by a test.</p>
       <h3>Refusing beats being wrong</h3>
       <p>The PDF catalog reader prefers to refuse a doubtful file, saying why, rather than save a wrong code that would spoil the whole search.</p>
+      <h3>The server next to the database</h3>
+      <p>The database is in São Paulo and the API server was in the United States: every query went there and back, about 210 ms each time. I prepared the everyday screens to be served by a function in São Paulo, next to the database, and left only the heavy work, like PDFs and imports, on the main server. One variable switches it back.</p>
       <h3>Compare with the old system, not with my memory</h3>
       <p>In the migration I did not trust the rules I thought the ERP had. I ran the ERP itself as the reference, and that is what found what was hidden.</p>
     </section>

@@ -38,7 +38,7 @@
     <header class="hero">
       <p class="eyebrow">Estudo de caso · 2026 · antes chamado CogniVault</p>
       <h1>Vardão Central</h1>
-      <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão e terminei substituindo o ERP antigo da loja.</p>
+      <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão, e hoje ele assume o trabalho do ERP antigo da loja.</p>
       <ul class="meta">
         <li><strong>Papel</strong>Produto, design e desenvolvimento full-stack</li>
         <li><strong>Empresa</strong>Vardão Máquinas (onde trabalho)</li>
@@ -109,6 +109,8 @@
       <p>O servidor roda em UTC e a loja em UTC-3: o filtro "até hoje" cortava antes da meia-noite da loja e o dono não via os orçamentos do próprio dia. Toda conta de dia agora usa o fuso da loja, travada por teste.</p>
       <h3>Recusar é melhor que errar</h3>
       <p>O leitor de catálogos em PDF prefere recusar um arquivo duvidoso, dizendo o motivo, a gravar um código errado que estragaria a busca inteira.</p>
+      <h3>O servidor ao lado do banco</h3>
+      <p>O banco fica em São Paulo e o servidor da API ficava nos Estados Unidos: cada consulta ia e voltava, cerca de 210 ms por vez. Preparei as telas do dia a dia para serem atendidas por uma função em São Paulo, ao lado do banco, e deixei no servidor principal só o que é pesado, como PDFs e importações. Dá para voltar atrás com uma variável.</p>
       <h3>Comparar com o sistema antigo, não com a minha cabeça</h3>
       <p>Na migração, eu não confiei nas regras que eu achava que o ERP tinha. Rodei o próprio ERP como referência, e foi isso que achou o que estava escondido.</p>
     </section>

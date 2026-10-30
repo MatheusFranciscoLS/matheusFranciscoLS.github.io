@@ -113,3 +113,17 @@ footer a { text-decoration: underline; }
   .btn { width: 100%; justify-content: center; }
   .btn.ghost { margin: 10px 0 0; }
 }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --bg: #eef2f4;
+    --panel: #ffffff;
+    --panel-2: #f5f8f9;
+    --line: #d3dce2;
+    --ink: #15212a;
+    --ink-2: #4b5d69;
+    --on-accent: #15212a;
+    --accent-text: #8a5300;
+    color-scheme: light;
+  }
+}
