@@ -27,6 +27,7 @@ const systems = {
     name: 'Site da Vardão Máquinas',
     probe: 'https://vardaomaquinas.com.br/favicon-48.png',
     live: 'https://vardaomaquinas.com.br',
+    code: 'https://github.com/MatheusFranciscoLS/vardao-maquinas-site',
     img: '/assets/vardao-site/home.png',
     stack: 'Next.js · React · TypeScript · Tailwind CSS',
   },
