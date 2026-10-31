@@ -24,7 +24,7 @@ const systems = {
   },
   site: {
     id: 'vardao-maquinas',
-    name: 'Vardão Máquinas',
+    name: 'Site da Vardão Máquinas',
     probe: 'https://vardaomaquinas.com.br/favicon-48.png',
     live: 'https://vardaomaquinas.com.br',
     img: '/assets/vardao-site/home.png',
@@ -125,10 +125,10 @@ export const content = {
         },
         {
           ...systems.site,
-          tag: 'Site da empresa · no ar',
-          kind: 'Site e catálogo da revenda, em produção',
-          boardNote: 'site da revenda, em produção',
-          summary: 'Site público da Vardão Máquinas, revenda autorizada Husqvarna Ouro: catálogo com cerca de 200 páginas, otimizado para busca e com atendimento direto pelo WhatsApp.',
+          tag: 'Complementa o Vardão Central',
+          kind: 'Site público da empresa, em produção',
+          boardNote: 'site público, em produção',
+          summary: 'O site público da empresa. Enquanto o Vardão Central cuida da operação por dentro, o site atrai e atende o cliente: catálogo com cerca de 200 páginas, otimizado para busca e com contato direto pelo WhatsApp.',
           built: [
             'Design e desenvolvimento completos: 136 páginas de produtos, 22 de acessórios, 38 artigos e as páginas institucionais.',
             'Catálogo por categoria com busca, guia de acessórios por modelo e botão de WhatsApp em cada produto.',
@@ -301,11 +301,11 @@ export const content = {
         },
         {
           ...systems.site,
-          name: 'Vardão Máquinas (website)',
-          tag: 'Company website · live',
-          kind: 'Dealership website and catalog, in production',
-          boardNote: 'dealership website, in production',
-          summary: 'Public website of Vardão Máquinas, a Husqvarna Gold authorized dealer: a catalog of about 200 pages, optimized for search, with direct WhatsApp contact.',
+          name: 'Vardão Máquinas website',
+          tag: 'Complements Vardão Central',
+          kind: 'Public company website, in production',
+          boardNote: 'public website, in production',
+          summary: 'The company public website. While Vardão Central runs the operation from the inside, the website attracts and serves customers: a catalog of about 200 pages, optimized for search, with direct WhatsApp contact.',
           built: [
             'Complete design and development: 136 product pages, 22 accessory pages, 38 articles and the institutional pages.',
             'Catalog by category with search, an accessories guide by model and a WhatsApp button on every product.',
