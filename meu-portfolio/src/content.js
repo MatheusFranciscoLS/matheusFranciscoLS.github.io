@@ -11,7 +11,7 @@ export const paths = {
   en: { home: '/en/', resume: '/assets/curriculo-en.pdf' },
 };
 
-// Os quatro sistemas, na ordem de importância. `probe` é um ícone de cada site: se ele
+// Os cinco sistemas, na ordem de importância. `probe` é um ícone de cada site: se ele
 // carrega no navegador de quem visita, o site está no ar; uma página de erro não carrega como imagem.
 const systems = {
   vardao: {
@@ -21,6 +21,14 @@ const systems = {
     live: 'https://vardao-central.vercel.app',
     img: '/assets/vardao-central/balcao.png',
     stack: 'React · TypeScript · Node.js · PostgreSQL · Prisma · RabbitMQ · Playwright',
+  },
+  site: {
+    id: 'vardao-maquinas',
+    name: 'Vardão Máquinas',
+    probe: 'https://vardaomaquinas.com.br/favicon-48.png',
+    live: 'https://vardaomaquinas.com.br',
+    img: '/assets/vardao-site/home.png',
+    stack: 'Next.js · React · TypeScript · Tailwind CSS',
   },
   businessflow: {
     id: 'businessflow',
@@ -56,7 +64,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
       description:
-        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema que a loja onde trabalho usa no dia a dia e tenho mais três projetos no ar. Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema que a loja onde trabalho usa no dia a dia e tenho mais quatro projetos no ar. Java, Spring Boot, React, Node.js e PostgreSQL.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -71,7 +79,7 @@ export const content = {
       contact: 'Falar comigo',
       title: 'Construo sistemas que ficam no ar.',
       lead:
-        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e tenho mais três projetos completos funcionando.',
+        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e tenho mais quatro projetos completos funcionando.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'Ver os sistemas',
       secondary: 'Baixar currículo',
@@ -82,7 +90,7 @@ export const content = {
     },
     systemsSection: {
       title: 'Sistemas',
-      intro: 'Quatro projetos completos e publicados. O primeiro é usado todos os dias numa empresa de verdade.',
+      intro: 'Cinco projetos completos e publicados. O primeiro é usado todos os dias numa empresa de verdade.',
       problem: 'O problema',
       built: 'O que eu construí',
       proof: 'Como eu provo',
@@ -114,6 +122,19 @@ export const content = {
           imgAlt: 'Balcão do Vardão Central: busca por modelo com o orçamento ao lado, na loja simulada com dados de demonstração.',
           study: '/estudo-de-caso-vardao-central/',
           liveNote: 'O acesso é com o login da loja. O código é privado; mostro a arquitetura numa conversa.',
+        },
+        {
+          ...systems.site,
+          tag: 'Site da empresa · no ar',
+          kind: 'Site e catálogo da revenda, em produção',
+          boardNote: 'site da revenda, em produção',
+          summary: 'O site público da Vardão Máquinas, revenda autorizada Husqvarna Ouro em Limeira. A ideia e o molde são do dono da loja; o desenvolvimento do site é meu.',
+          built: [
+            'Cerca de 200 páginas: 136 de produtos, 22 de acessórios, 38 artigos e as páginas institucionais.',
+            'Catálogo por categoria com busca, guia de acessórios por modelo e botão de WhatsApp em cada produto.',
+            'Sitemap, dados estruturados para busca, feed de novidades e aviso de cookies com recusa sem prejuízo à navegação.',
+          ],
+          imgAlt: 'Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão.',
         },
         {
           ...systems.businessflow,
@@ -172,7 +193,7 @@ export const content = {
         },
         {
           title: 'Deixo no ar e documentado',
-          text: 'Os quatro projetos estão publicados. Os de código aberto têm README com como rodar, decisões técnicas e próximos passos; o Vardão Central, que é privado, tem um estudo de caso.',
+          text: 'Os cinco projetos estão publicados. Os de código aberto têm README com como rodar, decisões técnicas e próximos passos; o Vardão Central, que é privado, tem um estudo de caso.',
         },
       ],
     },
@@ -219,7 +240,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Junior full-stack developer',
       description:
-        'Junior full-stack developer in Limeira, Brazil. I built the system the store where I work uses every day, and I have three more projects live. Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'Junior full-stack developer in Limeira, Brazil. I built the system the store where I work uses every day, and I have four more projects live. Java, Spring Boot, React, Node.js and PostgreSQL.',
     },
     ui: {
       skip: 'Skip to content',
@@ -234,7 +255,7 @@ export const content = {
       contact: 'Get in touch',
       title: 'I build systems that stay live.',
       lead:
-        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I have three more complete projects running.',
+        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I have four more complete projects running.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'See the systems',
       secondary: 'Download résumé',
@@ -245,7 +266,7 @@ export const content = {
     },
     systemsSection: {
       title: 'Systems',
-      intro: 'Four complete, published projects. The first one is used every day by a real business.',
+      intro: 'Five complete, published projects. The first one is used every day by a real business.',
       problem: 'The problem',
       built: 'What I built',
       proof: 'How I prove it',
@@ -277,6 +298,20 @@ export const content = {
           imgAlt: 'Vardão Central counter: search by model with the quote alongside, in the simulated store with demo data.',
           study: '/estudo-de-caso-vardao-central/en/',
           liveNote: 'Access requires a store login. The code is private; I walk through the architecture on a call.',
+        },
+        {
+          ...systems.site,
+          name: 'Vardão Máquinas (website)',
+          tag: 'Company website · live',
+          kind: 'Dealership website and catalog, in production',
+          boardNote: 'dealership website, in production',
+          summary: 'The public website of Vardão Máquinas, a Husqvarna Gold authorized dealer in Limeira. The idea and the template come from the store owner; the development of the site is mine.',
+          built: [
+            'About 200 pages: 136 product pages, 22 accessory pages, 38 articles and the institutional pages.',
+            'Catalog by category with search, an accessories guide by model and a WhatsApp button on every product.',
+            'Sitemap, structured data for search, a news feed and a cookie notice that lets visitors decline without losing anything.',
+          ],
+          imgAlt: 'Home page of the Vardão Máquinas website, with the store front and the reasons to buy from Vardão.',
         },
         {
           ...systems.businessflow,
@@ -337,7 +372,7 @@ export const content = {
         },
         {
           title: 'I ship it and document it',
-          text: 'All four projects are published. The open-source ones have READMEs with how to run them, technical decisions and next steps; Vardão Central, which is private, has a case study.',
+          text: 'All five projects are published. The open-source ones have READMEs with how to run them, technical decisions and next steps; Vardão Central, which is private, has a case study.',
         },
       ],
     },
