@@ -165,7 +165,7 @@ function SystemLinks({ s, item }) {
         </a>
       )}
       <a className="btn" href={item.live} target="_blank" rel="noreferrer">
-        {item.code ? s.demo : s.live}
+        {item.liveLabel || (item.code ? s.demo : s.live)}
       </a>
       {item.code && (
         <a className="btn btn--ghost" href={item.code} target="_blank" rel="noreferrer">

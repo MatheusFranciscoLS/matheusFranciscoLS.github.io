@@ -134,6 +134,7 @@ export const content = {
             'Catálogo por categoria com busca, guia de acessórios por modelo e botão de WhatsApp em cada produto.',
             'Sitemap, dados estruturados para busca, feed de novidades e aviso de cookies com recusa sem prejuízo à navegação.',
           ],
+          liveLabel: 'Abrir o site',
           imgAlt: 'Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão.',
         },
         {
@@ -311,6 +312,7 @@ export const content = {
             'Catalog by category with search, an accessories guide by model and a WhatsApp button on every product.',
             'Sitemap, structured data for search, a news feed and a cookie notice that lets visitors decline without losing anything.',
           ],
+          liveLabel: 'Open the website',
           imgAlt: 'Home page of the Vardão Máquinas website, with the store front and the reasons to buy from Vardão.',
         },
         {
