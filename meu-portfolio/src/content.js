@@ -128,9 +128,9 @@ export const content = {
           tag: 'Site da empresa · no ar',
           kind: 'Site e catálogo da revenda, em produção',
           boardNote: 'site da revenda, em produção',
-          summary: 'O site público da Vardão Máquinas, revenda autorizada Husqvarna Ouro em Limeira. A ideia veio do dono da loja; o design e todo o desenvolvimento do site são meus.',
+          summary: 'Site público da Vardão Máquinas, revenda autorizada Husqvarna Ouro: catálogo com cerca de 200 páginas, otimizado para busca e com atendimento direto pelo WhatsApp.',
           built: [
-            'Cerca de 200 páginas: 136 de produtos, 22 de acessórios, 38 artigos e as páginas institucionais.',
+            'Design e desenvolvimento completos: 136 páginas de produtos, 22 de acessórios, 38 artigos e as páginas institucionais.',
             'Catálogo por categoria com busca, guia de acessórios por modelo e botão de WhatsApp em cada produto.',
             'Sitemap, dados estruturados para busca, feed de novidades e aviso de cookies com recusa sem prejuízo à navegação.',
           ],
@@ -305,9 +305,9 @@ export const content = {
           tag: 'Company website · live',
           kind: 'Dealership website and catalog, in production',
           boardNote: 'dealership website, in production',
-          summary: 'The public website of Vardão Máquinas, a Husqvarna Gold authorized dealer in Limeira. The idea came from the store owner; the design and all the development of the site are mine.',
+          summary: 'Public website of Vardão Máquinas, a Husqvarna Gold authorized dealer: a catalog of about 200 pages, optimized for search, with direct WhatsApp contact.',
           built: [
-            'About 200 pages: 136 product pages, 22 accessory pages, 38 articles and the institutional pages.',
+            'Complete design and development: 136 product pages, 22 accessory pages, 38 articles and the institutional pages.',
             'Catalog by category with search, an accessories guide by model and a WhatsApp button on every product.',
             'Sitemap, structured data for search, a news feed and a cookie notice that lets visitors decline without losing anything.',
           ],
