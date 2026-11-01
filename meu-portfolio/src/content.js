@@ -64,7 +64,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
       description:
-        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema que a loja onde trabalho usa no dia a dia e tenho mais quatro projetos no ar. Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema e o site da loja onde trabalho e tenho mais três projetos no ar. Java, Spring Boot, React, Node.js e PostgreSQL.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -79,7 +79,7 @@ export const content = {
       contact: 'Falar comigo',
       title: 'Construo sistemas que ficam no ar.',
       lead:
-        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e tenho mais quatro projetos completos funcionando.',
+        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e eu também fiz o site dela. Tenho mais três projetos completos funcionando.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'Ver os sistemas',
       secondary: 'Baixar currículo',
@@ -242,7 +242,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Junior full-stack developer',
       description:
-        'Junior full-stack developer in Limeira, Brazil. I built the system the store where I work uses every day, and I have four more projects live. Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'Junior full-stack developer in Limeira, Brazil. I built the system and the website of the store where I work, and I have three more projects live. Java, Spring Boot, React, Node.js and PostgreSQL.',
     },
     ui: {
       skip: 'Skip to content',
@@ -257,7 +257,7 @@ export const content = {
       contact: 'Get in touch',
       title: 'I build systems that stay live.',
       lead:
-        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I have four more complete projects running.',
+        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I also built its website. I have three more complete projects running.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'See the systems',
       secondary: 'Download résumé',
