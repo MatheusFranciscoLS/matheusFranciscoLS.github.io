@@ -28,4 +28,12 @@
     <loc>https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/en/</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
