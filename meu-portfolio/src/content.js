@@ -128,7 +128,7 @@ export const content = {
           tag: 'Complementa o Vardão Central',
           kind: 'Site público da empresa, em produção',
           boardNote: 'site público, em produção',
-          summary: 'O site público da empresa. Enquanto o Vardão Central cuida da operação por dentro, o site atrai e atende o cliente: catálogo com cerca de 200 páginas, otimizado para busca e com contato direto pelo WhatsApp.',
+          summary: 'O site institucional da empresa, feito para o cliente nos achar no Google e levar a conversa até o vendedor. Enquanto o Vardão Central cuida da operação por dentro, o site traz e atende o cliente: catálogo com cerca de 200 páginas, otimizado para busca e com contato direto pelo WhatsApp.',
           built: [
             'Design e desenvolvimento completos: 136 páginas de produtos e categorias, 21 de acessórios, 38 artigos e as páginas institucionais.',
             'Catálogo por categoria com busca, guia de acessórios por modelo e botão de WhatsApp em cada produto.',
@@ -191,7 +191,7 @@ export const content = {
         },
         {
           title: 'Provo que funciona',
-          text: 'Testes automatizados, CI a cada alteração e conferência de números. Na migração do ERP, nenhum valor podia mudar, e 1.107 comparações automáticas conferiram isso.',
+          text: 'Testes automatizados, CI a cada alteração e conferência de números. Na migração do ERP, 1.107 comparações automáticas mostraram nenhuma diferença acima de 1 centavo.',
         },
         {
           title: 'Deixo no ar e documentado',
@@ -307,7 +307,7 @@ export const content = {
           tag: 'Complements Vardão Central',
           kind: 'Public company website, in production',
           boardNote: 'public website, in production',
-          summary: 'The company public website. While Vardão Central runs the operation from the inside, the website attracts and serves customers: a catalog of about 200 pages, optimized for search, with direct WhatsApp contact.',
+          summary: 'The company institutional website, built so customers find us on Google and move the conversation to a salesperson. While Vardão Central runs the operation from the inside, the website brings in and serves customers: a catalog of about 200 pages, optimized for search, with direct WhatsApp contact.',
           built: [
             'Complete design and development: 136 product and category pages, 21 accessory pages, 38 articles and the institutional pages.',
             'Catalog by category with search, an accessories guide by model and a WhatsApp button on every product.',
@@ -372,7 +372,7 @@ export const content = {
         },
         {
           title: 'I prove it works',
-          text: 'Automated tests, CI on every change and checked numbers. In the ERP migration no value could change, and 1,107 automatic comparisons checked it.',
+          text: 'Automated tests, CI on every change and checked numbers. In the ERP migration, 1,107 automatic comparisons showed no difference above 1 cent.',
         },
         {
           title: 'I ship it and document it',
