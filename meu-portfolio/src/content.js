@@ -130,11 +130,12 @@ export const content = {
           boardNote: 'site público, em produção',
           summary: 'O site público da empresa. Enquanto o Vardão Central cuida da operação por dentro, o site atrai e atende o cliente: catálogo com cerca de 200 páginas, otimizado para busca e com contato direto pelo WhatsApp.',
           built: [
-            'Design e desenvolvimento completos: 136 páginas de produtos, 22 de acessórios, 38 artigos e as páginas institucionais.',
+            'Design e desenvolvimento completos: 136 páginas de produtos e categorias, 21 de acessórios, 38 artigos e as páginas institucionais.',
             'Catálogo por categoria com busca, guia de acessórios por modelo e botão de WhatsApp em cada produto.',
             'Sitemap, dados estruturados para busca, feed de novidades e aviso de cookies com recusa sem prejuízo à navegação.',
           ],
           liveLabel: 'Abrir o site',
+          study: '/estudo-de-caso-vardao-maquinas/',
           imgAlt: 'Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão.',
         },
         {
@@ -308,11 +309,12 @@ export const content = {
           boardNote: 'public website, in production',
           summary: 'The company public website. While Vardão Central runs the operation from the inside, the website attracts and serves customers: a catalog of about 200 pages, optimized for search, with direct WhatsApp contact.',
           built: [
-            'Complete design and development: 136 product pages, 22 accessory pages, 38 articles and the institutional pages.',
+            'Complete design and development: 136 product and category pages, 21 accessory pages, 38 articles and the institutional pages.',
             'Catalog by category with search, an accessories guide by model and a WhatsApp button on every product.',
             'Sitemap, structured data for search, a news feed and a cookie notice that lets visitors decline without losing anything.',
           ],
           liveLabel: 'Open the website',
+          study: '/estudo-de-caso-vardao-maquinas/en/',
           imgAlt: 'Home page of the Vardão Máquinas website, with the store front and the reasons to buy from Vardão.',
         },
         {

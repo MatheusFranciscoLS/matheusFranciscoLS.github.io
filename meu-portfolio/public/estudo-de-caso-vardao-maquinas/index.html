@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site da Vardão Máquinas: estudo de caso | Matheus Francisco</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content="Catálogo de cerca de 200 páginas em Next.js, com busca no Google, WhatsApp com contexto e aviso de cookies que respeita a recusa. Estudo de caso: decisões de design e de engenharia.">
+  <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Matheus Francisco">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Site da Vardão Máquinas: estudo de caso | Matheus Francisco">
+  <meta property="og:description" content="Next.js, TypeScript e Tailwind: um catálogo de cerca de 200 páginas gerado a partir de dados, com SEO, WhatsApp contextual e cookies com consentimento.">
+  <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
+  <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-site/produto.png">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="900">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/estudo-de-caso.css">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <nav class="top" aria-label="Navegação"><div class="wrap">
+    <a href="/#sistemas">← Portfólio</a>
+    <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
+  </div></nav>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Estudo de caso · 2026</div>
+      <h1>Site da Vardão Máquinas</h1>
+      <p class="lead">O site público da empresa onde trabalho: um catálogo de cerca de 200 páginas que ajuda o cliente a achar o equipamento e a peça certos e leva a conversa direto para o WhatsApp. Complementa o Vardão Central, que cuida da operação por dentro.</p>
+      <ul class="meta">
+        <li><strong>Papel</strong>Design e desenvolvimento completos</li>
+        <li><strong>Situação</strong>No ar, em produção</li>
+        <li><strong>Tecnologias</strong>Next.js, React, TypeScript, Tailwind CSS</li>
+        <li><strong>Código</strong>Privado (pertence à empresa)</li>
+      </ul>
+      <a class="btn" href="https://vardaomaquinas.com.br" target="_blank" rel="noreferrer">Abrir o site</a>
+    </header>
+
+    <div class="shot"><img src="../assets/vardao-site/produto.png" alt="Página de um trator giro zero no site da Vardão Máquinas, com caminho de navegação, categoria, descrição e botão para falar com um especialista no WhatsApp" width="1440" height="900"></div>
+
+    <section>
+      <h2>O problema</h2>
+      <p>Quem procura um trator cortador, uma motosserra ou uma peça pesquisa no Google antes de ir à loja. Um site com poucas páginas não aparece nessa busca, e um catálogo copiado de PDF não responde o que o cliente realmente quer saber: qual modelo serve para o meu terreno, e qual acessório encaixa na minha máquina. Errar o acessório gera devolução e perde a confiança.</p>
+      <h2 style="margin-top:34px">A solução</h2>
+      <p>Um site em que <strong>cada produto, cada grupo de acessórios e cada artigo tem a própria página</strong>, gerada a partir de dados tipados, com título, descrição e dados estruturados corretos para a busca. O cliente pode pesquisar dentro do site, ler um guia antes de comprar e, em qualquer página, falar com um especialista com a mensagem já preenchida.</p>
+    </section>
+
+    <section>
+      <h2>O que o site faz</h2>
+      <div class="rules">
+        <div class="rule"><h3>Catálogo por categoria</h3><p>Combustão, bateria, robôs de corte e tratores. Cada ficha mostra o uso indicado e leva ao especialista, sem o cliente ter de procurar o contato.</p></div>
+        <div class="rule"><h3>Acessório certo para o modelo</h3><p>O guia cruza o acessório com o modelo da máquina e explica a regra antes da compra, como o passo e o calibre iguais na corrente e no sabre da motosserra.</p></div>
+        <div class="rule"><h3>Busca dentro do site</h3><p>Uma busca única por produtos, acessórios e artigos, com pontuação por relevância e sem depender de serviço externo.</p></div>
+        <div class="rule"><h3>Artigos que respondem dúvidas</h3><p>38 artigos de comparação e de escolha, cada um com índice, barra de leitura e feed de novidades.</p></div>
+        <div class="rule"><h3>Calculadoras de apoio</h3><p>Ferramentas que ajudam a escolher: o robô de corte ideal, o cortador certo para o tamanho da área e o retorno da linha a bateria.</p></div>
+        <div class="rule"><h3>WhatsApp com contexto</h3><p>Onze tipos de mensagem pré-preenchida, conforme o que o cliente estava vendo, para o vendedor entrar na conversa já sabendo o assunto.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Telas</h2>
+      <div class="gallery">
+        <figure><div class="shot"><img src="../assets/vardao-site/acessorios.png" alt="Página de acessórios para motosserra, com o guia Entenda antes de comprar" loading="lazy"></div><figcaption><strong>Guia antes da compra.</strong> Cada grupo de acessórios abre com a regra que evita comprar a peça errada.</figcaption></figure>
+        <figure class="phone"><div class="shot"><img src="../assets/vardao-site/celular.png" alt="Ficha de produto no celular, com o aviso de cookies e os botões Recusar e Aceitar lado a lado" loading="lazy"></div><figcaption><strong>No celular, com o aviso de cookies.</strong> O botão de recusar fica sempre à vista, ao lado do de aceitar.</figcaption></figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Decisões</h2>
+      <h3>Páginas geradas a partir de dados</h3>
+      <p>Os produtos, os acessórios e os artigos ficam em arquivos de dados tipados em TypeScript, e uma única página de modelo gera cada rota na hora do build. Adicionar um produto novo é preencher um objeto, e o sitemap, o título, os dados estruturados e a navegação seguem sozinhos. O ganho é consistência: nenhuma das 200 páginas depende de alguém lembrar de configurar o SEO.</p>
+      <h3>Nunca misturar acessório errado</h3>
+      <p>O mesmo princípio do balcão do Vardão Central: sugerir só quando há certeza. Nas categorias em que todo modelo aceita o mesmo acessório, a regra é geral; nas demais, como tratores e giro zero, o cruzamento é feito só pelo código do modelo, e não por semelhança de nome. É conservador de propósito: prefiro não mostrar um acessório a mostrar o errado.</p>
+      <h3>Cookies com consentimento de verdade</h3>
+      <p>O Google Analytics e o mapa do Google só carregam depois que o visitante aceita, e o consentimento começa como negado. Recusar não tira nada do site. A escolha fica salva no navegador e pode ser mudada depois por um link no rodapé.</p>
+      <h3>Segurança nos cabeçalhos</h3>
+      <p>O site envia uma política de segurança de conteúdo que libera só o que ele usa de verdade, além de proteção contra ser embutido em outras páginas e contra troca de tipo de arquivo. Um limite está documentado no código: o Next injeta scripts sem identificador próprio, então a política precisa aceitar scripts embutidos. Em desenvolvimento ela fica mais permissiva do que em produção.</p>
+      <h3>WhatsApp com a pergunta já feita</h3>
+      <p>Toda chamada para o WhatsApp carrega o que o cliente estava olhando: o produto, a categoria, o acessório ou o artigo. Isso troca o "oi, tudo bem?" por uma conversa que já começa no assunto, e o vendedor sabe de qual página o contato veio.</p>
+    </section>
+
+    <section>
+      <h2>Números</h2>
+      <div class="numbers">
+        <div class="num"><b>202</b><span>endereços no sitemap</span></div>
+        <div class="num"><b>38</b><span>artigos publicados</span></div>
+        <div class="num"><b>21</b><span>páginas de acessórios</span></div>
+        <div class="num"><b>11</b><span>tipos de mensagem de WhatsApp com contexto</span></div>
+        <div class="num"><b>~24 mil</b><span>linhas de TypeScript e TSX</span></div>
+      </div>
+      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens feitas no sitemap do site no ar e no código em 31/10/2026.</p>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <ul class="tags">
+        <li>Next.js</li><li>React 19</li><li>TypeScript</li><li>Tailwind CSS</li><li>next/image (AVIF e WebP)</li><li>JSON-LD</li><li>Sitemap e robots</li><li>Feed de novidades</li><li>Google Consent Mode</li><li>Vercel</li>
+      </ul>
+    </section>
+
+    <footer>
+      O código é privado, porque pertence à empresa; mostro a estrutura numa conversa. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar comigo</a>.
+      · <a href="/estudo-de-caso-vardao-central/">Vardão Central</a> · <a href="/#sistemas">Voltar aos sistemas</a>
+    </footer>
+  </main>
+</body>
+</html>
