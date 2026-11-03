@@ -7,8 +7,8 @@ export const LINKS = {
 };
 
 export const paths = {
-  pt: { home: '/', resume: '/assets/curriculo-pt.pdf' },
-  en: { home: '/en/', resume: '/assets/curriculo-en.pdf' },
+  pt: { home: '/', resume: '/assets/curriculo-pt.pdf', resumeName: 'Matheus-Francisco-Curriculo.pdf' },
+  en: { home: '/en/', resume: '/assets/curriculo-en.pdf', resumeName: 'Matheus-Francisco-Resume.pdf' },
 };
 
 // Os cinco sistemas, na ordem de importância. `probe` é um ícone de cada site: se ele

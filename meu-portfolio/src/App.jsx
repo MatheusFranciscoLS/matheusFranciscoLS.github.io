@@ -114,7 +114,7 @@ function Hero({ t, lang, items, status }) {
             <a className="btn btn--primary" href="#sistemas">
               {h.primary}
             </a>
-            <a className="btn" href={paths[lang].resume}>
+            <a className="btn" href={paths[lang].resume} download={paths[lang].resumeName}>
               {h.secondary}
             </a>
             <a className="btn" href="#contato">
@@ -375,7 +375,7 @@ function Contact({ t, lang }) {
             </a>
           </li>
         </ul>
-        <a className="btn btn--primary contact__cv" href={paths[lang].resume}>
+        <a className="btn btn--primary contact__cv" href={paths[lang].resume} download={paths[lang].resumeName}>
           {c.resume}
         </a>
       </div>
