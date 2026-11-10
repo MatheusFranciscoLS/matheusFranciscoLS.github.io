@@ -35,7 +35,16 @@ for lang in pt en; do
   else
     INPUT="file://$D/curriculo-$lang.html"
   fi
-  "$BROWSER" --headless=new --disable-gpu --no-sandbox --no-pdf-header-footer \
-    --print-to-pdf="$OUTPUT" "$INPUT" >/dev/null
+  rm -f "$OUTPUT"
+  # Some hosted Edge builds keep background processes alive after writing the PDF.
+  # Bound the process lifetime, then verify that Chromium actually produced a file.
+  timeout 30s "$BROWSER" --headless=new --disable-gpu --no-sandbox \
+    --disable-dev-shm-usage --disable-background-mode --disable-extensions \
+    --no-first-run --no-default-browser-check --no-pdf-header-footer \
+    --print-to-pdf="$OUTPUT" "$INPUT" >/dev/null 2>&1 || true
+  if [ ! -s "$OUTPUT" ]; then
+    echo "Falha ao gerar curriculo-$lang.pdf" >&2
+    exit 1
+  fi
   echo "PDF gerado: curriculo-$lang.pdf"
 done
