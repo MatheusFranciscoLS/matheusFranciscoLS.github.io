@@ -32,5 +32,5 @@ O trabalho está na branch `portfolio/repositionamento-profissional-2026`, no PR
 ## Observações técnicas
 
 - O painel de status verifica apenas o carregamento do favicon de cada endereço. Não é um health check da aplicação, API ou banco de dados.
-- O repositório CogniVault é privado; os números públicos do estudo de caso foram limitados a contagens de arquivos observáveis na árvore do repositório.
+- O código-fonte do sistema é privado; as informações técnicas públicas foram limitadas a evidências verificáveis, sem expor código ou dados internos.
 - Domínio próprio e analytics ficam fora deste PR.
