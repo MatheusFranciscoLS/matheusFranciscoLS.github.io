@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vardão Central: estudo de caso | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="Como construí o sistema que uma revenda autorizada Husqvarna usa no balcão, no comercial, no financeiro e no estoque, e como reconstruí nele as regras do ERP antigo.">
+  <meta name="description" content="Como construí, sozinho, o sistema que uma revenda Husqvarna usa no balcão, no comercial, no financeiro e no estoque, e como reconstruí nele as regras do ERP antigo.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
+  <link rel="alternate" hreflang="x-default" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="pt_BR">
@@ -81,8 +82,18 @@
         <li><strong>Arquitetura e banco de dados.</strong> Desenhei a arquitetura (front-end, API, fila e banco) e modelei os dados: 49 modelos e 91 migrations em PostgreSQL com Prisma.</li>
         <li><strong>Implementação full-stack.</strong> Front-end em React e TypeScript e API em Node.js e Express, com todos os módulos descritos abaixo: balcão, comercial, financeiro e estoque.</li>
         <li><strong>Integrações.</strong> Consulta pública ao portal da fabricante, leitura de catálogos em PDF por fila, IA restrita a uma lista fechada e importação dos dados do ERP antigo.</li>
-        <li><strong>Testes.</strong> Escrevi a suíte automatizada: 623 testes no front-end, 1.491 no back-end e 70 E2E.</li>
+        <li><strong>Testes.</strong> Escrevi a suíte automatizada: 623 testes Vitest no front-end, 1.491 no back-end e 70 E2E com Playwright.</li>
         <li><strong>Publicação e manutenção.</strong> Configurei o CI, a publicação (Vercel e Render) e o banco gerenciado (Supabase), e sigo evoluindo e corrigindo o sistema em uso.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Da necessidade à regra</h2>
+      <p>Três exemplos de necessidades da operação e da regra que o sistema passou a garantir:</p>
+      <ul class="plain">
+        <li><strong>Um código errado vira devolução: o código da peça é sempre validado.</strong> Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</li>
+        <li><strong>O dono precisa ver os orçamentos do próprio dia: "hoje" no fuso da loja.</strong> O servidor roda em UTC e a loja em UTC-3, então toda conta de dia usa o fuso da loja, travada por teste.</li>
+        <li><strong>A loja não pode perder número na troca do ERP: os mesmos resultados, ou melhores.</strong> Reproduzi as regras do ERP, cada uma com testes, e a importação roda primeiro em modo de ensaio, exige os totais esperados e tem como desfazer.</li>
       </ul>
     </section>
 
@@ -126,7 +137,7 @@
     <section>
       <h2>Regras que o produto não quebra</h2>
       <div class="rules">
-        <div class="rule"><h3>Nunca chutar o código</h3><p>Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</p></div>
+        <div class="rule"><h3>Código da peça sempre validado</h3><p>Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</p></div>
         <div class="rule"><h3>Nada interno vai ao cliente</h3><p>Orçamentos em PDF e mensagens de WhatsApp saem só com o que o cliente precisa ver. Os dados internos do balcão ficam de fora, e um teste garante isso.</p></div>
         <div class="rule"><h3>Mudança de dado é explícita</h3><p>Importar preço, estoque ou vendas mostra um relatório antes de gravar e guarda como desfazer.</p></div>
         <div class="rule"><h3>Número é número</h3><p>Parcelas em centavos inteiros e datas no fuso da loja, travadas por teste.</p></div>
@@ -157,6 +168,16 @@
     </section>
 
     <section>
+      <h2>Estratégia de testes</h2>
+      <ul class="plain">
+        <li><strong>Front-end (Vitest).</strong> Regras e componentes da interface: 623 testes em 87 arquivos.</li>
+        <li><strong>Back-end (executor de testes do Node).</strong> Regras de negócio, serviços e rotas da API: 1.491 testes em 222 arquivos, incluindo testes de integração contra um RabbitMQ real (publicar e consumir, dead-letter e reconexão).</li>
+        <li><strong>Ponta a ponta (Playwright).</strong> 70 testes em 23 arquivos exercitam os fluxos por perfil contra back-end, front-end e um banco recém-criado.</li>
+        <li><strong>Busca de peças.</strong> Um benchmark próprio de 50 casos confere a busca determinística (Top-1 de 100% e Recall@5 de 100% nesses casos).</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Qualidade em números</h2>
       <div class="numbers">
         <div class="num"><b>1.491</b><span>testes do back-end aprovados (222 arquivos)</span></div>
@@ -165,13 +186,14 @@
         <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
         <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, todos os 1.491 passaram, com um servidor RabbitMQ real (versão 3.13) rodando no mesmo ambiente. No E2E, 2 dos 70 testes usavam uma data fixa de outubro e falharam na primeira execução; a correção (data do mês corrente, sem remover nem enfraquecer verificações) foi aplicada numa branch do repositório e a suíte completa passou 70 de 70.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados localmente em 10/11/2026, e não pelo pipeline de CI, num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o estado do repositório de 04/11/2026. No back-end, todos os 1.491 passaram, com um servidor RabbitMQ real (versão 3.13) rodando no mesmo ambiente. No E2E, 2 dos 70 testes usavam uma data fixa de outubro e falharam na primeira execução; a correção (data do mês corrente, sem remover nem enfraquecer verificações) já foi integrada ao repositório, e a suíte completa passou 70 de 70.</p>
     </section>
 
     <section>
       <h2>Limites e o que falta</h2>
       <ul class="plain">
         <li><strong>Testes e CI.</strong> O pipeline de CI do projeto (GitHub Actions) funcionou durante o desenvolvimento: foram cerca de 2 mil execuções, 1.423 aprovadas, a última aprovada em 25/10/2026. Eu o desativei manualmente ao atingir o limite de uso do GitHub Actions, e ele não está ativo no momento. Os resultados acima vêm de uma execução local em ambiente isolado em 10/11/2026, e não do pipeline.</li>
+        <li><strong>Cobertura de código.</strong> O projeto não tem relatório de cobertura de código, então este estudo não informa percentual de cobertura. Os números acima são quantidades de testes executados.</li>
         <li><strong>Prints.</strong> Feitos numa loja simulada com dados fictícios, sem nenhum dado real da loja.</li>
       </ul>
     </section>

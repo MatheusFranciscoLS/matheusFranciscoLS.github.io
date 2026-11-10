@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vardão Máquinas website: case study | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="Institutional website of Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, Brazil: the company, the service workshop, the product lines and direct WhatsApp contact. Case study: design and engineering decisions.">
+  <meta name="description" content="Website of Vardão Máquinas, an authorized Husqvarna dealer in Limeira: data-driven pages, SEO and WhatsApp. A case study of design and engineering.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
+  <link rel="alternate" hreflang="x-default" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="en_US">
@@ -44,7 +45,7 @@
     <header class="hero">
       <div class="eyebrow">Case study · 2026</div>
       <h1>Vardão Máquinas website</h1>
-      <p class="lead">The institutional website of the company where I work, Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, Brazil. It presents the company, the workshop and the product lines so customers find us on Google and take the conversation straight to WhatsApp, bringing more sales to the store. It complements Vardão Central, which runs the operation from the inside.</p>
+      <p class="lead">The institutional website of the company where I work, Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, Brazil. It presents the company, the workshop and the product lines so customers can find the company on Google and take the conversation straight to WhatsApp. It complements Vardão Central, which serves the internal operation.</p>
       <ul class="meta">
         <li><strong>Role</strong>Complete design and development</li>
         <li><strong>Status</strong>Live, in production</li>
@@ -89,7 +90,7 @@
       <p>Products, articles and the company pages live in typed TypeScript data files, and a single template page generates each route at build time. Adding a new product means filling in an object, and the sitemap, title, structured data and navigation follow on their own. The gain is consistency: no page depends on someone remembering to configure SEO.</p>
       <h3>WhatsApp with the question already asked</h3>
       <p>Every call to WhatsApp carries what the customer was looking at: the product, the category, the article or the service workshop. That replaces "hi, how are you?" with a conversation that already starts on the topic, and the salesperson knows which page the contact came from.</p>
-      <h3>Cookies with real consent</h3>
+      <h3>Cookies with explicit consent</h3>
       <p>Google Analytics and the Google map only load after the visitor accepts, and consent starts as denied. Declining takes nothing away from the site. The choice is saved in the browser and can be changed later from a link in the footer.</p>
       <h3>Security in the headers</h3>
       <p>The site sends a content security policy that restricts the allowed origins, plus protection against being embedded in other pages and against file-type sniffing. In development it is more permissive than in production.</p>

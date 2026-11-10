@@ -9,6 +9,7 @@
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
+  <link rel="alternate" hreflang="x-default" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="en_US">
@@ -81,8 +82,18 @@
         <li><strong>Architecture and database.</strong> I designed the architecture (front end, API, queue and database) and modeled the data: 49 models and 91 migrations in PostgreSQL with Prisma.</li>
         <li><strong>Full-stack implementation.</strong> Front end in React and TypeScript and API in Node.js and Express, with every module described below: counter, sales, finance and inventory.</li>
         <li><strong>Integrations.</strong> Public lookup on the manufacturer’s portal, PDF catalog reading through a queue, AI restricted to a closed list and import of the old ERP data.</li>
-        <li><strong>Tests.</strong> I wrote the automated suite: 623 front-end tests, 1,491 back-end tests and 70 end-to-end tests.</li>
+        <li><strong>Tests.</strong> I wrote the automated suite: 623 Vitest front-end tests, 1,491 back-end tests and 70 Playwright end-to-end tests.</li>
         <li><strong>Deployment and maintenance.</strong> I set up CI, publishing (Vercel and Render) and the managed database (Supabase), and I keep evolving and fixing the system in use.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>From need to rule</h2>
+      <p>Three examples of operational needs and the rule the system now guarantees:</p>
+      <ul class="plain">
+        <li><strong>A wrong code becomes a return: the part code is always validated.</strong> A typed code returns only the exact code and the manufacturer’s official replacement. The AI only chooses within a closed list of parts for the machine.</li>
+        <li><strong>The owner needs to see the day’s own quotes: “today” in the store’s time zone.</strong> The server runs on UTC and the store on UTC-3, so every day-based calculation uses the store’s time zone, locked by a test.</li>
+        <li><strong>The store cannot lose a number in the ERP switch: the same results, or better.</strong> I reproduced the ERP’s rules, each with tests, and the import first runs as a dry run, requires the expected totals and can be undone.</li>
       </ul>
     </section>
 
@@ -126,7 +137,7 @@
     <section>
       <h2>Rules the product never breaks</h2>
       <div class="rules">
-        <div class="rule"><h3>Never guess a code</h3><p>A typed code returns only the exact code and the manufacturer’s official replacement. The AI only picks from a closed list of parts for the machine.</p></div>
+        <div class="rule"><h3>Part codes are always validated</h3><p>A typed code returns only the exact code and the manufacturer’s official replacement. The AI only picks from a closed list of parts for the machine.</p></div>
         <div class="rule"><h3>Nothing internal reaches the customer</h3><p>PDF quotes and WhatsApp messages carry only what the customer needs to see. The counter’s internal data stays out, and a test guarantees it.</p></div>
         <div class="rule"><h3>Data changes are explicit</h3><p>Importing prices, inventory or sales shows a report before writing and keeps an undo.</p></div>
         <div class="rule"><h3>Numbers are numbers</h3><p>Installments in whole cents and dates in the store’s time zone, locked by tests.</p></div>
@@ -157,6 +168,16 @@
     </section>
 
     <section>
+      <h2>Testing strategy</h2>
+      <ul class="plain">
+        <li><strong>Front end (Vitest).</strong> Interface rules and components: 623 tests in 87 files.</li>
+        <li><strong>Back end (Node test runner).</strong> Business rules, services and API routes: 1,491 tests in 222 files, including integration tests against a real RabbitMQ (publish and consume, dead-letter and reconnection).</li>
+        <li><strong>End to end (Playwright).</strong> 70 tests in 23 files exercise the flows by role against the back end, the front end and a freshly created database.</li>
+        <li><strong>Part search.</strong> A benchmark of my own with 50 cases checks the deterministic search (100% Top-1 and 100% Recall@5 on those cases).</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Quality in numbers</h2>
       <div class="numbers">
         <div class="num"><b>1,491</b><span>back-end tests passing (222 files)</span></div>
@@ -165,13 +186,14 @@
         <div class="num"><b>91</b><span>versioned database migrations</span></div>
         <div class="num"><b>49</b><span>Prisma data models (enums not counted)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run on 2026-11-10 in an isolated environment (disposable local PostgreSQL database and fictional data), on the 2026-11-04 commit. In the back-end, all 1,491 passed, with a real RabbitMQ (3.13) broker running in the same environment. In E2E, 2 of the 70 tests used a fixed October date and failed on the first run; the fix (current-month date, without removing or weakening any check) was applied on a repository branch and the complete suite passed 70 of 70.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run locally on 2026-11-10, not by the CI pipeline, in an isolated environment (disposable local PostgreSQL database and fictional data), on the repository state of 2026-11-04. In the back end, all 1,491 passed, with a real RabbitMQ (3.13) broker running in the same environment. In E2E, 2 of the 70 tests used a fixed October date and failed on the first run; the fix (current-month date, without removing or weakening any check) has since been merged into the repository, and the complete suite passed 70 of 70.</p>
     </section>
 
     <section>
       <h2>Limits and what is missing</h2>
       <ul class="plain">
         <li><strong>Tests and CI.</strong> The project’s CI pipeline (GitHub Actions) worked during development: about 2,000 runs, 1,423 of them passing, the last passing one on 2026-10-25. I disabled it manually after reaching the GitHub Actions usage limit, and it is not active at the moment. The results above come from a local run in an isolated environment on 2026-11-10, not from the pipeline.</li>
+        <li><strong>Code coverage.</strong> The project has no code coverage report, so this case study gives no coverage percentage. The numbers above are counts of tests executed.</li>
         <li><strong>Screenshots.</strong> Taken in a simulated store with fictional data, with no real store data.</li>
       </ul>
     </section>

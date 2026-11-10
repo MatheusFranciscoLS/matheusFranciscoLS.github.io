@@ -17,6 +17,8 @@ Base da contagem: estado do repositório em 04/11/2026, checkout limpo. Os coman
 | Modelos Prisma | 49 | blocos `model` em `schema.prisma` (os 7 `enum` não contam) | `grep -c '^model ' backend/prisma/schema.prisma` | Contagem estática |
 | Testes Vitest do front-end | 623 em 274 suítes | casos de teste individuais; "suíte" é cada `describe` | `npm ci --prefix . --workspaces=false` e `npx vitest run` dentro de `frontend` | **Executado em 10/11/2026 num checkout limpo: 87 arquivos, 274 suítes, 623 testes, 623 passaram, 0 falharam** |
 
+Recontagem em 10/11/2026, depois da integração da correção de datas dos E2E (que só mudou 2 arquivos de teste): 222 arquivos de teste no back-end, 87 no front-end, 23 specs E2E, 91 migrations e 49 modelos, sem nenhuma diferença em relação à tabela.
+
 Por que antes apareciam 85 arquivos Vitest: a cópia local estava cinco dias atrasada. Dois arquivos de teste tinham sido adicionados nesse intervalo.
 
 Por que antes apareciam 110 arquivos de teste no front-end: a conta somava os 23 specs do Playwright aos 87 do Vitest. Esses dois grupos são diferentes e não se somam.
@@ -43,12 +45,28 @@ Ambiente do back-end: variáveis iguais às do CI (`DATABASE_URL` para o banco l
 
 **Back-end e RabbitMQ.** Na primeira execução, 1.488 dos 1.491 passaram: as 3 falhas eram os testes de integração do RabbitMQ (publicar e consumir, dead-letter e reconexão), que terminavam em `ECONNREFUSED` porque não havia broker no computador. Depois baixei os binários oficiais para Windows, em pasta temporária e sem instalar nada no sistema (Erlang/OTP 26.2.5.14, `otp_win64_26.2.5.14.zip`, 165.746.668 bytes, SHA-256 `5281e404…ad1a`, do repositório `erlang/otp`; RabbitMQ 3.13.7, `rabbitmq-server-windows-3.13.7.zip`, 32.208.726 bytes, SHA-256 `eb1967ad…a102`, do repositório `rabbitmq/rabbitmq-server`; a mesma série 3.13 do contêiner do CI), subi o broker em `127.0.0.1:5672` com o usuário padrão de teste e rodei a suíte completa de novo, num banco novo e com o código real (sem os ajustes que usei só para capturar as telas). Resultado: **1.491 executados, 1.491 aprovados, 0 falhos, 0 não executados**.
 
-**E2E.** Na primeira execução completa, 68 de 70 passaram. Os 2 que falharam (um de Compras e Despesas e outro de Registro de vendas, ambos no perfil Financeiro) criavam um registro com data fixa de 05/10/2026 e esperavam vê-lo na lista, mas a tela abre filtrada no mês corrente (novembro). Era um defeito do teste, que dependia da data da execução. A correção troca a data fixa pelo primeiro dia do mês corrente nos dois testes, sem remover nenhum teste nem enfraquecer nenhuma verificação (2 arquivos, 6 linhas). Ela foi aplicada numa cópia de trabalho do repositório do sistema e validada com a suíte completa, num banco novo: **70 executados, 70 aprovados, 0 falhos**. A correção ainda não foi integrada à linha principal do projeto. Uma execução anterior num banco já usado falhou em 3 testes de orçamento por sobras da execução anterior: os E2E exigem banco novo, como no CI.
+**E2E.** Na primeira execução completa, 68 de 70 passaram. Os 2 que falharam (um de Compras e Despesas e outro de Registro de vendas, ambos no perfil Financeiro) criavam um registro com data fixa de 05/10/2026 e esperavam vê-lo na lista, mas a tela abre filtrada no mês corrente (novembro). Era um defeito do teste, que dependia da data da execução. A correção troca a data fixa pelo primeiro dia do mês corrente nos dois testes, sem remover nenhum teste nem enfraquecer nenhuma verificação (2 arquivos, 6 linhas). Ela foi aplicada numa cópia de trabalho do repositório do sistema e validada com a suíte completa, num banco novo: **70 executados, 70 aprovados, 0 falhos**. A correção foi integrada à linha principal do projeto em 10/11/2026 (2 arquivos de teste, sem mudança no código do sistema). Uma execução anterior num banco já usado falhou em 3 testes de orçamento por sobras da execução anterior: os E2E exigem banco novo, como no CI.
 
 **Histórico de execuções anteriores** (16 a 30/10): Vitest 85 arquivos e 610 testes aprovados em 30/10; back-end com 1.427 testes e 2 falhas em 25/10; E2E com 69 testes aprovados em 25/10. São de versões anteriores do código, por isso não substituem a execução acima.
 
 ### Situação do CI do Vardão Central
 O workflow de CI do projeto (GitHub Actions) funcionou durante o desenvolvimento. O histórico do GitHub mostra 1.987 execuções: 1.423 aprovadas, 199 com falha e 365 canceladas por concorrência, e a última aprovada é de 25/10/2026. O Matheus desativou o workflow manualmente porque os créditos e limites de uso do GitHub Actions se esgotaram, e não o reativou: os commits seguintes não rodaram CI. Isso não é um defeito do pipeline. Reativá-lo, e consumir créditos, depende só da decisão dele, e não foi feito. Os resultados desta seção vêm de uma execução local manual em 10/11/2026, em ambiente isolado, e são independentes do histórico do pipeline.
+
+### Onde cada número do Vardão Central aparece
+
+- **Página inicial e estudo de caso:** quantidades de testes executados (1.491, 623 e 70) e, no estudo de caso, também as de arquivos (222, 87 e 23), sempre rotuladas como arquivos ou testes.
+- **Currículos:** quantidades de testes executados (1.491, 623 e 70).
+- **Cobertura de código:** o projeto não tem relatório de cobertura (não há ferramenta de cobertura configurada nos `package.json`), então nenhum percentual de cobertura é publicado.
+
+## Plataforma IoT Industrial (repositório público)
+
+Estado de `main` em 10/11/2026 (commit `270ec73`, de 18/10/2026). Os números de 17/10/2026 que continuam no estudo de caso (carga com k6, Lighthouse, 7 registros de decisão) não foram medidos de novo.
+
+| Número | Valor | Como contar | Situação |
+|---|---|---|---|
+| Testes do painel React | 179 em 11 arquivos | `npx vitest run` dentro de `painel-react` | **Executado em 10/11/2026: 179 passaram, 0 falharam.** Eram 172 em 17/10/2026; a demonstração instantânea acrescentou testes |
+| Testes da API Java | 208 | contagem das anotações `@Test` e `@ParameterizedTest` em `iot-core/src/test` (26 arquivos) | Contagem estática, igual ao número publicado em 17/10/2026. Não foi executado em 10/11 (10 desses testes só rodam no CI, com PostgreSQL real) |
+| Testes no navegador (Playwright) | 9 | contagem de `test(` em `e2e` | Contagem estática |
 
 ## Site da Vardão Máquinas (repositório privado, não auditado)
 

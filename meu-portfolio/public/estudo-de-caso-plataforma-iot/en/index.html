@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Industrial IoT Platform: case study | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="Real-time industrial telemetry with a Java API, a queue, a WebSocket gateway and a React dashboard, all live at zero cost. Case study: architecture, engineering decisions and measured quality.">
+  <meta name="description" content="Real-time industrial telemetry: Java API, RabbitMQ, WebSocket and a React dashboard, published at zero cost. Case study on architecture, decisions and testing.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/en/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/en/">
+  <link rel="alternate" hreflang="x-default" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="en_US">
@@ -44,7 +45,7 @@
     <header class="hero">
       <div class="eyebrow">Case study · 2026</div>
       <h1>Industrial IoT Platform</h1>
-      <p class="lead">Real-time machine telemetry: sensors send readings to a Java API, a queue notifies a Node gateway, and a React dashboard shows numbers, charts and alerts changing on their own. All live, at no cost.</p>
+      <p class="lead">Real-time machine telemetry: sensors send readings to a Java API, a queue notifies a Node gateway, and a React dashboard shows numbers, charts and alerts changing on their own. Published on free plans, with no infrastructure cost.</p>
       <ul class="meta">
         <li><strong>Role</strong>Personal project, from database to screen</li>
         <li><strong>Status</strong>Live, still evolving</li>
@@ -55,7 +56,7 @@
       <a class="btn ghost" href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">See the code</a>
     </header>
 
-    <p class="aviso">The API runs on a free plan that sleeps without visits. On the first visit the dashboard can take up to 1 minute to wake up, and it says so on screen. After that it responds normally.</p>
+    <p class="aviso">The API runs on a free plan that sleeps without visits. On the first visit the API can take about 1 minute to wake up. Meanwhile the dashboard shows a simulation running in the browser itself, with a notice on screen, and switches to real data when the API responds.</p>
 
     <div class="shot"><img src="../../assets/iot/painel-escuro.png" alt="IoT dashboard in the dark theme: factory summary, three machines with temperature, vibration and speed, a chart and the alert list" width="1280" height="1838"></div>
 
@@ -102,7 +103,7 @@
       <p>The period series groups readings into minute buckets with an integer division inside the query. The in-memory test database accepted it; real PostgreSQL rejects the same expression with a parameter. So a group of tests runs on a real PostgreSQL (Testcontainers) in CI, and the migrations are proven there too, starting from an empty database and from an old one.</p>
       <h3>Measure before optimizing the hosting</h3>
       <p>On the free plan, the first visit waited more than two minutes (I measured 147 s and 169 s). I measured the Java startup and stored a class archive at <code>docker build</code> time, plus started with only the fast compiler: startup dropped to about 62 s. What code cannot fix is stated in the README: keeping the API always awake takes a paid plan.</p>
-      <h3>The warning I almost missed</h3>
+      <h3>A development key in production</h3>
       <p>Reading the live site's log, I saw the API was still using the public development key for tokens, which would allow forging an administrator token. I replaced it with a random key on both services and confirmed that login and the WebSocket still work and that a forged token gets 401.</p>
     </section>
 
@@ -110,13 +111,13 @@
       <h2>Quality in numbers</h2>
       <div class="numbers">
         <div class="num"><b>208</b><span>Java API tests (10 run only in CI, on a real PostgreSQL)</span></div>
-        <div class="num"><b>172</b><span>React dashboard tests</span></div>
+        <div class="num"><b>179</b><span>React dashboard tests</span></div>
         <div class="num"><b>9</b><span>browser tests, including accessibility (axe)</span></div>
         <div class="num"><b>3.4 ms</b><span>p95 to store a reading at 100 per second (k6, in CI)</span></div>
         <div class="num"><b>100</b><span>Lighthouse accessibility score</span></div>
         <div class="num"><b>7</b><span>architecture decision records</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Counts taken from the code on 2026-10-17. The load test ran on GitHub Actions, with the API, database and queue on the same server and little data: it shows the code's performance, not the free hosted site's, which has far less CPU. Lighthouse measured on the local dashboard build: performance 99 to 100, accessibility 100, best practices 96, SEO 100.</p>
+      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Test counts for the dashboard (executed) and the Java API (test annotations in the code) taken on 2026-11-10; the other measurements are from 2026-10-17. The load test ran on GitHub Actions, with the API, database and queue on the same server and little data: it shows the code's performance, not the free hosted site's, which has far less CPU. Lighthouse measured on the local dashboard build: performance 99 to 100, accessibility 100, best practices 96, SEO 100.</p>
     </section>
 
     <section>
