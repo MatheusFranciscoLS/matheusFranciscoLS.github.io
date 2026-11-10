@@ -1,0 +1,50 @@
+name: Portfolio checks
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "meu-portfolio/**"
+      - ".github/workflows/portfolio-checks.yml"
+  push:
+    branches:
+      - portfolio/repositionamento-profissional-2026
+    paths:
+      - "meu-portfolio/**"
+      - ".github/workflows/portfolio-checks.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Lint and production build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: meu-portfolio
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: meu-portfolio/package-lock.json
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+      - name: Build static site
+        run: npm run build
+      - name: Verify generated routes
+        run: |
+          test -s dist/index.html
+          test -s dist/en/index.html
+          test -s dist/estudo-de-caso-vardao-central/index.html
+          test -s dist/estudo-de-caso-vardao-central/en/index.html
+          grep -q "Desenvolvedor full-stack júnior" dist/index.html
+          grep -q "Junior full-stack developer" dist/en/index.html
+          echo "Portuguese, English and both Vardão Central case-study routes were generated."
