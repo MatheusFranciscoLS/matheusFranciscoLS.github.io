@@ -18,12 +18,12 @@
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="Balcão do Vardão Central: busca pelo modelo 143RII com três peças no orçamento ao lado.">
+  <meta property="og:image:alt" content="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, numa loja simulada com dados fictícios.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vardão Central: estudo de caso | Matheus Francisco">
   <meta name="twitter:description" content="O sistema que a loja onde trabalho usa todo dia: balcão, CRM, financeiro e estoque, e as regras do ERP antigo reconstruídas e testadas.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
-  <meta name="twitter:image:alt" content="Balcão do Vardão Central: busca pelo modelo 143RII com três peças no orçamento ao lado.">
+  <meta name="twitter:image:alt" content="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, numa loja simulada com dados fictícios.">
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
@@ -54,7 +54,7 @@
       <a class="btn ghost" href="/#contato">Falar comigo</a>
     </header>
 
-    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Balcão do Vardão Central: busca pelo modelo 143RII com três peças no orçamento ao lado." width="1440" height="900"></figure>
+    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, numa loja simulada com dados fictícios." width="1440" height="900"></figure>
 
     <section>
       <h2>O problema</h2>
@@ -81,7 +81,7 @@
       <h3>Financeiro</h3>
       <p>Lançamento de vendas, compras e despesas, DRE, fluxo de caixa, capital de giro, curva ABC e fechamento de caixa.</p>
       <h3>Estoque</h3>
-      <p>Itens a pedir, faltas, prateleiras e encomendas de peças para o cliente, com o sinal que ele já pagou.</p>
+      <p>Itens a pedir, faltas, prateleiras e encomendas de peças para clientes.</p>
       <h3>Início por perfil</h3>
       <p>Cada pessoa abre o sistema no Início do seu papel, com o que importa para o dia dela, e o botão principal muda conforme o papel: "Lançar venda" ou "Novo orçamento".</p>
     </section>
@@ -90,9 +90,9 @@
       <h2>Arquitetura e engenharia</h2>
       <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagrama: o navegador usa o front-end React na Vercel, que chama a API Node.js no Render; a API grava no PostgreSQL e no Storage do Supabase e coloca a leitura de PDFs numa fila RabbitMQ; integrações externas tracejadas: portal público da fabricante, Gemini e arquivos do ERP antigo." loading="lazy" width="1000" height="492"></div>
       <ul class="plain">
-        <li><strong>Várias lojas, um banco.</strong> Todo registro pertence a uma loja (um campo de loja em todo o esquema do banco), e a loja vem da sessão de quem entrou, não do navegador.</li>
-        <li><strong>Login e perfis.</strong> Sessão por cookie com JWT, renovada enquanto a pessoa trabalha. Há três perfis (Administrador, Mecânico, para balcão e vendas, e Financeiro), e o servidor confere o perfil em cada rota. Trocar o perfil ou desativar alguém derruba a sessão.</li>
-        <li><strong>Proteção básica.</strong> Limite de requisições, cabeçalhos de segurança (helmet) e validação das entradas na API.</li>
+        <li><strong>Várias lojas, um banco.</strong> Todo registro pertence a uma loja, e a loja vem da sessão de quem entrou, não do navegador.</li>
+        <li><strong>Acesso controlado.</strong> Login com sessão assinada e acesso por perfil, sempre conferido no servidor e não só na tela.</li>
+        <li><strong>Proteção básica.</strong> Limite de requisições, cabeçalhos de segurança e validação das entradas na API.</li>
         <li><strong>Trabalho em segundo plano.</strong> A leitura de catálogos em PDF passa por uma fila RabbitMQ, com nova tentativa. A API não depende da fila para atender o balcão.</li>
         <li><strong>Banco.</strong> PostgreSQL com Prisma: 49 modelos e 91 migrations versionadas.</li>
       </ul>
@@ -103,9 +103,9 @@
       <p>A loja não podia perder nenhum número na troca. A regra era simples: os mesmos resultados do ERP antigo, ou melhores.</p>
       <ul class="plain">
         <li><strong>Regras do ERP, testadas.</strong> Li o código do ERP tela por tela e reproduzi as regras no Vardão Central: DRE, fluxo de caixa, capital de giro, ranking de clientes e outras. Cada regra tem testes automatizados.</li>
-        <li><strong>O que estava escondido.</strong> A revisão mostrou que o ERP ainda usava uma tabela antiga de vendas, com regras próprias até uma data de corte. Sem essa revisão, esse "legado" teria ficado de fora do DRE e dos relatórios.</li>
+        <li><strong>O que estava escondido.</strong> A revisão mostrou que o ERP carregava regras e histórico de versões antigas que não estavam documentados. Sem essa revisão, esse legado teria ficado de fora dos relatórios.</li>
         <li><strong>Importação segura.</strong> O importador dos dados do ERP, pronto e testado com dados fictícios, roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere os totais depois de gravar e tem como desfazer.</li>
-        <li><strong>Melhor que o original.</strong> Nas parcelas das vendas, o ERP somava R$ 99,99 para R$ 100 em três vezes. O Vardão Central conta em centavos inteiros e a sobra vai para a primeira parcela.</li>
+        <li><strong>Melhor que o original.</strong> Os valores passaram a ser contados em centavos inteiros, e a divisão em parcelas sempre fecha no total, sem diferença de arredondamento.</li>
       </ul>
     </section>
 
@@ -113,7 +113,7 @@
       <h2>Regras que o produto não quebra</h2>
       <div class="rules">
         <div class="rule"><h3>Nunca chutar o código</h3><p>Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</p></div>
-        <div class="rule"><h3>O cliente nunca recebe o código</h3><p>PDF, WhatsApp e impressão saem sem o código da peça, para o cliente não cotar em outra revenda com o nosso número.</p></div>
+        <div class="rule"><h3>Nada interno vai ao cliente</h3><p>Orçamentos em PDF e mensagens de WhatsApp saem só com o que o cliente precisa ver. Os dados internos do balcão ficam de fora, e um teste garante isso.</p></div>
         <div class="rule"><h3>Mudança de dado é explícita</h3><p>Importar preço, estoque ou vendas mostra um relatório antes de gravar e guarda como desfazer.</p></div>
         <div class="rule"><h3>Número é número</h3><p>Parcelas em centavos inteiros e datas no fuso da loja, travadas por teste.</p></div>
       </div>
@@ -122,22 +122,22 @@
     <section>
       <h2>Telas</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="Código substituído pela fabricante, com o código novo em destaque." loading="lazy" width="1440" height="900"></div><figcaption><strong>Código antigo, peça nova.</strong> A troca oficial aparece em destaque, com o código novo pronto para orçar.</figcaption></figure>
-        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Revisão do orçamento com prazo, pagamento, desconto e envio por WhatsApp ou PDF." loading="lazy" width="1440" height="900"></div><figcaption><strong>Orçamento</strong> com prazo, pagamento e desconto, enviado por WhatsApp ou PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="Código substituído pela fabricante, com o código novo em destaque. Dados fictícios." loading="lazy" width="1440" height="900"></div><figcaption><strong>Código antigo, peça nova.</strong> A troca oficial aparece em destaque, com o código novo pronto para orçar.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Tela de orçamento de peças com dados do cliente, itens, prazo e observações, numa loja simulada com dados fictícios." loading="lazy" width="1440" height="900"></div><figcaption><strong>Orçamento</strong> com prazo, pagamento e desconto, enviado por WhatsApp ou PDF.</figcaption></figure>
       </div>
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Prints de uma loja simulada, sem dados de clientes. Os preços foram ocultados.</p>
+      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Prints de uma loja simulada, com dados inteiramente fictícios: marca, modelo, códigos, cliente e preços foram inventados para a demonstração. A resposta do portal da fabricante, que informa a troca de código, também foi simulada.</p>
     </section>
 
     <section>
       <h2>Decisões e o que aprendi</h2>
       <h3>O teste verde que mentia</h3>
-      <p>Uma rotina que apaga orçamentos com mais de 1 ano tinha teste e passava. Em produção, nunca rodava: a linha que a ligava estava dentro do bloco de nova tentativa da fila. Descobri olhando o banco. Hoje há um teste só para essa ligação, provado desfazendo a correção e vendo o teste reprovar.</p>
+      <p>Uma rotina de manutenção tinha teste e passava, mas em produção nunca rodava: o ponto onde ela era ligada estava no lugar errado da inicialização. Descobri olhando os dados. Hoje há um teste só para essa ligação, provado desfazendo a correção e vendo o teste reprovar.</p>
       <h3>"Hoje" terminava ontem</h3>
       <p>O servidor roda em UTC e a loja em UTC-3: o filtro "até hoje" cortava antes da meia-noite da loja e o dono não via os orçamentos do próprio dia. Toda conta de dia agora usa o fuso da loja, travada por teste.</p>
       <h3>Recusar é melhor que errar</h3>
       <p>O leitor de catálogos em PDF prefere recusar um arquivo duvidoso, dizendo o motivo, a gravar um código errado que estragaria a busca inteira.</p>
-      <h3>O servidor ao lado do banco</h3>
-      <p>O banco fica em São Paulo e o servidor da API ficava nos Estados Unidos: cada consulta ia e voltava, cerca de 210 ms por vez. Preparei as telas do dia a dia para serem atendidas por uma função em São Paulo, ao lado do banco, e deixei no servidor principal só o que é pesado, como PDFs e importações. Dá para voltar atrás com uma variável.</p>
+      <h3>Servidor perto do banco</h3>
+      <p>O servidor da API ficava longe do banco de dados, e cada consulta pagava a viagem de ida e volta. Preparei as telas do dia a dia para serem atendidas por uma camada mais próxima do banco, deixando no servidor principal só o trabalho pesado. A mudança pode ser desligada por uma variável.</p>
       <h3>Ler o sistema antigo, não confiar na memória</h3>
       <p>Na reconstrução do financeiro, eu não confiei nas regras que eu achava que o ERP tinha. Fui ao código dele, e foi isso que achou o que estava escondido.</p>
     </section>
@@ -145,22 +145,21 @@
     <section>
       <h2>Qualidade em números</h2>
       <div class="numbers">
-        <div class="num"><b>222</b><span>arquivos de teste no back-end</span></div>
-        <div class="num"><b>87</b><span>arquivos de teste Vitest no front-end</span></div>
-        <div class="num"><b>23</b><span>arquivos de testes E2E com Playwright</span></div>
-        <div class="num"><b>623</b><span>testes Vitest no front-end, todos passando</span></div>
+        <div class="num"><b>1.488</b><span>de 1.491 testes do back-end aprovados (222 arquivos)</span></div>
+        <div class="num"><b>623</b><span>testes Vitest do front-end aprovados (87 arquivos)</span></div>
+        <div class="num"><b>70</b><span>testes E2E com Playwright aprovados (23 arquivos)</span></div>
         <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
         <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Arquivos contados na árvore do repositório (commit de 04/11/2026); testes Vitest executados em 10/11/2026. Os testes do back-end e os E2E não foram executados para esta contagem.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, os 3 testes que não passaram são de integração com o RabbitMQ e falharam porque não havia servidor de filas no ambiente. No E2E, 68 dos 70 testes passaram na primeira execução; os outros 2 usavam uma data fixa de outubro e passaram depois de trocá-la pelo mês corrente, sem remover nem enfraquecer verificações.</p>
     </section>
 
     <section>
       <h2>Limites e o que falta</h2>
       <ul class="plain">
         <li><strong>Dados reais do ERP.</strong> O importador está pronto e testado com dados fictícios. Rodar com os dados reais é decisão do dono da loja.</li>
-        <li><strong>Testes.</strong> Os testes do front-end rodam em segundos e passaram na última execução. Os do back-end e os E2E precisam de banco e de navegador e estão no pipeline de CI do projeto.</li>
-        <li><strong>Prints.</strong> Os preços foram ocultados, porque a lista de preços é dado da loja.</li>
+        <li><strong>Testes e CI.</strong> Os resultados acima vêm de execuções manuais em ambiente isolado. O pipeline de CI do projeto está desativado no momento, então não há execução automática recente.</li>
+        <li><strong>Prints.</strong> Feitos numa loja simulada com dados fictícios, sem nenhum dado real da loja.</li>
       </ul>
     </section>
 

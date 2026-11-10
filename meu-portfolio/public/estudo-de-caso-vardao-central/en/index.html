@@ -18,12 +18,12 @@
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="Vardão Central counter: search for model 143RII with three parts in the quote alongside.">
+  <meta property="og:image:alt" content="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, in a simulated store with fictional data.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vardão Central: case study | Matheus Francisco">
   <meta name="twitter:description" content="The system the store where I work uses every day: counter, CRM, finance and inventory, and the old ERP’s rules rebuilt and tested.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
-  <meta name="twitter:image:alt" content="Vardão Central counter: search for model 143RII with three parts in the quote alongside.">
+  <meta name="twitter:image:alt" content="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, in a simulated store with fictional data.">
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
@@ -54,7 +54,7 @@
       <a class="btn ghost" href="/en/#contato">Contact me</a>
     </header>
 
-    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Vardão Central counter: search for model 143RII with three parts in the quote alongside." width="1440" height="900"></figure>
+    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, in a simulated store with fictional data." width="1440" height="900"></figure>
 
     <section>
       <h2>The problem</h2>
@@ -81,7 +81,7 @@
       <h3>Finance</h3>
       <p>Sales, purchases and expenses, income statement, cash flow, working capital, ABC analysis and closing the till.</p>
       <h3>Inventory</h3>
-      <p>Items to order, shortages, shelves and special orders for customers, with the deposit they already paid.</p>
+      <p>Items to order, shortages, shelves and special orders for customers.</p>
       <h3>Home by role</h3>
       <p>Each person opens the system on the home screen for their role, with what matters for their day, and the main button changes with the role: "Lançar venda" (record a sale) or "Novo orçamento" (new quote).</p>
     </section>
@@ -90,9 +90,9 @@
       <h2>Architecture and engineering</h2>
       <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagram: the browser uses the React front end on Vercel, which calls the Node.js API on Render; the API writes to PostgreSQL and Supabase Storage and puts PDF reading on a RabbitMQ queue; dashed external integrations: the manufacturer’s public portal, Gemini and files from the old ERP." loading="lazy" width="1000" height="492"></div>
       <ul class="plain">
-        <li><strong>Many stores, one database.</strong> Every record belongs to a store (a store field across the database schema), and the store comes from the signed-in session, not from the browser.</li>
-        <li><strong>Login and roles.</strong> Cookie session with a JWT, renewed while the person is working. There are three roles (Administrator, Mechanic, for counter and sales, and Finance), and the server checks the role on every route. Changing a role or deactivating someone ends the session.</li>
-        <li><strong>Basic protection.</strong> Rate limiting, security headers (helmet) and input validation on the API.</li>
+        <li><strong>Many stores, one database.</strong> Every record belongs to a store, and the store comes from the signed-in session, not from the browser.</li>
+        <li><strong>Controlled access.</strong> Login with a signed session and role-based access, always checked on the server and not only on screen.</li>
+        <li><strong>Basic protection.</strong> Rate limiting, security headers and input validation on the API.</li>
         <li><strong>Background work.</strong> Reading PDF catalogs goes through a RabbitMQ queue, with retries. The API does not depend on the queue to serve the counter.</li>
         <li><strong>Database.</strong> PostgreSQL with Prisma: 49 models and 91 versioned migrations.</li>
       </ul>
@@ -103,9 +103,9 @@
       <p>The store could not lose a single number in the switch. The rule was simple: the same results as the old ERP, or better.</p>
       <ul class="plain">
         <li><strong>The ERP’s rules, tested.</strong> I read the ERP’s code screen by screen and reproduced its rules in Vardão Central: income statement, cash flow, working capital, customer ranking and more. Each rule has automated tests.</li>
-        <li><strong>What was hidden.</strong> The review showed the ERP still used an old sales table, with its own rules up to a cut-off date. Without that review, this legacy data would have been missing from the income statement and the reports.</li>
+        <li><strong>What was hidden.</strong> The review showed the ERP carried rules and history from older versions that were not documented. Without that review, this legacy would have been missing from the reports.</li>
         <li><strong>Safe import.</strong> The importer for the ERP data, ready and tested with fictional data, runs as a dry run first, requires the expected totals before writing, checks the totals after writing and can be undone.</li>
-        <li><strong>Better than the original.</strong> On sales installments, the ERP added up to R$ 99.99 for R$ 100 in three payments. Vardão Central counts in whole cents and the remainder goes to the first installment.</li>
+        <li><strong>Better than the original.</strong> Values are now counted in whole cents, and splitting into installments always adds up to the total, with no rounding difference.</li>
       </ul>
     </section>
 
@@ -113,7 +113,7 @@
       <h2>Rules the product never breaks</h2>
       <div class="rules">
         <div class="rule"><h3>Never guess a code</h3><p>A typed code returns only the exact code and the manufacturer’s official replacement. The AI only picks from a closed list of parts for the machine.</p></div>
-        <div class="rule"><h3>The customer never gets the code</h3><p>PDFs, WhatsApp messages and printouts leave without the part code, so the customer cannot price it at another dealer with our number.</p></div>
+        <div class="rule"><h3>Nothing internal reaches the customer</h3><p>PDF quotes and WhatsApp messages carry only what the customer needs to see. The counter’s internal data stays out, and a test guarantees it.</p></div>
         <div class="rule"><h3>Data changes are explicit</h3><p>Importing prices, inventory or sales shows a report before writing and keeps an undo.</p></div>
         <div class="rule"><h3>Numbers are numbers</h3><p>Installments in whole cents and dates in the store’s time zone, locked by tests.</p></div>
       </div>
@@ -122,22 +122,22 @@
     <section>
       <h2>Screens</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="A code replaced by the manufacturer, with the new code highlighted." loading="lazy" width="1440" height="900"></div><figcaption><strong>Old code, new part.</strong> The official replacement is highlighted, ready to quote.</figcaption></figure>
-        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Quote review with lead time, payment, discount and sending by WhatsApp or PDF." loading="lazy" width="1440" height="900"></div><figcaption><strong>Quote</strong> with lead time, payment and discount, sent by WhatsApp or PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="A code replaced by the manufacturer, with the new code highlighted. Fictional data." loading="lazy" width="1440" height="900"></div><figcaption><strong>Old code, new part.</strong> The official replacement is highlighted, ready to quote.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Parts quote screen with customer details, items, lead time and remarks, in a simulated store with fictional data." loading="lazy" width="1440" height="900"></div><figcaption><strong>Quote</strong> with lead time, payment and discount, sent by WhatsApp or PDF.</figcaption></figure>
       </div>
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Screenshots from a simulated store, with no customer data. Prices were hidden.</p>
+      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Screenshots from a simulated store with entirely fictional data: brand, model, codes, customer and prices were invented for the demonstration. The manufacturer portal response that reports the code replacement was also simulated.</p>
     </section>
 
     <section>
       <h2>Decisions and what I learned</h2>
       <h3>The green test that lied</h3>
-      <p>A job that deletes quotes older than 1 year had a passing test. In production it never ran: the line that started it sat inside the queue’s retry block. I found it by looking at the database. Now there is a test just for that wiring, proven by undoing the fix and watching the test fail.</p>
+      <p>A maintenance job had a passing test, but in production it never ran: the place where it was wired in sat in the wrong part of the startup. I found it by looking at the data. Now there is a test just for that wiring, proven by undoing the fix and watching the test fail.</p>
       <h3>"Today" ended yesterday</h3>
       <p>The server runs in UTC and the store in UTC-3: the "until today" filter cut off before the store’s midnight and the owner could not see the day’s own quotes. Every day calculation now uses the store’s time zone, locked by a test.</p>
       <h3>Refusing beats being wrong</h3>
       <p>The PDF catalog reader prefers to refuse a doubtful file, saying why, rather than save a wrong code that would spoil the whole search.</p>
-      <h3>The server next to the database</h3>
-      <p>The database is in São Paulo and the API server was in the United States: every query went there and back, about 210 ms each time. I prepared the everyday screens to be served by a function in São Paulo, next to the database, and left only the heavy work, like PDFs and imports, on the main server. One variable switches it back.</p>
+      <h3>Server close to the database</h3>
+      <p>The API server was far from the database, and every query paid the round trip. I prepared the everyday screens to be served by a layer closer to the database, leaving only the heavy work on the main server. A variable switches it off.</p>
       <h3>Read the old system, don’t trust memory</h3>
       <p>When rebuilding finance I did not trust the rules I thought the ERP had. I went to its code, and that is what found what was hidden.</p>
     </section>
@@ -145,22 +145,21 @@
     <section>
       <h2>Quality in numbers</h2>
       <div class="numbers">
-        <div class="num"><b>222</b><span>back-end test files</span></div>
-        <div class="num"><b>87</b><span>front-end Vitest test files</span></div>
-        <div class="num"><b>23</b><span>Playwright end-to-end spec files</span></div>
-        <div class="num"><b>623</b><span>front-end Vitest tests, all passing</span></div>
+        <div class="num"><b>1,488</b><span>of 1,491 back-end tests passing (222 files)</span></div>
+        <div class="num"><b>623</b><span>front-end Vitest tests passing (87 files)</span></div>
+        <div class="num"><b>70</b><span>Playwright end-to-end tests passing (23 files)</span></div>
         <div class="num"><b>91</b><span>versioned database migrations</span></div>
         <div class="num"><b>49</b><span>Prisma data models (enums not counted)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Files counted in the repository tree (commit of 2026-11-04); Vitest tests executed on 2026-11-10. Back-end and end-to-end tests were not executed for this count.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run on 2026-11-10 in an isolated environment (disposable local PostgreSQL database and fictional data), on the 2026-11-04 commit. In the back-end, the 3 tests that did not pass are RabbitMQ integration tests and failed because there was no message broker in the environment. In E2E, 68 of 70 tests passed on the first run; the other 2 used a fixed October date and passed after replacing it with the current month, without removing or weakening any check.</p>
     </section>
 
     <section>
       <h2>Limits and what is missing</h2>
       <ul class="plain">
         <li><strong>Real ERP data.</strong> The importer is ready and tested with fictional data. Running it on the real data is the store owner’s decision.</li>
-        <li><strong>Tests.</strong> The front-end tests run in seconds and passed on the last run. The back-end and end-to-end tests need a database and a browser and are in the project’s CI pipeline.</li>
-        <li><strong>Screenshots.</strong> Prices were hidden, because the price list is store data.</li>
+        <li><strong>Tests and CI.</strong> The results above come from manual runs in an isolated environment. The project’s CI pipeline is currently disabled, so there is no recent automatic run.</li>
+        <li><strong>Screenshots.</strong> Taken in a simulated store with fictional data, with no real store data.</li>
       </ul>
     </section>
 
