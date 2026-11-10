@@ -15,7 +15,6 @@ Base da contagem: estado do repositório em 04/11/2026, checkout limpo. Os coman
 | Especificações E2E | 23 | arquivos `*.spec.mjs` do Playwright em `frontend/e2e` | `git ls-files frontend/e2e \| grep -E '\.spec\.mjs$' \| wc -l` | Contagem estática. A execução está na seção "Execução dos testes" |
 | Migrations | 91 | pastas com `migration.sql` em `backend/prisma/migrations` (o `migration_lock.toml` não conta) | `git ls-files backend/prisma/migrations \| grep -c '/migration.sql$'` | Contagem estática |
 | Modelos Prisma | 49 | blocos `model` em `schema.prisma` (os 7 `enum` não contam) | `grep -c '^model ' backend/prisma/schema.prisma` | Contagem estática |
-| Commits do projeto | 1.119 | todos os commits da linha principal (inclui automações), no estado de 04/11/2026 | `git rev-list --count origin/main` | Contagem estática. O texto público diz "mais de 1.000 commits" |
 | Testes Vitest do front-end | 623 em 274 suítes | casos de teste individuais; "suíte" é cada `describe` | `npm ci --prefix . --workspaces=false` e `npx vitest run` dentro de `frontend` | **Executado em 10/11/2026 num checkout limpo: 87 arquivos, 274 suítes, 623 testes, 623 passaram, 0 falharam** |
 
 Por que antes apareciam 85 arquivos Vitest: a cópia local estava cinco dias atrasada. Dois arquivos de teste tinham sido adicionados nesse intervalo.
