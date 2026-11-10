@@ -104,7 +104,7 @@
       <ul class="plain">
         <li><strong>The ERP’s rules, tested.</strong> I read the ERP’s code screen by screen and reproduced its rules in Vardão Central: income statement, cash flow, working capital, customer ranking and more. Each rule has automated tests.</li>
         <li><strong>What was hidden.</strong> The review showed the ERP carried rules and history from older versions that were not documented. Without that review, this legacy would have been missing from the reports.</li>
-        <li><strong>Safe import.</strong> The importer for the ERP data, ready and tested with fictional data, runs as a dry run first, requires the expected totals before writing, checks the totals after writing and can be undone.</li>
+        <li><strong>Safe import.</strong> The importer for the ERP data, tested with fictional data and used to import the store’s real data, runs as a dry run first, requires the expected totals before writing, checks the totals after writing and can be undone.</li>
         <li><strong>Better than the original.</strong> Values are now counted in whole cents, and splitting into installments always adds up to the total, with no rounding difference.</li>
       </ul>
     </section>
@@ -151,13 +151,12 @@
         <div class="num"><b>91</b><span>versioned database migrations</span></div>
         <div class="num"><b>49</b><span>Prisma data models (enums not counted)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run on 2026-11-10 in an isolated environment (disposable local PostgreSQL database and fictional data), on the 2026-11-04 commit. In the back-end, 1,488 passed in that run; the 3 RabbitMQ integration tests need a message broker, and the author ran them separately, by hand, with a passing result. In E2E, 68 of 70 tests passed on the first run; the other 2 used a fixed October date and passed after replacing it with the current month, without removing or weakening any check.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run on 2026-11-10 in an isolated environment (disposable local PostgreSQL database and fictional data), on the 2026-11-04 commit. In the back-end, all 1,491 passed, with a real RabbitMQ (3.13) broker running in the same environment. In E2E, 68 of 70 tests passed on the first run; the other 2 used a fixed October date and passed after replacing it with the current month, without removing or weakening any check.</p>
     </section>
 
     <section>
       <h2>Limits and what is missing</h2>
       <ul class="plain">
-        <li><strong>Real ERP data.</strong> The importer is ready and tested with fictional data. Running it on the real data is the store owner’s decision.</li>
         <li><strong>Tests and CI.</strong> The results above come from manual runs in an isolated environment. The project’s CI pipeline is currently disabled, so there is no recent automatic run.</li>
         <li><strong>Screenshots.</strong> Taken in a simulated store with fictional data, with no real store data.</li>
       </ul>

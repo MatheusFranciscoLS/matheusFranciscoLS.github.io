@@ -104,7 +104,7 @@
       <ul class="plain">
         <li><strong>Regras do ERP, testadas.</strong> Li o código do ERP tela por tela e reproduzi as regras no Vardão Central: DRE, fluxo de caixa, capital de giro, ranking de clientes e outras. Cada regra tem testes automatizados.</li>
         <li><strong>O que estava escondido.</strong> A revisão mostrou que o ERP carregava regras e histórico de versões antigas que não estavam documentados. Sem essa revisão, esse legado teria ficado de fora dos relatórios.</li>
-        <li><strong>Importação segura.</strong> O importador dos dados do ERP, pronto e testado com dados fictícios, roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere os totais depois de gravar e tem como desfazer.</li>
+        <li><strong>Importação segura.</strong> O importador dos dados do ERP, testado com dados fictícios e usado na importação dos dados reais da loja, roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere os totais depois de gravar e tem como desfazer.</li>
         <li><strong>Melhor que o original.</strong> Os valores passaram a ser contados em centavos inteiros, e a divisão em parcelas sempre fecha no total, sem diferença de arredondamento.</li>
       </ul>
     </section>
@@ -151,13 +151,12 @@
         <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
         <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, 1.488 passaram nessa execução; os 3 de integração com o RabbitMQ precisam de um servidor de filas, e o autor os executou à parte, manualmente, com resultado aprovado. No E2E, 68 dos 70 testes passaram na primeira execução; os outros 2 usavam uma data fixa de outubro e passaram depois de trocá-la pelo mês corrente, sem remover nem enfraquecer verificações.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, todos os 1.491 passaram, com um servidor RabbitMQ real (versão 3.13) rodando no mesmo ambiente. No E2E, 68 dos 70 testes passaram na primeira execução; os outros 2 usavam uma data fixa de outubro e passaram depois de trocá-la pelo mês corrente, sem remover nem enfraquecer verificações.</p>
     </section>
 
     <section>
       <h2>Limites e o que falta</h2>
       <ul class="plain">
-        <li><strong>Dados reais do ERP.</strong> O importador está pronto e testado com dados fictícios. Rodar com os dados reais é decisão do dono da loja.</li>
         <li><strong>Testes e CI.</strong> Os resultados acima vêm de execuções manuais em ambiente isolado. O pipeline de CI do projeto está desativado no momento, então não há execução automática recente.</li>
         <li><strong>Prints.</strong> Feitos numa loja simulada com dados fictícios, sem nenhum dado real da loja.</li>
       </ul>
