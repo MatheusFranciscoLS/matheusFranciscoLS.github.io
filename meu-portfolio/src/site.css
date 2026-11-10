@@ -697,8 +697,29 @@ img {
 
 /* Celular */
 @media (max-width: 879px) {
+  .bar__row {
+    flex-wrap: wrap;
+    row-gap: 0;
+    padding-block: 8px 0;
+  }
   .bar__nav {
-    display: none;
+    display: flex;
+    order: 3;
+    flex: 1 0 100%;
+    justify-content: space-between;
+    gap: 12px;
+    overflow-x: auto;
+    padding-block: 0 10px;
+    scrollbar-width: thin;
+  }
+  .bar__nav a {
+    flex: 0 0 auto;
+    padding-block: 8px;
+    font-size: 0.88rem;
+    white-space: nowrap;
+  }
+  html {
+    scroll-padding-top: 112px;
   }
 }
 @media (max-width: 520px) {
