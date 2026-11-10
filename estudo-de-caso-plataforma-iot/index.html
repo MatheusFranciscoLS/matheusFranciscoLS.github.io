@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plataforma IoT Industrial: estudo de caso | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="Telemetria industrial em tempo real com API Java, fila, gateway WebSocket e painel React, tudo no ar a custo zero. Estudo de caso: arquitetura, decisões de engenharia e qualidade medida.">
+  <meta name="description" content="Telemetria industrial em tempo real: API Java, RabbitMQ, WebSocket e painel React, publicados a custo zero. Estudo de caso de arquitetura, decisões e testes.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/en/">
+  <link rel="alternate" hreflang="x-default" href="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Plataforma IoT Industrial: estudo de caso | Matheus Francisco">
-  <meta property="og:description" content="Leituras de máquinas em tempo real, alertas guardados no servidor, séries por período e testes que rodam num PostgreSQL de verdade. Java, Spring Boot, Node.js e React.">
+  <meta property="og:description" content="Leituras de máquinas em tempo real, alertas guardados no servidor, séries por período e testes que rodam num PostgreSQL real. Java, Spring Boot, Node.js e React.">
   <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/">
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/iot/painel-escuro.png">
   <meta property="og:image:width" content="1280">
@@ -21,7 +22,7 @@
   <meta property="og:image:alt" content="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Plataforma IoT Industrial: estudo de caso | Matheus Francisco">
-  <meta name="twitter:description" content="Leituras de máquinas em tempo real, alertas guardados no servidor, séries por período e testes que rodam num PostgreSQL de verdade. Java, Spring Boot, Node.js e React.">
+  <meta name="twitter:description" content="Leituras de máquinas em tempo real, alertas guardados no servidor, séries por período e testes que rodam num PostgreSQL real. Java, Spring Boot, Node.js e React.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/iot/painel-escuro.png">
   <meta name="twitter:image:alt" content="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas">
   <link rel="stylesheet" href="/estudo-de-caso.css">
@@ -44,9 +45,9 @@
     <header class="hero">
       <div class="eyebrow">Estudo de caso · 2026</div>
       <h1>Plataforma IoT Industrial</h1>
-      <p class="lead">Telemetria de máquinas em tempo real: sensores mandam leituras para uma API Java, uma fila avisa um gateway Node e o painel React mostra números, gráficos e alertas mudando sozinhos. Tudo no ar, sem gastar nada.</p>
+      <p class="lead">Telemetria de máquinas em tempo real: sensores mandam leituras para uma API Java, uma fila avisa um gateway Node e o painel React mostra números, gráficos e alertas mudando sozinhos. Publicada em planos gratuitos, sem custo de infraestrutura.</p>
       <ul class="meta">
-        <li><strong>Papel</strong>Projeto próprio, do banco à tela</li>
+        <li><strong>Papel</strong>Projeto pessoal, do banco à tela</li>
         <li><strong>Situação</strong>No ar, em evolução</li>
         <li><strong>Custo de infraestrutura</strong>R$ 0 (planos gratuitos)</li>
         <li><strong>Código</strong>Aberto no GitHub</li>
@@ -55,7 +56,7 @@
       <a class="btn ghost" href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">Ver o código</a>
     </header>
 
-    <p class="aviso">A API roda num plano gratuito que dorme sem visitas. Na primeira abertura, o painel pode levar até 1 minuto para acordar e avisa isso na tela. Depois responde normalmente.</p>
+    <p class="aviso">A API roda num plano gratuito que dorme sem visitas. Na primeira abertura, a API pode levar cerca de 1 minuto para acordar. Enquanto isso, o painel mostra uma simulação feita no próprio navegador, com aviso na tela, e troca pelos dados reais quando a API responde.</p>
 
     <div class="shot"><img src="../assets/iot/painel-escuro.png" alt="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas" width="1280" height="1838"></div>
 
@@ -96,27 +97,27 @@
     <section>
       <h2>Decisões e o que aprendi</h2>
       <p>Cada decisão grande tem uma página própria no repositório, com o que foi descartado e o que ficou de ruim: <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial/tree/main/docs/adr" target="_blank" rel="noreferrer">sete registros de decisão</a>.</p>
-      <h3>O demo que gerava 1.700 alertas por dia</h3>
+      <h3>A demonstração que gerava 1.700 alertas por dia</h3>
       <p>A primeira versão do simulador sorteava cada leitura do zero, então a temperatura dava saltos e cruzava o limite o tempo todo: mais de 1.700 alertas em um dia e um gráfico em serrote. Troquei por um modelo que varia devagar em torno do normal, com falhas ocasionais que duram algumas dezenas de segundos, e passei a alertar só na passagem do limite.</p>
       <h3>O teste que o banco de teste não via</h3>
-      <p>A série por período agrupa leituras em faixas de minutos com uma divisão inteira dentro da consulta. O banco em memória dos testes aceitava; o PostgreSQL de verdade recusa a mesma conta com parâmetro. Por isso um grupo de testes roda num PostgreSQL real (Testcontainers) no CI, e as migrações também são provadas lá, partindo de um banco vazio e de um banco antigo.</p>
+      <p>A série por período agrupa leituras em faixas de minutos com uma divisão inteira dentro da consulta. O banco em memória dos testes aceitava; o PostgreSQL real recusa a mesma conta com parâmetro. Por isso um grupo de testes roda num PostgreSQL real (Testcontainers) no CI, e as migrações também são provadas lá, partindo de um banco vazio e de um banco antigo.</p>
       <h3>Medir antes de otimizar a hospedagem</h3>
       <p>No plano gratuito, a primeira visita esperava mais de dois minutos (medi 147 s e 169 s). Medi a subida do Java e guardei no <code>docker build</code> um arquivo com as classes já lidas, além de subir só com o compilador rápido: a subida caiu para cerca de 62 s. O que não dá para resolver com código está dito no README: manter a API sempre acordada exige plano pago.</p>
-      <h3>O aviso que eu quase não vi</h3>
+      <h3>Uma chave de desenvolvimento em produção</h3>
       <p>Lendo o log do site no ar, vi que a API ainda usava a chave pública de desenvolvimento dos tokens, o que permitiria fabricar um token de administrador. Troquei por uma chave aleatória nos dois serviços e conferi que o login e o WebSocket continuam funcionando e que um token forjado leva 401.</p>
     </section>
 
     <section>
       <h2>Qualidade em números</h2>
       <div class="numbers">
-        <div class="num"><b>208</b><span>testes da API Java (10 só rodam no CI, com PostgreSQL de verdade)</span></div>
-        <div class="num"><b>172</b><span>testes do painel React</span></div>
+        <div class="num"><b>208</b><span>testes da API Java (10 só rodam no CI, com PostgreSQL real)</span></div>
+        <div class="num"><b>179</b><span>testes do painel React</span></div>
         <div class="num"><b>9</b><span>testes no navegador, incluindo acessibilidade (axe)</span></div>
         <div class="num"><b>3,4 ms</b><span>p95 para gravar uma leitura sob 100 por segundo (k6, no CI)</span></div>
         <div class="num"><b>100</b><span>nota de acessibilidade no Lighthouse</span></div>
         <div class="num"><b>7</b><span>registros de decisão de arquitetura</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens feitas no código em 17/10/2026. O teste de carga rodou no GitHub Actions, com a API, o banco e a fila no mesmo servidor e pouco dado: mostra o desempenho do código, não o do site gratuito, que tem bem menos CPU. Lighthouse medido no build local do painel: desempenho 99 a 100, acessibilidade 100, boas práticas 96, SEO 100.</p>
+      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens de testes do painel (executados) e da API Java (anotações de teste no código) feitas em 10/11/2026; as demais medições são de 17/10/2026. O teste de carga rodou no GitHub Actions, com a API, o banco e a fila no mesmo servidor e pouco dado: mostra o desempenho do código, não o do site gratuito, que tem bem menos CPU. Lighthouse medido no build local do painel: desempenho 99 a 100, acessibilidade 100, boas práticas 96, SEO 100.</p>
     </section>
 
     <section>
