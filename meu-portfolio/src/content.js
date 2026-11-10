@@ -64,7 +64,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
       description:
-        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema e o site da loja onde trabalho e tenho mais três projetos no ar. Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema e o site da empresa onde trabalho e mantenho outros projetos publicados. Java, Spring Boot, React, Node.js e PostgreSQL.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -221,7 +221,7 @@ export const content = {
         'Programação Java, SENAI, 120h (2022)',
         'Programação de Banco de Dados, SENAI, 120h (2024)',
         'Ciência da Computação de Harvard no Brasil, Fundação Estudar, 70h (2025)',
-        'AWS Cloud Practitioner Foundational, SENAI, 40h (2022)',
+        'AWS Academy Cloud Foundations, SENAI, 40h (2022)',
         'AI-900, Fundamentos de IA no Azure, Fundação Bradesco, 16h (2025)',
       ],
     },
@@ -242,7 +242,7 @@ export const content = {
     meta: {
       title: 'Matheus Francisco | Junior full-stack developer',
       description:
-        'Junior full-stack developer in Limeira, Brazil. I built the system and the website of the store where I work, and I have three more projects live. Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'Junior full-stack developer in Limeira, Brazil. I built the system and website of the company where I work and have other published projects. Java, Spring Boot, React, Node.js and PostgreSQL.',
     },
     ui: {
       skip: 'Skip to content',
@@ -402,7 +402,7 @@ export const content = {
         'Java Programming, SENAI, 120h (2022)',
         'Database Programming, SENAI, 120h (2024)',
         'Computer Science, Harvard in Brazil, Fundação Estudar, 70h (2025)',
-        'AWS Cloud Practitioner Foundational, SENAI, 40h (2022)',
+        'AWS Academy Cloud Foundations, SENAI, 40h (2022)',
         'AI-900, Azure AI Fundamentals, Fundação Bradesco, 16h (2025)',
       ],
     },
