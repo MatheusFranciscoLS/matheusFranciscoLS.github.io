@@ -21,8 +21,8 @@ O trabalho está na branch `portfolio/repositionamento-profissional-2026`, no PR
 - [x] PDFs em português e inglês abertos num leitor (pdf.js): uma página A4 cada, sem cortes.
 - [x] Estudos de caso da Vardão Máquinas e da Plataforma IoT e a página principal (PT e EN) revisados em desktop e celular (375 px): sem rolagem horizontal, sem imagem quebrada; contraste calculado sem falhas nos temas claro e escuro.
 - [x] SEO e acessibilidade básica: título, descrição, canonical, hreflang (também nos estudos de caso, adicionado agora), og/twitter com texto alternativo, JSON-LD por idioma, um h1 por página, imagens com alt e link "Ir para o conteúdo" em todas as páginas (adicionado nos estudos de caso).
-- [x] Correção dos 2 testes E2E dependentes de data validada no commit `7c00ace` do repositório privado (branch `fix/e2e-datas-mes-corrente`, PR de rascunho nº 501): 70 de 70 num banco novo. Falta decidir o merge.
-- [ ] Decidir se reativa o CI do Vardão Central (desativado manualmente por limite de uso do GitHub Actions) e se mescla o PR nº 501 do repositório privado.
+- [x] Correção dos 2 testes E2E dependentes de data validada no repositório do sistema: 70 de 70 num banco novo. Falta decidir a integração dessa correção.
+- [ ] Decidir se reativa o CI do Vardão Central (desativado manualmente por limite de uso do GitHub Actions) e se integra a correção dos testes ao repositório do sistema.
 
 ## Publicar (somente após aprovação explícita)
 
