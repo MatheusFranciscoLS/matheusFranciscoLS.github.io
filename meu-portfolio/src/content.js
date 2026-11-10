@@ -11,8 +11,8 @@ export const paths = {
   en: { home: '/en/', resume: '/assets/curriculo-en.pdf', resumeName: 'Matheus-Francisco-Resume.pdf' },
 };
 
-// Os cinco sistemas, na ordem de importância. `probe` é um ícone de cada site: se ele
-// carrega no navegador de quem visita, o site está no ar; uma página de erro não carrega como imagem.
+// Os cinco sistemas, na ordem de importância. `probe` verifica apenas se o recurso favicon
+// pode ser carregado no navegador; isso não confirma a saúde completa da aplicação.
 const systems = {
   vardao: {
     id: 'vardao-central',
@@ -117,7 +117,7 @@ export const content = {
           ],
           proof: [
             'Migrei o ERP antigo com os números conferidos ao centavo: 1.107 comparações automáticas, nenhuma diferença acima de 1 centavo.',
-            'Mais de 1.400 testes no back-end, 600 no front-end e 70 testes de ponta a ponta no navegador.',
+            '222 arquivos de teste no back-end, 110 no front-end e 23 arquivos de testes E2E com Playwright.',
           ],
           imgAlt: 'Balcão do Vardão Central: busca por modelo com o orçamento ao lado, na loja simulada com dados de demonstração.',
           study: '/estudo-de-caso-vardao-central/',
@@ -131,7 +131,7 @@ export const content = {
           summary: 'O site institucional da Vardão Máquinas, revenda e assistência técnica autorizada Husqvarna em Limeira, feito para o cliente nos achar no Google e levar a conversa até o vendedor. Enquanto o Vardão Central cuida da operação por dentro, o site traz e atende o cliente.',
           built: [
             'Design e desenvolvimento completos: a empresa (A Vardão), a assistência técnica, as linhas de produtos, avaliações de clientes e contato em todas as páginas.',
-            'Cerca de 200 páginas geradas a partir de dados, com busca, 37 artigos para ajudar a escolher e botão de WhatsApp com a mensagem já contextualizada.',
+            'Cerca de 200 páginas geradas a partir de dados, com busca, guias e artigos para ajudar a escolher, e botão de WhatsApp com a mensagem já contextualizada.',
             'Sitemap, dados estruturados para busca, feed de novidades e aviso de cookies com recusa sem prejuízo à navegação.',
           ],
           liveLabel: 'Abrir o site',
@@ -295,7 +295,7 @@ export const content = {
           ],
           proof: [
             'I migrated the old ERP with the numbers checked to the cent: 1,107 automatic comparisons, no difference above 1 cent.',
-            'Over 1,400 back-end tests, 600 front-end tests and 70 end-to-end browser tests.',
+            '222 back-end test files, 110 front-end test files and 23 Playwright end-to-end spec files.',
           ],
           imgAlt: 'Vardão Central counter: search by model with the quote alongside, in the simulated store with demo data.',
           study: '/estudo-de-caso-vardao-central/en/',
@@ -310,7 +310,7 @@ export const content = {
           summary: 'The institutional website of Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, built so customers find us on Google and move the conversation to a salesperson. While Vardão Central runs the operation from the inside, the website brings in and serves customers.',
           built: [
             'Complete design and development: the company (About), the service workshop, the product lines, customer reviews and a contact option on every page.',
-            'About 200 pages generated from data, with search, 37 articles that help customers choose and a WhatsApp button that already carries the context.',
+            'About 200 data-driven pages, with search, buying guides and articles, and a WhatsApp button that already carries the context.',
             'Sitemap, structured data for search, a news feed and a cookie notice that lets visitors decline without losing anything.',
           ],
           liveLabel: 'Open the website',
