@@ -108,7 +108,7 @@ export const content = {
           boardNote: 'sistema da loja, uso diário',
           kind: 'Sistema da loja onde trabalho, em uso diário',
           summary:
-            'O sistema da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, para o balcão, o comercial, o financeiro e o estoque.',
+            'O sistema da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, para o balcão, o comercial, o financeiro e o estoque. Projeto individual: concebi, desenvolvi e mantenho o sistema.',
           problem:
             'Para responder "qual é a peça e quanto custa", o balcão abria um catálogo em PDF, uma planilha de preços e um ERP antigo. Um código errado vira devolução, e o financeiro ficava em outro sistema.',
           built: [
@@ -288,7 +288,7 @@ export const content = {
           boardNote: 'store system, daily use',
           kind: 'The system of the store where I work, in daily use',
           summary:
-            'The system of Vardão Máquinas, an authorized Husqvarna dealer in Limeira, for the counter, sales, finance and inventory.',
+            'The system of Vardão Máquinas, an authorized Husqvarna dealer in Limeira, for the counter, sales, finance and inventory. A solo project: I designed, built and maintain the system.',
           problem:
             'To answer "which part is it and how much", the counter opened a PDF catalog, a price spreadsheet and an old ERP. A wrong code becomes a return, and finance lived in another system.',
           built: [

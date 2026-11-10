@@ -9,7 +9,7 @@ O trabalho está na branch `portfolio/repositionamento-profissional-2026`, no PR
 - [ ] Conferir visualmente desktop e celular, tema claro e escuro, português e inglês.
 - [ ] Conferir os dois estudos de caso do Vardão Central.
 - [ ] Revisar `METRICAS.md`: cada número publicado tem origem e critério de contagem.
-- [x] Matheus confirmou que o Vardão Central é usado todos os dias na loja.
+- [x] Matheus confirmou que o Vardão Central é usado todos os dias na loja e que ele o desenvolveu sozinho (concepção, arquitetura, implementação, banco de dados, integrações, testes e evolução). O estudo de caso, a página principal e os currículos o apresentam como projeto individual.
 - [x] Prints do Vardão Central recapturados numa loja simulada com dados 100% fictícios (marca, modelo, códigos, cliente e preços inventados) e inspecionados um a um.
 - [x] Matheus confirmou que a importação dos dados reais do ERP foi feita.
 - [x] PDFs regenerados localmente a partir dos HTMLs finais (Edge) e conferidos com `sh curriculos/verificar.sh`: hash em dia, uma página A4 cada e texto esperado.

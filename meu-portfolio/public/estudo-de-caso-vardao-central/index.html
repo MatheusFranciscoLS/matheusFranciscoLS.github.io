@@ -46,9 +46,9 @@
       <h1>Vardão Central</h1>
       <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão, e hoje ele assume partes do trabalho do ERP antigo da loja, a começar pelo financeiro.</p>
       <ul class="meta">
-        <li><strong>Papel</strong>Produto, design e desenvolvimento full-stack, com as regras de negócio definidas junto com o dono da loja</li>
+        <li><strong>Papel</strong>Desenvolvimento individual, de ponta a ponta: produto, design, arquitetura, implementação, testes e evolução</li>
         <li><strong>Empresa</strong>Vardão Máquinas (onde trabalho)</li>
-        <li><strong>Período</strong>Desde agosto de 2026</li>
+        <li><strong>Período</strong>Desde agosto de 2026, com mais de 1.000 commits</li>
         <li><strong>Situação</strong>Em uso diário</li>
       </ul>
       <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">Ver o sistema no ar (com login)</a>
@@ -71,6 +71,19 @@
         <li><strong>Setembro</strong>Orçamento no balcão, salvo no servidor.</li>
         <li><strong>Outubro</strong>CRM com quadro de negociações. Depois, o Financeiro e o Estoque, com perfis de acesso, e as regras do ERP antigo reproduzidas.</li>
       </ol>
+    </section>
+
+    <section>
+      <h2>Projeto individual, de ponta a ponta</h2>
+      <p>Desenvolvi o Vardão Central sozinho, do primeiro commit ao uso diário na loja. Estas foram as minhas responsabilidades:</p>
+      <ul class="plain">
+        <li><strong>Concepção e regras de negócio.</strong> Entendi o problema no balcão, levantei as regras na própria loja e as transformei em telas e em regras cobertas por teste.</li>
+        <li><strong>Arquitetura e banco de dados.</strong> Desenhei a arquitetura (front-end, API, fila e banco) e modelei os dados: 49 modelos e 91 migrations em PostgreSQL com Prisma.</li>
+        <li><strong>Implementação full-stack.</strong> Front-end em React e TypeScript e API em Node.js e Express, com todos os módulos descritos abaixo: balcão, comercial, financeiro e estoque.</li>
+        <li><strong>Integrações.</strong> Consulta pública ao portal da fabricante, leitura de catálogos em PDF por fila, IA restrita a uma lista fechada e importação dos dados do ERP antigo.</li>
+        <li><strong>Testes.</strong> Escrevi a suíte automatizada: 623 testes no front-end, 1.491 no back-end e 70 E2E.</li>
+        <li><strong>Publicação e manutenção.</strong> Configurei o CI, a publicação (Vercel e Render) e o banco gerenciado (Supabase), e sigo evoluindo e corrigindo o sistema em uso.</li>
+      </ul>
     </section>
 
     <section>
