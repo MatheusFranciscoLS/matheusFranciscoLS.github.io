@@ -102,7 +102,7 @@ export const content = {
       items: [
         {
           ...systems.vardao,
-          tag: 'Projeto principal · antes chamado CogniVault',
+          tag: 'Projeto principal · sistema em uso diário',
           boardNote: 'sistema da loja, uso diário',
           kind: 'Sistema da loja onde trabalho, em uso diário',
           summary:
@@ -280,7 +280,7 @@ export const content = {
       items: [
         {
           ...systems.vardao,
-          tag: 'Main project · formerly CogniVault',
+          tag: 'Main project · system in daily use',
           boardNote: 'store system, daily use',
           kind: 'The system of the store where I work, in daily use',
           summary:
