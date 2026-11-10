@@ -7,6 +7,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content="Site institucional da Vardão Máquinas, revenda e assistência técnica autorizada Husqvarna em Limeira: a empresa, a assistência técnica, as linhas de produtos e o contato direto pelo WhatsApp. Estudo de caso: decisões de design e de engenharia.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
+  <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
+  <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="pt_BR">
@@ -16,7 +18,12 @@
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-site/home.png">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Site da Vardão Máquinas: estudo de caso | Matheus Francisco">
+  <meta name="twitter:description" content="Site institucional de uma revenda e assistência técnica Husqvarna: a empresa, a oficina e as linhas de produtos, feito para o cliente achar a loja no Google e chegar ao vendedor. Next.js, TypeScript e Tailwind.">
+  <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-site/home.png">
+  <meta name="twitter:image:alt" content="Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão">
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
@@ -27,12 +34,13 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <nav class="top" aria-label="Navegação"><div class="wrap">
     <a href="/#sistemas">← Portfólio</a>
     <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
   </div></nav>
 
-  <main class="wrap">
+  <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
       <div class="eyebrow">Estudo de caso · 2026</div>
       <h1>Site da Vardão Máquinas</h1>
@@ -52,7 +60,7 @@
       <h2>O problema</h2>
       <p>A Vardão é uma revenda Husqvarna nível Ouro, com oficina própria e peças genuínas no mesmo endereço. Mas quem procura uma motosserra, um trator cortador ou um conserto pesquisa no Google antes de ir à loja. Uma empresa sem site completo não aparece nessa busca, e quem chega precisa entender depressa quem é a empresa, o que ela vende, se conserta o que a pessoa já tem e como falar com alguém.</p>
       <h2 style="margin-top:34px">A solução</h2>
-      <p>Um site institucional completo: a história e os números da empresa, a assistência técnica explicada, as linhas de produtos, as avaliações de clientes e o contato em todas as páginas. São <strong>cerca de 200 páginas geradas a partir de dados tipados</strong>, com título, descrição e dados estruturados corretos para a busca, e um botão que leva o cliente ao vendedor com a mensagem já preenchida.</p>
+      <p>Um site institucional completo: a história e os números da empresa, a assistência técnica explicada, as linhas de produtos, as avaliações de clientes e o contato em todas as páginas. As páginas são <strong>geradas a partir de dados tipados</strong>, com título, descrição e dados estruturados corretos para a busca, e um botão que leva o cliente ao vendedor com a mensagem já preenchida.</p>
     </section>
 
     <section>
@@ -62,8 +70,8 @@
         <div class="rule"><h3>Mostra a assistência técnica</h3><p>Página própria para a oficina autorizada: o que a assistência resolve, garantia de fábrica preservada e orçamento sem custo, aprovado antes do serviço.</p></div>
         <div class="rule"><h3>Apresenta as linhas de produtos</h3><p>Jardim, floresta, robótica, agricultura familiar e bateria, em fichas que mostram o uso indicado e levam ao especialista, sem o cliente ter de procurar o contato.</p></div>
         <div class="rule"><h3>Reúne a prova social</h3><p>Avaliações públicas de clientes no Google, para quem ainda não conhece a loja ver o que outros dizem.</p></div>
-        <div class="rule"><h3>Ajuda a escolher</h3><p>37 artigos de comparação e de escolha, calculadoras, busca dentro do site e um guia de peças e acessórios por modelo, para o cliente decidir com segurança antes de falar com o vendedor.</p></div>
-        <div class="rule"><h3>WhatsApp com contexto</h3><p>Onze tipos de mensagem pré-preenchida, conforme o que o cliente estava vendo, para o vendedor entrar na conversa já sabendo o assunto.</p></div>
+        <div class="rule"><h3>Ajuda a escolher</h3><p>Artigos de comparação e de escolha, busca dentro do site e guias de peças e acessórios por modelo, para o cliente decidir com segurança antes de falar com o vendedor.</p></div>
+        <div class="rule"><h3>WhatsApp com contexto</h3><p>Mensagem pré-preenchida, conforme o que o cliente estava vendo, para o vendedor entrar na conversa já sabendo o assunto.</p></div>
       </div>
     </section>
 
@@ -78,13 +86,13 @@
     <section>
       <h2>Decisões</h2>
       <h3>Páginas geradas a partir de dados</h3>
-      <p>Os produtos, os artigos e as páginas da empresa ficam em arquivos de dados tipados em TypeScript, e uma única página de modelo gera cada rota na hora do build. Adicionar um produto novo é preencher um objeto, e o sitemap, o título, os dados estruturados e a navegação seguem sozinhos. O ganho é consistência: nenhuma das 200 páginas depende de alguém lembrar de configurar o SEO.</p>
+      <p>Os produtos, os artigos e as páginas da empresa ficam em arquivos de dados tipados em TypeScript, e uma única página de modelo gera cada rota na hora do build. Adicionar um produto novo é preencher um objeto, e o sitemap, o título, os dados estruturados e a navegação seguem sozinhos. O ganho é consistência: nenhuma página depende de alguém lembrar de configurar o SEO.</p>
       <h3>WhatsApp com a pergunta já feita</h3>
       <p>Toda chamada para o WhatsApp carrega o que o cliente estava olhando: o produto, a categoria, o artigo ou a assistência técnica. Isso troca o "oi, tudo bem?" por uma conversa que já começa no assunto, e o vendedor sabe de qual página o contato veio.</p>
       <h3>Cookies com consentimento de verdade</h3>
       <p>O Google Analytics e o mapa do Google só carregam depois que o visitante aceita, e o consentimento começa como negado. Recusar não tira nada do site. A escolha fica salva no navegador e pode ser mudada depois por um link no rodapé.</p>
       <h3>Segurança nos cabeçalhos</h3>
-      <p>O site envia uma política de segurança de conteúdo que libera só o que ele usa de verdade, além de proteção contra ser embutido em outras páginas e contra troca de tipo de arquivo. Um limite está documentado no código: o Next injeta scripts sem identificador próprio, então a política precisa aceitar scripts embutidos. Em desenvolvimento ela fica mais permissiva do que em produção.</p>
+      <p>O site envia uma política de segurança de conteúdo que restringe as origens permitidas, além de proteção contra ser embutido em outras páginas e contra troca de tipo de arquivo. Em desenvolvimento ela fica mais permissiva do que em produção.</p>
       <h3>Peça certa ou nenhuma</h3>
       <p>No guia de peças e acessórios vale o mesmo princípio do balcão do Vardão Central: sugerir só quando há certeza. Em tratores e giro zero, por exemplo, o cruzamento é feito só pelo código do modelo, e não por semelhança de nome. Prefiro não mostrar um acessório a mostrar o errado.</p>
     </section>
@@ -93,14 +101,11 @@
       <h2>Números</h2>
       <div class="numbers">
         <div class="num"><b>202</b><span>endereços no sitemap</span></div>
-        <div class="num"><b>9</b><span>páginas institucionais (início, A Vardão, assistência técnica, contato, avaliações e outras)</span></div>
-        <div class="num"><b>136</b><span>páginas de produtos e categorias</span></div>
-        <div class="num"><b>37</b><span>artigos publicados</span></div>
-        <div class="num"><b>21</b><span>páginas de acessórios</span></div>
-        <div class="num"><b>11</b><span>tipos de mensagem de WhatsApp com contexto</span></div>
-        <div class="num"><b>~24 mil</b><span>linhas de TypeScript e TSX</span></div>
+        <div class="num"><b>136</b><span>endereços de produtos e categorias</span></div>
+        <div class="num"><b>37</b><span>endereços de artigos em /novidades</span></div>
+        <div class="num"><b>22</b><span>endereços em /acessorios</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens feitas no sitemap do site no ar e no código em 31/10/2026.</p>
+      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens feitas no sitemap público do site (vardaomaquinas.com.br/sitemap.xml) em 10/11/2026. O código do site é privado e não foi usado para estas contagens.</p>
     </section>
 
     <section>
