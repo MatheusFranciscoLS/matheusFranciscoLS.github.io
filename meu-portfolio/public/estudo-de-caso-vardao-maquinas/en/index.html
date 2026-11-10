@@ -7,6 +7,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content="Institutional website of Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, Brazil: the company, the service workshop, the product lines and direct WhatsApp contact. Case study: design and engineering decisions.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
+  <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
+  <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="en_US">
@@ -32,12 +34,13 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Skip to content</a>
   <nav class="top" aria-label="Navigation"><div class="wrap">
     <a href="/en/#sistemas">← Portfolio</a>
     <span class="lang"><a href="../">PT</a><a href="./" aria-current="true">EN</a></span>
   </div></nav>
 
-  <main class="wrap">
+  <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
       <div class="eyebrow">Case study · 2026</div>
       <h1>Vardão Máquinas website</h1>
@@ -89,7 +92,7 @@
       <h3>Cookies with real consent</h3>
       <p>Google Analytics and the Google map only load after the visitor accepts, and consent starts as denied. Declining takes nothing away from the site. The choice is saved in the browser and can be changed later from a link in the footer.</p>
       <h3>Security in the headers</h3>
-      <p>The site sends a content security policy that allows only what it really uses, plus protection against being embedded in other pages and against file-type sniffing. One limit is documented in the code: Next injects scripts without its own identifier, so the policy has to accept inline scripts. In development it is more permissive than in production.</p>
+      <p>The site sends a content security policy that restricts the allowed origins, plus protection against being embedded in other pages and against file-type sniffing. In development it is more permissive than in production.</p>
       <h3>The right part, or none</h3>
       <p>The parts and accessories guide follows the same principle as the counter in Vardão Central: suggest only when there is certainty. For tractors and zero-turn mowers, for example, matching is done only by model code, never by name similarity. I would rather show no accessory than the wrong one.</p>
     </section>

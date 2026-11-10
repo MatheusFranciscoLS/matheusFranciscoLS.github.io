@@ -34,12 +34,13 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <nav class="top" aria-label="Navegação"><div class="wrap">
     <a href="/#sistemas">← Matheus Francisco</a>
     <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
   </div></nav>
 
-  <main class="wrap">
+  <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
       <p class="eyebrow">Estudo de caso · 2026 · sistema em uso diário</p>
       <h1>Vardão Central</h1>
@@ -105,7 +106,7 @@
         <li><strong>Regras do ERP, testadas.</strong> Li o código do ERP tela por tela e reproduzi as regras no Vardão Central: DRE, fluxo de caixa, capital de giro, ranking de clientes e outras. Cada regra tem testes automatizados.</li>
         <li><strong>O que estava escondido.</strong> A revisão mostrou que o ERP carregava regras e histórico de versões antigas que não estavam documentados. Sem essa revisão, esse legado teria ficado de fora dos relatórios.</li>
         <li><strong>Importação segura.</strong> O importador dos dados do ERP, testado com dados fictícios e usado na importação dos dados reais da loja, roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere os totais depois de gravar e tem como desfazer.</li>
-        <li><strong>Melhor que o original.</strong> Os valores passaram a ser contados em centavos inteiros, e a divisão em parcelas sempre fecha no total, sem diferença de arredondamento.</li>
+        <li><strong>Melhor que o original.</strong> Nas vendas, os valores são contados em centavos inteiros e a divisão em parcelas sempre fecha no total, sem diferença de arredondamento.</li>
       </ul>
     </section>
 
@@ -151,13 +152,13 @@
         <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
         <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, todos os 1.491 passaram, com um servidor RabbitMQ real (versão 3.13) rodando no mesmo ambiente. No E2E, 68 dos 70 testes passaram na primeira execução; os outros 2 usavam uma data fixa de outubro e passaram depois de trocá-la pelo mês corrente, sem remover nem enfraquecer verificações.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, todos os 1.491 passaram, com um servidor RabbitMQ real (versão 3.13) rodando no mesmo ambiente. No E2E, 2 dos 70 testes usavam uma data fixa de outubro e falharam na primeira execução; a correção (data do mês corrente, sem remover nem enfraquecer verificações) foi aplicada numa branch do repositório e a suíte completa passou 70 de 70.</p>
     </section>
 
     <section>
       <h2>Limites e o que falta</h2>
       <ul class="plain">
-        <li><strong>Testes e CI.</strong> Os resultados acima vêm de execuções manuais em ambiente isolado. O pipeline de CI do projeto está desativado no momento, então não há execução automática recente.</li>
+        <li><strong>Testes e CI.</strong> O pipeline de CI do projeto (GitHub Actions) funcionou durante o desenvolvimento: foram cerca de 2 mil execuções, 1.423 aprovadas, a última aprovada em 25/10/2026. Eu o desativei manualmente ao atingir o limite de uso do GitHub Actions, e ele não está ativo no momento. Os resultados acima vêm de uma execução local em ambiente isolado em 10/11/2026, e não do pipeline.</li>
         <li><strong>Prints.</strong> Feitos numa loja simulada com dados fictícios, sem nenhum dado real da loja.</li>
       </ul>
     </section>
