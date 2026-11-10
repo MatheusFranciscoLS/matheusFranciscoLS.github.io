@@ -145,13 +145,13 @@
     <section>
       <h2>Qualidade em números</h2>
       <div class="numbers">
-        <div class="num"><b>1.488</b><span>de 1.491 testes do back-end aprovados (222 arquivos)</span></div>
+        <div class="num"><b>1.491</b><span>testes do back-end aprovados (222 arquivos)</span></div>
         <div class="num"><b>623</b><span>testes Vitest do front-end aprovados (87 arquivos)</span></div>
         <div class="num"><b>70</b><span>testes E2E com Playwright aprovados (23 arquivos)</span></div>
         <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
         <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, os 3 testes que não passaram são de integração com o RabbitMQ e falharam porque não havia servidor de filas no ambiente. No E2E, 68 dos 70 testes passaram na primeira execução; os outros 2 usavam uma data fixa de outubro e passaram depois de trocá-la pelo mês corrente, sem remover nem enfraquecer verificações.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados em 10/11/2026 num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o commit de 04/11/2026. No back-end, 1.488 passaram nessa execução; os 3 de integração com o RabbitMQ precisam de um servidor de filas, e o autor os executou à parte, manualmente, com resultado aprovado. No E2E, 68 dos 70 testes passaram na primeira execução; os outros 2 usavam uma data fixa de outubro e passaram depois de trocá-la pelo mês corrente, sem remover nem enfraquecer verificações.</p>
     </section>
 
     <section>

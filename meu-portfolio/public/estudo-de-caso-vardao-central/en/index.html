@@ -145,13 +145,13 @@
     <section>
       <h2>Quality in numbers</h2>
       <div class="numbers">
-        <div class="num"><b>1,488</b><span>of 1,491 back-end tests passing (222 files)</span></div>
+        <div class="num"><b>1,491</b><span>back-end tests passing (222 files)</span></div>
         <div class="num"><b>623</b><span>front-end Vitest tests passing (87 files)</span></div>
         <div class="num"><b>70</b><span>Playwright end-to-end tests passing (23 files)</span></div>
         <div class="num"><b>91</b><span>versioned database migrations</span></div>
         <div class="num"><b>49</b><span>Prisma data models (enums not counted)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run on 2026-11-10 in an isolated environment (disposable local PostgreSQL database and fictional data), on the 2026-11-04 commit. In the back-end, the 3 tests that did not pass are RabbitMQ integration tests and failed because there was no message broker in the environment. In E2E, 68 of 70 tests passed on the first run; the other 2 used a fixed October date and passed after replacing it with the current month, without removing or weakening any check.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run on 2026-11-10 in an isolated environment (disposable local PostgreSQL database and fictional data), on the 2026-11-04 commit. In the back-end, 1,488 passed in that run; the 3 RabbitMQ integration tests need a message broker, and the author ran them separately, by hand, with a passing result. In E2E, 68 of 70 tests passed on the first run; the other 2 used a fixed October date and passed after replacing it with the current month, without removing or weakening any check.</p>
     </section>
 
     <section>
