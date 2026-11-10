@@ -19,6 +19,8 @@ let en = swap(template, '<!--app-->', render('en'));
 en = swap(en, '<html lang="pt-BR">', '<html lang="en">');
 en = swap(en, content.pt.meta.title, content.en.meta.title);
 en = swap(en, content.pt.meta.description, content.en.meta.description);
+en = swap(en, content.pt.meta.ogAlt, content.en.meta.ogAlt);
+en = swap(en, `"jobTitle": "${content.pt.meta.jobTitle}"`, `"jobTitle": "${content.en.meta.jobTitle}"`);
 en = swap(en, `href="${SITE}/" />\n    <link rel="alternate" hreflang="pt-BR"`, `href="${SITE}/en/" />\n    <link rel="alternate" hreflang="pt-BR"`);
 en = swap(en, '<meta property="og:url" content="https://matheusfranciscols.github.io/"', '<meta property="og:url" content="https://matheusfranciscols.github.io/en/"');
 en = swap(en, 'content="pt_BR"', 'content="en_US"');

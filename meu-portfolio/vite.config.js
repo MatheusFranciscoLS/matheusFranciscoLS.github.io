@@ -9,6 +9,8 @@ const htmlTokens = () => ({
     html
       .replaceAll('%TITLE%', content.pt.meta.title)
       .replaceAll('%DESC%', content.pt.meta.description)
+      .replaceAll('%OGALT%', content.pt.meta.ogAlt)
+      .replaceAll('%JOBTITLE%', content.pt.meta.jobTitle)
       .replaceAll('%URL%', `${SITE}/`)
       .replaceAll('%LOCALE%', 'pt_BR'),
 });
