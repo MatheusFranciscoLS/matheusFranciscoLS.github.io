@@ -206,7 +206,7 @@ export const content = {
         { when: '2020 até hoje', what: 'Vendedor, Vardão Máquinas', text: 'Loja familiar, revenda autorizada Husqvarna. Vendas consultivas, compras, estoque e parte do financeiro. Construí o Vardão Central e um CRM para acompanhar clientes e leads.' },
         { when: '2024 a 2028', what: 'Ciência da Computação, Anhembi Morumbi', text: 'Em andamento, conclusão prevista em outubro de 2028.' },
         { when: '2022 a 2024', what: 'Técnico em Desenvolvimento de Sistemas, SENAI', text: 'Java, banco de dados, web e mobile. TCC: Economia Solidária.' },
-        { when: '2017 a 2020', what: 'Vendedor, Yamashita Tratores', text: 'Atendimento consultivo e venda técnica de maquinário agrícola.' },
+        { when: '2017 a 2020', what: 'Auxiliar de estoque e vendas → Vendedor, Yamashita Tratores', text: 'Entrada em set/2017 como auxiliar; promoção a vendedor em out/2017. Atendimento consultivo e venda técnica de maquinário agrícola.' },
       ],
       skillsTitle: 'Tecnologias',
       skills: [
@@ -387,7 +387,7 @@ export const content = {
         { when: '2020 to today', what: 'Sales representative, Vardão Máquinas', text: 'Family-owned authorized Husqvarna dealer. Consultative sales, purchasing, inventory and part of the finances. I built Vardão Central and a CRM to track customers and leads.' },
         { when: '2024 to 2028', what: 'Computer Science, Anhembi Morumbi', text: 'In progress, expected October 2028.' },
         { when: '2022 to 2024', what: 'Technical course in Systems Development, SENAI', text: 'Java, databases, web and mobile. Capstone: Solidarity Economy.' },
-        { when: '2017 to 2020', what: 'Sales representative, Yamashita Tratores', text: 'Consultative service and technical sales of farm machinery.' },
+        { when: '2017 to 2020', what: 'Stock and sales assistant → Sales Representative, Yamashita Tratores', text: 'Joined in Sep 2017 as an assistant and was promoted to Sales Representative in Oct 2017. Consultative service and technical sales of farm machinery.' },
       ],
       skillsTitle: 'Technologies',
       skills: [
