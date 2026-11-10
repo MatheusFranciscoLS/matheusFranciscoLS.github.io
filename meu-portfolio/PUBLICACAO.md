@@ -4,10 +4,14 @@ O trabalho está na branch `portfolio/repositionamento-profissional-2026`, no PR
 
 ## Antes de aprovar o PR
 
-- [ ] GitHub Actions: `npm ci`, `npm run lint` e `npm run build` aprovados.
+- [ ] GitHub Actions: `Portfolio checks` verde no PR (instalação, conferência dos PDFs versionados, lint, build, rotas e regeneração dos PDFs). Ainda não confirmado: depende da execução do CI após o último commit.
+- [x] `npm ci`, `npm run lint` e `npm run build` executados localmente em checkout limpo, sem erros.
 - [ ] Conferir visualmente desktop e celular, tema claro e escuro, português e inglês.
 - [ ] Conferir os dois estudos de caso do Vardão Central.
-- [x] Geração dos PDFs a partir dos HTMLs validada no GitHub Actions; os dois arquivos foram conferidos em uma página A4. O comando `npm run deploy` também os regenera automaticamente antes do build.
+- [ ] Revisar `METRICAS.md`: cada número publicado tem origem e critério de contagem.
+- [ ] Confirmar com Matheus o que o relatório de entrega lista como pendente (uso diário, dados reais do ERP, recaptura dos prints com preços fictícios).
+- [x] PDFs regenerados localmente a partir dos HTMLs finais (Edge) e conferidos com `sh curriculos/verificar.sh`: hash em dia, uma página A4 cada e texto esperado.
+- [ ] Geração dos PDFs no GitHub Actions (Chrome do runner): pendente de confirmação no CI. O comando `npm run deploy` também os regenera antes do build.
 - [ ] Confirmar com Matheus qualquer informação biográfica ou resultado comercial que não tenha comprovação suficiente.
 - [ ] Revisar links externos e testar as rotas geradas em `dist/`.
 

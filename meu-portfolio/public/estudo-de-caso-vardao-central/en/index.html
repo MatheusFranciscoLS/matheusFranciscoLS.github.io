@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vardão Central: case study | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="How I built the system an authorized Husqvarna dealer uses at the counter, in sales, finance and inventory, and how I migrated the old ERP with the numbers checked to the cent.">
+  <meta name="description" content="How I built the system an authorized Husqvarna dealer uses at the counter, in sales, finance and inventory, and how I rebuilt the old ERP’s rules in it.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
@@ -13,12 +13,17 @@
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Vardão Central: case study | Matheus Francisco">
-  <meta property="og:description" content="The system the store where I work uses every day: counter, CRM, finance and inventory, and an ERP migration checked to the cent.">
+  <meta property="og:description" content="The system the store where I work uses every day: counter, CRM, finance and inventory, and the old ERP’s rules rebuilt and tested.">
   <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Vardão Central counter: search for model 143RII with three parts in the quote alongside.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vardão Central: case study | Matheus Francisco">
+  <meta name="twitter:description" content="The system the store where I work uses every day: counter, CRM, finance and inventory, and the old ERP’s rules rebuilt and tested.">
+  <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
+  <meta name="twitter:image:alt" content="Vardão Central counter: search for model 143RII with three parts in the quote alongside.">
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
@@ -38,10 +43,11 @@
     <header class="hero">
       <p class="eyebrow">Case study · 2026 · system in daily use</p>
       <h1>Vardão Central</h1>
-      <p class="lead">The system Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. I started with a parts catalog for the counter, and today it is taking over the work of the store’s old ERP.</p>
+      <p class="lead">The system Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. I started with a parts catalog for the counter, and today it is taking over parts of the store’s old ERP, starting with finance.</p>
       <ul class="meta">
-        <li><strong>Role</strong>Product, design and full-stack development</li>
+        <li><strong>Role</strong>Product, design and full-stack development, with the business rules defined together with the store owner</li>
         <li><strong>Company</strong>Vardão Máquinas (where I work)</li>
+        <li><strong>Period</strong>Since August 2026</li>
         <li><strong>Status</strong>In daily use</li>
       </ul>
       <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">See the live system (login required)</a>
@@ -54,6 +60,16 @@
       <h2>The problem</h2>
       <p>At the counter the customer is standing in front of the clerk. To answer "which part is it and how much", the clerk opened a PDF catalog, found the position in the drawing, checked the price in a spreadsheet, looked for the shelf and wrote the quote by hand. A wrong code becomes a return.</p>
       <p>Away from the counter, sales, finance and customers lived in an old ERP, separate from everything else. Knowing how much the store sold this month or which customer had gone quiet meant gathering information from different places.</p>
+    </section>
+
+    <section>
+      <h2>How it evolved</h2>
+      <p>I started with a parts catalog for the counter and grew it as the store asked for more. The dates come from the repository history.</p>
+      <ol class="timeline">
+        <li><strong>August 2026</strong>Parts catalog and search by code, part and model.</li>
+        <li><strong>September</strong>Counter quotes, saved on the server.</li>
+        <li><strong>October</strong>A CRM with a deal board. Then Finance and Inventory, with access roles, and the old ERP’s rules reproduced.</li>
+      </ol>
     </section>
 
     <section>
@@ -71,13 +87,25 @@
     </section>
 
     <section>
-      <h2>The ERP migration, checked to the cent</h2>
+      <h2>Architecture and engineering</h2>
+      <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagram: the browser uses the React front end on Vercel, which calls the Node.js API on Render; the API writes to PostgreSQL and Supabase Storage and puts PDF reading on a RabbitMQ queue; dashed external integrations: the manufacturer’s public portal, Gemini and files from the old ERP." loading="lazy" width="1000" height="492"></div>
+      <ul class="plain">
+        <li><strong>Many stores, one database.</strong> Every record belongs to a store (a store field across the database schema), and the store comes from the signed-in session, not from the browser.</li>
+        <li><strong>Login and roles.</strong> Cookie session with a JWT, renewed while the person is working. There are three roles (Administrator, Mechanic, for counter and sales, and Finance), and the server checks the role on every route. Changing a role or deactivating someone ends the session.</li>
+        <li><strong>Basic protection.</strong> Rate limiting, security headers (helmet) and input validation on the API.</li>
+        <li><strong>Background work.</strong> Reading PDF catalogs goes through a RabbitMQ queue, with retries. The API does not depend on the queue to serve the counter.</li>
+        <li><strong>Database.</strong> PostgreSQL with Prisma: 49 models and 91 versioned migrations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Replacing the old ERP</h2>
       <p>The store could not lose a single number in the switch. The rule was simple: the same results as the old ERP, or better.</p>
       <ul class="plain">
-        <li><strong>Automatic proof.</strong> I wrote a test that runs the old ERP’s own functions and Vardão Central’s on the same data and compares the results: 75 scenarios, 1,107 comparisons, no difference above 1 cent.</li>
-        <li><strong>What was hidden.</strong> The comparison showed the ERP still used an old sales table, with its own rules from a cut-off date. Without the proof, that legacy data would have been missing from the income statement and the reports.</li>
-        <li><strong>Safe import.</strong> The importer runs as a dry run first, requires the expected totals before writing, checks to the cent after writing and can be undone.</li>
-        <li><strong>Better than the original.</strong> Where the ERP rounded badly, Vardão Central counts installments in whole cents, and the remainder of a split goes to the first installment.</li>
+        <li><strong>The ERP’s rules, tested.</strong> I read the ERP’s code screen by screen and reproduced its rules in Vardão Central: income statement, cash flow, working capital, customer ranking and more. Each rule has automated tests.</li>
+        <li><strong>What was hidden.</strong> The review showed the ERP still used an old sales table, with its own rules up to a cut-off date. Without that review, this legacy data would have been missing from the income statement and the reports.</li>
+        <li><strong>Safe import.</strong> The importer for the ERP data, ready and tested with fictional data, runs as a dry run first, requires the expected totals before writing, checks the totals after writing and can be undone.</li>
+        <li><strong>Better than the original.</strong> On sales installments, the ERP added up to R$ 99.99 for R$ 100 in three payments. Vardão Central counts in whole cents and the remainder goes to the first installment.</li>
       </ul>
     </section>
 
@@ -96,9 +124,8 @@
       <div class="gallery">
         <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="A code replaced by the manufacturer, with the new code highlighted." loading="lazy" width="1440" height="900"></div><figcaption><strong>Old code, new part.</strong> The official replacement is highlighted, ready to quote.</figcaption></figure>
         <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Quote review with lead time, payment, discount and sending by WhatsApp or PDF." loading="lazy" width="1440" height="900"></div><figcaption><strong>Quote</strong> with lead time, payment and discount, sent by WhatsApp or PDF.</figcaption></figure>
-        <figure><div class="shot"><img src="/assets/vardao-central/equipamentos.png" alt="Equipment table with photo, PNC, application and list price." loading="lazy" width="1440" height="900"></div><figcaption><strong>Equipment</strong> by technology, category and application, with what is new on the list.</figcaption></figure>
       </div>
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Screenshots taken in a simulated store with demo data. No real store data appears here.</p>
+      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Screenshots from a simulated store, with no customer data. Prices were hidden.</p>
     </section>
 
     <section>
@@ -111,21 +138,30 @@
       <p>The PDF catalog reader prefers to refuse a doubtful file, saying why, rather than save a wrong code that would spoil the whole search.</p>
       <h3>The server next to the database</h3>
       <p>The database is in São Paulo and the API server was in the United States: every query went there and back, about 210 ms each time. I prepared the everyday screens to be served by a function in São Paulo, next to the database, and left only the heavy work, like PDFs and imports, on the main server. One variable switches it back.</p>
-      <h3>Compare with the old system, not with my memory</h3>
-      <p>In the migration I did not trust the rules I thought the ERP had. I ran the ERP itself as the reference, and that is what found what was hidden.</p>
+      <h3>Read the old system, don’t trust memory</h3>
+      <p>When rebuilding finance I did not trust the rules I thought the ERP had. I went to its code, and that is what found what was hidden.</p>
     </section>
 
     <section>
       <h2>Quality in numbers</h2>
       <div class="numbers">
         <div class="num"><b>222</b><span>back-end test files</span></div>
-        <div class="num"><b>110</b><span>front-end test files</span></div>
+        <div class="num"><b>87</b><span>front-end Vitest test files</span></div>
         <div class="num"><b>23</b><span>Playwright end-to-end spec files</span></div>
-        <div class="num"><b>1,107</b><span>comparisons with the old ERP</span></div>
-        <div class="num"><b>92</b><span>versioned database migrations</span></div>
-        <div class="num"><b>56</b><span>Prisma data models</span></div>
+        <div class="num"><b>623</b><span>front-end Vitest tests, all passing</span></div>
+        <div class="num"><b>91</b><span>versioned database migrations</span></div>
+        <div class="num"><b>49</b><span>Prisma data models (enums not counted)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">File counts updated from the repository tree on 2026-11-10.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Files counted in the repository tree (commit of 2026-11-04); Vitest tests executed on 2026-11-10. Back-end and end-to-end tests were not executed for this count.</p>
+    </section>
+
+    <section>
+      <h2>Limits and what is missing</h2>
+      <ul class="plain">
+        <li><strong>Real ERP data.</strong> The importer is ready and tested with fictional data. Running it on the real data is the store owner’s decision.</li>
+        <li><strong>Tests.</strong> The front-end tests run in seconds and passed on the last run. The back-end and end-to-end tests need a database and a browser and are in the project’s CI pipeline.</li>
+        <li><strong>Screenshots.</strong> Prices were hidden, because the price list is store data.</li>
+      </ul>
     </section>
 
     <section>

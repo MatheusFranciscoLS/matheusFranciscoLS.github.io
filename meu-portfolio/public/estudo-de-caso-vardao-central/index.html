@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vardão Central: estudo de caso | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="description" content="Como construí o sistema que uma revenda autorizada Husqvarna usa no balcão, no comercial, no financeiro e no estoque, e como migrei o ERP antigo com os números conferidos ao centavo.">
+  <meta name="description" content="Como construí o sistema que uma revenda autorizada Husqvarna usa no balcão, no comercial, no financeiro e no estoque, e como reconstruí nele as regras do ERP antigo.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/en/">
@@ -13,12 +13,17 @@
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Vardão Central: estudo de caso | Matheus Francisco">
-  <meta property="og:description" content="O sistema que a loja onde trabalho usa todo dia: balcão, CRM, financeiro e estoque, e a migração do ERP conferida ao centavo.">
+  <meta property="og:description" content="O sistema que a loja onde trabalho usa todo dia: balcão, CRM, financeiro e estoque, e as regras do ERP antigo reconstruídas e testadas.">
   <meta property="og:url" content="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Balcão do Vardão Central: busca pelo modelo 143RII com três peças no orçamento ao lado.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vardão Central: estudo de caso | Matheus Francisco">
+  <meta name="twitter:description" content="O sistema que a loja onde trabalho usa todo dia: balcão, CRM, financeiro e estoque, e as regras do ERP antigo reconstruídas e testadas.">
+  <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
+  <meta name="twitter:image:alt" content="Balcão do Vardão Central: busca pelo modelo 143RII com três peças no orçamento ao lado.">
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
@@ -38,10 +43,11 @@
     <header class="hero">
       <p class="eyebrow">Estudo de caso · 2026 · sistema em uso diário</p>
       <h1>Vardão Central</h1>
-      <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão, e hoje ele assume o trabalho do ERP antigo da loja.</p>
+      <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão, e hoje ele assume partes do trabalho do ERP antigo da loja, a começar pelo financeiro.</p>
       <ul class="meta">
-        <li><strong>Papel</strong>Produto, design e desenvolvimento full-stack</li>
+        <li><strong>Papel</strong>Produto, design e desenvolvimento full-stack, com as regras de negócio definidas junto com o dono da loja</li>
         <li><strong>Empresa</strong>Vardão Máquinas (onde trabalho)</li>
+        <li><strong>Período</strong>Desde agosto de 2026</li>
         <li><strong>Situação</strong>Em uso diário</li>
       </ul>
       <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">Ver o sistema no ar (com login)</a>
@@ -54,6 +60,16 @@
       <h2>O problema</h2>
       <p>No balcão, o cliente está na frente do atendente. Para responder "qual é a peça e quanto custa", era preciso abrir um catálogo em PDF, achar a posição no desenho, conferir o preço numa planilha, ver se a peça estava na prateleira e montar o orçamento à mão. Um código errado vira devolução.</p>
       <p>Fora do balcão, as vendas, o financeiro e os clientes ficavam num ERP antigo, separado de tudo. Quem queria saber quanto a loja vendeu no mês ou que cliente estava parado precisava juntar informações de lugares diferentes.</p>
+    </section>
+
+    <section>
+      <h2>Como evoluiu</h2>
+      <p>Comecei por um catálogo de peças para o balcão e fui ampliando conforme a loja pedia. As datas vêm do histórico do repositório.</p>
+      <ol class="timeline">
+        <li><strong>Agosto de 2026</strong>Catálogo e busca de peças por código, peça e modelo.</li>
+        <li><strong>Setembro</strong>Orçamento no balcão, salvo no servidor.</li>
+        <li><strong>Outubro</strong>CRM com quadro de negociações. Depois, o Financeiro e o Estoque, com perfis de acesso, e as regras do ERP antigo reproduzidas.</li>
+      </ol>
     </section>
 
     <section>
@@ -71,13 +87,25 @@
     </section>
 
     <section>
-      <h2>A migração do ERP, conferida ao centavo</h2>
+      <h2>Arquitetura e engenharia</h2>
+      <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagrama: o navegador usa o front-end React na Vercel, que chama a API Node.js no Render; a API grava no PostgreSQL e no Storage do Supabase e coloca a leitura de PDFs numa fila RabbitMQ; integrações externas tracejadas: portal público da fabricante, Gemini e arquivos do ERP antigo." loading="lazy" width="1000" height="492"></div>
+      <ul class="plain">
+        <li><strong>Várias lojas, um banco.</strong> Todo registro pertence a uma loja (um campo de loja em todo o esquema do banco), e a loja vem da sessão de quem entrou, não do navegador.</li>
+        <li><strong>Login e perfis.</strong> Sessão por cookie com JWT, renovada enquanto a pessoa trabalha. Há três perfis (Administrador, Mecânico, para balcão e vendas, e Financeiro), e o servidor confere o perfil em cada rota. Trocar o perfil ou desativar alguém derruba a sessão.</li>
+        <li><strong>Proteção básica.</strong> Limite de requisições, cabeçalhos de segurança (helmet) e validação das entradas na API.</li>
+        <li><strong>Trabalho em segundo plano.</strong> A leitura de catálogos em PDF passa por uma fila RabbitMQ, com nova tentativa. A API não depende da fila para atender o balcão.</li>
+        <li><strong>Banco.</strong> PostgreSQL com Prisma: 49 modelos e 91 migrations versionadas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Substituindo o ERP antigo</h2>
       <p>A loja não podia perder nenhum número na troca. A regra era simples: os mesmos resultados do ERP antigo, ou melhores.</p>
       <ul class="plain">
-        <li><strong>Prova automática.</strong> Escrevi um teste que roda as funções do próprio ERP antigo e as do Vardão Central sobre os mesmos dados e compara o resultado: 75 cenários, 1.107 comparações, nenhuma diferença acima de 1 centavo.</li>
-        <li><strong>O que estava escondido.</strong> A comparação mostrou que o ERP ainda usava uma tabela antiga de vendas, com regras próprias a partir de uma data de corte. Sem a prova, esse "legado" teria ficado de fora do DRE e dos relatórios.</li>
-        <li><strong>Importação segura.</strong> O importador roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere ao centavo depois de gravar e tem como desfazer.</li>
-        <li><strong>Melhor que o original.</strong> Onde o ERP arredondava errado, o Vardão Central conta em centavos inteiros, e a sobra de uma divisão de parcelas vai para a primeira parcela.</li>
+        <li><strong>Regras do ERP, testadas.</strong> Li o código do ERP tela por tela e reproduzi as regras no Vardão Central: DRE, fluxo de caixa, capital de giro, ranking de clientes e outras. Cada regra tem testes automatizados.</li>
+        <li><strong>O que estava escondido.</strong> A revisão mostrou que o ERP ainda usava uma tabela antiga de vendas, com regras próprias até uma data de corte. Sem essa revisão, esse "legado" teria ficado de fora do DRE e dos relatórios.</li>
+        <li><strong>Importação segura.</strong> O importador dos dados do ERP, pronto e testado com dados fictícios, roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere os totais depois de gravar e tem como desfazer.</li>
+        <li><strong>Melhor que o original.</strong> Nas parcelas das vendas, o ERP somava R$ 99,99 para R$ 100 em três vezes. O Vardão Central conta em centavos inteiros e a sobra vai para a primeira parcela.</li>
       </ul>
     </section>
 
@@ -96,9 +124,8 @@
       <div class="gallery">
         <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="Código substituído pela fabricante, com o código novo em destaque." loading="lazy" width="1440" height="900"></div><figcaption><strong>Código antigo, peça nova.</strong> A troca oficial aparece em destaque, com o código novo pronto para orçar.</figcaption></figure>
         <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Revisão do orçamento com prazo, pagamento, desconto e envio por WhatsApp ou PDF." loading="lazy" width="1440" height="900"></div><figcaption><strong>Orçamento</strong> com prazo, pagamento e desconto, enviado por WhatsApp ou PDF.</figcaption></figure>
-        <figure><div class="shot"><img src="/assets/vardao-central/equipamentos.png" alt="Tabela de equipamentos com foto, PNC, aplicação e preço da lista." loading="lazy" width="1440" height="900"></div><figcaption><strong>Equipamentos</strong> por tecnologia, categoria e aplicação, com as novidades da lista.</figcaption></figure>
       </div>
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Prints feitos numa loja simulada, com dados de demonstração. Nenhum dado real da loja aparece aqui.</p>
+      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Prints de uma loja simulada, sem dados de clientes. Os preços foram ocultados.</p>
     </section>
 
     <section>
@@ -111,21 +138,30 @@
       <p>O leitor de catálogos em PDF prefere recusar um arquivo duvidoso, dizendo o motivo, a gravar um código errado que estragaria a busca inteira.</p>
       <h3>O servidor ao lado do banco</h3>
       <p>O banco fica em São Paulo e o servidor da API ficava nos Estados Unidos: cada consulta ia e voltava, cerca de 210 ms por vez. Preparei as telas do dia a dia para serem atendidas por uma função em São Paulo, ao lado do banco, e deixei no servidor principal só o que é pesado, como PDFs e importações. Dá para voltar atrás com uma variável.</p>
-      <h3>Comparar com o sistema antigo, não com a minha cabeça</h3>
-      <p>Na migração, eu não confiei nas regras que eu achava que o ERP tinha. Rodei o próprio ERP como referência, e foi isso que achou o que estava escondido.</p>
+      <h3>Ler o sistema antigo, não confiar na memória</h3>
+      <p>Na reconstrução do financeiro, eu não confiei nas regras que eu achava que o ERP tinha. Fui ao código dele, e foi isso que achou o que estava escondido.</p>
     </section>
 
     <section>
       <h2>Qualidade em números</h2>
       <div class="numbers">
         <div class="num"><b>222</b><span>arquivos de teste no back-end</span></div>
-        <div class="num"><b>110</b><span>arquivos de teste no front-end</span></div>
+        <div class="num"><b>87</b><span>arquivos de teste Vitest no front-end</span></div>
         <div class="num"><b>23</b><span>arquivos de testes E2E com Playwright</span></div>
-        <div class="num"><b>1.107</b><span>comparações com o ERP antigo</span></div>
-        <div class="num"><b>92</b><span>migrations do banco, versionadas</span></div>
-        <div class="num"><b>56</b><span>modelos de dados no Prisma</span></div>
+        <div class="num"><b>623</b><span>testes Vitest no front-end, todos passando</span></div>
+        <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
+        <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Contagens de arquivos atualizadas a partir da árvore do repositório em 10/11/2026.</p>
+      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Arquivos contados na árvore do repositório (commit de 04/11/2026); testes Vitest executados em 10/11/2026. Os testes do back-end e os E2E não foram executados para esta contagem.</p>
+    </section>
+
+    <section>
+      <h2>Limites e o que falta</h2>
+      <ul class="plain">
+        <li><strong>Dados reais do ERP.</strong> O importador está pronto e testado com dados fictícios. Rodar com os dados reais é decisão do dono da loja.</li>
+        <li><strong>Testes.</strong> Os testes do front-end rodam em segundos e passaram na última execução. Os do back-end e os E2E precisam de banco e de navegador e estão no pipeline de CI do projeto.</li>
+        <li><strong>Prints.</strong> Os preços foram ocultados, porque a lista de preços é dado da loja.</li>
+      </ul>
     </section>
 
     <section>

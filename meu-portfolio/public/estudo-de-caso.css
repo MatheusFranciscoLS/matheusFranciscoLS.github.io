@@ -103,6 +103,10 @@ figcaption strong { color: var(--ink); }
 .num b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 2.6rem; line-height: 1; color: var(--accent-text); }
 .num span { font-size: 0.92rem; color: var(--ink-2); }
 
+.timeline { list-style: none; margin: 8px 0 0; padding: 0 0 0 18px; border-left: 2px solid var(--accent); max-width: 46rem; }
+.timeline li { margin: 0 0 14px; }
+.timeline strong { display: block; color: var(--accent-text); font-weight: 600; font-size: 0.95rem; }
+
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 0; padding: 0; list-style: none; }
 .tags li { font-size: 0.88rem; padding: 4px 12px; border: 1px solid var(--line); color: var(--ink-2); }
 
