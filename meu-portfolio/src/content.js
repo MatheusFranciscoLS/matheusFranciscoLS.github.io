@@ -79,7 +79,7 @@ export const content = {
       contact: 'Falar comigo',
       title: 'Construo sistemas que ficam no ar.',
       lead:
-        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e eu também fiz o site dela. Tenho mais três projetos completos funcionando.',
+        'Minha experiência une tecnologia e negócio: depois de anos atuando em revendas de máquinas, construí o sistema que a loja onde trabalho usa todos os dias e também desenvolvi seu site. Meu foco é uma oportunidade como desenvolvedor full-stack júnior, mas estou aberto a outras posições de entrada em TI para começar na área e crescer tecnicamente.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'Ver os sistemas',
       secondary: 'Baixar currículo',
@@ -227,7 +227,7 @@ export const content = {
     },
     contact: {
       title: 'Vamos conversar',
-      intro: 'Procuro minha primeira vaga como desenvolvedor full-stack júnior. Fale comigo por e-mail, WhatsApp ou LinkedIn.',
+      intro: 'Meu objetivo principal é uma vaga como desenvolvedor full-stack júnior, mas também considero oportunidades de entrada em outras áreas de TI. Fale comigo por e-mail, WhatsApp ou LinkedIn.',
       email: 'E-mail',
       copy: 'Copiar e-mail',
       copied: 'E-mail copiado',
@@ -257,7 +257,7 @@ export const content = {
       contact: 'Get in touch',
       title: 'I build systems that stay live.',
       lead:
-        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I also built its website. I have three more complete projects running.',
+        'My experience connects technology and business: after years working at machinery dealerships, I built the system the store where I work uses every day, as well as its website. I am primarily seeking a junior full-stack developer role, while remaining open to other entry-level IT opportunities to start my career in tech and grow technically.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'See the systems',
       secondary: 'Download résumé',
@@ -408,7 +408,7 @@ export const content = {
     },
     contact: {
       title: 'Let’s talk',
-      intro: 'I am looking for my first role as a junior full-stack developer. Reach me by email, WhatsApp or LinkedIn.',
+      intro: 'My primary goal is a junior full-stack developer role, but I am also open to entry-level opportunities across IT. Reach me by email, WhatsApp or LinkedIn.',
       email: 'Email',
       copy: 'Copy email',
       copied: 'Email copied',
