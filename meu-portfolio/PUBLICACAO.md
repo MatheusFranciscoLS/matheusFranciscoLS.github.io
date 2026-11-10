@@ -9,7 +9,8 @@ O trabalho está na branch `portfolio/repositionamento-profissional-2026`, no PR
 - [ ] Conferir visualmente desktop e celular, tema claro e escuro, português e inglês.
 - [ ] Conferir os dois estudos de caso do Vardão Central.
 - [ ] Revisar `METRICAS.md`: cada número publicado tem origem e critério de contagem.
-- [ ] Confirmar com Matheus o que o relatório de entrega lista como pendente (uso diário, dados reais do ERP, recaptura dos prints com preços fictícios).
+- [x] Matheus confirmou que o Vardão Central é usado todos os dias na loja.
+- [ ] Pendentes: situação da importação dos dados reais do ERP e recaptura dos prints com preços fictícios.
 - [x] PDFs regenerados localmente a partir dos HTMLs finais (Edge) e conferidos com `sh curriculos/verificar.sh`: hash em dia, uma página A4 cada e texto esperado.
 - [ ] Geração dos PDFs no GitHub Actions (Chrome do runner): pendente de confirmação no CI. O comando `npm run deploy` também os regenera antes do build.
 - [ ] Confirmar com Matheus qualquer informação biográfica ou resultado comercial que não tenha comprovação suficiente.
