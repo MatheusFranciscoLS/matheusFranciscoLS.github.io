@@ -30,9 +30,7 @@ for lang in pt en; do
 
   contem "Yamashita Tratores"
   contem "AWS Academy Graduate - AWS Academy Cloud Foundations"
-  contem "222"
-  contem "87"
-  contem "23"
+  contem "623"
   for proibido in "CogniVault" "1.107" "1,107" "110 " "300 mil" "2.000" "Cloud Practitioner" "pré-intermediário" "pre-intermediate" "Out 2017" "Oct 2017 -" "cerca de 200" "about 200"; do
     nao_contem "$proibido"
   done
@@ -41,11 +39,15 @@ for lang in pt en; do
     contem "Auxiliar de estoque e vendas, depois Vendedor"
     contem "Set 2017 - Set 2020"
     contem "Inglês: intermediário"
+    contem "1.491"
+    contem "70 E2E"
   else
     contem "Junior Full-Stack Developer"
     contem "Sep 2017 - Sep 2020"
     contem "Stock and sales assistant, then Sales Representative"
     contem "English: intermediate"
+    contem "1,491"
+    contem "70 end-to-end"
   fi
 done
 

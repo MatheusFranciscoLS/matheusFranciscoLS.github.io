@@ -1,4 +1,4 @@
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { EMAIL, LINKS, content, paths } from './content';
 
 const subscribeTheme = (notify) => {
@@ -21,35 +21,6 @@ function useTheme() {
     }
   };
   return [theme, toggle];
-}
-
-// Verifica somente o carregamento do favicon de cada endereço. Isso não é um health check
-// e não confirma que a aplicação, a API ou o banco de dados estejam saudáveis.
-function useLiveStatus(items) {
-  const [status, setStatus] = useState(() => Object.fromEntries(items.map((i) => [i.id, 'checking'])));
-  useEffect(() => {
-    const probes = items.map((item) => {
-      const img = new Image();
-      const done = (result) => {
-        clearTimeout(timer);
-        img.onload = img.onerror = null;
-        setStatus((s) => ({ ...s, [item.id]: result }));
-      };
-      const timer = setTimeout(() => done('down'), 9000);
-      img.onload = () => done('up');
-      img.onerror = () => done('down');
-      img.src = `${item.probe}?agora=${Date.now()}`;
-      return { img, timer };
-    });
-    return () => {
-      probes.forEach(({ img, timer }) => {
-        clearTimeout(timer);
-        img.onload = img.onerror = null;
-        img.src = '';
-      });
-    };
-  }, [items]);
-  return status;
 }
 
 function Header({ t, lang, theme, toggleTheme }) {
@@ -94,11 +65,8 @@ function Header({ t, lang, theme, toggleTheme }) {
   );
 }
 
-function Hero({ t, lang, items, status }) {
+function Hero({ t, lang }) {
   const h = t.hero;
-  const values = Object.values(status);
-  const finished = values.every((v) => v !== 'checking');
-  const upCount = values.filter((v) => v === 'up').length;
   return (
     <section className="hero" aria-labelledby="titulo">
       <div className="wrap hero__grid">
@@ -127,30 +95,6 @@ function Hero({ t, lang, items, status }) {
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
           </p>
         </div>
-        <div className="board" role="region" aria-labelledby="board-title">
-          <div className="board__head">
-            <h2 id="board-title">{h.boardTitle}</h2>
-            <span>{h.boardNote}</span>
-          </div>
-          <ul>
-            {items.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`} className="board__row">
-                  <span className="board__name">
-                    <b>{item.name}</b>
-                    <small>{item.boardNote}</small>
-                  </span>
-                  <span className={`status status--${status[item.id]}`}>
-                    {h.status[status[item.id]]}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="sr-only" aria-live="polite">
-            {finished ? h.summary(upCount, items.length) : ''}
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -176,7 +120,7 @@ function SystemLinks({ s, item }) {
   );
 }
 
-function Systems({ t, items, status }) {
+function Systems({ t, items }) {
   const s = t.systemsSection;
   const [main, ...rest] = items;
   return (
@@ -191,9 +135,7 @@ function Systems({ t, items, status }) {
           <div className="main__top">
             <p className="tag">{main.tag}</p>
             <h3 id={`n-${main.id}`}>{main.name}</h3>
-            <p className="main__kind">
-              <span className={`status status--${status[main.id]}`}>{t.hero.status[status[main.id]]}</span> {main.kind}
-            </p>
+            <p className="main__kind">{main.kind}</p>
             <p className="main__summary">{main.summary}</p>
           </div>
           <img className="shot" src={main.img} alt={main.imgAlt} width="1440" height="900" loading="lazy" decoding="async" />
@@ -229,9 +171,7 @@ function Systems({ t, items, status }) {
             <article className="card" id={item.id} key={item.id} aria-labelledby={`n-${item.id}`}>
               <img className="card__img" src={item.img} alt={item.imgAlt} width="1600" height="900" loading="lazy" decoding="async" />
               <div className="card__body">
-                <p className="tag">
-                  {item.tag} <span className={`status status--${status[item.id]}`}>{t.hero.status[status[item.id]]}</span>
-                </p>
+                <p className="tag">{item.tag}</p>
                 <h3 id={`n-${item.id}`}>{item.name}</h3>
                 <p className="card__kind">{item.kind}</p>
                 <p>{item.summary}</p>
@@ -387,7 +327,6 @@ export default function App({ lang = 'pt' }) {
   const t = content[lang];
   const [theme, toggleTheme] = useTheme();
   const items = t.systemsSection.items;
-  const status = useLiveStatus(items);
   return (
     <>
       <a className="skip" href="#conteudo">
@@ -395,8 +334,8 @@ export default function App({ lang = 'pt' }) {
       </a>
       <Header t={t} lang={lang} theme={theme} toggleTheme={toggleTheme} />
       <main id="conteudo">
-        <Hero t={t} lang={lang} items={items} status={status} />
-        <Systems t={t} items={items} status={status} />
+        <Hero t={t} lang={lang} />
+        <Systems t={t} items={items} />
         <Method t={t} />
         <Path t={t} />
         <Contact t={t} lang={lang} />

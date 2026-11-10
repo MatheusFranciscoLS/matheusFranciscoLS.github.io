@@ -12,7 +12,7 @@ ul { margin: 2px 0 5px; padding-left: 14px; }
 li { margin-bottom: 1.5px; }
 .row { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
 .row b { font-weight: 700; }
-.row i { font-style: italic; white-space: nowrap; }
+.row i { font-style: italic; white-space: nowrap; padding-right: 2px; }
 .stack { color: #55606c; font-size: 8.6pt; margin: 0 0 1px; }
 .proj { margin-bottom: 5px; }
 .proj .links { white-space: nowrap; font-size: 9pt; }

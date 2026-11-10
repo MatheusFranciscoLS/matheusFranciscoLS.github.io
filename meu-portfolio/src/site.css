@@ -1,6 +1,5 @@
-/* Direção "Painel ao vivo": grafite-azulado com âmbar de sinalização e verde de status.
-   Tipografia condensada (Barlow Condensed) nos títulos, Barlow no texto.
-   O indicador muda conforme o carregamento do favicon, não como health check da aplicação. */
+/* Direção visual: grafite-azulado com âmbar (#ffb547) de destaque, tema escuro ou claro.
+   Tipografia condensada (Barlow Condensed) nos títulos, Barlow no texto. */
 @import '@fontsource/barlow/400.css';
 @import '@fontsource/barlow/500.css';
 @import '@fontsource/barlow/600.css';
@@ -211,50 +210,6 @@ img {
   border-color: var(--line);
 }
 
-/* Status ao vivo */
-.status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--ink-2);
-  white-space: nowrap;
-}
-.status::before {
-  content: '';
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--ink-2);
-}
-.status--up {
-  color: var(--ok-text);
-}
-.status--up::before {
-  background: var(--ok);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent);
-}
-.status--down {
-  color: var(--bad);
-}
-.status--down::before {
-  background: var(--bad);
-}
-.status--checking::before {
-  animation: pulse 1s ease-in-out infinite;
-}
-@keyframes pulse {
-  50% {
-    opacity: 0.25;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .status--checking::before {
-    animation: none;
-  }
-}
-
 /* Primeira tela */
 .hero {
   padding-block: clamp(32px, 4vw, 64px) clamp(48px, 7vw, 96px);
@@ -262,7 +217,6 @@ img {
 }
 .hero__grid {
   display: grid;
-  gap: 40px;
 }
 .hero__kicker {
   display: flex;
@@ -289,61 +243,9 @@ img {
 .hero__lead {
   font-size: 1.2rem;
   color: var(--ink-2);
-  max-width: 36rem;
+  max-width: 44rem;
   margin-bottom: 30px;
 }
-.board {
-  border: 1px solid var(--line);
-  background: var(--panel);
-  align-self: center;
-}
-.board__head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4px 16px;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--line);
-}
-.board__head h2 {
-  font-size: 1.5rem;
-}
-.board__head span {
-  font-size: 0.85rem;
-  color: var(--ink-2);
-}
-.board ul {
-  list-style: none;
-  padding: 0;
-}
-.board__row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--line);
-  text-decoration: none;
-}
-.board li:last-child .board__row {
-  border-bottom: 0;
-}
-.board__row:hover {
-  background: var(--panel-2);
-}
-.board__name b {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.5rem;
-  line-height: 1.1;
-}
-.board__name small {
-  color: var(--ink-2);
-  font-size: 0.92rem;
-}
-
 /* Blocos */
 .block {
   padding-block: clamp(56px, 8vw, 104px);
@@ -677,11 +579,6 @@ img {
   }
 }
 @media (min-width: 1000px) {
-  .hero__grid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    gap: 56px;
-    align-items: center;
-  }
   .path {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     gap: 64px;
@@ -747,23 +644,12 @@ img {
   }
 }
 
-/* Tecnologias na primeira tela e texto só para leitor de tela */
+/* Tecnologias na primeira tela */
 .hero__stack {
   margin: -14px 0 30px;
   font-weight: 600;
   color: var(--ink);
   letter-spacing: 0.01em;
-}
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 /* Cartão largo (último, sozinho na linha): a imagem aparece inteira, sem corte */
