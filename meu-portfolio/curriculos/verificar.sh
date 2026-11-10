@@ -38,6 +38,7 @@ for lang in pt en; do
   done
   if [ "$lang" = "pt" ]; then
     contem "Desenvolvedor full-stack júnior"
+    contem "Auxiliar de estoque e vendas, depois Vendedor"
     contem "Set 2017 - Set 2020"
     contem "Inglês: intermediário"
   else
