@@ -1,0 +1,92 @@
+name: Portfolio checks
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "meu-portfolio/**"
+      - ".github/workflows/portfolio-checks.yml"
+  push:
+    branches:
+      - portfolio/repositionamento-profissional-2026
+    paths:
+      - "meu-portfolio/**"
+      - ".github/workflows/portfolio-checks.yml"
+concurrency:
+  group: portfolio-checks-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Lint and production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: meu-portfolio
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: meu-portfolio/package-lock.json
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Install PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils fonts-liberation
+      - name: Locate Chrome
+        run: |
+          CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$CHROME" ]; then echo "No Chrome/Chromium found on the runner" >&2; exit 1; fi
+          echo "BROWSER=$CHROME" >> "$GITHUB_ENV"
+          "$CHROME" --version
+      - name: Check that the committed PDFs match the resume sources
+        run: sh curriculos/verificar.sh
+      - name: Run ESLint
+        run: npm run lint
+      - name: Build static site
+        run: npm run build
+      - name: Verify generated routes and content
+        run: |
+          test -s dist/index.html
+          test -s dist/en/index.html
+          test -s dist/estudo-de-caso-vardao-central/index.html
+          test -s dist/estudo-de-caso-vardao-central/en/index.html
+          test -s dist/estudo-de-caso-vardao-maquinas/index.html
+          test -s dist/estudo-de-caso-vardao-maquinas/en/index.html
+          test -s dist/estudo-de-caso-plataforma-iot/index.html
+          test -s dist/estudo-de-caso-plataforma-iot/en/index.html
+          grep -q "Desenvolvedor full-stack júnior" dist/index.html
+          grep -q "Junior Full-Stack Developer" dist/en/index.html
+          grep -q '"jobTitle": "Junior Full-Stack Developer"' dist/en/index.html
+          grep -q 'property="og:image:alt"' dist/index.html
+          grep -q 'name="twitter:description"' dist/en/index.html
+          if grep -rIl -i -E "cognivault|1\.107|1,107" dist; then
+            echo "Old name or removed claim found in the build output" >&2
+            exit 1
+          fi
+          echo "All routes were generated and the content checks passed."
+      - name: Regenerate Portuguese and English resume PDFs
+        run: sh curriculos/gerar.sh
+      - name: Check the regenerated PDFs (one A4 page, expected content)
+        run: sh curriculos/verificar.sh
+      - name: Upload regenerated resume PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: refreshed-resume-pdfs
+          path: |
+            meu-portfolio/public/assets/curriculo-pt.pdf
+            meu-portfolio/public/assets/curriculo-en.pdf
+          if-no-files-found: error
+          retention-days: 7

@@ -11,8 +11,8 @@ export const paths = {
   en: { home: '/en/', resume: '/assets/curriculo-en.pdf', resumeName: 'Matheus-Francisco-Resume.pdf' },
 };
 
-// Os cinco sistemas, na ordem de importância. `probe` é um ícone de cada site: se ele
-// carrega no navegador de quem visita, o site está no ar; uma página de erro não carrega como imagem.
+// Os cinco sistemas, na ordem de importância. `probe` verifica apenas se o recurso favicon
+// pode ser carregado no navegador; isso não confirma a saúde completa da aplicação.
 const systems = {
   vardao: {
     id: 'vardao-central',
@@ -63,8 +63,10 @@ export const content = {
   pt: {
     meta: {
       title: 'Matheus Francisco | Desenvolvedor full-stack júnior',
+      jobTitle: 'Desenvolvedor full-stack júnior',
+      ogAlt: 'Capa do portfólio de Matheus Francisco, desenvolvedor full-stack júnior: Construo sistemas que ficam no ar, com a lista dos cinco sistemas publicados.',
       description:
-        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema e o site da loja onde trabalho e tenho mais três projetos no ar. Java, Spring Boot, React, Node.js e PostgreSQL.',
+        'Desenvolvedor full-stack júnior em Limeira, SP. Construí o sistema e o site da empresa onde trabalho e mantenho outros projetos publicados. Java, Spring Boot, React, Node.js e PostgreSQL.',
     },
     ui: {
       skip: 'Ir para o conteúdo',
@@ -79,14 +81,14 @@ export const content = {
       contact: 'Falar comigo',
       title: 'Construo sistemas que ficam no ar.',
       lead:
-        'Passei 9 anos no balcão de revendas de máquinas. Hoje a loja onde trabalho usa no dia a dia o sistema que eu construí, e eu também fiz o site dela. Tenho mais três projetos completos funcionando.',
+        'Minha experiência une tecnologia e negócio: depois de anos atuando em revendas de máquinas, construí o sistema que a loja onde trabalho usa todos os dias e também desenvolvi seu site. Meu foco é uma oportunidade como desenvolvedor full-stack júnior, mas estou aberto a outras posições de entrada em TI para começar na área e crescer tecnicamente.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'Ver os sistemas',
       secondary: 'Baixar currículo',
-      boardTitle: 'Sistemas no ar',
-      boardNote: 'conferido agora, no seu navegador',
-      status: { checking: 'conferindo', up: 'no ar', down: 'sem resposta' },
-      summary: (up, total) => `${up} de ${total} sistemas responderam agora.`,
+      boardTitle: 'Verificação dos sites',
+      boardNote: 'teste simples do carregamento do favicon',
+      status: { checking: 'verificando', up: 'ícone carregado', down: 'ícone indisponível' },
+      summary: (up, total) => `${up} de ${total} ícones foram carregados agora.`,
     },
     systemsSection: {
       title: 'Sistemas',
@@ -102,11 +104,11 @@ export const content = {
       items: [
         {
           ...systems.vardao,
-          tag: 'Projeto principal · antes chamado CogniVault',
+          tag: 'Projeto principal · sistema em uso diário',
           boardNote: 'sistema da loja, uso diário',
           kind: 'Sistema da loja onde trabalho, em uso diário',
           summary:
-            'O sistema da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, para o balcão, o comercial, o financeiro e o estoque.',
+            'O sistema da Vardão Máquinas, revenda autorizada Husqvarna em Limeira, para o balcão, o comercial, o financeiro e o estoque. Projeto individual: concebi, desenvolvi e mantenho o sistema.',
           problem:
             'Para responder "qual é a peça e quanto custa", o balcão abria um catálogo em PDF, uma planilha de preços e um ERP antigo. Um código errado vira devolução, e o financeiro ficava em outro sistema.',
           built: [
@@ -116,10 +118,10 @@ export const content = {
             'Estoque: encomendas de peças, com o sinal pago pelo cliente.',
           ],
           proof: [
-            'Migrei o ERP antigo com os números conferidos ao centavo: 1.107 comparações automáticas, nenhuma diferença acima de 1 centavo.',
-            'Mais de 2.000 testes automatizados e 70 testes de ponta a ponta no navegador.',
+            'Reproduzi no sistema as regras do ERP antigo, cada uma coberta por testes automatizados.',
+            '222 arquivos de teste no back-end, 87 arquivos Vitest no front-end e 23 arquivos de especificação E2E com Playwright.',
           ],
-          imgAlt: 'Balcão do Vardão Central: busca por modelo com o orçamento ao lado, na loja simulada com dados de demonstração.',
+          imgAlt: 'Balcão do Vardão Central: busca de peça com o orçamento ao lado, numa loja simulada com dados fictícios.',
           study: '/estudo-de-caso-vardao-central/',
           liveNote: 'O acesso é com o login da loja. O código é privado; mostro a arquitetura numa conversa.',
         },
@@ -131,7 +133,7 @@ export const content = {
           summary: 'O site institucional da Vardão Máquinas, revenda e assistência técnica autorizada Husqvarna em Limeira, feito para o cliente nos achar no Google e levar a conversa até o vendedor. Enquanto o Vardão Central cuida da operação por dentro, o site traz e atende o cliente.',
           built: [
             'Design e desenvolvimento completos: a empresa (A Vardão), a assistência técnica, as linhas de produtos, avaliações de clientes e contato em todas as páginas.',
-            'Cerca de 200 páginas geradas a partir de dados, com busca, 37 artigos para ajudar a escolher e botão de WhatsApp com a mensagem já contextualizada.',
+            'Páginas geradas a partir de dados, com busca, guias e artigos para ajudar a escolher, e botão de WhatsApp com a mensagem já contextualizada.',
             'Sitemap, dados estruturados para busca, feed de novidades e aviso de cookies com recusa sem prejuízo à navegação.',
           ],
           liveLabel: 'Abrir o site',
@@ -168,7 +170,7 @@ export const content = {
         },
         {
           ...systems.economia,
-          tag: '2025 · TCC SENAI',
+          tag: '2024 · TCC SENAI',
           kind: 'Marketplace de produtores locais',
           boardNote: 'marketplace, TCC SENAI',
           summary: 'Conecta pequenos produtores de Limeira a consumidores, com cadastro de lojas e mapa.',
@@ -191,7 +193,7 @@ export const content = {
         },
         {
           title: 'Provo que funciona',
-          text: 'Testes automatizados, CI a cada alteração e conferência de números. Na migração do ERP, 1.107 comparações automáticas mostraram nenhuma diferença acima de 1 centavo.',
+          text: 'Testes automatizados nos projetos, CI no GitHub nos de código aberto e regras de negócio travadas por teste. No Vardão Central, as regras do ERP antigo foram reproduzidas e testadas.',
         },
         {
           title: 'Deixo no ar e documentado',
@@ -203,10 +205,10 @@ export const content = {
       title: 'Trajetória',
       intro: 'No balcão desde 2017, programando desde 2022.',
       items: [
-        { when: '2020 até hoje', what: 'Vendedor, Vardão Máquinas', text: 'Loja familiar, revenda autorizada Husqvarna. Vendas consultivas, compras, estoque e parte do financeiro. Construí o Vardão Central e um CRM para acompanhar clientes e leads.' },
         { when: '2024 a 2028', what: 'Ciência da Computação, Anhembi Morumbi', text: 'Em andamento, conclusão prevista em outubro de 2028.' },
-        { when: '2022 a 2024', what: 'Técnico em Desenvolvimento de Sistemas, SENAI', text: 'Java, banco de dados, web e mobile. TCC: Economia Solidária.' },
-        { when: '2017 a 2020', what: 'Vendedor, Yamashita Tratores', text: 'Atendimento consultivo e venda técnica de maquinário agrícola.' },
+        { when: '2022 a 2024', what: 'Técnico em Desenvolvimento de Sistemas, SENAI', text: 'Java, banco de dados, web e mobile. TCC em 2024: Economia Solidária.' },
+        { when: 'set/2020 até hoje', what: 'Vendedor, Vardão Máquinas', text: 'Loja familiar, revenda autorizada Husqvarna. Vendas consultivas, compras, estoque e parte do financeiro. Construí o Vardão Central e um CRM para acompanhar clientes e leads.' },
+        { when: 'set/2017 a set/2020', what: 'Auxiliar de estoque e vendas → Vendedor, Yamashita Tratores', text: 'Entrada em set/2017 como auxiliar; promoção a vendedor em out/2017. Atendimento consultivo e venda técnica de maquinário agrícola.' },
       ],
       skillsTitle: 'Tecnologias',
       skills: [
@@ -214,20 +216,20 @@ export const content = {
         ['Front-end', 'React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS'],
         ['Dados e infraestrutura', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker'],
         ['Práticas', 'Testes automatizados, CI no GitHub, Git, Scrum e Kanban'],
-        ['Inglês', 'Pré-intermediário, em desenvolvimento'],
+        ['Inglês', 'Intermediário'],
       ],
       coursesTitle: 'Cursos',
       courses: [
         'Programação Java, SENAI, 120h (2022)',
         'Programação de Banco de Dados, SENAI, 120h (2024)',
         'Ciência da Computação de Harvard no Brasil, Fundação Estudar, 70h (2025)',
-        'AWS Cloud Practitioner Foundational, SENAI, 40h (2022)',
+        'AWS Academy Graduate - AWS Academy Cloud Foundations (2022)',
         'AI-900, Fundamentos de IA no Azure, Fundação Bradesco, 16h (2025)',
       ],
     },
     contact: {
       title: 'Vamos conversar',
-      intro: 'Procuro minha primeira vaga como desenvolvedor full-stack júnior. Fale comigo por e-mail, WhatsApp ou LinkedIn.',
+      intro: 'Meu objetivo principal é uma vaga como desenvolvedor full-stack júnior, mas também considero oportunidades de entrada em outras áreas de TI. Fale comigo por e-mail, WhatsApp ou LinkedIn.',
       email: 'E-mail',
       copy: 'Copiar e-mail',
       copied: 'E-mail copiado',
@@ -240,9 +242,11 @@ export const content = {
 
   en: {
     meta: {
-      title: 'Matheus Francisco | Junior full-stack developer',
+      title: 'Matheus Francisco | Junior Full-Stack Developer',
+      jobTitle: 'Junior Full-Stack Developer',
+      ogAlt: 'Portfolio cover of Matheus Francisco, Junior Full-Stack Developer: I build systems that stay live, with the list of the five published systems.',
       description:
-        'Junior full-stack developer in Limeira, Brazil. I built the system and the website of the store where I work, and I have three more projects live. Java, Spring Boot, React, Node.js and PostgreSQL.',
+        'Junior Full-Stack Developer in Limeira, Brazil. I built the system and website of the company where I work and have other published projects. Java, Spring Boot, React, Node.js and PostgreSQL.',
     },
     ui: {
       skip: 'Skip to content',
@@ -251,20 +255,20 @@ export const content = {
       otherLangLabel: 'Ler esta página em português',
     },
     hero: {
-      kicker: 'Junior full-stack developer · Limeira, Brazil',
+      kicker: 'Junior Full-Stack Developer · Limeira, Brazil',
       available: 'Open to roles',
       name: 'Matheus Francisco',
       contact: 'Get in touch',
       title: 'I build systems that stay live.',
       lead:
-        'I spent 9 years at the counter of machinery dealers. Today the store where I work uses the system I built every day, and I also built its website. I have three more complete projects running.',
+        'My experience connects technology and business: after years working at machinery dealerships, I built the system the store where I work uses every day, as well as its website. I am primarily seeking a junior full-stack developer role, while remaining open to other entry-level IT opportunities to start my career in tech and grow technically.',
       stack: 'Java · Spring Boot · React · Node.js · TypeScript · PostgreSQL',
       primary: 'See the systems',
       secondary: 'Download résumé',
-      boardTitle: 'Systems live',
-      boardNote: 'checked now, in your browser',
-      status: { checking: 'checking', up: 'live', down: 'no answer' },
-      summary: (up, total) => `${up} of ${total} systems answered just now.`,
+      boardTitle: 'Website checks',
+      boardNote: 'simple favicon loading check',
+      status: { checking: 'checking', up: 'icon loaded', down: 'icon unavailable' },
+      summary: (up, total) => `${up} of ${total} icons loaded just now.`,
     },
     systemsSection: {
       title: 'Systems',
@@ -280,11 +284,11 @@ export const content = {
       items: [
         {
           ...systems.vardao,
-          tag: 'Main project · formerly CogniVault',
+          tag: 'Main project · system in daily use',
           boardNote: 'store system, daily use',
           kind: 'The system of the store where I work, in daily use',
           summary:
-            'The system of Vardão Máquinas, an authorized Husqvarna dealer in Limeira, for the counter, sales, finance and inventory.',
+            'The system of Vardão Máquinas, an authorized Husqvarna dealer in Limeira, for the counter, sales, finance and inventory. A solo project: I designed, built and maintain the system.',
           problem:
             'To answer "which part is it and how much", the counter opened a PDF catalog, a price spreadsheet and an old ERP. A wrong code becomes a return, and finance lived in another system.',
           built: [
@@ -294,10 +298,10 @@ export const content = {
             'Inventory: special parts orders, with the deposit paid by the customer.',
           ],
           proof: [
-            'I migrated the old ERP with the numbers checked to the cent: 1,107 automatic comparisons, no difference above 1 cent.',
-            'Over 2,000 automated tests and 70 end-to-end browser tests.',
+            'I reproduced the old ERP’s rules in the system, each one covered by automated tests.',
+            '222 back-end test files, 87 front-end Vitest files and 23 Playwright end-to-end spec files.',
           ],
-          imgAlt: 'Vardão Central counter: search by model with the quote alongside, in the simulated store with demo data.',
+          imgAlt: 'Vardão Central counter: part search with the quote alongside, in a simulated store with fictional data.',
           study: '/estudo-de-caso-vardao-central/en/',
           liveNote: 'Access requires a store login. The code is private; I walk through the architecture on a call.',
         },
@@ -310,7 +314,7 @@ export const content = {
           summary: 'The institutional website of Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, built so customers find us on Google and move the conversation to a salesperson. While Vardão Central runs the operation from the inside, the website brings in and serves customers.',
           built: [
             'Complete design and development: the company (About), the service workshop, the product lines, customer reviews and a contact option on every page.',
-            'About 200 pages generated from data, with search, 37 articles that help customers choose and a WhatsApp button that already carries the context.',
+            'Data-driven pages, with search, buying guides and articles, and a WhatsApp button that already carries the context.',
             'Sitemap, structured data for search, a news feed and a cookie notice that lets visitors decline without losing anything.',
           ],
           liveLabel: 'Open the website',
@@ -349,7 +353,7 @@ export const content = {
         {
           ...systems.economia,
           name: 'Solidarity Economy',
-          tag: '2025 · SENAI capstone',
+          tag: '2024 · SENAI capstone',
           kind: 'Local producers marketplace',
           boardNote: 'marketplace, SENAI capstone',
           summary: 'Connects small producers in Limeira with consumers, with store sign-up and a map.',
@@ -372,7 +376,7 @@ export const content = {
         },
         {
           title: 'I prove it works',
-          text: 'Automated tests, CI on every change and checked numbers. In the ERP migration, 1,107 automatic comparisons showed no difference above 1 cent.',
+          text: 'Automated tests in the projects, CI on GitHub in the open-source ones and business rules locked by tests. In Vardão Central, the old ERP’s rules were reproduced and tested.',
         },
         {
           title: 'I ship it and document it',
@@ -384,10 +388,10 @@ export const content = {
       title: 'Background',
       intro: 'At the counter since 2017, programming since 2022.',
       items: [
-        { when: '2020 to today', what: 'Sales representative, Vardão Máquinas', text: 'Family-owned authorized Husqvarna dealer. Consultative sales, purchasing, inventory and part of the finances. I built Vardão Central and a CRM to track customers and leads.' },
         { when: '2024 to 2028', what: 'Computer Science, Anhembi Morumbi', text: 'In progress, expected October 2028.' },
-        { when: '2022 to 2024', what: 'Technical course in Systems Development, SENAI', text: 'Java, databases, web and mobile. Capstone: Solidarity Economy.' },
-        { when: '2017 to 2020', what: 'Sales representative, Yamashita Tratores', text: 'Consultative service and technical sales of farm machinery.' },
+        { when: '2022 to 2024', what: 'Technical course in Systems Development, SENAI', text: 'Java, databases, web and mobile. Capstone in 2024: Solidarity Economy.' },
+        { when: 'Sep 2020 to today', what: 'Sales Representative, Vardão Máquinas', text: 'Family-owned authorized Husqvarna dealer. Consultative sales, purchasing, inventory and part of the finances. I built Vardão Central and a CRM to track customers and leads.' },
+        { when: 'Sep 2017 to Sep 2020', what: 'Stock and sales assistant → Sales Representative, Yamashita Tratores', text: 'Joined in Sep 2017 as an assistant and was promoted to Sales Representative in Oct 2017. Consultative service and technical sales of farm machinery.' },
       ],
       skillsTitle: 'Technologies',
       skills: [
@@ -395,20 +399,20 @@ export const content = {
         ['Front end', 'React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS'],
         ['Data and infrastructure', 'PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker'],
         ['Practices', 'Automated testing, CI on GitHub, Git, Scrum and Kanban'],
-        ['English', 'Pre-intermediate, improving'],
+        ['English', 'Intermediate'],
       ],
       coursesTitle: 'Courses',
       courses: [
         'Java Programming, SENAI, 120h (2022)',
         'Database Programming, SENAI, 120h (2024)',
         'Computer Science, Harvard in Brazil, Fundação Estudar, 70h (2025)',
-        'AWS Cloud Practitioner Foundational, SENAI, 40h (2022)',
+        'AWS Academy Graduate - AWS Academy Cloud Foundations (2022)',
         'AI-900, Azure AI Fundamentals, Fundação Bradesco, 16h (2025)',
       ],
     },
     contact: {
       title: 'Let’s talk',
-      intro: 'I am looking for my first role as a junior full-stack developer. Reach me by email, WhatsApp or LinkedIn.',
+      intro: 'My primary goal is a junior full-stack developer role, but I am also open to entry-level opportunities across IT. Reach me by email, WhatsApp or LinkedIn.',
       email: 'Email',
       copy: 'Copy email',
       copied: 'Email copied',

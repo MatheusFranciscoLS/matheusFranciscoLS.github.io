@@ -23,8 +23,8 @@ function useTheme() {
   return [theme, toggle];
 }
 
-// Confere, no navegador de quem visita, se cada sistema responde: carrega o ícone do site.
-// Se o site saiu do ar, a resposta é uma página de erro, que não carrega como imagem.
+// Verifica somente o carregamento do favicon de cada endereço. Isso não é um health check
+// e não confirma que a aplicação, a API ou o banco de dados estejam saudáveis.
 function useLiveStatus(items) {
   const [status, setStatus] = useState(() => Object.fromEntries(items.map((i) => [i.id, 'checking'])));
   useEffect(() => {

@@ -7,6 +7,8 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content="Institutional website of Vardão Máquinas, an authorized Husqvarna dealer and service center in Limeira, Brazil: the company, the service workshop, the product lines and direct WhatsApp contact. Case study: design and engineering decisions.">
   <link rel="canonical" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
+  <link rel="alternate" hreflang="pt-BR" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">
+  <link rel="alternate" hreflang="en" href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/en/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Matheus Francisco">
   <meta property="og:locale" content="en_US">
@@ -16,7 +18,12 @@
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-site/home.png">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Home page of the Vardão Máquinas website, with the store front and the reasons to buy from Vardão">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vardão Máquinas website: case study | Matheus Francisco">
+  <meta name="twitter:description" content="Institutional website of an authorized Husqvarna dealer and service center: the company, the workshop and the product lines, built so customers find the store on Google and reach a salesperson. Next.js, TypeScript and Tailwind.">
+  <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-site/home.png">
+  <meta name="twitter:image:alt" content="Home page of the Vardão Máquinas website, with the store front and the reasons to buy from Vardão">
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
@@ -27,12 +34,13 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo">Skip to content</a>
   <nav class="top" aria-label="Navigation"><div class="wrap">
     <a href="/en/#sistemas">← Portfolio</a>
     <span class="lang"><a href="../">PT</a><a href="./" aria-current="true">EN</a></span>
   </div></nav>
 
-  <main class="wrap">
+  <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
       <div class="eyebrow">Case study · 2026</div>
       <h1>Vardão Máquinas website</h1>
@@ -52,7 +60,7 @@
       <h2>The problem</h2>
       <p>Vardão is a Gold-level Husqvarna dealer, with its own workshop and genuine parts at the same address. But people who want a chainsaw, a lawn tractor or a repair search on Google before going to the store. A company without a complete website does not show up in that search, and visitors need to understand quickly who the company is, what it sells, whether it repairs what they already own and how to reach someone.</p>
       <h2 style="margin-top:34px">The solution</h2>
-      <p>A complete institutional website: the company's story and numbers, the service workshop explained, the product lines, customer reviews and a contact option on every page. It is <strong>about 200 pages generated from typed data</strong>, with the right title, description and structured data for search, and a button that takes the visitor to a salesperson with the message already filled in.</p>
+      <p>A complete institutional website: the company's story and numbers, the service workshop explained, the product lines, customer reviews and a contact option on every page. The pages are <strong>generated from typed data</strong>, with the right title, description and structured data for search, and a button that takes the visitor to a salesperson with the message already filled in.</p>
     </section>
 
     <section>
@@ -62,8 +70,8 @@
         <div class="rule"><h3>Shows the service workshop</h3><p>A page of its own for the authorized workshop: what the service covers, factory warranty preserved and a free quote approved before any work.</p></div>
         <div class="rule"><h3>Presents the product lines</h3><p>Garden, forestry, robotics, family farming and battery, in pages that show the recommended use and lead to the specialist, so customers do not have to hunt for a contact.</p></div>
         <div class="rule"><h3>Gathers social proof</h3><p>Public customer reviews from Google, for people who do not know the store yet to see what others say.</p></div>
-        <div class="rule"><h3>Helps customers choose</h3><p>37 comparison and buying-guide articles, calculators, search inside the site and a guide to parts and accessories by model, so customers decide with confidence before talking to a salesperson.</p></div>
-        <div class="rule"><h3>WhatsApp with context</h3><p>Eleven kinds of pre-filled message, depending on what the customer was looking at, so the salesperson joins the conversation already knowing the topic.</p></div>
+        <div class="rule"><h3>Helps customers choose</h3><p>Comparison and buying-guide articles, search inside the site and guides to parts and accessories by model, so customers decide with confidence before talking to a salesperson.</p></div>
+        <div class="rule"><h3>WhatsApp with context</h3><p>Pre-filled messages, depending on what the customer was looking at, so the salesperson joins the conversation already knowing the topic.</p></div>
       </div>
     </section>
 
@@ -78,13 +86,13 @@
     <section>
       <h2>Decisions</h2>
       <h3>Pages generated from data</h3>
-      <p>Products, articles and the company pages live in typed TypeScript data files, and a single template page generates each route at build time. Adding a new product means filling in an object, and the sitemap, title, structured data and navigation follow on their own. The gain is consistency: none of the 200 pages depends on someone remembering to configure SEO.</p>
+      <p>Products, articles and the company pages live in typed TypeScript data files, and a single template page generates each route at build time. Adding a new product means filling in an object, and the sitemap, title, structured data and navigation follow on their own. The gain is consistency: no page depends on someone remembering to configure SEO.</p>
       <h3>WhatsApp with the question already asked</h3>
       <p>Every call to WhatsApp carries what the customer was looking at: the product, the category, the article or the service workshop. That replaces "hi, how are you?" with a conversation that already starts on the topic, and the salesperson knows which page the contact came from.</p>
       <h3>Cookies with real consent</h3>
       <p>Google Analytics and the Google map only load after the visitor accepts, and consent starts as denied. Declining takes nothing away from the site. The choice is saved in the browser and can be changed later from a link in the footer.</p>
       <h3>Security in the headers</h3>
-      <p>The site sends a content security policy that allows only what it really uses, plus protection against being embedded in other pages and against file-type sniffing. One limit is documented in the code: Next injects scripts without its own identifier, so the policy has to accept inline scripts. In development it is more permissive than in production.</p>
+      <p>The site sends a content security policy that restricts the allowed origins, plus protection against being embedded in other pages and against file-type sniffing. In development it is more permissive than in production.</p>
       <h3>The right part, or none</h3>
       <p>The parts and accessories guide follows the same principle as the counter in Vardão Central: suggest only when there is certainty. For tractors and zero-turn mowers, for example, matching is done only by model code, never by name similarity. I would rather show no accessory than the wrong one.</p>
     </section>
@@ -93,14 +101,11 @@
       <h2>Numbers</h2>
       <div class="numbers">
         <div class="num"><b>202</b><span>addresses in the sitemap</span></div>
-        <div class="num"><b>9</b><span>institutional pages (home, About, service workshop, contact, reviews and others)</span></div>
-        <div class="num"><b>136</b><span>product and category pages</span></div>
-        <div class="num"><b>37</b><span>published articles</span></div>
-        <div class="num"><b>21</b><span>accessory pages</span></div>
-        <div class="num"><b>11</b><span>kinds of contextual WhatsApp message</span></div>
-        <div class="num"><b>~24k</b><span>lines of TypeScript and TSX</span></div>
+        <div class="num"><b>136</b><span>product and category addresses</span></div>
+        <div class="num"><b>37</b><span>article addresses under /novidades</span></div>
+        <div class="num"><b>22</b><span>addresses under /acessorios</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Counted on the live site's sitemap and in the code on 10/31/2026.</p>
+      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Counted on the site’s public sitemap (vardaomaquinas.com.br/sitemap.xml) on 2026-11-10. The site’s code is private and was not used for these counts.</p>
     </section>
 
     <section>
