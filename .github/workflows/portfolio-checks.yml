@@ -15,7 +15,7 @@ on:
       - ".github/workflows/portfolio-checks.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate:
@@ -27,12 +27,30 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: meu-portfolio/package-lock.json
+      - name: Regenerate Portuguese and English resume PDFs
+        run: sh curriculos/gerar.sh
+      - name: Commit refreshed PDFs to the PR branch
+        if: github.event_name == 'pull_request'
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/assets/curriculo-pt.pdf public/assets/curriculo-en.pdf
+          if git diff --cached --quiet; then
+            echo 'Resume PDFs are already up to date.'
+          else
+            git commit -m 'Atualiza PDFs dos currículos a partir dos HTMLs'
+            git push origin "HEAD:$BRANCH"
+          fi
       - name: Install locked dependencies
         run: npm ci
       - name: Run ESLint
