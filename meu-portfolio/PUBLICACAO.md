@@ -7,7 +7,7 @@ O trabalho está na branch `portfolio/repositionamento-profissional-2026`, no PR
 - [ ] GitHub Actions: `npm ci`, `npm run lint` e `npm run build` aprovados.
 - [ ] Conferir visualmente desktop e celular, tema claro e escuro, português e inglês.
 - [ ] Conferir os dois estudos de caso do Vardão Central.
-- [ ] Regenerar os PDFs em `public/assets/curriculo-pt.pdf` e `curriculo-en.pdf` a partir dos HTMLs revisados. Os PDFs atuais são versões antigas e não devem ser publicados com os novos HTMLs.
+- [x] Geração dos PDFs a partir dos HTMLs validada no GitHub Actions; os dois arquivos foram conferidos em uma página A4. O comando `npm run deploy` também os regenera automaticamente antes do build.
 - [ ] Confirmar com Matheus qualquer informação biográfica ou resultado comercial que não tenha comprovação suficiente.
 - [ ] Revisar links externos e testar as rotas geradas em `dist/`.
 
