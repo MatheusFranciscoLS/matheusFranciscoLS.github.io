@@ -1,6 +1,6 @@
 /* Direção "Painel ao vivo": grafite-azulado com âmbar de sinalização e verde de status.
    Tipografia condensada (Barlow Condensed) nos títulos, Barlow no texto.
-   Um único movimento: o status de cada sistema muda de "conferindo" para "no ar". */
+   O indicador muda conforme o carregamento do favicon, não como health check da aplicação. */
 @import '@fontsource/barlow/400.css';
 @import '@fontsource/barlow/500.css';
 @import '@fontsource/barlow/600.css';
