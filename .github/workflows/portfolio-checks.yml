@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate:
@@ -32,36 +32,8 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: meu-portfolio/package-lock.json
-      - name: Detect resume source changes
-        id: resumes
-        run: |
-          source_hash="$(sha256sum curriculos/curriculo-pt.html curriculos/curriculo-en.html curriculos/estilo.css | sha256sum | cut -d' ' -f1)"
-          saved_hash="$(cat curriculos/.pdf-source.sha256 2>/dev/null || true)"
-          if [ "$source_hash" = "$saved_hash" ]; then
-            echo 'changed=false' >> "$GITHUB_OUTPUT"
-            echo 'Resume sources match the last generated PDFs.'
-          else
-            echo 'changed=true' >> "$GITHUB_OUTPUT"
-            echo "$source_hash" > curriculos/.pdf-source.sha256
-            echo 'Resume sources changed; PDFs will be regenerated.'
-          fi
       - name: Regenerate Portuguese and English resume PDFs
-        if: steps.resumes.outputs.changed == 'true'
         run: sh curriculos/gerar.sh
-      - name: Commit refreshed PDFs to the PR branch
-        if: github.event_name == 'pull_request' && steps.resumes.outputs.changed == 'true'
-        env:
-          BRANCH: ${{ github.head_ref }}
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/assets/curriculo-pt.pdf public/assets/curriculo-en.pdf curriculos/.pdf-source.sha256
-          if git diff --cached --quiet; then
-            echo 'Resume PDFs are already up to date.'
-          else
-            git commit -m 'Atualiza PDFs dos currículos a partir dos HTMLs'
-            git push origin "HEAD:$BRANCH"
-          fi
       - name: Install locked dependencies
         run: npm ci
       - name: Run ESLint
@@ -77,3 +49,12 @@ jobs:
           grep -q "Desenvolvedor full-stack júnior" dist/index.html
           grep -q "Junior full-stack developer" dist/en/index.html
           echo "Portuguese, English and both Vardão Central case-study routes were generated."
+      - name: Upload regenerated resume PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: refreshed-resume-pdfs
+          path: |
+            meu-portfolio/public/assets/curriculo-pt.pdf
+            meu-portfolio/public/assets/curriculo-en.pdf
+          if-no-files-found: error
+          retention-days: 7
