@@ -19,182 +19,168 @@
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, in a simulated store with fictional data.">
+  <meta property="og:image:alt" content="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, illustrative screenshot with fictional data.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vardão Central: case study | Matheus Francisco">
   <meta name="twitter:description" content="The system the store where I work uses every day: counter, CRM, finance and inventory, and the old ERP’s rules rebuilt and tested.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
-  <meta name="twitter:image:alt" content="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, in a simulated store with fictional data.">
+  <meta name="twitter:image:alt" content="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, illustrative screenshot with fictional data.">
+  <link rel="preload" href="/fonts/archivo-var-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-sans-var-sub.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Skip to content</a>
-  <nav class="top" aria-label="Navigation"><div class="wrap">
-    <a href="/en/#sistemas">← Matheus Francisco</a>
-    <span class="lang"><a href="../">PT</a><a href="./" aria-current="true">EN</a></span>
-  </div></nav>
+  <header class="top"><div class="wrap top__row">
+    <a class="brand" href="/en/"><span class="brand__mark" aria-hidden="true">MF</span><span class="brand__name">Matheus Francisco</span></a>
+    <nav aria-label="Portfolio sections"><ul class="top__nav"><li><a href="/en/#projetos">Projects</a></li><li><a href="/en/#trajetoria">Background</a></li><li><a href="/en/#contato">Contact</a></li></ul></nav>
+    <div class="top__tools"><a class="tool" href="../" hreflang="pt-BR" lang="pt-BR" aria-label="PT: Ler este estudo de caso em português">PT</a><button class="tool" type="button" data-theme-toggle aria-label="Toggle light and dark theme" aria-pressed="false"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button></div>
+  </div></header>
 
   <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
-      <p class="eyebrow">Case study · 2026 · system in daily use</p>
+      <nav class="crumbs" aria-label="You are here"><a href="/en/#projetos">Projects</a><span aria-hidden="true">/</span><span aria-current="page">Vardão Central</span></nav>
       <h1>Vardão Central</h1>
-      <p class="lead">The system Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. I started with a parts catalog for the counter, and today it is taking over parts of the store’s old ERP, starting with finance.</p>
+      <p class="lead">The management system that Vardão Máquinas, an authorized Husqvarna dealer in Limeira, Brazil, uses every day at the counter, in sales, finance and inventory. It started as a parts catalog for the counter and now takes over parts of the store’s old ERP, starting with finance.</p>
       <ul class="meta">
-        <li><strong>Role</strong>Solo development, end to end: product, design, architecture, implementation, testing and evolution</li>
-        <li><strong>Company</strong>Vardão Máquinas (where I work)</li>
-        <li><strong>Period</strong>Since August 2026</li>
-        <li><strong>Status</strong>In daily use</li>
+        <li><strong>Role</strong>Solo development: requirements, business rules, architecture, implementation, testing and maintenance</li>
+        <li><strong>Company</strong>Vardão Máquinas, where I work</li>
+        <li><strong>Period</strong>Built since August 2026</li>
+        <li><strong>Status</strong>In daily use in the store’s operation</li>
       </ul>
-      <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">See the live system (login required)</a>
+      <p class="aviso"><strong>Real system, illustrative images.</strong> Vardão Central is in production and used every day. To protect the operation and the company’s data, the screenshots on this page were taken with fictional data: brand, models, part numbers, customers and prices were invented.</p>
+      <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">Open the system (store login required)</a>
       <a class="btn ghost" href="/en/#contato">Contact me</a>
     </header>
 
-    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Vardão Central counter: a search for carburetor parts with three parts in the quote alongside, in a simulated store with fictional data." width="1440" height="900"></figure>
+    <div class="bench-band"><figure class="shot"><img src="/assets/vardao-central/balcao.webp" alt="Vardão Central counter screen: a search for carburetor with four parts, prices and catalog position, and the quote with three items alongside. Illustrative screenshot with fictional data." width="1440" height="900"></figure><p class="bench-caption">Counter screen. Illustrative screenshot with fictional data.</p></div>
 
     <section>
       <h2>The problem</h2>
-      <p>At the counter the customer is standing in front of the clerk. To answer "which part is it and how much", the clerk opened a PDF catalog, found the position in the drawing, checked the price in a spreadsheet, looked for the shelf and wrote the quote by hand. A wrong code becomes a return.</p>
-      <p>Away from the counter, sales, finance and customers lived in an old ERP, separate from everything else. Knowing how much the store sold this month or which customer had gone quiet meant gathering information from different places.</p>
+      <p>At the counter, the customer is standing in front of the salesperson. To answer "which part is it and how much", you had to open a PDF catalog, find the position in the drawing, check the price in a spreadsheet, see whether the part was on the shelf and write the quote by hand. A wrong part number means a return.</p>
+      <p>Away from the counter, sales, finance and customers lived in an old ERP, separate from everything else. Knowing how much the store sold in the month or which customer had gone quiet meant putting together information from different places.</p>
+    </section>
+
+    <section>
+      <h2>Responsibilities</h2>
+      <p>I built Vardão Central on my own, from requirements to daily use in the store:</p>
+      <ul class="plain">
+        <li><strong>Requirements and business rules.</strong> I gathered the needs with the people who use it, in the store itself, and turned them into rules, flows and tests.</li>
+        <li><strong>Architecture and data.</strong> I designed the architecture (front end, API, queue and database) and modeled the data in PostgreSQL with Prisma.</li>
+        <li><strong>Full-stack implementation.</strong> React and TypeScript front end and a Node.js and Express API, with the counter, sales, finance and inventory modules.</li>
+        <li><strong>Integrations.</strong> The manufacturer’s public portal, PDF catalog reading through a queue, AI restricted to a closed list of parts and the import of the old ERP’s data.</li>
+        <li><strong>Testing, deployment and maintenance.</strong> I wrote the test suites, set up CI and deployment (Vercel, Render and Supabase) and keep evolving and fixing the system in use.</li>
+      </ul>
     </section>
 
     <section>
       <h2>How it evolved</h2>
-      <p>I started with a parts catalog for the counter and grew it as the store asked for more. The dates come from the repository history.</p>
+      <p>Dates from the repository history. Each step came from a need of the store.</p>
       <ol class="timeline">
-        <li><strong>August 2026</strong>Parts catalog and search by code, part and model.</li>
+        <li><strong>August 2026</strong>Catalog and parts search by part number, name and model.</li>
         <li><strong>September</strong>Counter quotes, saved on the server.</li>
-        <li><strong>October</strong>A CRM with a deal board. Then Finance and Inventory, with access roles, and the old ERP’s rules reproduced.</li>
+        <li><strong>October</strong>CRM with a deal board. Then finance and inventory, with access roles and the old ERP’s rules reproduced.</li>
+        <li><strong>November</strong>Salesperson role, with complete sales and inventory and a home screen with their own sales.</li>
       </ol>
     </section>
 
     <section>
-      <h2>A solo project, end to end</h2>
-      <p>I built Vardão Central on my own, from the start to daily use in the store. These were my responsibilities:</p>
-      <ul class="plain">
-        <li><strong>Concept and business rules.</strong> I gathered the operational needs directly in the store and turned them into business rules, features and flows, implemented and covered by tests.</li>
-        <li><strong>Architecture and database.</strong> I designed the architecture (front end, API, queue and database) and modeled the data: 49 models and 91 migrations in PostgreSQL with Prisma.</li>
-        <li><strong>Full-stack implementation.</strong> Front end in React and TypeScript and API in Node.js and Express, with every module described below: counter, sales, finance and inventory.</li>
-        <li><strong>Integrations.</strong> Public lookup on the manufacturer’s portal, PDF catalog reading through a queue, AI restricted to a closed list and import of the old ERP data.</li>
-        <li><strong>Tests.</strong> I wrote the automated suite: 623 Vitest front-end tests, 1,491 back-end tests and 70 Playwright end-to-end tests.</li>
-        <li><strong>Deployment and maintenance.</strong> I set up CI, publishing (Vercel and Render) and the managed database (Supabase), and I keep evolving and fixing the system in use.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>From need to rule</h2>
-      <p>Three examples of operational needs and the rule the system now guarantees:</p>
-      <ul class="plain">
-        <li><strong>A wrong code becomes a return: the part code is always validated.</strong> A typed code returns only the exact code and the manufacturer’s official replacement. The AI only chooses within a closed list of parts for the machine.</li>
-        <li><strong>The owner needs to see the day’s own quotes: “today” in the store’s time zone.</strong> The server runs on UTC and the store on UTC-3, so every day-based calculation uses the store’s time zone, locked by a test.</li>
-        <li><strong>The store cannot lose a number in the ERP switch: the same results, or better.</strong> I reproduced the ERP’s rules, each with tests, and the import first runs as a dry run, requires the expected totals and can be undone.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>What I built</h2>
+      <h2>Features</h2>
       <h3>Counter</h3>
-      <p>Search by code, part, model or PNC; the official exploded view with a clickable position; list price and shelf; quotes by PDF and WhatsApp. Keyboard first: the clerk works in a hurry.</p>
+      <p>Search by part number, name, model or PNC; the official exploded view with clickable positions; list price and shelf; quotes as PDF or via WhatsApp. Search and quoting work from the keyboard (Ctrl K, arrows, Enter and +), because service at the counter is fast.</p>
       <h3>Sales</h3>
-      <p>A CRM with a deal board and quick filters, customer ranking, cross-selling, reactivation of quiet customers and the machine price table.</p>
+      <p>A CRM with a deal board and filters, customer ranking, cross-selling, reactivation of idle customers and the machine price list.</p>
       <h3>Finance</h3>
-      <p>Sales, purchases and expenses, income statement, cash flow, working capital, ABC analysis and closing the till.</p>
+      <p>Recording of sales, purchases and expenses, income statement, cash flow, working capital, ABC analysis and cash closing.</p>
       <h3>Inventory</h3>
-      <p>Items to order, shortages, shelves and special orders for customers.</p>
-      <h3>Home by role</h3>
-      <p>Each person opens the system on the home screen for their role, with what matters for their day, and the main button changes with the role: "Lançar venda" (record a sale) or "Novo orçamento" (new quote).</p>
+      <p>Items to order, shortages, shelves and special part orders for customers.</p>
+      <h3>Role-based home</h3>
+      <p>Each person opens the system on the home screen of their role, with what matters for their day, and the main action changes with the role: "Record sale" or "New quote".</p>
     </section>
 
     <section>
-      <h2>Architecture and engineering</h2>
-      <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagram: the browser uses the React front end on Vercel, which calls the Node.js API on Render; the API writes to PostgreSQL and Supabase Storage and puts PDF reading on a RabbitMQ queue; dashed external integrations: the manufacturer’s public portal, Gemini and files from the old ERP." loading="lazy" width="1000" height="492"></div>
+      <h2>Business rules</h2>
+      <p>Rules the system guarantees, all covered by automated tests:</p>
+      <div class="rules">
+        <div class="rule"><h3>Validated part numbers</h3><p>A typed part number returns only the exact part and the manufacturer’s official replacement. The AI only chooses within a closed list of parts for the machine.</p></div>
+        <div class="rule"><h3>Internal data stays internal</h3><p>PDF quotes and WhatsApp messages carry only what the customer needs to see; the counter’s internal data stays out.</p></div>
+        <div class="rule"><h3>Dates in the store’s time zone</h3><p>The server runs in UTC and the store in UTC-3. Every day calculation uses the store’s time zone, so "today" includes the day’s own quotes.</p></div>
+        <div class="rule"><h3>Amounts in cents</h3><p>In sales, amounts are whole cents and splitting into installments always adds up to the total, with no rounding difference.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Replacing the old ERP</h2>
+      <p>The switch could not lose a single number: the same results as the old ERP, or better.</p>
       <ul class="plain">
-        <li><strong>Many stores, one database.</strong> Every record belongs to a store, and the store comes from the signed-in session, not from the browser.</li>
-        <li><strong>Controlled access.</strong> Login with a signed session and role-based access, always checked on the server and not only on screen.</li>
-        <li><strong>Basic protection.</strong> Rate limiting, security headers and input validation on the API.</li>
-        <li><strong>Background work.</strong> Reading PDF catalogs goes through a RabbitMQ queue, with retries. The API does not depend on the queue to serve the counter.</li>
+        <li><strong>Rules read from the ERP’s code.</strong> Instead of trusting memory of how the ERP worked, I read its code screen by screen and reproduced the rules: income statement, cash flow, working capital, customer ranking and others, each one with tests.</li>
+        <li><strong>Undocumented rules.</strong> Reading the code revealed rules and history from older versions that were not documented. Without it, that legacy would have been left out of the reports.</li>
+        <li><strong>Controlled import.</strong> The importer runs first as a dry run, only writes when it receives the expected totals, checks the totals in the database after writing and can be undone. It was tested with fictional data and used to import the store’s real data.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Architecture</h2>
+      <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagram: the browser uses the React front end on Vercel, which calls the Node.js API on Render; the API writes to PostgreSQL and Supabase Storage and puts PDF reading on a RabbitMQ queue; external integrations in dashed lines: the manufacturer’s public portal, Gemini and the old ERP’s files." loading="lazy" width="1000" height="492"></div>
+      <ul class="plain">
+        <li><strong>Separation by store.</strong> The structure supports more than one store in the same database: 44 of the 49 models record the store that owns each record. The other five are the store itself, items that inherit the store from their parent record (parts of a catalog, items of a quote) and the manufacturer’s shared official catalog. The store comes from the signed session, validated on the server, not from a value sent by the browser. Today the system serves one store.</li>
+        <li><strong>Role-based access.</strong> Login with a signed session and role permissions, always checked on the server, not just in the interface.</li>
+        <li><strong>Basic protection.</strong> Rate limiting, security headers and input validation in the API.</li>
+        <li><strong>Background work.</strong> PDF catalog reading goes through a RabbitMQ queue, with retries. The counter does not depend on the queue to work.</li>
         <li><strong>Database.</strong> PostgreSQL with Prisma: 49 models and 91 versioned migrations.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Replacing the old ERP</h2>
-      <p>The store could not lose a single number in the switch. The rule was simple: the same results as the old ERP, or better.</p>
-      <ul class="plain">
-        <li><strong>The ERP’s rules, tested.</strong> I read the ERP’s code screen by screen and reproduced its rules in Vardão Central: income statement, cash flow, working capital, customer ranking and more. Each rule has automated tests.</li>
-        <li><strong>What was hidden.</strong> The review showed the ERP carried rules and history from older versions that were not documented. Without that review, this legacy would have been missing from the reports.</li>
-        <li><strong>Safe import.</strong> The importer for the ERP data, tested with fictional data and used to import the store’s real data, runs as a dry run first, requires the expected totals before writing, checks the totals after writing and can be undone.</li>
-        <li><strong>Better than the original.</strong> In sales, values are counted in whole cents and splitting into installments always adds up to the total, with no rounding difference.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Rules the product never breaks</h2>
-      <div class="rules">
-        <div class="rule"><h3>Part codes are always validated</h3><p>A typed code returns only the exact code and the manufacturer’s official replacement. The AI only picks from a closed list of parts for the machine.</p></div>
-        <div class="rule"><h3>Nothing internal reaches the customer</h3><p>PDF quotes and WhatsApp messages carry only what the customer needs to see. The counter’s internal data stays out, and a test guarantees it.</p></div>
-        <div class="rule"><h3>Data changes are explicit</h3><p>Importing prices, inventory or sales shows a report before writing and keeps an undo.</p></div>
-        <div class="rule"><h3>Numbers are numbers</h3><p>Installments in whole cents and dates in the store’s time zone, locked by tests.</p></div>
-      </div>
-    </section>
-
-    <section>
       <h2>Screens</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="A code replaced by the manufacturer, with the new code highlighted. Fictional data." loading="lazy" width="1440" height="900"></div><figcaption><strong>Old code, new part.</strong> The official replacement is highlighted, ready to quote.</figcaption></figure>
-        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Parts quote screen with customer details, items, lead time and remarks, in a simulated store with fictional data." loading="lazy" width="1440" height="900"></div><figcaption><strong>Quote</strong> with lead time, payment and discount, sent by WhatsApp or PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/substituido.webp" alt="Search for a part number the manufacturer replaced: the notice highlights the new number, with price and buttons to quote or copy it. Illustrative screenshot with fictional data." loading="lazy" width="1440" height="900"></div><figcaption><strong>Replaced part number.</strong> The official replacement is highlighted, with the new number ready to quote.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.webp" alt="Parts quote screen with customer details, items, deadline, payment method and notes. Illustrative screenshot with fictional data." loading="lazy" width="1440" height="900"></div><figcaption><strong>Quote</strong> with deadline, payment and discount, sent via WhatsApp or as PDF.</figcaption></figure>
       </div>
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Screenshots from a simulated store with entirely fictional data: brand, model, codes, customer and prices were invented for the demonstration. The manufacturer portal response that reports the code replacement was also simulated.</p>
+      <p class="fine-note">Illustrative screenshots taken with fictional data to protect the operation: brand, models, part numbers, customer and prices were invented. The manufacturer portal response reporting the replacement was also simulated for the screenshot.</p>
     </section>
 
     <section>
-      <h2>Decisions and what I learned</h2>
-      <h3>The green test that lied</h3>
-      <p>A maintenance job had a passing test, but in production it never ran: the place where it was wired in sat in the wrong part of the startup. I found it by looking at the data. Now there is a test just for that wiring, proven by undoing the fix and watching the test fail.</p>
-      <h3>"Today" ended yesterday</h3>
-      <p>The server runs in UTC and the store in UTC-3: the "until today" filter cut off before the store’s midnight and the owner could not see the day’s own quotes. Every day calculation now uses the store’s time zone, locked by a test.</p>
-      <h3>Refusing beats being wrong</h3>
-      <p>The PDF catalog reader prefers to refuse a doubtful file, saying why, rather than save a wrong code that would spoil the whole search.</p>
-      <h3>Server close to the database</h3>
-      <p>The API server was far from the database, and every query paid the round trip. I prepared the everyday screens to be served by a layer closer to the database, leaving only the heavy work on the main server. A variable switches it off.</p>
-      <h3>Read the old system, don’t trust memory</h3>
-      <p>When rebuilding finance I did not trust the rules I thought the ERP had. I went to its code, and that is what found what was hidden.</p>
+      <h2>Technical decisions</h2>
+      <h3>A passing test did not guarantee it ran in production</h3>
+      <p>A maintenance routine had a passing test, but in production it never ran: it was wired in the wrong place of the startup. I found it by looking at the data. Now a specific test covers that wiring, validated by undoing the fix and watching the test fail.</p>
+      <h3>Refusing a doubtful catalog</h3>
+      <p>The PDF catalog reader refuses a doubtful file and explains why, instead of saving a wrong part number that would compromise the search.</p>
+      <h3>Latency between the API and the database</h3>
+      <p>The API server was far from the database, and every query paid the round trip. I prepared the everyday screens to be served by a layer closer to the database, leaving only the heavy work on the main server. The change can be switched off with an environment variable.</p>
     </section>
 
     <section>
-      <h2>Testing strategy</h2>
-      <ul class="plain">
-        <li><strong>Front end (Vitest).</strong> Interface rules and components: 623 tests in 87 files.</li>
-        <li><strong>Back end (Node test runner).</strong> Business rules, services and API routes: 1,491 tests in 222 files, including integration tests against a real RabbitMQ (publish and consume, dead-letter and reconnection).</li>
-        <li><strong>End to end (Playwright).</strong> 70 tests in 23 files exercise the flows by role against the back end, the front end and a freshly created database.</li>
-        <li><strong>Part search.</strong> A benchmark of my own with 50 cases checks the deterministic search (100% Top-1 and 100% Recall@5 on those cases).</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Quality in numbers</h2>
+      <h2>Testing</h2>
       <div class="numbers">
-        <div class="num"><b>1,491</b><span>back-end tests passing (222 files)</span></div>
-        <div class="num"><b>623</b><span>front-end Vitest tests passing (87 files)</span></div>
-        <div class="num"><b>70</b><span>Playwright end-to-end tests passing (23 files)</span></div>
-        <div class="num"><b>91</b><span>versioned database migrations</span></div>
-        <div class="num"><b>49</b><span>Prisma data models (enums not counted)</span></div>
+        <div class="num"><b>1,491</b><span>back-end tests passed, in 222 files</span></div>
+        <div class="num"><b>623</b><span>front-end Vitest tests passed, in 87 files</span></div>
+        <div class="num"><b>70</b><span>end-to-end Playwright tests passed, in 23 files</span></div>
+        <div class="num"><b>50</b><span>cases in the parts search benchmark (100% Top-1 and Recall@5)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Tests run locally on 2026-11-10, not by the CI pipeline, in an isolated environment (disposable local PostgreSQL database and fictional data), on the repository state of 2026-11-04. In the back end, all 1,491 passed, with a real RabbitMQ (3.13) broker running in the same environment. In E2E, 2 of the 70 tests used a fixed October date and failed on the first run; the fix (current-month date, without removing or weakening any check) has since been merged into the repository, and the complete suite passed 70 of 70.</p>
+      <ul class="plain">
+        <li><strong>Back end (Node.js test runner).</strong> Business rules, services and API routes, including integration with a real RabbitMQ (publish and consume, dead-letter and reconnection).</li>
+        <li><strong>Front end (Vitest).</strong> Interface rules and components.</li>
+        <li><strong>End to end (Playwright).</strong> Role-based flows against the back end, the front end and a freshly created database.</li>
+        <li><strong>Parts search.</strong> A custom benchmark of the deterministic search, with sample parts and no AI; it does not measure the full catalog.</li>
+      </ul>
+      <p class="aviso"><strong>How the numbers were obtained.</strong> Run locally on 10 Nov 2026, in an isolated environment (a disposable local PostgreSQL and fictional data), on the repository state of 4 Nov 2026. These are not CI results. On the back end, all 1,491 passed with a real RabbitMQ 3.13 in the same environment. In the end-to-end suite, 2 of the 70 tests used a fixed date and failed on the first run; the fix (the current month’s date, without removing or weakening checks) was merged, and the suite passed 70 of 70.</p>
     </section>
 
     <section>
-      <h2>Limits and what is missing</h2>
+      <h2>Limits</h2>
       <ul class="plain">
-        <li><strong>Tests and CI.</strong> The project’s CI pipeline (GitHub Actions) worked during development: about 2,000 runs, 1,423 of them passing, the last passing one on 2026-10-25. I disabled it manually after reaching the GitHub Actions usage limit, and it is not active at the moment. The results above come from a local run in an isolated environment on 2026-11-10, not from the pipeline.</li>
-        <li><strong>Code coverage.</strong> The project has no code coverage report, so this case study gives no coverage percentage. The numbers above are counts of tests executed.</li>
-        <li><strong>Screenshots.</strong> Taken in a simulated store with fictional data, with no real store data.</li>
+        <li><strong>CI.</strong> The GitHub Actions pipeline worked during development: about 2,000 runs, 1,423 passed, the last one passing on 25 Oct 2026. I disabled the workflow after reaching the GitHub Actions usage limit, and it is not active at the moment.</li>
+        <li><strong>Coverage.</strong> The project has no code coverage report, so this study gives no coverage percentage. The numbers above are counts of tests run.</li>
+        <li><strong>Code.</strong> The code is private, because it is a work system. I can walk through the architecture and code excerpts in a conversation.</li>
       </ul>
     </section>
 
@@ -206,8 +192,24 @@
     </section>
 
     <footer>
-      Vardão Central is a work project and the code is private. I can walk you through the architecture and code excerpts on a call. <a href="/en/#contato">Contact me</a>. · <a href="/estudo-de-caso-plataforma-iot/en/">Next: Industrial IoT Platform</a>
+      Want to see the architecture or code excerpts? <a href="/en/#contato">Get in touch</a>.
     </footer>
+    <nav class="case-next" aria-label="Other case studies"><span>Next case study</span><a href="/estudo-de-caso-plataforma-iot/en/">Industrial IoT Platform</a></nav>
   </main>
+  <footer class="site-foot"><div class="wrap"><p>Matheus Francisco, Limeira, Brazil.</p><p><a href="/en/">Home page</a><a href="/en/#contato">Contact</a><a href="/assets/curriculo-en.pdf" download="Matheus-Francisco-Resume.pdf">Résumé (PDF)</a></p></div></footer>
+  <script>
+    (function () {
+      var b = document.querySelector('[data-theme-toggle]');
+      if (!b) return;
+      var sync = function () { b.setAttribute('aria-pressed', String(document.documentElement.getAttribute('data-theme') === 'dark')); };
+      sync();
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -25,25 +25,29 @@
   <meta name="twitter:description" content="Site institucional de uma revenda e assistência técnica Husqvarna: a empresa, a oficina e as linhas de produtos, feito para o cliente achar a loja no Google e chegar ao vendedor. Next.js, TypeScript e Tailwind.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-site/home.png">
   <meta name="twitter:image:alt" content="Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão">
+  <link rel="preload" href="/fonts/archivo-var-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-sans-var-sub.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <nav class="top" aria-label="Navegação"><div class="wrap">
-    <a href="/#sistemas">← Portfólio</a>
-    <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
-  </div></nav>
+  <header class="top"><div class="wrap top__row">
+    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true">MF</span><span class="brand__name">Matheus Francisco</span></a>
+    <nav aria-label="Seções do portfólio"><ul class="top__nav"><li><a href="/#projetos">Projetos</a></li><li><a href="/#trajetoria">Trajetória</a></li><li><a href="/#contato">Contato</a></li></ul></nav>
+    <div class="top__tools"><a class="tool" href="en/" hreflang="en" lang="en" aria-label="EN: Read this case study in English">EN</a><button class="tool" type="button" data-theme-toggle aria-label="Alternar tema claro e escuro" aria-pressed="false"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button></div>
+  </div></header>
 
   <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
-      <div class="eyebrow">Estudo de caso · 2026</div>
+      <nav class="crumbs" aria-label="Você está em"><a href="/#projetos">Projetos</a><span aria-hidden="true">/</span><span aria-current="page">Site da Vardão Máquinas</span></nav>
       <h1>Site da Vardão Máquinas</h1>
       <p class="lead">O site institucional da empresa onde trabalho, a Vardão Máquinas, revenda e assistência técnica autorizada Husqvarna em Limeira. Ele apresenta a empresa, a oficina e as linhas de produtos para o cliente encontrar a empresa no Google e levar a conversa direto para o WhatsApp. Complementa o Vardão Central, que atende a operação interna.</p>
       <ul class="meta">
@@ -55,12 +59,15 @@
       <a class="btn" href="https://vardaomaquinas.com.br" target="_blank" rel="noreferrer">Abrir o site</a>
     </header>
 
-    <div class="shot"><img src="../assets/vardao-site/home.png" alt="Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão" width="1440" height="900"></div>
+    <div class="bench-band"><div class="shot"><img src="../assets/vardao-site/home.webp" alt="Página inicial do site da Vardão Máquinas, com a fachada da loja e os motivos para comprar na Vardão" width="1600" height="900"></div><p class="bench-caption">Página inicial do site, em produção.</p></div>
 
     <section>
       <h2>O problema</h2>
       <p>A Vardão é uma revenda Husqvarna nível Ouro, com oficina própria e peças genuínas no mesmo endereço. Mas quem procura uma motosserra, um trator cortador ou um conserto pesquisa no Google antes de ir à loja. Uma empresa sem site completo não aparece nessa busca, e quem chega precisa entender depressa quem é a empresa, o que ela vende, se conserta o que a pessoa já tem e como falar com alguém.</p>
-      <h2 style="margin-top:34px">A solução</h2>
+    </section>
+
+    <section>
+      <h2>A solução</h2>
       <p>Um site institucional completo: a história e os números da empresa, a assistência técnica explicada, as linhas de produtos, as avaliações de clientes e o contato em todas as páginas. As páginas são <strong>geradas a partir de dados tipados</strong>, com título, descrição e dados estruturados corretos para a busca, e um botão que leva o cliente ao vendedor com a mensagem já preenchida.</p>
     </section>
 
@@ -79,8 +86,9 @@
     <section>
       <h2>Telas</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="../assets/vardao-site/acessorios.png" alt="Página de acessórios para motosserra, com o guia Entenda antes de comprar" loading="lazy"></div><figcaption><strong>Um dos guias de escolha.</strong> Cada grupo de peças e acessórios abre com a regra para escolher a certa.</figcaption></figure>
-        <figure class="phone"><div class="shot"><img src="../assets/vardao-site/celular.png" alt="Ficha de produto no celular, com o aviso de cookies e os botões Recusar e Aceitar lado a lado" loading="lazy"></div><figcaption><strong>No celular, com o aviso de cookies.</strong> O botão de recusar fica sempre à vista, ao lado do de aceitar.</figcaption></figure>
+        <figure><div class="shot"><img src="../assets/vardao-site/acessorios.webp" alt="Página de acessórios para motosserra, com o guia Entenda antes de comprar" loading="lazy" width="1440" height="900"></div><figcaption><strong>Um dos guias de escolha.</strong> Cada grupo de peças e acessórios abre com a regra para escolher a certa.</figcaption></figure>
+        <figure><div class="shot"><img src="../assets/vardao-site/assistencia.webp" alt="Página de assistência técnica do site da Vardão Máquinas, com o técnico autorizado, peça genuína, orçamento sem custo e o botão para falar com a assistência pelo WhatsApp" loading="lazy" width="1440" height="900"></div><figcaption><strong>Assistência técnica.</strong> Página própria da oficina, com garantia, orçamento sem custo e contato direto.</figcaption></figure>
+        <figure class="phone"><div class="shot"><img src="../assets/vardao-site/celular.webp" alt="Ficha de produto no celular, com o aviso de cookies e os botões Recusar e Aceitar lado a lado" loading="lazy" width="390" height="844"></div><figcaption><strong>No celular, com o aviso de cookies.</strong> O botão de recusar fica sempre à vista, ao lado do de aceitar.</figcaption></figure>
       </div>
     </section>
 
@@ -91,7 +99,7 @@
       <h3>WhatsApp com a pergunta já feita</h3>
       <p>Toda chamada para o WhatsApp carrega o que o cliente estava olhando: o produto, a categoria, o artigo ou a assistência técnica. Isso troca o "oi, tudo bem?" por uma conversa que já começa no assunto, e o vendedor sabe de qual página o contato veio.</p>
       <h3>Cookies com consentimento explícito</h3>
-      <p>O Google Analytics e o mapa do Google só carregam depois que o visitante aceita, e o consentimento começa como negado. Recusar não tira nada do site. A escolha fica salva no navegador e pode ser mudada depois por um link no rodapé.</p>
+      <p>O script do Google Analytics é carregado em toda visita, mas com o Consent Mode do Google começando como negado: enquanto o visitante não aceita, os cookies de análise e de anúncios não são gravados. Aceitar ou recusar só atualiza esse consentimento. O mapa do Google, na página de contato, só é carregado se o visitante já aceitou os cookies de análise ou se clicar em "Carregar o mapa". Recusar não tira nada do site, e a escolha fica salva no navegador e pode ser mudada depois por um link no rodapé.</p>
       <h3>Segurança nos cabeçalhos</h3>
       <p>O site envia uma política de segurança de conteúdo que restringe as origens permitidas, além de proteção contra ser embutido em outras páginas e contra troca de tipo de arquivo. Em desenvolvimento ela fica mais permissiva do que em produção.</p>
       <h3>Peça certa ou nenhuma</h3>
@@ -106,7 +114,7 @@
         <div class="num"><b>37</b><span>endereços de artigos em /novidades</span></div>
         <div class="num"><b>22</b><span>endereços em /acessorios</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens feitas no sitemap público do site (vardaomaquinas.com.br/sitemap.xml) em 10/11/2026. O código do site é privado e não foi usado para estas contagens.</p>
+      <p class="fine-note">Contagens feitas no sitemap público do site (vardaomaquinas.com.br/sitemap.xml) em 10/11/2026. O código do site é privado e não foi usado para estas contagens. Os 7 endereços que não entram nos três grupos são as páginas institucionais: início, assistência técnica, lista de novidades, a empresa, contato, avaliações de clientes e política de privacidade.</p>
     </section>
 
     <section>
@@ -118,8 +126,24 @@
 
     <footer>
       O código é privado, porque pertence à empresa; mostro a estrutura numa conversa. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar comigo</a>.
-      · <a href="/estudo-de-caso-vardao-central/">Vardão Central</a> · <a href="/#sistemas">Voltar aos sistemas</a>
+      · <a href="/estudo-de-caso-vardao-central/">Vardão Central</a> · <a href="/#projetos">Voltar aos projetos</a>
     </footer>
+    <nav class="case-next" aria-label="Outros estudos de caso"><span>Próximo estudo de caso</span><a href="/estudo-de-caso-vardao-central/">Vardão Central</a></nav>
   </main>
+  <footer class="site-foot"><div class="wrap"><p>Matheus Francisco, Limeira (SP).</p><p><a href="/">Página inicial</a><a href="/#contato">Contato</a><a href="/assets/curriculo-pt.pdf" download="Matheus-Francisco-Curriculo.pdf">Currículo (PDF)</a></p></div></footer>
+  <script>
+    (function () {
+      var b = document.querySelector('[data-theme-toggle]');
+      if (!b) return;
+      var sync = function () { b.setAttribute('aria-pressed', String(document.documentElement.getAttribute('data-theme') === 'dark')); };
+      sync();
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
