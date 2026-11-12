@@ -29,13 +29,14 @@ for lang in pt en; do
   nao_contem() { if printf '%s' "$TEXTO" | grep -q -i -F -- "$1"; then erro "curriculo-$lang.pdf contém texto proibido: $1"; fi; }
 
   contem "Yamashita Tratores"
-  contem "AWS Academy Graduate - AWS Academy Cloud Foundations"
+  contem "AWS Academy Cloud Foundations"
   contem "623"
-  for proibido in "CogniVault" "1.107" "1,107" "110 " "300 mil" "2.000" "Cloud Practitioner" "pré-intermediário" "pre-intermediate" "Out 2017" "Oct 2017 -" "cerca de 200" "about 200"; do
+  for proibido in "imediat" "immediate" "AWS Academy Graduate" "CogniVault" "1.107" "1,107" "110 " "300 mil" "2.000" "Cloud Practitioner" "pré-intermediário" "pre-intermediate" "Out 2017" "Oct 2017 -" "cerca de 200" "about 200"; do
     nao_contem "$proibido"
   done
   if [ "$lang" = "pt" ]; then
-    contem "Desenvolvedor full-stack júnior"
+    contem "Desenvolvedor Full-Stack Júnior"
+    contem "não é certificação AWS"
     contem "Auxiliar de estoque e vendas, depois Vendedor"
     contem "Set 2017 - Set 2020"
     contem "Inglês: intermediário"
@@ -43,6 +44,7 @@ for lang in pt en; do
     contem "70 E2E"
   else
     contem "Junior Full-Stack Developer"
+    contem "not an AWS certification"
     contem "Sep 2017 - Sep 2020"
     contem "Stock and sales assistant, then Sales Representative"
     contem "English: intermediate"

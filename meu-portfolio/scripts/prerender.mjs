@@ -16,7 +16,7 @@ const pt = swap(template, '<!--app-->', render('pt'));
 writeFileSync('dist/index.html', pt);
 
 let en = swap(template, '<!--app-->', render('en'));
-en = swap(en, '<html lang="pt-BR">', '<html lang="en">');
+en = swap(en, '<html lang="pt-BR" class="no-js">', '<html lang="en" class="no-js">');
 en = swap(en, content.pt.meta.title, content.en.meta.title);
 en = swap(en, content.pt.meta.description, content.en.meta.description);
 en = swap(en, content.pt.meta.ogAlt, content.en.meta.ogAlt);

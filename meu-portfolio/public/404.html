@@ -6,32 +6,37 @@
   <meta name="robots" content="noindex">
   <title>Página não encontrada | Matheus Francisco</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" href="/fonts/archivo-var-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-sans-var-sub.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
-  <nav class="top" aria-label="Navegação"><div class="wrap">
-    <a href="/">← Portfólio</a>
-    <span class="lang"><a href="/en/">EN</a></span>
-  </div></nav>
+  <header class="top"><div class="wrap top__row">
+    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true">MF</span><span class="brand__name">Matheus Francisco</span></a>
+    <div class="top__tools"><a class="tool" href="/en/" hreflang="en" lang="en" aria-label="EN: English home page">EN</a></div>
+  </div></header>
   <main class="wrap">
     <header class="hero">
-      <p class="eyebrow">Erro 404</p>
+      <p class="crumbs">Erro 404</p>
       <h1>Página não encontrada.</h1>
       <p class="lead">O endereço pode ter mudado ou ter sido digitado errado. Estas páginas existem:</p>
       <p>
         <a class="btn" href="/">Página inicial</a>
         <a class="btn ghost" href="/estudo-de-caso-vardao-central/">Estudo de caso: Vardão Central</a>
         <a class="btn ghost" href="/estudo-de-caso-plataforma-iot/">Estudo de caso: Plataforma IoT</a>
+        <a class="btn ghost" href="/estudo-de-caso-vardao-maquinas/">Estudo de caso: Site da Vardão Máquinas</a>
       </p>
       <p lang="en">Page not found. <a href="/en/">Go to the English home page</a>.</p>
     </header>
   </main>
+  <footer class="site-foot"><div class="wrap"><p>Matheus Francisco, Limeira (SP).</p><p><a href="/#contato">Contato</a></p></div></footer>
 </body>
 </html>

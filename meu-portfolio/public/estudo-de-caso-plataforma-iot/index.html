@@ -25,25 +25,29 @@
   <meta name="twitter:description" content="Leituras de máquinas em tempo real, alertas guardados no servidor, séries por período e testes que rodam num PostgreSQL real. Java, Spring Boot, Node.js e React.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/iot/painel-escuro.png">
   <meta name="twitter:image:alt" content="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas">
+  <link rel="preload" href="/fonts/archivo-var-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-sans-var-sub.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <nav class="top" aria-label="Navegação"><div class="wrap">
-    <a href="/#sistemas">← Portfólio</a>
-    <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
-  </div></nav>
+  <header class="top"><div class="wrap top__row">
+    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true">MF</span><span class="brand__name">Matheus Francisco</span></a>
+    <nav aria-label="Seções do portfólio"><ul class="top__nav"><li><a href="/#projetos">Projetos</a></li><li><a href="/#trajetoria">Trajetória</a></li><li><a href="/#contato">Contato</a></li></ul></nav>
+    <div class="top__tools"><a class="tool" href="en/" hreflang="en" lang="en" aria-label="EN: Read this case study in English">EN</a><button class="tool" type="button" data-theme-toggle aria-label="Alternar tema claro e escuro" aria-pressed="false"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button></div>
+  </div></header>
 
   <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
-      <div class="eyebrow">Estudo de caso · 2026</div>
+      <nav class="crumbs" aria-label="Você está em"><a href="/#projetos">Projetos</a><span aria-hidden="true">/</span><span aria-current="page">Plataforma IoT Industrial</span></nav>
       <h1>Plataforma IoT Industrial</h1>
       <p class="lead">Telemetria de máquinas em tempo real: sensores mandam leituras para uma API Java, uma fila avisa um gateway Node e o painel React mostra números, gráficos e alertas mudando sozinhos. Publicada em planos gratuitos, sem custo de infraestrutura.</p>
       <ul class="meta">
@@ -54,23 +58,26 @@
       </ul>
       <a class="btn" href="https://plataforma-iot-industrial.vercel.app" target="_blank" rel="noreferrer">Abrir o painel</a>
       <a class="btn ghost" href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">Ver o código</a>
+      <p class="aviso">A API roda num plano gratuito que dorme sem visitas. Na primeira abertura, a API pode levar cerca de 1 minuto para acordar. Enquanto isso, o painel mostra uma simulação feita no próprio navegador, com aviso na tela, e troca pelos dados reais quando a API responde.</p>
     </header>
 
-    <p class="aviso">A API roda num plano gratuito que dorme sem visitas. Na primeira abertura, a API pode levar cerca de 1 minuto para acordar. Enquanto isso, o painel mostra uma simulação feita no próprio navegador, com aviso na tela, e troca pelos dados reais quando a API responde.</p>
 
-    <div class="shot"><img src="../assets/iot/painel-escuro.png" alt="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas" width="1280" height="1838"></div>
+    <div class="bench-band"><div class="shot"><img src="../assets/iot/escuro-topo.webp" alt="Painel da Plataforma IoT no tema escuro: resumo da fábrica, três máquinas com temperatura, vibração e rotação, gráfico e lista de alertas" width="1280" height="800"></div><p class="bench-caption">Painel da demonstração pública, com telemetria simulada.</p></div>
 
     <section>
       <h2>O problema</h2>
       <p>Uma fábrica tem máquinas que esquentam e vibram, e quem opera precisa saber na hora quando uma delas passa do limite, não depois. Isso exige receber muitas leituras por segundo, guardar o histórico, avisar a tela sem ela ficar perguntando o tempo todo e registrar quem viu cada alerta.</p>
-      <h2 style="margin-top:34px">A solução</h2>
+    </section>
+
+    <section>
+      <h2>A solução</h2>
       <p>Uma plataforma em peças separadas, cada uma com um trabalho só: a <strong>API Java</strong> recebe e guarda a leitura, avalia os alertas e responde o histórico; o <strong>RabbitMQ</strong> leva o aviso adiante; o <strong>gateway Node</strong> entrega cada leitura ao navegador por WebSocket; o <strong>painel React</strong> mostra tudo, com perfis de acesso e tema claro e escuro.</p>
     </section>
 
     <section>
       <h2>Arquitetura</h2>
-      <div class="arch"><img src="../assets/iot/arquitetura.svg" alt="Diagrama: sensores enviam leituras à API Java no Render, que salva no PostgreSQL do Supabase e avisa o RabbitMQ do CloudAMQP; o gateway Node consome a fila e entrega ao painel React na Vercel por WebSocket; o painel também consulta a API por REST" loading="lazy"></div>
-      <p style="margin-top:14px">A API <strong>salva primeiro e avisa depois</strong>. Se a fila falhar, a leitura continua gravada e a resposta é 200: o tempo real é um extra, não uma condição para guardar o dado. Se o WebSocket não chegar, o painel percebe, mostra "Atualizando por consulta" e passa a buscar as leituras novas na API a cada 3 segundos.</p>
+      <div class="arch"><img src="../assets/iot/arquitetura.svg" alt="Diagrama: sensores enviam leituras à API Java no Render, que salva no PostgreSQL do Supabase e avisa o RabbitMQ do CloudAMQP; o gateway Node consome a fila e entrega ao painel React na Vercel por WebSocket; o painel também consulta a API por REST" loading="lazy" width="1000" height="492"></div>
+      <p>A API <strong>salva primeiro e avisa depois</strong>. Se a fila falhar, a leitura continua gravada e a resposta é 200: o tempo real é um extra, não uma condição para guardar o dado. Se o WebSocket não chegar, o painel percebe, mostra "Atualizando por consulta" e passa a buscar as leituras novas na API a cada 3 segundos.</p>
     </section>
 
     <section>
@@ -88,9 +95,9 @@
     <section>
       <h2>Telas</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="../assets/iot/painel-claro.png" alt="Painel no tema claro" loading="lazy"></div><figcaption><strong>Tema claro.</strong> Resumo da fábrica, cartões das máquinas, gráfico com a linha do limite e lista de alertas com filtros.</figcaption></figure>
-        <figure><div class="shot"><img src="../assets/iot/limites-de-alerta.png" alt="Janela de limites de alerta por máquina" loading="lazy"></div><figcaption><strong>Limites por máquina.</strong> Temperatura e vibração de cada uma, com botão para voltar ao padrão.</figcaption></figure>
-        <figure class="phone"><div class="shot"><img src="../assets/iot/painel-celular.png" alt="Painel em uma tela de celular" loading="lazy"></div><figcaption><strong>No celular.</strong> O mesmo painel, em uma coluna.</figcaption></figure>
+        <figure><div class="shot"><img src="../assets/iot/painel-claro.webp" alt="Painel no tema claro" loading="lazy" width="1280" height="1838"></div><figcaption><strong>Tema claro.</strong> Resumo da fábrica, cartões das máquinas, gráfico com a linha do limite e lista de alertas com filtros.</figcaption></figure>
+        <figure><div class="shot"><img src="../assets/iot/limites-de-alerta.webp" alt="Janela de limites de alerta por máquina" loading="lazy" width="1280" height="900"></div><figcaption><strong>Limites por máquina.</strong> Temperatura e vibração de cada uma, com botão para voltar ao padrão.</figcaption></figure>
+        <figure class="phone"><div class="shot"><img src="../assets/iot/celular-topo.webp" alt="Painel em uma tela de celular" loading="lazy" width="390" height="844"></div><figcaption><strong>No celular.</strong> O mesmo painel, em uma coluna.</figcaption></figure>
       </div>
     </section>
 
@@ -117,7 +124,7 @@
         <div class="num"><b>100</b><span>nota de acessibilidade no Lighthouse</span></div>
         <div class="num"><b>7</b><span>registros de decisão de arquitetura</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Contagens de testes do painel (executados) e da API Java (anotações de teste no código) feitas em 10/11/2026; as demais medições são de 17/10/2026. O teste de carga rodou no GitHub Actions, com a API, o banco e a fila no mesmo servidor e pouco dado: mostra o desempenho do código, não o do site gratuito, que tem bem menos CPU. Lighthouse medido no build local do painel: desempenho 99 a 100, acessibilidade 100, boas práticas 96, SEO 100.</p>
+      <p class="fine-note">Contagens de testes do painel (executados) e da API Java (anotações de teste no código) feitas em 10/11/2026; as demais medições são de 17/10/2026. O teste de carga rodou no GitHub Actions, com a API, o banco e a fila no mesmo servidor e pouco dado: mostra o desempenho do código, não o do site gratuito, que tem bem menos CPU. Lighthouse medido no build local do painel: desempenho 99 a 100, acessibilidade 100, boas práticas 96, SEO 100.</p>
     </section>
 
     <section>
@@ -129,8 +136,24 @@
 
     <footer>
       O código é aberto: <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">github.com/MatheusFranciscoLS/plataforma-iot-industrial</a>. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Falar comigo</a>.
-      · <a href="/estudo-de-caso-vardao-central/">Anterior: Vardão Central</a> · <a href="/#sistemas">Voltar aos sistemas</a>
+      · <a href="/estudo-de-caso-vardao-central/">Anterior: Vardão Central</a> · <a href="/#projetos">Voltar aos projetos</a>
     </footer>
+    <nav class="case-next" aria-label="Outros estudos de caso"><span>Próximo estudo de caso</span><a href="/estudo-de-caso-vardao-maquinas/">Site da Vardão Máquinas</a></nav>
   </main>
+  <footer class="site-foot"><div class="wrap"><p>Matheus Francisco, Limeira (SP).</p><p><a href="/">Página inicial</a><a href="/#contato">Contato</a><a href="/assets/curriculo-pt.pdf" download="Matheus-Francisco-Curriculo.pdf">Currículo (PDF)</a></p></div></footer>
+  <script>
+    (function () {
+      var b = document.querySelector('[data-theme-toggle]');
+      if (!b) return;
+      var sync = function () { b.setAttribute('aria-pressed', String(document.documentElement.getAttribute('data-theme') === 'dark')); };
+      sync();
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>

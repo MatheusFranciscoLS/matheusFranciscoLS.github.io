@@ -25,25 +25,29 @@
   <meta name="twitter:description" content="Real-time machine readings, server-side alerts, period series and tests that run on a real PostgreSQL. Java, Spring Boot, Node.js and React.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/iot/painel-escuro.png">
   <meta name="twitter:image:alt" content="IoT dashboard in the dark theme: factory summary, three machines with temperature, vibration and speed, a chart and the alert list">
+  <link rel="preload" href="/fonts/archivo-var-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-sans-var-sub.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Skip to content</a>
-  <nav class="top" aria-label="Navigation"><div class="wrap">
-    <a href="/en/#sistemas">← Portfolio</a>
-    <span class="lang"><a href="../">PT</a><a href="./" aria-current="true">EN</a></span>
-  </div></nav>
+  <header class="top"><div class="wrap top__row">
+    <a class="brand" href="/en/"><span class="brand__mark" aria-hidden="true">MF</span><span class="brand__name">Matheus Francisco</span></a>
+    <nav aria-label="Portfolio sections"><ul class="top__nav"><li><a href="/en/#projetos">Projects</a></li><li><a href="/en/#trajetoria">Background</a></li><li><a href="/en/#contato">Contact</a></li></ul></nav>
+    <div class="top__tools"><a class="tool" href="../" hreflang="pt-BR" lang="pt-BR" aria-label="PT: Ler este estudo de caso em português">PT</a><button class="tool" type="button" data-theme-toggle aria-label="Toggle light and dark theme" aria-pressed="false"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button></div>
+  </div></header>
 
   <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
-      <div class="eyebrow">Case study · 2026</div>
+      <nav class="crumbs" aria-label="You are here"><a href="/en/#projetos">Projects</a><span aria-hidden="true">/</span><span aria-current="page">Industrial IoT Platform</span></nav>
       <h1>Industrial IoT Platform</h1>
       <p class="lead">Real-time machine telemetry: sensors send readings to a Java API, a queue notifies a Node gateway, and a React dashboard shows numbers, charts and alerts changing on their own. Published on free plans, with no infrastructure cost.</p>
       <ul class="meta">
@@ -54,23 +58,26 @@
       </ul>
       <a class="btn" href="https://plataforma-iot-industrial.vercel.app" target="_blank" rel="noreferrer">Open the dashboard</a>
       <a class="btn ghost" href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">See the code</a>
+      <p class="aviso">The API runs on a free plan that sleeps without visits. On the first visit the API can take about 1 minute to wake up. Meanwhile the dashboard shows a simulation running in the browser itself, with a notice on screen, and switches to real data when the API responds.</p>
     </header>
 
-    <p class="aviso">The API runs on a free plan that sleeps without visits. On the first visit the API can take about 1 minute to wake up. Meanwhile the dashboard shows a simulation running in the browser itself, with a notice on screen, and switches to real data when the API responds.</p>
 
-    <div class="shot"><img src="../../assets/iot/painel-escuro.png" alt="IoT dashboard in the dark theme: factory summary, three machines with temperature, vibration and speed, a chart and the alert list" width="1280" height="1838"></div>
+    <div class="bench-band"><div class="shot"><img src="../../assets/iot/escuro-topo.webp" alt="IoT dashboard in the dark theme: factory summary, three machines with temperature, vibration and speed, a chart and the alert list" width="1280" height="800"></div><p class="bench-caption">Public demo dashboard, with simulated telemetry.</p></div>
 
     <section>
       <h2>The problem</h2>
       <p>A factory has machines that heat up and vibrate, and the operator needs to know right away when one crosses its limit, not later. That means receiving many readings per second, keeping the history, updating the screen without it asking all the time, and recording who has seen each alert.</p>
-      <h2 style="margin-top:34px">The solution</h2>
+    </section>
+
+    <section>
+      <h2>The solution</h2>
       <p>A platform made of separate pieces, each with one job: the <strong>Java API</strong> receives and stores the reading, evaluates alerts and serves the history; <strong>RabbitMQ</strong> carries the notice onward; the <strong>Node gateway</strong> delivers each reading to the browser over WebSocket; the <strong>React dashboard</strong> shows everything, with access roles and light and dark themes.</p>
     </section>
 
     <section>
       <h2>Architecture</h2>
-      <div class="arch"><img src="../../assets/iot/arquitetura.svg" alt="Diagram: sensors send readings to the Java API on Render, which saves to Supabase PostgreSQL and notifies CloudAMQP RabbitMQ; the Node gateway consumes the queue and delivers to the React dashboard on Vercel over WebSocket; the dashboard also queries the API over REST" loading="lazy"></div>
-      <p style="margin-top:14px">The API <strong>saves first and notifies second</strong>. If the queue fails, the reading is still stored and the response is 200: real time is a bonus, not a condition for keeping the data. If the WebSocket does not arrive, the dashboard notices, shows "Updating by polling" and starts fetching new readings from the API every 3 seconds.</p>
+      <div class="arch"><img src="../../assets/iot/arquitetura.svg" alt="Diagram: sensors send readings to the Java API on Render, which saves to Supabase PostgreSQL and notifies CloudAMQP RabbitMQ; the Node gateway consumes the queue and delivers to the React dashboard on Vercel over WebSocket; the dashboard also queries the API over REST" loading="lazy" width="1000" height="492"></div>
+      <p>The API <strong>saves first and notifies second</strong>. If the queue fails, the reading is still stored and the response is 200: real time is a bonus, not a condition for keeping the data. If the WebSocket does not arrive, the dashboard notices, shows "Updating by polling" and starts fetching new readings from the API every 3 seconds.</p>
     </section>
 
     <section>
@@ -88,9 +95,9 @@
     <section>
       <h2>Screens</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="../../assets/iot/painel-claro.png" alt="Dashboard in the light theme" loading="lazy"></div><figcaption><strong>Light theme.</strong> Factory summary, machine cards, a chart with the limit line and an alert list with filters.</figcaption></figure>
-        <figure><div class="shot"><img src="../../assets/iot/limites-de-alerta.png" alt="Alert limits window per machine" loading="lazy"></div><figcaption><strong>Limits per machine.</strong> Temperature and vibration for each one, with a button to restore the defaults.</figcaption></figure>
-        <figure class="phone"><div class="shot"><img src="../../assets/iot/painel-celular.png" alt="Dashboard on a phone screen" loading="lazy"></div><figcaption><strong>On a phone.</strong> The same dashboard, in one column.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/iot/painel-claro.webp" alt="Dashboard in the light theme" loading="lazy" width="1280" height="1838"></div><figcaption><strong>Light theme.</strong> Factory summary, machine cards, a chart with the limit line and an alert list with filters.</figcaption></figure>
+        <figure><div class="shot"><img src="../../assets/iot/limites-de-alerta.webp" alt="Alert limits window per machine" loading="lazy" width="1280" height="900"></div><figcaption><strong>Limits per machine.</strong> Temperature and vibration for each one, with a button to restore the defaults.</figcaption></figure>
+        <figure class="phone"><div class="shot"><img src="../../assets/iot/celular-topo.webp" alt="Dashboard on a phone screen" loading="lazy" width="390" height="844"></div><figcaption><strong>On a phone.</strong> The same dashboard, in one column.</figcaption></figure>
       </div>
     </section>
 
@@ -117,7 +124,7 @@
         <div class="num"><b>100</b><span>Lighthouse accessibility score</span></div>
         <div class="num"><b>7</b><span>architecture decision records</span></div>
       </div>
-      <p style="margin-top:12px;font-size:14px;color:var(--ink-2)">Test counts for the dashboard (executed) and the Java API (test annotations in the code) taken on 2026-11-10; the other measurements are from 2026-10-17. The load test ran on GitHub Actions, with the API, database and queue on the same server and little data: it shows the code's performance, not the free hosted site's, which has far less CPU. Lighthouse measured on the local dashboard build: performance 99 to 100, accessibility 100, best practices 96, SEO 100.</p>
+      <p class="fine-note">Test counts for the dashboard (executed) and the Java API (test annotations in the code) taken on 2026-11-10; the other measurements are from 2026-10-17. The load test ran on GitHub Actions, with the API, database and queue on the same server and little data: it shows the code's performance, not the free hosted site's, which has far less CPU. Lighthouse measured on the local dashboard build: performance 99 to 100, accessibility 100, best practices 96, SEO 100.</p>
     </section>
 
     <section>
@@ -129,8 +136,24 @@
 
     <footer>
       The code is open: <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial" target="_blank" rel="noreferrer">github.com/MatheusFranciscoLS/plataforma-iot-industrial</a>. <a href="https://www.linkedin.com/in/matheusfranciscols" target="_blank" rel="noreferrer">Get in touch</a>.
-      · <a href="/estudo-de-caso-vardao-central/en/">Previous: Vardão Central</a> · <a href="/en/#sistemas">Back to the systems</a>
+      · <a href="/estudo-de-caso-vardao-central/en/">Previous: Vardão Central</a> · <a href="/en/#projetos">Back to the projects</a>
     </footer>
+    <nav class="case-next" aria-label="Other case studies"><span>Next case study</span><a href="/estudo-de-caso-vardao-maquinas/en/">Vardão Máquinas website</a></nav>
   </main>
+  <footer class="site-foot"><div class="wrap"><p>Matheus Francisco, Limeira, Brazil.</p><p><a href="/en/">Home page</a><a href="/en/#contato">Contact</a><a href="/assets/curriculo-en.pdf" download="Matheus-Francisco-Resume.pdf">Résumé (PDF)</a></p></div></footer>
+  <script>
+    (function () {
+      var b = document.querySelector('[data-theme-toggle]');
+      if (!b) return;
+      var sync = function () { b.setAttribute('aria-pressed', String(document.documentElement.getAttribute('data-theme') === 'dark')); };
+      sync();
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>

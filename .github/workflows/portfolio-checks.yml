@@ -67,12 +67,18 @@ jobs:
           test -s dist/estudo-de-caso-vardao-maquinas/en/index.html
           test -s dist/estudo-de-caso-plataforma-iot/index.html
           test -s dist/estudo-de-caso-plataforma-iot/en/index.html
-          grep -q "Desenvolvedor full-stack júnior" dist/index.html
+          grep -q "Desenvolvedor Full-Stack Júnior" dist/index.html
+          grep -q "Aberto a oportunidades" dist/index.html
+          grep -q "Open to roles" dist/en/index.html
+          grep -q "https://flowbusiness.vercel.app/" dist/index.html
+          grep -q "/estudo-de-caso-vardao-central/" dist/index.html
+          test -s dist/fonts/archivo-var-sub.woff2
+          test -s dist/assets/og-matheus-francisco-v7.png
           grep -q "Junior Full-Stack Developer" dist/en/index.html
           grep -q '"jobTitle": "Junior Full-Stack Developer"' dist/en/index.html
           grep -q 'property="og:image:alt"' dist/index.html
           grep -q 'name="twitter:description"' dist/en/index.html
-          if grep -rIl -i -E "cognivault|1\.107|1,107" dist; then
+          if grep -rIl -i -E "cognivault|1\.107|1,107|disponibilidade imediata|immediately available" dist; then
             echo "Old name or removed claim found in the build output" >&2
             exit 1
           fi
