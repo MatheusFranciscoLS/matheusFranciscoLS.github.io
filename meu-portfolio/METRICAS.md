@@ -84,3 +84,29 @@ Retirados: "cerca de 200 páginas" como texto de apresentação (substituído po
 ## Currículos em PDF
 
 `public/assets/curriculo-source.sha256` guarda o hash dos HTMLs e do CSS usados para gerar os PDFs. O script `curriculos/verificar.sh` confere se o hash está em dia, se cada PDF tem uma página A4 e se o texto esperado aparece (e o texto proibido não). O GitHub Actions roda esse script antes e depois de regenerar os PDFs.
+
+## Revalidação de 11/11/2026 (redesign do portfólio)
+
+### Vardão Central
+Recontagem no estado de `origin/main` em 11/11/2026 (último commit do dia, às 17h14): 91 migrations, 49 modelos Prisma, 87 arquivos Vitest e 23 specs E2E, sem mudança. Arquivos de teste do back-end: **224** (eram 222 em 04/11/2026; 2 arquivos novos nos commits de 11/11). O estudo de caso continua citando 222 arquivos porque a execução dos testes (1.491, 623 e 70) foi feita sobre o estado de 04/11/2026, e o texto diz isso. Os testes não foram executados de novo sobre os commits de 11/11.
+
+Afirmações do portfólio e do carrossel de 12/11 conferidas no código (`origin/main`): busca por código que devolve só o código exato e a substituição oficial (`fast-search.controller.ts`); IA que escolhe numa lista fechada de peças da máquina (`routes/index.ts`); importação do ERP em modo de ensaio, com totais esperados, conferência ao centavo depois de gravar e opção de desfazer (`scripts/import-erp-financeiro.ts`); parcelas em centavos que fecham no total (`utils/financeiro-vendas.ts` e teste "parcelas fecham o centavo"); atalhos de teclado do balcão (`lib/results-keyboard.ts` e `ShellV2.tsx`).
+
+### Plataforma IoT Industrial
+208 anotações `@Test` em `iot-core/src/test` (`git grep -o -E '@(Test|ParameterizedTest)\b'`), igual ao publicado. Java 21, Spring Security, JPA, Flyway e AMQP conferidos no `pom.xml`; o gateway usa Socket.IO (`servidor-node/package.json`). Período do repositório: 19/05/2026 a 18/10/2026.
+
+### BusinessFlow
+Período do repositório: 23/11/2025 a 30/10/2026. Conferido no código: separação por empresa, refresh token, `express-rate-limit`, auditoria, importação OFX, geração de PDF e chave de API; 23 arquivos de teste e workflow `ci.yml`. A demonstração pública (perfil gestor e perfil cliente, dados fictícios e somente leitura) mostra: resumo executivo, carteira de clientes, cofre de documentos, DRE, tarefas e prazos, financeiro, trilha de auditoria, equipe, privacidade, configurações e o portal do cliente. As telas do portfólio são capturas dessa demonstração. O portfólio separa o que foi visto na demonstração do que foi conferido no código, e não afirma persistência de dados a partir da demonstração.
+
+### Cursos e formação (documentos originais conferidos)
+| Item | Documento | Dados |
+|---|---|---|
+| Técnico em Desenvolvimento de Sistemas | Diploma SENAI "Luiz Varga" | Concluído em 13/12/2024; diploma emitido em 16/04/2025 |
+| Programação Java | Certificado SENAI | 120 h, 25/07/2022 a 04/10/2022, emitido em 14/01/2025 |
+| Programação de Banco de Dados | Certificado SENAI | 120 h, 26/02/2024 a 08/04/2024, emitido em 14/01/2025 |
+| AWS Academy Cloud Foundations | Certificado SENAI "Implantação de Serviços em Nuvem" | 40 h, 03/09/2022 a 26/11/2022, emitido em 14/01/2025. Curso de formação; não é certificação oficial da AWS |
+| Ciência da Computação de Harvard no Brasil | Certificado Fundação Estudar | 70 h, emitido em 03/02/2025 |
+| Trilha Banco de Dados | Certificado Fundação Bradesco | 38 h, 30/01/2025 |
+| AI-900: Fundamentos de IA no Azure | Certificado Fundação Bradesco | 16 h, 20/01/2025 a 08/03/2025, curso autoinstrucional; não é o exame da Microsoft |
+
+A previsão de conclusão de Ciência da Computação (outubro de 2028) não tem documento nesta conferência; vem das versões anteriores aprovadas pelo Matheus.

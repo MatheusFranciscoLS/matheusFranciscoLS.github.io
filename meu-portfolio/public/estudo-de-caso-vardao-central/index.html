@@ -19,182 +19,168 @@
   <meta property="og:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
   <meta property="og:image:width" content="1440">
   <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, numa loja simulada com dados fictícios.">
+  <meta property="og:image:alt" content="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, captura ilustrativa com dados fictícios.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Vardão Central: estudo de caso | Matheus Francisco">
   <meta name="twitter:description" content="O sistema que a loja onde trabalho usa todo dia: balcão, CRM, financeiro e estoque, e as regras do ERP antigo reconstruídas e testadas.">
   <meta name="twitter:image" content="https://matheusfranciscols.github.io/assets/vardao-central/balcao.png">
-  <meta name="twitter:image:alt" content="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, numa loja simulada com dados fictícios.">
+  <meta name="twitter:image:alt" content="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, captura ilustrativa com dados fictícios.">
+  <link rel="preload" href="/fonts/archivo-var-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-sans-var-sub.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/estudo-de-caso.css">
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <nav class="top" aria-label="Navegação"><div class="wrap">
-    <a href="/#sistemas">← Matheus Francisco</a>
-    <span class="lang"><a href="./" aria-current="true">PT</a><a href="en/">EN</a></span>
-  </div></nav>
+  <header class="top"><div class="wrap top__row">
+    <a class="brand" href="/"><span class="brand__mark" aria-hidden="true">MF</span><span class="brand__name">Matheus Francisco</span></a>
+    <nav aria-label="Seções do portfólio"><ul class="top__nav"><li><a href="/#projetos">Projetos</a></li><li><a href="/#trajetoria">Trajetória</a></li><li><a href="/#contato">Contato</a></li></ul></nav>
+    <div class="top__tools"><a class="tool" href="en/" hreflang="en" lang="en" aria-label="EN: Read this case study in English">EN</a><button class="tool" type="button" data-theme-toggle aria-label="Alternar tema claro e escuro" aria-pressed="false"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.75"/><path d="M12 3.75a8.25 8.25 0 0 1 0 16.5z" fill="currentColor"/></svg></button></div>
+  </div></header>
 
   <main class="wrap" id="conteudo" tabindex="-1">
     <header class="hero">
-      <p class="eyebrow">Estudo de caso · 2026 · sistema em uso diário</p>
+      <nav class="crumbs" aria-label="Você está em"><a href="/#projetos">Projetos</a><span aria-hidden="true">/</span><span aria-current="page">Vardão Central</span></nav>
       <h1>Vardão Central</h1>
-      <p class="lead">O sistema que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Comecei por um catálogo de peças para o balcão, e hoje ele assume partes do trabalho do ERP antigo da loja, a começar pelo financeiro.</p>
+      <p class="lead">O sistema de gestão que a Vardão Máquinas, revenda autorizada Husqvarna em Limeira, usa todos os dias no balcão, no comercial, no financeiro e no estoque. Começou como um catálogo de peças para o balcão e hoje assume partes do trabalho do ERP antigo da loja, a começar pelo financeiro.</p>
       <ul class="meta">
-        <li><strong>Papel</strong>Desenvolvimento individual, de ponta a ponta: produto, design, arquitetura, implementação, testes e evolução</li>
-        <li><strong>Empresa</strong>Vardão Máquinas (onde trabalho)</li>
-        <li><strong>Período</strong>Desde agosto de 2026</li>
-        <li><strong>Situação</strong>Em uso diário</li>
+        <li><strong>Papel</strong>Desenvolvimento individual: levantamento, regras de negócio, arquitetura, implementação, testes e manutenção</li>
+        <li><strong>Empresa</strong>Vardão Máquinas, onde trabalho</li>
+        <li><strong>Período</strong>Desenvolvido desde agosto de 2026</li>
+        <li><strong>Situação</strong>Em uso diário na operação da loja</li>
       </ul>
-      <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">Ver o sistema no ar (com login)</a>
+      <p class="aviso"><strong>Sistema real, imagens ilustrativas.</strong> O Vardão Central está em produção e é usado todos os dias. Para preservar a operação e os dados da empresa, as capturas desta página foram feitas com dados fictícios: marca, modelos, códigos, clientes e preços inventados.</p>
+      <a class="btn" href="https://vardao-central.vercel.app" target="_blank" rel="noreferrer">Abrir o sistema (exige login da loja)</a>
       <a class="btn ghost" href="/#contato">Falar comigo</a>
     </header>
 
-    <figure class="shot"><img src="/assets/vardao-central/balcao.png" alt="Balcão do Vardão Central: busca por carburador com três peças no orçamento ao lado, numa loja simulada com dados fictícios." width="1440" height="900"></figure>
+    <div class="bench-band"><figure class="shot"><img src="/assets/vardao-central/balcao.webp" alt="Tela do balcão do Vardão Central: busca por carburador com quatro peças, preços e posição no catálogo, e o orçamento com três itens ao lado. Captura ilustrativa com dados fictícios." width="1440" height="900"></figure><p class="bench-caption">Tela do balcão. Captura ilustrativa com dados fictícios.</p></div>
 
     <section>
       <h2>O problema</h2>
       <p>No balcão, o cliente está na frente do atendente. Para responder "qual é a peça e quanto custa", era preciso abrir um catálogo em PDF, achar a posição no desenho, conferir o preço numa planilha, ver se a peça estava na prateleira e montar o orçamento à mão. Um código errado vira devolução.</p>
-      <p>Fora do balcão, as vendas, o financeiro e os clientes ficavam num ERP antigo, separado de tudo. Quem queria saber quanto a loja vendeu no mês ou que cliente estava parado precisava juntar informações de lugares diferentes.</p>
+      <p>Fora do balcão, vendas, financeiro e clientes ficavam num ERP antigo, separado de tudo. Saber quanto a loja vendeu no mês ou que cliente estava parado exigia juntar informações de lugares diferentes.</p>
+    </section>
+
+    <section>
+      <h2>Responsabilidades</h2>
+      <p>Desenvolvi o Vardão Central sozinho, do levantamento ao uso diário na loja:</p>
+      <ul class="plain">
+        <li><strong>Levantamento e regras de negócio.</strong> Levantei as necessidades com quem usa, na própria loja, e as transformei em regras, fluxos e testes.</li>
+        <li><strong>Arquitetura e dados.</strong> Desenhei a arquitetura (front-end, API, fila e banco) e modelei os dados em PostgreSQL com Prisma.</li>
+        <li><strong>Implementação full-stack.</strong> Front-end em React e TypeScript e API em Node.js e Express, com os módulos de balcão, comercial, financeiro e estoque.</li>
+        <li><strong>Integrações.</strong> Consulta ao portal público da fabricante, leitura de catálogos em PDF por fila, IA restrita a uma lista fechada de peças e importação dos dados do ERP antigo.</li>
+        <li><strong>Testes, publicação e manutenção.</strong> Escrevi as suítes de testes, configurei o CI e a publicação (Vercel, Render e Supabase) e sigo evoluindo e corrigindo o sistema em uso.</li>
+      </ul>
     </section>
 
     <section>
       <h2>Como evoluiu</h2>
-      <p>Comecei por um catálogo de peças para o balcão e fui ampliando conforme a loja pedia. As datas vêm do histórico do repositório.</p>
+      <p>Datas do histórico do repositório. Cada etapa veio de uma necessidade da loja.</p>
       <ol class="timeline">
         <li><strong>Agosto de 2026</strong>Catálogo e busca de peças por código, peça e modelo.</li>
         <li><strong>Setembro</strong>Orçamento no balcão, salvo no servidor.</li>
-        <li><strong>Outubro</strong>CRM com quadro de negociações. Depois, o Financeiro e o Estoque, com perfis de acesso, e as regras do ERP antigo reproduzidas.</li>
+        <li><strong>Outubro</strong>CRM com quadro de negociações. Depois, financeiro e estoque, com perfis de acesso e as regras do ERP antigo reproduzidas.</li>
+        <li><strong>Novembro</strong>Papel de vendedor, com comercial e estoque completos e um Início com as vendas dele.</li>
       </ol>
     </section>
 
     <section>
-      <h2>Projeto individual, de ponta a ponta</h2>
-      <p>Desenvolvi o Vardão Central sozinho, do início ao uso diário na loja. Estas foram as minhas responsabilidades:</p>
-      <ul class="plain">
-        <li><strong>Concepção e regras de negócio.</strong> Levantei as necessidades operacionais diretamente na loja e as transformei em regras de negócio, funcionalidades e fluxos implementados e cobertos por testes.</li>
-        <li><strong>Arquitetura e banco de dados.</strong> Desenhei a arquitetura (front-end, API, fila e banco) e modelei os dados: 49 modelos e 91 migrations em PostgreSQL com Prisma.</li>
-        <li><strong>Implementação full-stack.</strong> Front-end em React e TypeScript e API em Node.js e Express, com todos os módulos descritos abaixo: balcão, comercial, financeiro e estoque.</li>
-        <li><strong>Integrações.</strong> Consulta pública ao portal da fabricante, leitura de catálogos em PDF por fila, IA restrita a uma lista fechada e importação dos dados do ERP antigo.</li>
-        <li><strong>Testes.</strong> Escrevi a suíte automatizada: 623 testes Vitest no front-end, 1.491 no back-end e 70 E2E com Playwright.</li>
-        <li><strong>Publicação e manutenção.</strong> Configurei o CI, a publicação (Vercel e Render) e o banco gerenciado (Supabase), e sigo evoluindo e corrigindo o sistema em uso.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Da necessidade à regra</h2>
-      <p>Três exemplos de necessidades da operação e da regra que o sistema passou a garantir:</p>
-      <ul class="plain">
-        <li><strong>Um código errado vira devolução: o código da peça é sempre validado.</strong> Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</li>
-        <li><strong>O dono precisa ver os orçamentos do próprio dia: "hoje" no fuso da loja.</strong> O servidor roda em UTC e a loja em UTC-3, então toda conta de dia usa o fuso da loja, travada por teste.</li>
-        <li><strong>A loja não pode perder número na troca do ERP: os mesmos resultados, ou melhores.</strong> Reproduzi as regras do ERP, cada uma com testes, e a importação roda primeiro em modo de ensaio, exige os totais esperados e tem como desfazer.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>O que eu construí</h2>
+      <h2>Funcionalidades</h2>
       <h3>Balcão</h3>
-      <p>Busca por código, peça, modelo ou PNC; vista explodida oficial com a posição clicável; preço da lista e prateleira; orçamento em PDF e WhatsApp. Teclado primeiro: o atendente trabalha com pressa.</p>
+      <p>Busca por código, peça, modelo ou PNC; vista explodida oficial com a posição clicável; preço da lista e prateleira; orçamento em PDF e WhatsApp. A busca e o orçamento funcionam pelo teclado (Ctrl K, setas, Enter e +), porque o atendimento é rápido.</p>
       <h3>Comercial</h3>
-      <p>CRM com quadro de negociações e filtros rápidos, ranking de clientes, cross selling, reativação de clientes parados e a tabela de preços das máquinas.</p>
+      <p>CRM com quadro de negociações e filtros, ranking de clientes, cross selling, reativação de clientes parados e a tabela de preços das máquinas.</p>
       <h3>Financeiro</h3>
       <p>Lançamento de vendas, compras e despesas, DRE, fluxo de caixa, capital de giro, curva ABC e fechamento de caixa.</p>
       <h3>Estoque</h3>
       <p>Itens a pedir, faltas, prateleiras e encomendas de peças para clientes.</p>
       <h3>Início por perfil</h3>
-      <p>Cada pessoa abre o sistema no Início do seu papel, com o que importa para o dia dela, e o botão principal muda conforme o papel: "Lançar venda" ou "Novo orçamento".</p>
+      <p>Cada pessoa abre o sistema no Início do seu papel, com o que importa para o dia dela, e a ação principal muda conforme o papel: "Lançar venda" ou "Novo orçamento".</p>
     </section>
 
     <section>
-      <h2>Arquitetura e engenharia</h2>
+      <h2>Regras de negócio</h2>
+      <p>Regras que o sistema garante, todas cobertas por testes automatizados:</p>
+      <div class="rules">
+        <div class="rule"><h3>Código de peça validado</h3><p>O código digitado devolve só a peça exata e a substituição oficial da fabricante. A IA escolhe apenas dentro de uma lista fechada de peças da máquina.</p></div>
+        <div class="rule"><h3>Dados internos não vão ao cliente</h3><p>Orçamentos em PDF e mensagens de WhatsApp levam só o que o cliente precisa ver; os dados internos do balcão ficam de fora.</p></div>
+        <div class="rule"><h3>Datas no fuso da loja</h3><p>O servidor roda em UTC e a loja em UTC-3. Toda conta de dia usa o fuso da loja, para "hoje" incluir os orçamentos do próprio dia.</p></div>
+        <div class="rule"><h3>Valores em centavos</h3><p>Nas vendas, os valores são inteiros em centavos e a divisão em parcelas sempre fecha no total, sem diferença de arredondamento.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Substituição do ERP antigo</h2>
+      <p>A troca não podia perder nenhum número: os mesmos resultados do ERP antigo, ou melhores.</p>
+      <ul class="plain">
+        <li><strong>Regras lidas no código do ERP.</strong> Em vez de confiar na memória de como o ERP funcionava, li o código dele tela por tela e reproduzi as regras: DRE, fluxo de caixa, capital de giro, ranking de clientes e outras, cada uma com testes.</li>
+        <li><strong>Regras não documentadas.</strong> A leitura mostrou regras e histórico de versões antigas que não estavam documentados. Sem ela, esse legado teria ficado de fora dos relatórios.</li>
+        <li><strong>Importação controlada.</strong> O importador roda primeiro em modo de ensaio, só grava quando recebe os totais esperados, confere os totais no banco depois de gravar e pode ser desfeito. Foi testado com dados fictícios e usado na importação dos dados reais da loja.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Arquitetura</h2>
       <div class="arch"><img src="/assets/vardao-central/arquitetura.svg" alt="Diagrama: o navegador usa o front-end React na Vercel, que chama a API Node.js no Render; a API grava no PostgreSQL e no Storage do Supabase e coloca a leitura de PDFs numa fila RabbitMQ; integrações externas tracejadas: portal público da fabricante, Gemini e arquivos do ERP antigo." loading="lazy" width="1000" height="492"></div>
       <ul class="plain">
-        <li><strong>Várias lojas, um banco.</strong> Todo registro pertence a uma loja, e a loja vem da sessão de quem entrou, não do navegador.</li>
-        <li><strong>Acesso controlado.</strong> Login com sessão assinada e acesso por perfil, sempre conferido no servidor e não só na tela.</li>
+        <li><strong>Separação por loja.</strong> A estrutura suporta mais de uma loja no mesmo banco: 44 dos 49 modelos guardam a loja dona do registro. Os outros cinco são a própria loja, itens que herdam a loja do registro principal (peças de um catálogo, itens de um orçamento) e o catálogo oficial da fabricante, compartilhado. A loja vem da sessão assinada, validada no servidor, e não de um valor enviado pelo navegador. Hoje o sistema atende uma loja.</li>
+        <li><strong>Acesso por perfil.</strong> Login com sessão assinada e permissões por perfil, sempre conferidas no servidor, e não só na tela.</li>
         <li><strong>Proteção básica.</strong> Limite de requisições, cabeçalhos de segurança e validação das entradas na API.</li>
-        <li><strong>Trabalho em segundo plano.</strong> A leitura de catálogos em PDF passa por uma fila RabbitMQ, com nova tentativa. A API não depende da fila para atender o balcão.</li>
+        <li><strong>Trabalho em segundo plano.</strong> A leitura de catálogos em PDF passa por uma fila RabbitMQ, com nova tentativa. O balcão não depende da fila para funcionar.</li>
         <li><strong>Banco.</strong> PostgreSQL com Prisma: 49 modelos e 91 migrations versionadas.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Substituindo o ERP antigo</h2>
-      <p>A loja não podia perder nenhum número na troca. A regra era simples: os mesmos resultados do ERP antigo, ou melhores.</p>
-      <ul class="plain">
-        <li><strong>Regras do ERP, testadas.</strong> Li o código do ERP tela por tela e reproduzi as regras no Vardão Central: DRE, fluxo de caixa, capital de giro, ranking de clientes e outras. Cada regra tem testes automatizados.</li>
-        <li><strong>O que estava escondido.</strong> A revisão mostrou que o ERP carregava regras e histórico de versões antigas que não estavam documentados. Sem essa revisão, esse legado teria ficado de fora dos relatórios.</li>
-        <li><strong>Importação segura.</strong> O importador dos dados do ERP, testado com dados fictícios e usado na importação dos dados reais da loja, roda primeiro em modo de ensaio, exige os totais esperados para gravar, confere os totais depois de gravar e tem como desfazer.</li>
-        <li><strong>Melhor que o original.</strong> Nas vendas, os valores são contados em centavos inteiros e a divisão em parcelas sempre fecha no total, sem diferença de arredondamento.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Regras que o produto não quebra</h2>
-      <div class="rules">
-        <div class="rule"><h3>Código da peça sempre validado</h3><p>Código digitado devolve só o código exato e a substituição oficial da fabricante. A IA só escolhe dentro de uma lista fechada de peças da máquina.</p></div>
-        <div class="rule"><h3>Nada interno vai ao cliente</h3><p>Orçamentos em PDF e mensagens de WhatsApp saem só com o que o cliente precisa ver. Os dados internos do balcão ficam de fora, e um teste garante isso.</p></div>
-        <div class="rule"><h3>Mudança de dado é explícita</h3><p>Importar preço, estoque ou vendas mostra um relatório antes de gravar e guarda como desfazer.</p></div>
-        <div class="rule"><h3>Número é número</h3><p>Parcelas em centavos inteiros e datas no fuso da loja, travadas por teste.</p></div>
-      </div>
-    </section>
-
-    <section>
       <h2>Telas</h2>
       <div class="gallery">
-        <figure><div class="shot"><img src="/assets/vardao-central/substituido.png" alt="Código substituído pela fabricante, com o código novo em destaque. Dados fictícios." loading="lazy" width="1440" height="900"></div><figcaption><strong>Código antigo, peça nova.</strong> A troca oficial aparece em destaque, com o código novo pronto para orçar.</figcaption></figure>
-        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.png" alt="Tela de orçamento de peças com dados do cliente, itens, prazo e observações, numa loja simulada com dados fictícios." loading="lazy" width="1440" height="900"></div><figcaption><strong>Orçamento</strong> com prazo, pagamento e desconto, enviado por WhatsApp ou PDF.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/substituido.webp" alt="Busca de um código que a fabricante substituiu: o aviso mostra o código novo em destaque, com preço e botões para orçar ou copiar. Captura ilustrativa com dados fictícios." loading="lazy" width="1440" height="900"></div><figcaption><strong>Código substituído.</strong> A troca oficial aparece em destaque, com o código novo pronto para orçar.</figcaption></figure>
+        <figure><div class="shot"><img src="/assets/vardao-central/orcamento.webp" alt="Tela de orçamento de peças com dados do cliente, itens, prazo, forma de pagamento e observações. Captura ilustrativa com dados fictícios." loading="lazy" width="1440" height="900"></div><figcaption><strong>Orçamento</strong> com prazo, pagamento e desconto, enviado por WhatsApp ou PDF.</figcaption></figure>
       </div>
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--ink-2)">Prints de uma loja simulada, com dados inteiramente fictícios: marca, modelo, códigos, cliente e preços foram inventados para a demonstração. A resposta do portal da fabricante, que informa a troca de código, também foi simulada.</p>
+      <p class="fine-note">Capturas ilustrativas, feitas com dados fictícios para preservar a operação: marca, modelos, códigos, cliente e preços foram inventados. A resposta do portal da fabricante que informa a troca de código também foi simulada para a captura.</p>
     </section>
 
     <section>
-      <h2>Decisões e o que aprendi</h2>
-      <h3>O teste verde que mentia</h3>
-      <p>Uma rotina de manutenção tinha teste e passava, mas em produção nunca rodava: o ponto onde ela era ligada estava no lugar errado da inicialização. Descobri olhando os dados. Hoje há um teste só para essa ligação, provado desfazendo a correção e vendo o teste reprovar.</p>
-      <h3>"Hoje" terminava ontem</h3>
-      <p>O servidor roda em UTC e a loja em UTC-3: o filtro "até hoje" cortava antes da meia-noite da loja e o dono não via os orçamentos do próprio dia. Toda conta de dia agora usa o fuso da loja, travada por teste.</p>
-      <h3>Recusar é melhor que errar</h3>
-      <p>O leitor de catálogos em PDF prefere recusar um arquivo duvidoso, dizendo o motivo, a gravar um código errado que estragaria a busca inteira.</p>
-      <h3>Servidor perto do banco</h3>
-      <p>O servidor da API ficava longe do banco de dados, e cada consulta pagava a viagem de ida e volta. Preparei as telas do dia a dia para serem atendidas por uma camada mais próxima do banco, deixando no servidor principal só o trabalho pesado. A mudança pode ser desligada por uma variável.</p>
-      <h3>Ler o sistema antigo, não confiar na memória</h3>
-      <p>Na reconstrução do financeiro, eu não confiei nas regras que eu achava que o ERP tinha. Fui ao código dele, e foi isso que achou o que estava escondido.</p>
+      <h2>Decisões técnicas</h2>
+      <h3>Teste aprovado não garantia execução em produção</h3>
+      <p>Uma rotina de manutenção tinha teste e passava, mas em produção nunca rodava: o ponto onde ela era ligada estava no lugar errado da inicialização. Descobri olhando os dados. Hoje há um teste específico para essa ligação, validado desfazendo a correção e vendo o teste reprovar.</p>
+      <h3>Recusar um catálogo duvidoso</h3>
+      <p>O leitor de catálogos em PDF recusa um arquivo duvidoso e informa o motivo, em vez de gravar um código errado que comprometeria a busca.</p>
+      <h3>Latência entre a API e o banco</h3>
+      <p>O servidor da API ficava longe do banco de dados, e cada consulta pagava a viagem de ida e volta. Preparei as telas do dia a dia para serem atendidas por uma camada mais próxima do banco, deixando no servidor principal só o trabalho pesado. A mudança pode ser desligada por uma variável de ambiente.</p>
     </section>
 
     <section>
-      <h2>Estratégia de testes</h2>
-      <ul class="plain">
-        <li><strong>Front-end (Vitest).</strong> Regras e componentes da interface: 623 testes em 87 arquivos.</li>
-        <li><strong>Back-end (executor de testes do Node).</strong> Regras de negócio, serviços e rotas da API: 1.491 testes em 222 arquivos, incluindo testes de integração contra um RabbitMQ real (publicar e consumir, dead-letter e reconexão).</li>
-        <li><strong>Ponta a ponta (Playwright).</strong> 70 testes em 23 arquivos exercitam os fluxos por perfil contra back-end, front-end e um banco recém-criado.</li>
-        <li><strong>Busca de peças.</strong> Um benchmark próprio de 50 casos confere a busca determinística (Top-1 de 100% e Recall@5 de 100% nesses casos).</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Qualidade em números</h2>
+      <h2>Testes</h2>
       <div class="numbers">
-        <div class="num"><b>1.491</b><span>testes do back-end aprovados (222 arquivos)</span></div>
-        <div class="num"><b>623</b><span>testes Vitest do front-end aprovados (87 arquivos)</span></div>
-        <div class="num"><b>70</b><span>testes E2E com Playwright aprovados (23 arquivos)</span></div>
-        <div class="num"><b>91</b><span>migrations do banco, versionadas</span></div>
-        <div class="num"><b>49</b><span>modelos de dados no Prisma (sem contar enums)</span></div>
+        <div class="num"><b>1.491</b><span>testes do back-end aprovados, em 222 arquivos</span></div>
+        <div class="num"><b>623</b><span>testes Vitest do front-end aprovados, em 87 arquivos</span></div>
+        <div class="num"><b>70</b><span>testes E2E com Playwright aprovados, em 23 arquivos</span></div>
+        <div class="num"><b>50</b><span>casos do benchmark da busca de peças (Top-1 e Recall@5 de 100%)</span></div>
       </div>
-      <p style="margin-top:12px;font-size:0.95rem;color:var(--ink-2)">Testes executados localmente em 10/11/2026, e não pelo pipeline de CI, num ambiente isolado (banco PostgreSQL local descartável e dados fictícios), sobre o estado do repositório de 04/11/2026. No back-end, todos os 1.491 passaram, com um servidor RabbitMQ real (versão 3.13) rodando no mesmo ambiente. No E2E, 2 dos 70 testes usavam uma data fixa de outubro e falharam na primeira execução; a correção (data do mês corrente, sem remover nem enfraquecer verificações) já foi integrada ao repositório, e a suíte completa passou 70 de 70.</p>
+      <ul class="plain">
+        <li><strong>Back-end (executor de testes do Node).</strong> Regras de negócio, serviços e rotas da API, incluindo integração com um RabbitMQ real (publicar e consumir, dead-letter e reconexão).</li>
+        <li><strong>Front-end (Vitest).</strong> Regras e componentes da interface.</li>
+        <li><strong>Ponta a ponta (Playwright).</strong> Fluxos por perfil contra back-end, front-end e um banco recém-criado.</li>
+        <li><strong>Busca de peças.</strong> Benchmark próprio da busca determinística, com peças de exemplo e sem IA; não mede o catálogo completo.</li>
+      </ul>
+      <p class="aviso"><strong>Como os números foram obtidos.</strong> Execução local em 10/11/2026, num ambiente isolado (PostgreSQL local descartável e dados fictícios), sobre o estado do repositório de 04/11/2026. Não são resultados de CI. No back-end, os 1.491 passaram com um RabbitMQ 3.13 real no mesmo ambiente. No E2E, 2 dos 70 testes usavam uma data fixa e falharam na primeira execução; a correção (data do mês corrente, sem remover nem enfraquecer verificações) foi integrada, e a suíte passou 70 de 70.</p>
     </section>
 
     <section>
-      <h2>Limites e o que falta</h2>
+      <h2>Limites</h2>
       <ul class="plain">
-        <li><strong>Testes e CI.</strong> O pipeline de CI do projeto (GitHub Actions) funcionou durante o desenvolvimento: foram cerca de 2 mil execuções, 1.423 aprovadas, a última aprovada em 25/10/2026. Eu o desativei manualmente ao atingir o limite de uso do GitHub Actions, e ele não está ativo no momento. Os resultados acima vêm de uma execução local em ambiente isolado em 10/11/2026, e não do pipeline.</li>
-        <li><strong>Cobertura de código.</strong> O projeto não tem relatório de cobertura de código, então este estudo não informa percentual de cobertura. Os números acima são quantidades de testes executados.</li>
-        <li><strong>Prints.</strong> Feitos numa loja simulada com dados fictícios, sem nenhum dado real da loja.</li>
+        <li><strong>CI.</strong> O pipeline do GitHub Actions funcionou durante o desenvolvimento: cerca de 2 mil execuções, 1.423 aprovadas, a última aprovada em 25/10/2026. Desativei o workflow ao atingir o limite de uso do GitHub Actions, e ele não está ativo no momento.</li>
+        <li><strong>Cobertura.</strong> O projeto não tem relatório de cobertura de código, então este estudo não informa percentual de cobertura. Os números acima são quantidades de testes executados.</li>
+        <li><strong>Código.</strong> O código é privado, porque é um sistema de trabalho. Posso apresentar a arquitetura e trechos do código numa conversa.</li>
       </ul>
     </section>
 
@@ -206,8 +192,24 @@
     </section>
 
     <footer>
-      O Vardão Central é um projeto de trabalho e o código é privado. Posso apresentar a arquitetura e trechos do código numa conversa. <a href="/#contato">Falar comigo</a>. · <a href="/estudo-de-caso-plataforma-iot/">Próximo: Plataforma IoT Industrial</a>
+      Quer ver a arquitetura ou trechos do código? <a href="/#contato">Fale comigo</a>.
     </footer>
+    <nav class="case-next" aria-label="Outros estudos de caso"><span>Próximo estudo de caso</span><a href="/estudo-de-caso-plataforma-iot/">Plataforma IoT Industrial</a></nav>
   </main>
+  <footer class="site-foot"><div class="wrap"><p>Matheus Francisco, Limeira (SP).</p><p><a href="/">Página inicial</a><a href="/#contato">Contato</a><a href="/assets/curriculo-pt.pdf" download="Matheus-Francisco-Curriculo.pdf">Currículo (PDF)</a></p></div></footer>
+  <script>
+    (function () {
+      var b = document.querySelector('[data-theme-toggle]');
+      if (!b) return;
+      var sync = function () { b.setAttribute('aria-pressed', String(document.documentElement.getAttribute('data-theme') === 'dark')); };
+      sync();
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
