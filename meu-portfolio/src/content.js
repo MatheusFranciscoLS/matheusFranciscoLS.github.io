@@ -150,11 +150,11 @@ export const content = {
         name: 'Vardão Central',
         kind: 'Sistema de gestão de uma revenda de máquinas, em uso diário',
         type: 'Em uso diário',
-        facts: ['Projeto individual', 'Em uso diário', 'Iniciado em agosto de 2026', 'Código privado'],
+        facts: ['Projeto individual, por iniciativa própria', 'Em uso diário', 'Iniciado em agosto de 2026', 'Código privado'],
         problem:
           'Para responder "qual é a peça e quanto custa", o balcão abria um catálogo em PDF, uma planilha de preços e um ERP antigo. Um código errado virava devolução, e as vendas e o financeiro ficavam em outro sistema.',
         role:
-          'Desenvolvi o sistema sozinho: levantei as necessidades na própria loja, transformei-as em regras de negócio, desenhei a arquitetura e o banco de dados, implementei o front-end e a API, escrevi os testes e cuido da publicação e da manutenção.',
+          'Desenvolvi o sistema sozinho, por iniciativa própria e em paralelo ao meu cargo de Vendedor: levantei as necessidades na própria loja, transformei-as em regras de negócio, desenhei a arquitetura e o banco de dados, implementei o front-end e a API, escrevi os testes e cuido da publicação e da manutenção.',
         modules: [
           ['Balcão', 'Busca por código, peça, modelo ou PNC, vista explodida do catálogo e orçamento em PDF e WhatsApp.'],
           ['Comercial', 'CRM com quadro de negociações, ranking de clientes, cross selling e reativação de clientes parados.'],
@@ -336,7 +336,7 @@ export const content = {
       workTitle: 'Experiência profissional',
       workNote: 'Minha experiência profissional é na área comercial. Os sistemas que desenvolvi nasceram dela, mas não tive cargo de desenvolvedor.',
       work: [
-        { when: 'set/2020 até hoje', what: 'Vendedor', where: 'Vardão Máquinas, Limeira', text: 'Loja familiar, revenda autorizada Husqvarna. Vendas consultivas, compras, estoque e apoio ao financeiro. Na loja, também desenvolvi o Vardão Central e o site da empresa.' },
+        { when: 'set/2020 até hoje', what: 'Vendedor', where: 'Vardão Máquinas, Limeira', text: 'Loja familiar, revenda autorizada Husqvarna. Atendimento de balcão e vendas técnicas, orçamentos, negociações, compras e controle de estoque. Por iniciativa própria e em paralelo ao cargo, desenvolvi o Vardão Central e o site da empresa.' },
         { when: 'set/2017 a set/2020', what: 'Auxiliar de estoque e vendas, depois Vendedor', where: 'Yamashita Tratores', text: 'Entrei como auxiliar em setembro de 2017 e fui promovido a vendedor em outubro do mesmo ano. Venda técnica de máquinas agrícolas.' },
       ],
       skillsTitle: 'Tecnologias',
@@ -351,8 +351,8 @@ export const content = {
       courses: [
         ['Programação Java', 'SENAI, 120 h, jul. a out. de 2022'],
         ['Programação de Banco de Dados', 'SENAI, 120 h, fev. a abr. de 2024'],
-        ['AWS Academy Cloud Foundations', 'Curso "Implantação de Serviços em Nuvem" do SENAI, 40 h, set. a nov. de 2022. É um curso de formação, não uma certificação oficial da AWS'],
-        ['Ciência da Computação de Harvard no Brasil', 'Fundação Estudar, 70 h, certificado emitido em fev. de 2025'],
+        ['Implantação de Serviços em Nuvem (AWS)', 'Curso do SENAI, 40 h, set. a nov. de 2022. É um curso de formação, não uma certificação oficial da AWS'],
+        ['Ciência da Computação de Harvard no Brasil', 'Curso da Fundação Estudar, 70 h, certificado de conclusão emitido em fev. de 2025'],
         ['Trilha Banco de Dados', 'Fundação Bradesco, 38 h, jan. de 2025'],
         ['AI-900: Fundamentos de IA no Azure', 'Fundação Bradesco, 16 h, jan. a mar. de 2025. Curso autoinstrucional, não é o exame da Microsoft'],
       ],
@@ -461,11 +461,11 @@ export const content = {
         name: 'Vardão Central',
         kind: 'Management system of a machinery dealership, in daily use',
         type: 'In daily use',
-        facts: ['Solo project', 'In daily use', 'Started in August 2026', 'Private code'],
+        facts: ['Solo project, on my own initiative', 'In daily use', 'Started in August 2026', 'Private code'],
         problem:
           'To answer "which part is it and how much", the counter opened a PDF catalog, a price spreadsheet and an old ERP. A wrong part number led to a return, and sales and finance lived in another system.',
         role:
-          'I built the system on my own: I gathered the needs in the store itself, turned them into business rules, designed the architecture and the database, implemented the front end and the API, wrote the tests and handle deployment and maintenance.',
+          'I built the system on my own, on my own initiative and alongside my role as a Sales Representative: I gathered the needs in the store itself, turned them into business rules, designed the architecture and the database, implemented the front end and the API, wrote the tests and handle deployment and maintenance.',
         modules: [
           ['Counter', 'Search by part number, name, model or PNC, exploded catalog view and quotes as PDF or via WhatsApp.'],
           ['Sales', 'A CRM with a deal board, customer ranking, cross-selling and reactivation of idle customers.'],
@@ -647,7 +647,7 @@ export const content = {
       workTitle: 'Work experience',
       workNote: 'My professional experience is in sales. The systems I built came out of it, but I have not held a developer position.',
       work: [
-        { when: 'Sep 2020 to today', what: 'Sales Representative', where: 'Vardão Máquinas, Limeira', text: 'Family-owned authorized Husqvarna dealer. Consultative sales, purchasing, inventory and finance support. At the store, I also built Vardão Central and the company website.' },
+        { when: 'Sep 2020 to today', what: 'Sales Representative', where: 'Vardão Máquinas, Limeira', text: 'Family-owned authorized Husqvarna dealer. Counter service and technical sales, quotes, negotiations, purchasing and inventory control. On my own initiative and alongside my role, I built Vardão Central and the company website.' },
         { when: 'Sep 2017 to Sep 2020', what: 'Stock and sales assistant, then Sales Representative', where: 'Yamashita Tratores', text: 'Joined as an assistant in September 2017 and was promoted to Sales Representative in October of the same year. Technical sales of farm machinery.' },
       ],
       skillsTitle: 'Technologies',
@@ -662,8 +662,8 @@ export const content = {
       courses: [
         ['Java Programming', 'SENAI, 120 h, Jul to Oct 2022'],
         ['Database Programming', 'SENAI, 120 h, Feb to Apr 2024'],
-        ['AWS Academy Cloud Foundations', 'SENAI course "Implantação de Serviços em Nuvem" (cloud services deployment), 40 h, Sep to Nov 2022. A training course, not an official AWS certification'],
-        ['Computer Science, Harvard in Brazil', 'Fundação Estudar, 70 h, certificate issued in Feb 2025'],
+        ['Cloud Services Deployment (AWS)', 'SENAI course "Implantação de Serviços em Nuvem", 40 h, Sep to Nov 2022. A training course, not an official AWS certification'],
+        ['Computer Science, Harvard in Brazil', 'Fundação Estudar course, 70 h, completion certificate issued in Feb 2025'],
         ['Database learning path', 'Fundação Bradesco, 38 h, Jan 2025'],
         ['AI-900: Azure AI Fundamentals', 'Fundação Bradesco, 16 h, Jan to Mar 2025. A self-paced course, not the Microsoft exam'],
       ],
