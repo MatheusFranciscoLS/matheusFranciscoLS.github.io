@@ -104,7 +104,7 @@ Período do repositório: 23/11/2025 a 30/10/2026. Conferido no código: separa�
 | Técnico em Desenvolvimento de Sistemas | Diploma SENAI "Luiz Varga" | Concluído em 13/12/2024; diploma emitido em 16/04/2025 |
 | Programação Java | Certificado SENAI | 120 h, 25/07/2022 a 04/10/2022, emitido em 14/01/2025 |
 | Programação de Banco de Dados | Certificado SENAI | 120 h, 26/02/2024 a 08/04/2024, emitido em 14/01/2025 |
-| AWS Academy Cloud Foundations | Certificado SENAI "Implantação de Serviços em Nuvem" | 40 h, 03/09/2022 a 26/11/2022, emitido em 14/01/2025. Curso de formação; não é certificação oficial da AWS |
+| Implantação de Serviços em Nuvem (AWS) | Certificado SENAI "Implantação de Serviços em Nuvem - AWS Cloud Practitioner Foundational" | 40 h, 03/09/2022 a 26/11/2022, emitido em 14/01/2025. Curso de formação; não é certificação oficial da AWS |
 | Ciência da Computação de Harvard no Brasil | Certificado Fundação Estudar | 70 h, emitido em 03/02/2025 |
 | Trilha Banco de Dados | Certificado Fundação Bradesco | 38 h, 30/01/2025 |
 | AI-900: Fundamentos de IA no Azure | Certificado Fundação Bradesco | 16 h, 20/01/2025 a 08/03/2025, curso autoinstrucional; não é o exame da Microsoft |
