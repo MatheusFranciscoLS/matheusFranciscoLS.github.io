@@ -1,12 +1,12 @@
 # Matheus Francisco: Portfólio
 
-Código do portfólio de [Matheus Francisco](https://matheusfranciscols.github.io), desenvolvedor full-stack júnior em Limeira, SP. O site apresenta cinco sistemas publicados, cada um com o problema que resolve, o que foi construído e como foi provado que funciona.
+Código do portfólio de [Matheus Francisco](https://matheusfranciscols.github.io), desenvolvedor full-stack júnior em Limeira, SP. O site apresenta cinco projetos publicados, cada um com o problema que resolve, o que foi construído e como foi provado que funciona.
 
 ## O que o site mostra
 
 - **Verificação dos sites:** a primeira tela testa, no navegador de quem visita, o carregamento do favicon de cada endereço. É uma checagem simples de disponibilidade do recurso, não um monitoramento completo da saúde das aplicações.
-- **Vardão Central:** o sistema que uma revenda Husqvarna usa todos os dias (balcão, CRM, financeiro e estoque), desenvolvido individualmente por mim. Código privado; tem [estudo de caso](https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/).
-- **Site da Vardão Máquinas:** o site institucional da mesma empresa (A Vardão, assistência técnica, linhas de produtos e contato). Código privado, da empresa; tem [estudo de caso](https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/).
+- **Vardão Central:** o sistema que uma revenda Husqvarna usa todos os dias (balcão, CRM, financeiro e estoque), desenvolvido individualmente por mim, por iniciativa própria e em paralelo ao meu cargo de Vendedor. Código privado; tem [estudo de caso](https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/).
+- **Site da Vardão Máquinas:** o site institucional da mesma empresa (A Vardão, assistência técnica, linhas de produtos e contato). Feito por iniciativa própria para a empresa onde trabalho. Código privado, da empresa; tem [estudo de caso](https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/).
 - **Plataforma IoT Industrial** e **BusinessFlow:** código aberto, com README e decisões técnicas. A Plataforma IoT também tem [estudo de caso](https://matheusfranciscols.github.io/estudo-de-caso-plataforma-iot/).
 - **Economia Solidária:** TCC do SENAI, feito em equipe (minha parte: o front-end em React).
 - Conteúdo completo em português e inglês, tema claro e escuro, currículo em PDF e navegação acessível.
