@@ -1,6 +1,6 @@
 # Matheus Francisco: Portfólio
 
-Código do portfólio de [Matheus Francisco](https://matheusfranciscols.github.io), desenvolvedor full-stack júnior em Limeira, SP. O site apresenta cinco projetos publicados, cada um com o problema que resolve, o que foi construído e como foi provado que funciona.
+Código do portfólio de [Matheus Francisco](https://matheusfranciscols.github.io), desenvolvedor full-stack júnior em Limeira, SP. O site apresenta seis projetos publicados, cada um com o problema que resolve, o que foi construído e como foi provado que funciona.
 
 ## O que o site mostra
 

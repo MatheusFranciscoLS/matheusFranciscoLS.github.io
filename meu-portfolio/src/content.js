@@ -54,6 +54,12 @@ const shared = {
     phone: { src: '/assets/vardao-site/celular.webp', w: 390, h: 844 },
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
   },
+  pelo: {
+    id: 'pelo-e-ponto',
+    live: 'https://peloeponto.vercel.app',
+    code: 'https://github.com/MatheusFranciscoLS/peloeponto',
+    stack: ['Java 21', 'Spring Boot', 'Spring Security', 'PostgreSQL', 'React', 'TypeScript', 'Playwright', 'GitHub Actions'],
+  },
   economia: {
     id: 'economia-solidaria',
     live: 'https://economia-solidaria-frontend.vercel.app',
@@ -120,7 +126,7 @@ export const content = {
     projects: {
       title: 'Projetos',
       intro:
-        'Cinco projetos em destaque. O Vardão Central é o principal: está em uso diário numa empresa. Os outros mostram um SaaS multiempresa, Java com Spring Boot, um site em produção e um trabalho em equipe.',
+        'Seis projetos em destaque. O Vardão Central é o principal: está em uso diário numa empresa. Os outros mostram um produto de agendamento em Java e React, um SaaS multiempresa, Java com Spring Boot, um site em produção e um trabalho em equipe.',
       labels: {
         problem: 'O problema',
         role: 'O que eu fiz',
@@ -207,6 +213,29 @@ export const content = {
         privateNote: 'O código é privado e o acesso é restrito à loja. Posso mostrar a arquitetura e trechos do código numa conversa.',
       },
       items: [
+        {
+          ...shared.pelo,
+          name: 'Pelo & Ponto',
+          context: 'Projeto pessoal, nov. de 2026',
+          kind: 'Agenda e fila de atendimento para estúdios de banho e tosa',
+          type: 'Projeto pessoal',
+          summary:
+            'O tutor agenda com o pet certo e o estúdio vê quem chegou, quem está no banho e quem já pode ser retirado. Dois pedidos para o mesmo horário nunca viram duas reservas, nem quando chegam juntos.',
+          did: [
+            'Direção do produto e das regras: agenda, fila, ficha do pet, faltas, lista de espera e privacidade do tutor, com a qualidade de um sistema que um estúdio usaria no dia a dia.',
+            'API em Java 21 e Spring Boot, com Spring Security (JWT), JPA e Flyway. A trava contra reserva dupla fica no PostgreSQL (restrição de exclusão sobre intervalos de tempo) e foi provada com requisições simultâneas.',
+            'Construído com harness engineering: eu defino as regras e os critérios de aceite, e agentes de IA implementam e revisam sob a minha especificação e aprovação. Mais de 780 testes no back-end, testes de navegador e CI com seis verificações.',
+          ],
+          seen: 'Na demonstração dá para entrar como dona do estúdio, atendente ou tutora e ver a agenda do dia, a fila, o resumo e o agendamento pelo celular.',
+          demoNote: 'Demonstração pública, sem senha: dados fictícios. Toque em "Conhecer sem cadastro". A API roda em hospedagem gratuita, então a primeira abertura pode levar até 2 minutos.',
+          gallery: [
+            { src: '/assets/pelo-e-ponto/agenda.jpg', w: 1280, h: 800, tab: 'Agenda do dia', alt: 'Agenda do dia do estúdio com cada atendimento, o pet, o serviço, o horário e a situação. Dados fictícios.', caption: 'Agenda do dia: a equipe registra chegada, conclusão e falta.' },
+            { src: '/assets/pelo-e-ponto/fila.jpg', w: 1280, h: 800, tab: 'Fila', alt: 'Fila de atendimento com quem já chegou e ainda não foi retirado, por ordem de chegada. Dados fictícios.', caption: 'Fila por ordem de chegada, com o aviso de comportamento do pet à vista.' },
+            { src: '/assets/pelo-e-ponto/resumo.jpg', w: 1280, h: 800, tab: 'Resumo', alt: 'Resumo do estúdio com atendimentos por situação e valores de tabela por período. Dados fictícios.', caption: 'Resumo do estúdio (a própria tela avisa que os valores não são faturamento).' },
+            { src: '/assets/pelo-e-ponto/agendar-celular.jpg', w: 390, h: 844, tab: 'Agendar no celular', alt: 'Tela de agendamento no celular, com serviço, pet, dia e horário. Dados fictícios.', caption: 'O tutor escolhe serviço, pet, dia e horário; duração e valor seguem o porte e o pelo.' },
+          ],
+          galleryNote: 'Demonstração pública, dados fictícios.',
+        },
         {
           ...shared.businessflow,
           name: 'BusinessFlow',
@@ -301,7 +330,7 @@ export const content = {
         },
         {
           title: 'Publico e documento',
-          text: 'Os cinco projetos estão no ar. Os de código aberto têm README com instruções e decisões técnicas; os privados têm estudo de caso.',
+          text: 'Os seis projetos estão no ar. Os de código aberto têm README com instruções e decisões técnicas; os privados têm estudo de caso.',
         },
       ],
     },
@@ -325,6 +354,7 @@ export const content = {
             { label: 'BusinessFlow', when: 'nov/2025 a out/2026', from: 2025.88, to: 2026.83 },
             { label: 'Plataforma IoT Industrial', when: 'mai a out/2026', from: 2026.38, to: 2026.8 },
             { label: 'Vardão Central', when: 'ago/2026 até hoje', from: 2026.65, to: 'now' },
+            { label: 'Pelo & Ponto', when: 'nov/2026 até hoje', from: 2026.87, to: 'now' },
           ] },
         ],
       },
@@ -435,7 +465,7 @@ export const content = {
     projects: {
       title: 'Projects',
       intro:
-        'Five featured projects. Vardão Central is the main one: it is in daily use at a company. The others show a multi-company SaaS, Java with Spring Boot, a website in production and a team project.',
+        'Six featured projects. Vardão Central is the main one: it is in daily use at a company. The others show a scheduling product in Java and React, a multi-company SaaS, Java with Spring Boot, a website in production and a team project.',
       labels: {
         problem: 'The problem',
         role: 'What I did',
@@ -522,6 +552,29 @@ export const content = {
         privateNote: 'The code is private and access is restricted to the store. I can walk through the architecture and code excerpts in a conversation.',
       },
       items: [
+        {
+          ...shared.pelo,
+          name: 'Pelo & Ponto',
+          context: 'Personal project, Nov 2026',
+          kind: 'Scheduling and attendance queue for pet grooming studios',
+          type: 'Personal project',
+          summary:
+            'The customer books with the right pet and the studio sees who arrived, who is being groomed and who is ready for pickup. Two requests for the same time slot never become two bookings, even when they arrive together.',
+          did: [
+            'Product and rules direction: agenda, queue, pet record, no-shows, waitlist and customer privacy, built to the quality of a system a studio would use every day.',
+            'Java 21 and Spring Boot API with Spring Security (JWT), JPA and Flyway. The guard against double booking lives in PostgreSQL (an exclusion constraint on time ranges) and was proven with simultaneous requests.',
+            'Built with harness engineering: I define the rules and acceptance criteria, and AI agents implement and review under my specification and approval. Over 780 back-end tests, browser tests and CI with six checks.',
+          ],
+          seen: 'In the demo you can sign in as the studio owner, an attendant or a customer and see the daily agenda, the queue, the summary and booking on a phone.',
+          demoNote: 'Public demo, no password: fictional data. Tap "Conhecer sem cadastro" (explore without signing up). The API runs on a free host, so the first load can take up to 2 minutes.',
+          gallery: [
+            { src: '/assets/pelo-e-ponto/agenda.jpg', w: 1280, h: 800, tab: 'Daily agenda', alt: 'The studio daily agenda with each appointment, the pet, the service, the time and the status. Fictional data.', caption: 'Daily agenda: the team records arrival, completion and no-show.' },
+            { src: '/assets/pelo-e-ponto/fila.jpg', w: 1280, h: 800, tab: 'Queue', alt: 'Attendance queue with who has arrived and not yet been picked up, in order of arrival. Fictional data.', caption: 'Queue in order of arrival, with the pet behavior warning in plain sight.' },
+            { src: '/assets/pelo-e-ponto/resumo.jpg', w: 1280, h: 800, tab: 'Summary', alt: 'Studio summary with appointments by status and list-price values per period. Fictional data.', caption: 'Studio summary (the screen itself says the values are not revenue).' },
+            { src: '/assets/pelo-e-ponto/agendar-celular.jpg', w: 390, h: 844, tab: 'Booking on mobile', alt: 'Booking screen on a phone, with service, pet, day and time. Fictional data.', caption: 'The customer picks service, pet, day and time; duration and price follow the pet size and coat.' },
+          ],
+          galleryNote: 'Public demo, fictional data.',
+        },
         {
           ...shared.businessflow,
           name: 'BusinessFlow',
@@ -616,7 +669,7 @@ export const content = {
         },
         {
           title: 'I publish and document',
-          text: 'All five projects are live. The open-source ones have READMEs with instructions and technical decisions; the private ones have case studies.',
+          text: 'All six projects are live. The open-source ones have READMEs with instructions and technical decisions; the private ones have case studies.',
         },
       ],
     },
@@ -640,6 +693,7 @@ export const content = {
             { label: 'BusinessFlow', when: 'Nov 2025 to Oct 2026', from: 2025.88, to: 2026.83 },
             { label: 'Industrial IoT Platform', when: 'May to Oct 2026', from: 2026.38, to: 2026.8 },
             { label: 'Vardão Central', when: 'Aug 2026 to today', from: 2026.65, to: 'now' },
+            { label: 'Pelo & Ponto', when: 'Nov 2026 to today', from: 2026.87, to: 'now' },
           ] },
         ],
       },

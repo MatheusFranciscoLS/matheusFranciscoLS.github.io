@@ -110,3 +110,10 @@ Período do repositório: 23/11/2025 a 30/10/2026. Conferido no código: separa�
 | AI-900: Fundamentos de IA no Azure | Certificado Fundação Bradesco | 16 h, 20/01/2025 a 08/03/2025, curso autoinstrucional; não é o exame da Microsoft |
 
 A previsão de conclusão de Ciência da Computação (outubro de 2028) não tem documento nesta conferência; vem das versões anteriores aprovadas pelo Matheus.
+
+## Pelo & Ponto (24/11/2026)
+
+| Número | Valor | Origem |
+| :--- | :--- | :--- |
+| Testes do back-end | 785, 0 falhas (o portfólio diz "mais de 780") | Log do job "Backend (build e testes)" do CI do repositório `MatheusFranciscoLS/peloeponto`, execução 45498930933, commit `4e12e9c`, linha `Tests run: 785, Failures: 0, Errors: 0, Skipped: 0`. Executado, não somado. |
+| CI com seis verificações | 6 jobs | `.github/workflows/ci.yml`: backend, frontend, imagem Docker, navegador, Gitleaks e ensaio de restauração; todos verdes na mesma execução. |
