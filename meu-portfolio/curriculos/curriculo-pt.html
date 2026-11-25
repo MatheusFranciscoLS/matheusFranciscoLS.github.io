@@ -8,36 +8,41 @@
 <a href="https://www.linkedin.com/in/matheusfranciscols">linkedin.com/in/matheusfranciscols</a> | <a href="https://github.com/MatheusFranciscoLS">github.com/MatheusFranciscoLS</a> | <a href="https://matheusfranciscols.github.io">matheusfranciscols.github.io</a></p>
 
 <h2>Perfil profissional</h2>
-<p>Desenvolvedor Full-Stack Júnior com experiência prática em React, TypeScript, Node.js, Java, Spring Boot e PostgreSQL. Desenvolvi sozinho o Vardão Central, sistema usado diariamente na empresa onde trabalho, e o site institucional da empresa, por iniciativa própria e em paralelo ao cargo de Vendedor. Minha experiência desde 2017 em vendas técnicas fortalece minha capacidade de entender requisitos e transformar problemas reais em soluções. Tenho formação técnica em Desenvolvimento de Sistemas e estou cursando Bacharelado em Ciência da Computação. Busco minha primeira oportunidade como desenvolvedor: Full-Stack Júnior, Front-end Júnior, Backend Júnior (Java ou Node.js) ou Desenvolvedor de Software Júnior.</p>
+<p>Desenvolvedor Full-Stack Júnior, técnico em Desenvolvimento de Sistemas e graduando em Ciência da Computação, com prática em React, TypeScript, Node.js, Java, Spring Boot e PostgreSQL. Idealizei e conduzi o Vardão Central, sistema usado diariamente na empresa onde trabalho, e criei, por iniciativa própria, o site institucional da empresa. Também idealizei e especifiquei o Pelo &amp; Ponto, projeto de portfólio em Java e Spring Boot. Minha experiência em vendas técnicas desde 2017 me ajuda a traduzir o negócio em requisitos. Busco minha primeira oportunidade em desenvolvimento Full-Stack ou Backend Java.</p>
 
 <h2>Competências técnicas</h2>
-<p><b>Back-end:</b> Java, Spring Boot, Spring Security, JPA, Node.js, Express, TypeScript e APIs REST.</p>
+<p><b>Back-end:</b> Java, Spring Boot, Spring Security, JPA, Flyway, Node.js, Express, TypeScript e APIs REST.</p>
 <p><b>Front-end:</b> React, TypeScript, JavaScript, HTML5, CSS3 e Tailwind CSS.</p>
-<p><b>Dados e arquitetura:</b> PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker Compose, microsserviços e WebSockets.</p>
-<p><b>Ferramentas e práticas:</b> Git/GitHub, GitHub Actions (CI), testes automatizados (Vitest, Playwright, JUnit e Testcontainers) e modelagem de regras de negócio.</p>
+<p><b>Dados e arquitetura:</b> PostgreSQL, MySQL, Prisma, Firebase, Supabase, RabbitMQ, Docker e WebSockets.</p>
+<p><b>Ferramentas e práticas:</b> Git/GitHub, GitHub Actions (CI), testes automatizados (Vitest, Playwright, JUnit e Testcontainers), modelagem de regras de negócio e desenvolvimento assistido por IA (Claude Code), com validação por testes e CI.</p>
 
 <h2>Projetos selecionados</h2>
 <div class="proj">
 <div class="row"><b>Vardão Central: sistema de gestão da loja</b><span class="links"><a href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-central/">Estudo de caso</a> | <a href="https://vardao-central.vercel.app">vardao-central.vercel.app (acesso restrito)</a></span></div>
-<p class="stack">React, TypeScript, Node.js, Express, PostgreSQL, Prisma, RabbitMQ, Playwright. Desenvolvido sozinho, por iniciativa própria e em paralelo ao cargo de Vendedor; código privado.</p>
+<p class="stack">React, TypeScript, Node.js, Express, PostgreSQL, Prisma, RabbitMQ, Playwright. <span class="decl">Projeto idealizado e conduzido por mim, por iniciativa própria, com implementação por agentes de IA sob minha especificação e aprovação; código privado.</span></p>
 <ul><li>Usado todos os dias numa revenda autorizada Husqvarna: balcão (busca por código exato, vista explodida, orçamento em PDF e WhatsApp), CRM, financeiro (DRE, fluxo de caixa, capital de giro) e estoque.</li>
-<li>O financeiro substituiu o do ERP antigo, com as regras dele reproduzidas e cobertas por testes automatizados. A suíte tem 1.491 testes no back-end, 623 no front-end (Vitest) e 70 E2E (Playwright), executados localmente em 10/11/2026.</li></ul>
+<li>O financeiro substituiu o do ERP antigo, com as regras reproduzidas e cobertas por testes. Suíte: 1.491 testes no back-end, 623 no front-end (Vitest) e 70 E2E (Playwright), executados localmente em 10/11/2026.</li></ul>
+</div>
+<div class="proj">
+<div class="row"><b>Pelo &amp; Ponto: agenda e fila para estúdios de banho e tosa</b><span class="links"><a href="https://peloeponto.vercel.app">Demo</a> | <a href="https://github.com/MatheusFranciscoLS/peloeponto">GitHub</a></span></div>
+<p class="stack">Java 21, Spring Boot, Spring Security (JWT), JPA, Flyway, PostgreSQL, React, TypeScript, Playwright e GitHub Actions. <span class="decl">Projeto de portfólio idealizado e especificado por mim, com implementação por agentes de IA sob meus requisitos, critérios de aceite e aprovação; código aberto, sem usuários reais.</span></p>
+<ul><li>Agenda online para clientes e painel do estúdio: reservas, check-in, fila do dia e perfis de acesso (cliente, atendente, prestador e administrador), com demonstração pública sem cadastro.</li>
+<li>Prevenção de reservas sobrepostas no PostgreSQL (restrição de exclusão de intervalos de tempo), validada por teste de integração com requisições simultâneas. Mais de 780 testes automatizados no back-end (no CI) e testes E2E no navegador.</li></ul>
 </div>
 <div class="proj">
 <div class="row"><b>BusinessFlow</b><span class="links"><a href="https://flowbusiness.vercel.app">flowbusiness.vercel.app</a> | <a href="https://github.com/MatheusFranciscoLS/BusinessFlow">GitHub</a></span></div>
 <p class="stack">React, Node.js, Express, PostgreSQL e Prisma</p>
-<ul><li>SaaS multiempresa para escritórios de contabilidade: clientes, financeiro com conciliação OFX, DRE, documentos, prazos, auditoria e portal do cliente. Dados isolados por empresa, autenticação JWT com refresh token e testes de API contra PostgreSQL real, com CI. Demonstração pública com dados fictícios.</li></ul>
+<ul><li>SaaS multiempresa para escritórios de contabilidade: financeiro com conciliação OFX, DRE, prazos, auditoria e portal do cliente. Dados isolados por empresa, JWT com refresh token e testes de API contra PostgreSQL real, com CI. Demonstração pública com dados fictícios.</li></ul>
 </div>
 <div class="proj">
 <div class="row"><b>Plataforma IoT Industrial</b><span class="links"><a href="https://plataforma-iot-industrial.vercel.app">plataforma-iot-industrial.vercel.app</a> | <a href="https://github.com/MatheusFranciscoLS/plataforma-iot-industrial">GitHub</a></span></div>
 <p class="stack">Java, Spring Boot, React, RabbitMQ, WebSockets e Python</p>
-<ul><li>Telemetria de máquinas em tempo real, com sensores simulados: API em Java 21 e Spring Boot, fila RabbitMQ, gateway em Node e painel em React com alertas.</li>
-<li>Testes automatizados nos quatro serviços (inclusive contra PostgreSQL real), CI no GitHub com Docker e verificação de segurança, perfis de acesso e API documentada.</li></ul>
+<ul><li>Telemetria de máquinas em tempo real, com sensores simulados: API em Java 21 e Spring Boot, fila RabbitMQ, gateway em Node e painel em React com alertas. Testes nos quatro serviços e CI no GitHub com Docker e verificação de segurança.</li></ul>
 </div>
 <div class="proj">
 <div class="row"><b>Site da Vardão Máquinas</b><span class="links"><a href="https://matheusfranciscols.github.io/estudo-de-caso-vardao-maquinas/">Estudo de caso</a> | <a href="https://vardaomaquinas.com.br">vardaomaquinas.com.br</a></span></div>
-<p class="stack">Next.js, React, TypeScript e Tailwind CSS. Desenvolvido por iniciativa própria para a empresa onde trabalho; código privado.</p>
-<ul><li>Site institucional no ar, para o cliente achar a loja no Google e chegar ao vendedor: catálogo, guias de acessórios por modelo e artigos, páginas geradas de dados, busca, dados estruturados e WhatsApp com mensagem contextualizada.</li></ul>
+<p class="stack">Next.js, React, TypeScript e Tailwind CSS. Criado por iniciativa própria para a empresa onde trabalho; código privado.</p>
+<ul><li>Site institucional no ar, para o cliente achar a loja no Google e chegar ao vendedor: catálogo, guias de acessórios por modelo, artigos, busca, dados estruturados e WhatsApp com mensagem contextualizada.</li></ul>
 </div>
 
 <h2>Formação acadêmica</h2>
@@ -46,11 +51,11 @@
 
 <h2>Experiência profissional</h2>
 <div class="row"><span><b>Vardão Máquinas</b> | Vendedor</span><i>Set 2020 - atual</i></div>
-<ul><li>Em loja familiar, revenda autorizada Husqvarna: atendimento de balcão e vendas técnicas (jardim, floresta e agricultura familiar), orientação aos clientes, elaboração de orçamentos e negociações, compras e controle de estoque.</li>
-<li>Por iniciativa própria e em paralelo às atividades comerciais, desenvolvi sozinho o Vardão Central, sistema usado diariamente na operação da empresa, e o site institucional, <a href="https://vardaomaquinas.com.br">vardaomaquinas.com.br</a>.</li>
+<ul><li>Em loja familiar, revenda autorizada Husqvarna: balcão e vendas técnicas (jardim, floresta e agricultura familiar), orçamentos e negociações, compras e controle de estoque.</li>
+<li>Por iniciativa própria e em paralelo às vendas, idealizei e conduzi o Vardão Central, usado diariamente na operação, e criei o site institucional, <a href="https://vardaomaquinas.com.br">vardaomaquinas.com.br</a>.</li>
 </ul>
 <div class="row"><span><b>Yamashita Tratores</b> | Auxiliar de estoque e vendas, depois Vendedor</span><i>Set 2017 - Set 2020</i></div>
-<ul><li>Atuei como auxiliar de estoque e vendas no primeiro mês e fui promovido a vendedor em out/2017. Depois, realizei vendas técnicas de maquinário agrícola e negociações com fornecedores.</li></ul>
+<ul><li>Auxiliar de estoque e vendas no primeiro mês; promovido a vendedor em out/2017. Vendas técnicas de maquinário agrícola e negociações com fornecedores.</li></ul>
 
 <h2>Cursos complementares</h2>
 <p><b>Programação Java</b> - SENAI, 120h (2022) | <b>Programação de Banco de Dados</b> - SENAI, 120h (2024)<br>

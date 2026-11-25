@@ -1,13 +1,13 @@
-@page { size: A4; margin: 11mm 15mm; }
+@page { size: A4; margin: 9mm 15mm; }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 9pt; line-height: 1.2; color: #111; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; font-size: 9pt; line-height: 1.16; color: #111; }
 h1 { font-size: 23pt; line-height: 1.05; margin: 0 0 3px; color: #17304d; }
 .role { font-weight: 700; }
 .role { margin: 0; }
 .tech { margin: 0 0 2px; color: #17304d; }
 .contact { margin: 3px 0 0; font-size: 9pt; }
 .contact a, .proj a { color: #1b4f8a; text-decoration: none; }
-h2 { font-size: 10pt; letter-spacing: .02em; text-transform: uppercase; color: #17304d; border-bottom: 1px solid #b9c4d0; margin: 8px 0 3px; padding-bottom: 2px; break-after: avoid; }
+h2 { font-size: 10pt; letter-spacing: .02em; text-transform: uppercase; color: #17304d; border-bottom: 1px solid #b9c4d0; margin: 6px 0 2px; padding-bottom: 1px; break-after: avoid; }
 p { margin: 0 0 3px; }
 ul { margin: 2px 0 5px; padding-left: 14px; }
 li { margin-bottom: 1.5px; }
@@ -17,3 +17,5 @@ li { margin-bottom: 1.5px; }
 .stack { color: #55606c; font-size: 8.6pt; margin: 0 0 1px; }
 .proj { margin-bottom: 5px; }
 .proj .links { white-space: nowrap; font-size: 9pt; }
+
+.stack .decl { color: #111; font-size: 9pt; }
